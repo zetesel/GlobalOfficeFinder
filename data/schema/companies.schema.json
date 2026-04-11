@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "website", "industry", "description"],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$",
+        "description": "Unique slug-like identifier"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "website": {
+        "type": "string",
+        "pattern": "^https?://",
+        "description": "Company website URL"
+      },
+      "industry": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "description": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "logo": {
+        "type": "string",
+        "description": "URL or relative path to logo image (can be empty)"
+      }
+    }
+  }
+}

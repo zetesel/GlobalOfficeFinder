@@ -75,3 +75,55 @@ Once the first version works, the project could be extended with:
 ## Project goal
 
 The goal is to build a clean, searchable, and maintainable directory of company offices worldwide that is easy to host, easy to update, and free to deploy in its initial form. Using a static architecture with GitHub Actions and GitHub Pages keeps the project simple while still supporting automation and a professional public website.
+
+---
+
+## Development
+
+### Prerequisites
+
+- Node.js 20+
+- npm 9+
+
+### Local setup
+
+```bash
+npm install        # Install dependencies
+npm run dev        # Start dev server at http://localhost:5173
+npm run build      # Production build
+npm run lint       # Run ESLint
+npm run validate-data  # Validate JSON data against schemas
+```
+
+### Project structure
+
+```
+├── data/
+│   ├── companies.json          # Company records
+│   ├── offices.json            # Office records
+│   └── schema/
+│       ├── companies.schema.json
+│       └── offices.schema.json
+├── scripts/
+│   └── validate-data.mjs       # Data validation script (run in CI)
+├── src/
+│   ├── components/             # Reusable UI components
+│   ├── hooks/                  # Custom React hooks
+│   ├── pages/                  # Route-level page components
+│   ├── types/                  # TypeScript type definitions
+│   └── utils/                  # Utility functions
+├── .github/
+│   ├── workflows/
+│   │   ├── pr-checks.yml       # Runs on every PR: validate-data + lint + build
+│   │   └── deploy.yml          # Deploys to GitHub Pages on push to main
+│   └── dependabot.yml
+└── public/                     # Static assets copied as-is to build output
+```
+
+### Adding data
+
+Edit `data/companies.json` and `data/offices.json`. Run `npm run validate-data` to check your changes against the JSON schemas before opening a PR.
+
+### Deployment
+
+Pushes to `main` automatically build and deploy the site to GitHub Pages via the `deploy.yml` workflow. The deploy workflow uses fine-grained permissions (`pages: write`, `id-token: write`) and a concurrency guard so only one deploy runs at a time.
