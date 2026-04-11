@@ -14,7 +14,7 @@
           var params = new URLSearchParams(search.slice(1));
           var p = params.get("p");
           if (p) {
-            var decoded = decodeURIComponent(p.replace(/&/g, "?", 1));
+          var decoded = decodeURIComponent(p.replace("&", "?"));
             window.history.replaceState(null, "", window.location.pathname + "/" + decoded);
           }
         }
