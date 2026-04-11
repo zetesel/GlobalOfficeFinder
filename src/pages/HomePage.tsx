@@ -21,6 +21,15 @@ export default function HomePage() {
 
   const { results: searchResults } = useCompanySearch(allCompanies, query);
 
+  const officesByCompany = useMemo(() => {
+    const map = new Map<string, Office[]>();
+    for (const office of allOffices) {
+      if (!map.has(office.companyId)) map.set(office.companyId, []);
+      map.get(office.companyId)!.push(office);
+    }
+    return map;
+  }, []);
+
   const filteredCompanies = useMemo(() => {
     if (!region && !country) return searchResults;
     const matchingCompanyIds = new Set(
@@ -36,7 +45,7 @@ export default function HomePage() {
   }, [searchResults, region, country]);
 
   function getOfficesForCompany(companyId: string) {
-    return allOffices.filter((o) => o.companyId === companyId);
+    return officesByCompany.get(companyId) ?? [];
   }
 
   const countryOptions = useMemo(() => {

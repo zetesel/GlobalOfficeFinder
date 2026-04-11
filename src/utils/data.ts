@@ -26,6 +26,13 @@ export function getCountrySummaries(offices: Office[]): CountrySummary[] {
 
 export function sanitizeUrl(url: string | undefined): string | undefined {
   if (!url) return undefined;
-  if (/^https?:\/\//i.test(url)) return url;
+  try {
+    const parsed = new URL(url.trim());
+    if (parsed.protocol === "http:" || parsed.protocol === "https:") {
+      return parsed.href;
+    }
+  } catch {
+    // invalid URL
+  }
   return undefined;
 }

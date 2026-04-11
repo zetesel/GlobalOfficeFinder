@@ -45,14 +45,14 @@ function validate(dataPath, schemaPath) {
     return;
   }
 
-  const validate = ajv.compile(schema);
-  const valid = validate(data);
+  const validator = ajv.compile(schema);
+  const valid = validator(data);
 
   if (valid) {
     console.log(`[OK]    ${label} — ${Array.isArray(data) ? data.length : 1} record(s) valid`);
   } else {
     console.error(`[FAIL]  ${label}`);
-    for (const err of validate.errors ?? []) {
+    for (const err of validator.errors ?? []) {
       console.error(`        ${err.instancePath || "root"} ${err.message}`);
     }
     exitCode = 1;

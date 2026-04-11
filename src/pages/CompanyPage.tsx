@@ -8,6 +8,10 @@ import { sanitizeUrl } from "../utils/data";
 const allCompanies = companies as Company[];
 const allOffices = offices as Office[];
 
+function safeJsonLd(value: unknown): string {
+  return JSON.stringify(value).replace(/</g, "\\u003c");
+}
+
 export default function CompanyPage() {
   const { id } = useParams<{ id: string }>();
   const company = allCompanies.find((c) => c.id === id);
@@ -120,7 +124,7 @@ export default function CompanyPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "Organization",
             name: company.name,

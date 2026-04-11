@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GlobalOfficeFinder — Discover Company Offices Worldwide</title>
     <meta name="description" content="Search for company offices worldwide. Filter by country, region, and industry to find where your company of interest operates globally." />
+    <script>
+      // GitHub Pages SPA fallback: restore path encoded by 404.html
+      (function () {
+        var search = window.location.search;
+        if (search.indexOf("?p=") === 0 || search.indexOf("&p=") !== -1) {
+          var params = new URLSearchParams(search.slice(1));
+          var p = params.get("p");
+          if (p) {
+            var decoded = decodeURIComponent(p.replace(/&/g, "?", 1));
+            window.history.replaceState(null, "", window.location.pathname + "/" + decoded);
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

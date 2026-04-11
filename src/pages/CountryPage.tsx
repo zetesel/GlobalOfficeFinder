@@ -7,6 +7,10 @@ import OfficeCard from "../components/OfficeCard";
 const allOffices = offices as Office[];
 const allCompanies = companies as Company[];
 
+function safeJsonLd(value: unknown): string {
+  return JSON.stringify(value).replace(/</g, "\\u003c");
+}
+
 export default function CountryPage() {
   const { code } = useParams<{ code: string }>();
   const countryOffices = allOffices.filter((o) => o.countryCode === code);
@@ -84,7 +88,7 @@ export default function CountryPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             "@context": "https://schema.org",
             "@type": "Country",
             name: countryName,
