@@ -146,8 +146,8 @@ export default function HomePage() {
 
       <section aria-label="Company results" className="results-section">
         <p className="results-count">
-          {filteredCompanies.length} compan
-          {filteredCompanies.length !== 1 ? "ies" : "y"} found
+          {filteredCompanies.length}{" "}
+          {filteredCompanies.length !== 1 ? "companies" : "company"} found
         </p>
         {filteredCompanies.length === 0 ? (
           <p className="no-results">No companies match your search. Try different filters.</p>
