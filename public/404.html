@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>GlobalOfficeFinder</title>
+    <script>
+      // GitHub Pages SPA fallback: redirect 404s back to index.html
+      // segmentCount = 1 for a project page (/<repo-name>/ base path).
+      // Only the path *after* the base segment is encoded, so the base
+      // is never duplicated when the app restores the route.
+      var segmentCount = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
+        l.pathname.split("/").slice(0, 1 + segmentCount).join("/") + "/?/" +
+        l.pathname.slice(1).split("/").slice(segmentCount).join("/").replace(/&/g, "~and~") +
+        (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
