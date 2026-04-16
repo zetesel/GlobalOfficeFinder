@@ -35,6 +35,6 @@ description = "Generic API key-like strings (heuristic)"
 regex = '''(?i)(?:api[_-]?key|apikey|access[_-]?token|secret[_-]?key|bearer)[\s:=]{0,3}["']?[A-Za-z0-9\-_=]{16,}["']?'''
 tags = ["api", "key"]
 
-[[allowlist]]
+[allowlist]
 description = "Ignore generated reports and tooling artifacts"
 paths = ["gitleaks-report.json"]
