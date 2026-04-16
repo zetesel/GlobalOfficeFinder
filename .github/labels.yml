@@ -1,0 +1,34 @@
+labels:
+  - name: bug
+    color: d73a4a
+    description: Something isn't working
+  - name: enhancement
+    color: a2eeef
+    description: New feature or request
+  - name: chore
+    color: 8c8c8c
+    description: Routine task or maintenance
+  - name: security
+    color: b60205
+    description: Security related issue or fix
+  - name: phase/0-audit
+    color: 0052cc
+    description: Phase 0 (Repository Audit)
+  - name: phase/1-scaffold
+    color: 0e8a16
+    description: Phase 1 (Scaffold & Local Dev)
+  - name: phase/2-data
+    color: fbca04
+    description: Phase 2 (Data Model & Validation)
+  - name: phase/3-search
+    color: 7057ff
+    description: Phase 3 (Search & Filters)
+  - name: priority/high
+    color: b60205
+    description: High priority
+  - name: priority/medium
+    color: d4c5f9
+    description: Medium priority
+  - name: priority/low
+    color: 0e8a16
+    description: Low priority
