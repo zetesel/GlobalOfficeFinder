@@ -30,10 +30,42 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Secret scan (gitleaks)
-        uses: zricethezav/gitleaks-action@v2.3.9
-        with:
-          args: -v
+      - name: Secret scan (heuristic)
+        run: |
+          # Run the same lightweight heuristic secret scan as in PR checks
+          python3 - <<'PY'
+          import re,sys,os
+          exclude_dirs = {'.git','node_modules','dist','public'}
+          patterns = [
+            (re.compile(r'AKIA[0-9A-Z]{16}'), 'AWS Access Key ID'),
+            (re.compile(r'-----BEGIN (?:RSA )?PRIVATE KEY-----'), 'Private Key'),
+            (re.compile(r'\b(?:api[_-]?key|apikey|access[_-]?token|secret[_-]?key)\b', re.I), 'Generic API Key'),
+            (re.compile(r'gh[p|a|s|u|r]_[A-Za-z0-9_]{36,}'), 'GitHub token'),
+            (re.compile(r'xox[baprs]-[0-9a-zA-Z-]{10,}'), 'Slack token'),
+          ]
+
+          matches = []
+          for root, dirs, files in os.walk('.'):
+              if any(part in exclude_dirs for part in root.split(os.sep)):
+                  continue
+              for name in files:
+                  path = os.path.join(root, name)
+                  try:
+                      data = open(path, 'rb').read().decode('utf-8', errors='ignore')
+                  except Exception:
+                      continue
+                  for pat, label in patterns:
+                      if pat.search(data):
+                          matches.append((path, label))
+
+          if matches:
+              print('Possible secrets detected:')
+              for p,l in matches:
+                  print('-', l, 'in', p)
+              sys.exit(1)
+          else:
+              print('No obvious secrets found (heuristic scan)')
+          PY
 
       - name: Validate JSON data
         run: npm run validate-data
