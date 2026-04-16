@@ -14,6 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Secret scan (gitleaks)
+        uses: zricethezav/gitleaks-action@v8
+        with:
+          # Use repository config (.gitleaks.toml) and check the full diff/PR contents
+          args: -v
+        # Fail early on detected secrets
+        continue-on-error: false
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20

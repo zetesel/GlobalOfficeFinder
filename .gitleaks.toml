@@ -1,0 +1,36 @@
+title = "Gitleaks — GlobalOfficeFinder"
+description = "Repository-specific gitleaks configuration for GlobalOfficeFinder. Tune rules as needed."
+
+[[rules]]
+id = "aws-access-key"
+description = "AWS Access Key ID (AKIA...)"
+regex = '''AKIA[0-9A-Z]{16}'''
+tags = ["key", "aws", "access"]
+
+[[rules]]
+id = "aws-secret-access-key"
+description = "AWS Secret Access Key (40 base64 characters)"
+regex = '''(?i)aws(.{0,20})?(?:secret|secret_access_key|secretKey|secret-key|accessKey)(.{0,20})?["']?[A-Za-z0-9/+=]{40}["']?'''
+tags = ["key", "aws", "secret"]
+
+[[rules]]
+id = "github-token"
+description = "GitHub token (ghp_, gha_, ghs_, ghu_, ghr_ prefixes)"
+regex = '''gh[p|a|s|u|r]_[A-Za-z0-9_]{36,}'''
+tags = ["github", "token"]
+
+[[rules]]
+id = "slack-token"
+description = "Slack token (xoxb/xoxa/xoxp/xoxr)"
+regex = '''xox[baprs]-[0-9a-zA-Z-]{10,}'''
+tags = ["slack", "token"]
+
+[[rules]]
+id = "generic-api-key"
+description = "Generic API key-like strings (heuristic)"
+regex = '''(?i)(?:api[_-]?key|apikey|access[_-]?token|secret[_-]?key|bearer)[\s:=]{0,3}["']?[A-Za-z0-9\-_=]{16,}["']?'''
+tags = ["api", "key"]
+
+[[allowlist]]
+description = "Ignore generated reports and tooling artifacts"
+paths = ["gitleaks-report.json", ".github/workflows/**"]
