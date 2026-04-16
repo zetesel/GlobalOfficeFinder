@@ -17,7 +17,7 @@ Inventory & evidence
 - CI and automation
   - .github/workflows/pr-checks.yml (PR: secret scan, npm ci, validate-data, lint, build)
   - .github/workflows/deploy.yml (push to main: validate-data, build, upload -> deploy Pages)
-  - gitleaks action used in PR checks (args: `--no-git` — scans working tree / PR contents)
+  - gitleaks action used in PR checks (args: `-v` — verbose scan of the git diff / PR contents)
   - .github/dependabot.yml present
 - Misc
   - package-lock.json, LICENSE, README and IMPLEMENTATION_PLAN.md

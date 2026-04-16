@@ -1,6 +1,10 @@
 title = "Gitleaks — GlobalOfficeFinder"
 description = "Repository-specific gitleaks configuration for GlobalOfficeFinder. Tune rules as needed."
 
+[extend]
+# Extend the built-in default ruleset so custom rules are layered on top, not replacing defaults.
+useDefault = true
+
 [[rules]]
 id = "aws-access-key"
 description = "AWS Access Key ID (AKIA...)"
@@ -16,7 +20,7 @@ tags = ["key", "aws", "secret"]
 [[rules]]
 id = "github-token"
 description = "GitHub token (ghp_, gha_, ghs_, ghu_, ghr_ prefixes)"
-regex = '''gh[p|a|s|u|r]_[A-Za-z0-9_]{36,}'''
+regex = '''gh[pasur]_[A-Za-z0-9_]{36,}'''
 tags = ["github", "token"]
 
 [[rules]]
@@ -33,4 +37,4 @@ tags = ["api", "key"]
 
 [[allowlist]]
 description = "Ignore generated reports and tooling artifacts"
-paths = ["gitleaks-report.json", ".github/workflows/**"]
+paths = ["gitleaks-report.json"]

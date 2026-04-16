@@ -1,5 +1,4 @@
 # Ignore vendor directories and large binary assets
 node_modules/
 dist/
-public/
 .git/
