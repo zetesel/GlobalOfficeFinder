@@ -16,10 +16,12 @@ jobs:
 
       - name: Secret scan (heuristic)
         # Lightweight in-repo secret scan using Python regex checks to avoid external action licensing
+        # Skip scanning workflow and config files (they contain pattern examples) to avoid self-matching
         run: |
           python3 - <<'PY'
           import re,sys,os
-          exclude_dirs = {'.git','node_modules','dist','public'}
+          exclude_dirs = {'.git','node_modules','dist','public','.github'}
+          exclude_files = {'./.gitleaks.toml','./.gitleaksignore','./gitleaks-report.json'}
           patterns = [
             (re.compile(r'AKIA[0-9A-Z]{16}'), 'AWS Access Key ID'),
             (re.compile(r'-----BEGIN (?:RSA )?PRIVATE KEY-----'), 'Private Key'),
@@ -35,6 +37,9 @@ jobs:
                   continue
               for name in files:
                   path = os.path.join(root, name)
+                  # skip specific files that intentionally contain example keys/patterns
+                  if path in exclude_files or path.startswith('./.github/'):
+                      continue
                   try:
                       data = open(path, 'rb').read().decode('utf-8', errors='ignore')
                   except Exception:
