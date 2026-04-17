@@ -2,7 +2,6 @@ title = "Gitleaks — GlobalOfficeFinder"
 description = "Repository-specific gitleaks configuration for GlobalOfficeFinder. Tune rules as needed."
 
 [extend]
-# Extend the built-in default ruleset so custom rules are layered on top, not replacing defaults.
 useDefault = true
 
 [[rules]]
@@ -35,7 +34,6 @@ description = "Generic API key-like strings (heuristic)"
 regex = '''(?i)(?:api[_-]?key|apikey|access[_-]?token|secret[_-]?key|bearer)[\s:=]{0,3}["']?[A-Za-z0-9\-_=]{16,}["']?'''
 tags = ["api", "key"]
 
-# Global allowlists (gitleaks v8 expects an array of allowlists)
 [[allowlists]]
 description = "Ignore generated reports and tooling artifacts"
 paths = ["gitleaks-report.json"]
