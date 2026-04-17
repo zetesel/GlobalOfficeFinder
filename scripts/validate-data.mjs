@@ -28,8 +28,10 @@ let exitCode = 0;
  */
 function containsHTML(str) {
   if (typeof str !== "string") return false;
-  // Simple regex to detect HTML tags
-  const htmlPattern = /<[^>]+>/;
+  // Detect actual HTML/XML-style tags: optional leading slash (closing tag), tag name starting
+  // with a letter followed by alphanumeric/colon/hyphen chars, optional attributes, optional
+  // trailing slash (self-closing). Avoids matching arbitrary angle-bracketed text like generics.
+  const htmlPattern = /<\/?[A-Za-z][A-Za-z0-9:-]*(?:\s+[^<>]*?)?\s*\/?>/;
   return htmlPattern.test(str);
 }
 
@@ -74,7 +76,15 @@ function checkForHTML(dataPath, data, path = "") {
 function validate(dataPath, schemaPath, data) {
   // Load data if not provided
   if (data === undefined) {
-    data = JSON.parse(readFileSync(dataPath, "utf-8"));
+    try {
+      data = JSON.parse(readFileSync(dataPath, "utf-8"));
+    } catch (err) {
+      console.error(
+        `[ERROR] Could not read data file: ${dataPath}\n  ${err.message}`,
+      );
+      exitCode = 1;
+      return;
+    }
   }
 
   const label = dataPath.replace(root + "/", "");
@@ -91,16 +101,18 @@ function validate(dataPath, schemaPath, data) {
   }
 
   // Check for embedded HTML in free-text fields before schema validation
+  const exitCodeBeforeHTML = exitCode;
   checkForHTML(dataPath, data);
+  const htmlIssuesFound = exitCode !== exitCodeBeforeHTML;
 
   const validator = ajv.compile(schema);
   const valid = validator(data);
 
-  if (valid) {
+  if (valid && !htmlIssuesFound) {
     console.log(
       `[OK]    ${label} — ${Array.isArray(data) ? data.length : 1} record(s) valid`,
     );
-  } else {
+  } else if (!valid) {
     console.error(`[FAIL]  ${label}`);
     for (const err of validator.errors ?? []) {
       console.error(`        ${err.instancePath || "root"} ${err.message}`);
