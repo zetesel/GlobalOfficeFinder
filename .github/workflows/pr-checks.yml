@@ -31,7 +31,7 @@ jobs:
           # Use the repository config and allowlist; produce JSON report
           $HOME/go/bin/gitleaks detect --source . --config .gitleaks.toml --report-format json --report-path gitleaks-report.json
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 20
           cache: npm
@@ -48,7 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 20
           cache: npm
