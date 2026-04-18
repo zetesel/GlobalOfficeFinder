@@ -7,18 +7,24 @@ import { describe, it, expect } from "vitest";
 describe("HomePage component", () => {
   it("component should exist", () => {
     // Just verify the module can be imported without errors
-    expect(() => import("../src/pages/HomePage")).not.toThrow();
+    // Using a variable to avoid ESLint confusion with import() expression
+    const modulePath = "../src/pages/HomePage";
+    expect(() => import(modulePath)).not.toThrow();
   });
 });
 
 describe("Data utility functions", () => {
   it("getCountrySummaries function exists", () => {
     // Just verify the module can be imported without errors
-    expect(() => import("../src/utils/data")).not.toThrow();
+    // Using a variable to avoid ESLint confusion with import() expression
+    const modulePath = "../src/utils/data";
+    expect(() => import(modulePath)).not.toThrow();
   });
 
   it("sanitizeUrl function exists", () => {
     // Just verify the module can be imported without errors
-    expect(() => import("../src/utils/data")).not.toThrow();
+    // Using a variable to avoid ESLint confusion with import() expression
+    const modulePath = "../src/utils/data";
+    expect(() => import(modulePath)).not.toThrow();
   });
 });
