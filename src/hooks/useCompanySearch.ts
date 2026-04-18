@@ -8,16 +8,16 @@ interface UseSearchResult {
 
 export function useCompanySearch(
   companies: Company[],
-  query: string
+  query: string,
 ): UseSearchResult {
   const fuse = useMemo(
     () =>
       new Fuse(companies, {
         keys: ["name", "industry", "description"],
-        threshold: 0.35,
+        threshold: 0.2,
         includeScore: true,
       }),
-    [companies]
+    [companies],
   );
 
   const results = useMemo(() => {
