@@ -5,6 +5,7 @@ import offices from "../../data/offices.json";
 import type { Company, Office } from "../types";
 import CompanyCard from "../components/CompanyCard";
 import { useCompanySearch } from "../hooks/useCompanySearch";
+import { MapView } from "../components/MapView";
 
 const allCompanies = companies as Company[];
 const allOffices = offices as Office[];
@@ -144,25 +145,37 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-label="Company results" className="results-section">
-        <p className="results-count">
-          {filteredCompanies.length}{" "}
-          {filteredCompanies.length !== 1 ? "companies" : "company"} found
-        </p>
-        {filteredCompanies.length === 0 ? (
-          <p className="no-results">No companies match your search. Try different filters.</p>
-        ) : (
-          <div className="company-grid">
-            {filteredCompanies.map((company) => (
-              <CompanyCard
-                key={company.id}
-                company={company}
-                offices={getOfficesForCompany(company.id)}
-              />
-            ))}
-          </div>
-        )}
-      </section>
+       <section aria-label="Company results" className="results-section">
+         <p className="results-count">
+           {filteredCompanies.length}{" "}
+           {filteredCompanies.length !== 1 ? "companies" : "company"} found
+         </p>
+         {filteredCompanies.length === 0 ? (
+           <p className="no-results">No companies match your search. Try different filters.</p>
+         ) : (
+           <>
+             <div className="company-grid">
+               {filteredCompanies.map((company) => (
+                 <CompanyCard
+                   key={company.id}
+                   company={company}
+                   offices={getOfficesForCompany(company.id)}
+                 />
+               ))}
+             </div>
+             <div className="map-section">
+               <h2>Office Locations Map</h2>
+               <MapView offices={allOffices.filter(office => 
+                 (!region || office.region === region) &&
+                 (!country || office.countryCode === country) &&
+                 office.latitude !== undefined && office.longitude !== undefined
+               )} 
+               center={[20, 0]} 
+               zoom={2} />
+             </div>
+           </>
+         )}
+       </section>
     </div>
   );
 }
