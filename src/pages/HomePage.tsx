@@ -45,6 +45,18 @@ export default function HomePage() {
     return searchResults.filter((c) => matchingCompanyIds.has(c.id));
   }, [searchResults, region, country]);
 
+  const mapOffices = useMemo(() => {
+    const filteredIds = new Set(filteredCompanies.map((c) => c.id));
+    return allOffices.filter(
+      (office) =>
+        filteredIds.has(office.companyId) &&
+        (!region || office.region === region) &&
+        (!country || office.countryCode === country) &&
+        office.latitude !== undefined &&
+        office.longitude !== undefined
+    );
+  }, [filteredCompanies, region, country]);
+
   function getOfficesForCompany(companyId: string) {
     return officesByCompany.get(companyId) ?? [];
   }
@@ -165,13 +177,7 @@ export default function HomePage() {
              </div>
              <div className="map-section">
                <h2>Office Locations Map</h2>
-               <MapView offices={allOffices.filter(office => 
-                 (!region || office.region === region) &&
-                 (!country || office.countryCode === country) &&
-                 office.latitude !== undefined && office.longitude !== undefined
-               )} 
-               center={[20, 0]} 
-               zoom={2} />
+               <MapView offices={mapOffices} center={[20, 0]} zoom={2} />
              </div>
            </>
          )}
