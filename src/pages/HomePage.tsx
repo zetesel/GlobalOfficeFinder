@@ -5,6 +5,7 @@ import offices from "../../data/offices.json";
 import type { Company, Office } from "../types";
 import CompanyCard from "../components/CompanyCard";
 import { useCompanySearch } from "../hooks/useCompanySearch";
+import { MapView } from "../components/MapView";
 
 const allCompanies = companies as Company[];
 const allOffices = offices as Office[];
@@ -43,6 +44,18 @@ export default function HomePage() {
     );
     return searchResults.filter((c) => matchingCompanyIds.has(c.id));
   }, [searchResults, region, country]);
+
+  const mapOffices = useMemo(() => {
+    const filteredIds = new Set(filteredCompanies.map((c) => c.id));
+    return allOffices.filter(
+      (office) =>
+        filteredIds.has(office.companyId) &&
+        (!region || office.region === region) &&
+        (!country || office.countryCode === country) &&
+        office.latitude !== undefined &&
+        office.longitude !== undefined
+    );
+  }, [filteredCompanies, region, country]);
 
   function getOfficesForCompany(companyId: string) {
     return officesByCompany.get(companyId) ?? [];
@@ -144,25 +157,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-label="Company results" className="results-section">
-        <p className="results-count">
-          {filteredCompanies.length}{" "}
-          {filteredCompanies.length !== 1 ? "companies" : "company"} found
-        </p>
-        {filteredCompanies.length === 0 ? (
-          <p className="no-results">No companies match your search. Try different filters.</p>
-        ) : (
-          <div className="company-grid">
-            {filteredCompanies.map((company) => (
-              <CompanyCard
-                key={company.id}
-                company={company}
-                offices={getOfficesForCompany(company.id)}
-              />
-            ))}
-          </div>
-        )}
-      </section>
+       <section aria-label="Company results" className="results-section">
+         <p className="results-count">
+           {filteredCompanies.length}{" "}
+           {filteredCompanies.length !== 1 ? "companies" : "company"} found
+         </p>
+         {filteredCompanies.length === 0 ? (
+           <p className="no-results">No companies match your search. Try different filters.</p>
+         ) : (
+           <>
+             <div className="company-grid">
+               {filteredCompanies.map((company) => (
+                 <CompanyCard
+                   key={company.id}
+                   company={company}
+                   offices={getOfficesForCompany(company.id)}
+                 />
+               ))}
+             </div>
+             <div className="map-section">
+               <h2>Office Locations Map</h2>
+               <MapView offices={mapOffices} center={[20, 0]} zoom={2} />
+             </div>
+           </>
+         )}
+       </section>
     </div>
   );
 }
