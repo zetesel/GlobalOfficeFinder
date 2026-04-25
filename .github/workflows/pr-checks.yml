@@ -43,7 +43,7 @@ jobs:
         run: npm run validate-data
 
   lint-and-build:
-    name: Lint & Build
+    name: Lint, Test & Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -58,6 +58,9 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
+      - name: Run tests
+        run: npm run test
 
       - name: Build
         run: npm run build

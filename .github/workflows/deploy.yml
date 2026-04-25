@@ -45,12 +45,30 @@ jobs:
         run: |
           $HOME/go/bin/gitleaks detect --source . --config .gitleaks.toml --report-format json --report-path gitleaks-report.json
 
-      - name: Validate JSON data
+       - name: Validate JSON data
         run: npm run validate-data
+
+  test:
+    name: Run tests
+    needs: validate-data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm run test
 
   build:
     name: Build site
-    needs: validate-data
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
