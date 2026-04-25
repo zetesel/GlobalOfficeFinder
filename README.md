@@ -211,3 +211,56 @@ Comprehensive testing and quality gates ensure code reliability and user experie
 - `deploy.yml`: Tests required before deployment to main
 - `e2e-tests.yml`: E2E and Lighthouse tests on PR/push/schedule
 - Tests block PR merge on failure (via branch protection)
+
+#### Phase 8: Security Hardening
+
+Production-ready security measures protect against common web vulnerabilities:
+
+**Content Security Policy (CSP):**
+- Strict policy via HTML meta tags (GitHub Pages limitation)
+- Prevents inline script injection: `script-src 'self'`
+- Prevents inline style injection: `style-src 'self'`
+- Restricts external resources to HTTPS
+- Disables frame embedding: `frame-ancestors 'none'`
+
+**Security Headers:**
+- X-Content-Type-Options: nosniff (prevent MIME-type sniffing)
+- X-Frame-Options: DENY (prevent clickjacking)
+- Referrer-Policy: strict-origin-when-cross-origin (limit referrer leakage)
+- Permissions-Policy: Disable unused features (geolocation, microphone, camera, payment)
+
+**Code Security:**
+- GitHub CodeQL analysis on every commit (JavaScript/TypeScript)
+- ESLint with security rules
+- All external URLs validated (no protocol injection)
+- Safe DOM rendering (no innerHTML with untrusted data)
+
+**Dependency Security:**
+- Dependabot monitors for vulnerable dependencies
+- All dependencies pinned in package-lock.json
+- npm audit tracks known vulnerabilities
+- Development dependencies isolated from production
+
+**GitHub Actions Security:**
+- All workflows use least-privilege permissions
+- Action versions pinned to specific releases
+- No hardcoded credentials (uses GitHub Secrets)
+- Deployment uses OIDC authentication
+
+**Data Security:**
+- No PII in public data (audited)
+- Public company offices only
+- Data validation against JSON schemas
+- Strict data policy in place
+
+**Deployment Security:**
+- HTTPS enforced by GitHub Pages
+- DDoS protection included
+- Reproducible builds (locked dependencies)
+- Branch protection requires reviews + passing checks
+
+**Documentation:**
+- [Security Policy](SECURITY.md) - Responsible disclosure
+- [Security Hardening Guide](.github/SECURITY_HARDENING.md) - Technical details
+
+For security vulnerabilities, report via [GitHub Security Advisories](../../security/advisories).
