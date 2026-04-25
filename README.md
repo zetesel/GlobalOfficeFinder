@@ -114,9 +114,12 @@ npm run validate-data  # Validate JSON data against schemas
 │   └── utils/                  # Utility functions
 ├── .github/
 │   ├── workflows/
-│   │   ├── pr-checks.yml       # Runs on every PR: validate-data + lint + build
-│   │   └── deploy.yml          # Deploys to GitHub Pages on push to main
-│   └── dependabot.yml
+│   │   ├── pr-checks.yml           # PR validation: data + lint + build + secret scan
+│   │   ├── deploy.yml              # Automatic deploy to GitHub Pages on push to main
+│   │   ├── codeql.yml              # Security scanning (JavaScript/TypeScript)
+│   │   └── full-secret-scan.yml    # Daily historical secret detection
+│   ├── dependabot.yml              # Automated dependency updates
+│   └── PROTECTION.md               # Branch protection configuration guide
 └── public/                     # Static assets copied as-is to build output
 ```
 
@@ -127,3 +130,32 @@ Edit `data/companies.json` and `data/offices.json`. Run `npm run validate-data` 
 ### Deployment
 
 Pushes to `main` automatically build and deploy the site to GitHub Pages via the `deploy.yml` workflow. The deploy workflow uses fine-grained permissions (`pages: write`, `id-token: write`) and a concurrency guard so only one deploy runs at a time.
+
+#### Phase 6: CI/CD & GitHub Pages
+
+The project is fully configured with automated CI/CD and secure deployment:
+
+**Automated Quality Checks (on every PR):**
+- `pr-checks.yml`: Validates data integrity, runs ESLint, and builds the project
+- `codeql.yml`: Static security analysis using GitHub CodeQL (JavaScript/TypeScript)
+- Secret scanning via gitleaks to prevent accidental credential commits
+- JSON schema validation for companies and offices data
+
+**Deployment to GitHub Pages (on push to `main`):**
+- `deploy.yml`: Builds production bundle and deploys to GitHub Pages
+- All secrets are stored in GitHub repository settings (never committed)
+- Least-privilege IAM: workflows only request necessary permissions
+- Branch protection enforced: requires 1 PR review + passing checks before merge
+- Live site: https://zetesel.github.io/GlobalOfficeFinder/
+
+**Security & Monitoring:**
+- Dependabot configured for automated dependency updates
+- Daily gitleaks scans for historical secret detection
+- No force-pushes allowed on `main` branch
+- Admin approval required for any protection bypass
+
+To view or trigger workflows manually:
+```bash
+gh workflow list                    # List all workflows
+gh workflow run deploy.yml          # Manually trigger deployment
+```
