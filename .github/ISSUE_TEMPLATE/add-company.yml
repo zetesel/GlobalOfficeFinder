@@ -1,0 +1,113 @@
+name: Add/Update Company
+description: Add a new company or update existing company information
+title: "data: add/update company"
+labels: ["data", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing to GlobalOfficeFinder! This form helps us track and validate new company data.
+        
+        Please provide company information below. All fields will be validated against our schema before merge.
+
+  - type: input
+    id: company_id
+    attributes:
+      label: Company ID
+      description: Unique identifier (lowercase, no spaces, e.g., "apple", "microsoft")
+      placeholder: "company-name"
+    validations:
+      required: true
+
+  - type: input
+    id: company_name
+    attributes:
+      label: Company Name
+      description: Official company name
+      placeholder: "Apple Inc."
+    validations:
+      required: true
+
+  - type: input
+    id: website
+    attributes:
+      label: Website URL
+      description: Official company website (must be valid HTTPS URL)
+      placeholder: "https://www.apple.com"
+    validations:
+      required: true
+
+  - type: input
+    id: industry
+    attributes:
+      label: Industry
+      description: Primary industry or sector
+      placeholder: "Technology / Hardware"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Brief description of the company (2-3 sentences, no HTML)
+      placeholder: "Apple Inc. is an American multinational technology company..."
+    validations:
+      required: true
+
+  - type: input
+    id: logo_url
+    attributes:
+      label: Logo URL (optional)
+      description: Direct URL to company logo (HTTPS, PNG/SVG recommended)
+      placeholder: "https://example.com/logo.png"
+
+  - type: textarea
+    id: offices_info
+    attributes:
+      label: Office Information
+      description: |
+        List offices to add with this company. Format:
+        - Country, City, Address, PostalCode, OfficeType, Latitude, Longitude, ContactURL
+        
+        Example:
+        - United States, Mountain View, 1 Apple Park Way, 95014, Headquarters, 37.3348, -122.0090, https://apple.com/contact
+        - United Kingdom, London, 39-45 Charter House, EC1R 1AN, Regional Office, 51.5176, -0.0995, https://apple.com/contact
+      value: ""
+
+  - type: checkboxes
+    id: validation
+    attributes:
+      label: Data Validation
+      description: Please verify before submitting
+      options:
+        - label: "Website URL is valid and HTTPS"
+          required: true
+        - label: "No personal information (PII) included"
+          required: true
+        - label: "Description contains no HTML or special formatting"
+          required: true
+        - label: "Office information is publicly available"
+          required: true
+        - label: "Coordinates are accurate (within 0.01 degrees)"
+          required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Information Source
+      description: Where did you find this information? (official website, press release, etc.)
+      placeholder: "Official company website"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      description: Please confirm you have read our guidelines
+      options:
+        - label: "I have read the [Data Contribution Guidelines](../blob/main/CONTRIBUTING.md)"
+          required: true
+        - label: "This information is accurate and publicly available"
+          required: true

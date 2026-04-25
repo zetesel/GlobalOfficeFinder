@@ -264,3 +264,72 @@ Production-ready security measures protect against common web vulnerabilities:
 - [Security Hardening Guide](.github/SECURITY_HARDENING.md) - Technical details
 
 For security vulnerabilities, report via [GitHub Security Advisories](../../security/advisories).
+
+#### Phase 9: Data Operations & Community
+
+Community contributions are welcome and follow a structured PR workflow:
+
+**Contributing:**
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines
+- Two ways to contribute: add/update company data or improve the codebase
+- Data changes use issue templates for standardized submissions
+- All pull requests must pass validation and review
+
+**Issue & PR Templates:**
+- `Add Company Data` issue template: Use for proposing new companies/offices
+- PR template: Standardized format for all contributions (data or code)
+- All PRs require passing checks and at least one review before merge
+
+**Data Contribution Workflow:**
+1. Open an issue using the "Add Company Data" template
+2. Discuss verification and details with maintainers
+3. Fork the repository and create a feature branch
+4. Update `data/companies.json` and `data/offices.json`
+5. Run `npm run validate-data` to verify JSON schema compliance
+6. Submit a PR with description of changes
+7. Maintainers verify accuracy and approve/merge
+
+**Community Guidelines:**
+- See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for community standards
+- Respectful, inclusive environment for all contributors
+- Questions and discussions welcome on issues and discussions
+
+#### Phase 10: Monitoring & Handover
+
+Operational procedures and runbook for ongoing maintenance:
+
+**Runbook & Operations:**
+- See [RUNBOOK.md](RUNBOOK.md) for complete operational procedures
+- Contains: deployment procedures, incident response, scaling guidelines
+- Troubleshooting guide for common issues
+- Monitoring and performance checks
+
+**Key Operations:**
+- **Deployments**: Automatic via `deploy.yml` on push to `main`
+- **Manual triggers**: `gh workflow run deploy.yml`
+- **Rollback**: Revert commit and push to `main`
+- **Incident response**: See incident response section in RUNBOOK.md
+- **Performance monitoring**: Check Lighthouse CI reports in GitHub Actions
+- **Security updates**: Dependabot PRs merged weekly
+- **Data validation**: Runs on every PR via `npm run validate-data`
+
+**Maintenance Schedule:**
+- Review and merge Dependabot updates weekly
+- Check GitHub security advisories for alerts
+- Review E2E test results in GitHub Actions dashboard
+- Monitor GitHub Pages deployment logs
+- Respond to contributor issues and PRs
+
+**Support & Questions:**
+- Open discussions for questions about the project
+- Bug reports via GitHub issues
+- Security vulnerabilities: [GitHub Security Advisories](../../security/advisories)
+- General inquiries: Check existing issues first, then open a new one
+
+**Project Status:**
+- ✅ All 10 implementation phases complete
+- ✅ Production-ready with comprehensive testing and security
+- ✅ GitHub Actions CI/CD fully automated
+- ✅ Community contribution processes in place
+- ✅ Documentation complete and maintained
+- Live site: https://zetesel.github.io/GlobalOfficeFinder/
