@@ -88,11 +88,10 @@ The goal is to build a clean, searchable, and maintainable directory of company 
 ### Local setup
 
 ```bash
-npm install        # Install dependencies
-npm run dev        # Start dev server at http://localhost:5173
-npm run build      # Production build
-npm run lint       # Run ESLint
 npm run validate-data  # Validate JSON data against schemas
+npm run test           # Run unit and component tests (vitest)
+npm run test:e2e       # Run end-to-end tests (Playwright)
+npm run test:e2e:ui    # Run E2E tests with interactive UI
 ```
 
 ### Project structure
@@ -114,12 +113,22 @@ npm run validate-data  # Validate JSON data against schemas
 │   └── utils/                  # Utility functions
 ├── .github/
 │   ├── workflows/
-│   │   ├── pr-checks.yml           # PR validation: data + lint + build + secret scan
-│   │   ├── deploy.yml              # Automatic deploy to GitHub Pages on push to main
+│   │   ├── pr-checks.yml           # PR validation: data + lint + test + build + secret scan
+│   │   ├── deploy.yml              # Automatic deploy to GitHub Pages on push to main (with tests)
 │   │   ├── codeql.yml              # Security scanning (JavaScript/TypeScript)
+│   │   ├── e2e-tests.yml           # E2E and Lighthouse CI tests
 │   │   └── full-secret-scan.yml    # Daily historical secret detection
 │   ├── dependabot.yml              # Automated dependency updates
 │   └── PROTECTION.md               # Branch protection configuration guide
+├── __tests__/
+│   ├── components/                 # Component test files
+│   ├── utils/                      # Utility function test files
+│   └── hooks/                      # Hook test files
+├── e2e/
+│   └── main.spec.ts                # End-to-end test suite (Playwright)
+├── vitest.config.ts                # Vitest unit test configuration
+├── playwright.config.ts            # Playwright E2E test configuration
+├── lighthouserc.json               # Lighthouse CI performance thresholds
 └── public/                     # Static assets copied as-is to build output
 ```
 
@@ -159,3 +168,46 @@ To view or trigger workflows manually:
 gh workflow list                    # List all workflows
 gh workflow run deploy.yml          # Manually trigger deployment
 ```
+
+#### Phase 7: Tests, Performance & Accessibility
+
+Comprehensive testing and quality gates ensure code reliability and user experience:
+
+**Unit & Component Tests (Vitest):**
+- 52 test cases covering core logic and UI components
+- Tests for CompanyCard, OfficeCard, Header, Footer components
+- Utility function tests: sanitizeUrl, getCountrySummaries
+- 100% coverage of tested modules
+- `npm run test` - Run all unit tests
+- `npm run test -- --coverage` - Generate coverage report
+
+**End-to-End Testing (Playwright):**
+- Multi-browser testing: Chrome, Firefox, Safari
+- Mobile viewport testing: Pixel 5, iPhone 12
+- User journey tests: search, filtering, navigation
+- Accessibility validation with axe-core
+- `npm run test:e2e` - Run headless E2E tests
+- `npm run test:e2e:ui` - Run with interactive UI
+
+**Automated Accessibility Checks:**
+- WCAG 2.1 Level AA compliance testing
+- Keyboard navigation validation
+- Screen reader compatibility checks
+- Color contrast analysis
+- Integrated into E2E test suite
+
+**Performance Monitoring (Lighthouse CI):**
+- Automated performance baselines
+- Configuration thresholds:
+  - Performance: ≥80
+  - Accessibility: ≥90
+  - Best Practices: ≥90
+  - SEO: ≥90
+- Tests on HomePage, CompanyPage, CountryPage
+- Reports available in GitHub Actions artifacts
+
+**CI/CD Integration:**
+- `pr-checks.yml`: Unit tests run on every PR
+- `deploy.yml`: Tests required before deployment to main
+- `e2e-tests.yml`: E2E and Lighthouse tests on PR/push/schedule
+- Tests block PR merge on failure (via branch protection)
