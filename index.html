@@ -4,8 +4,33 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Content Security Policy: Restrict resource loading to self, prevent inline scripts/styles -->
+    <!-- This is the meta-tag version for static hosting (GitHub Pages doesn't support custom headers) -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self';
+      style-src 'self' 'nonce-placeholder';
+      img-src 'self' data: https:;
+      font-src 'self' data:;
+      connect-src 'self' https://tile.openstreetmap.org;
+      frame-ancestors 'none';
+      base-uri 'self';
+      form-action 'self'
+    " />
+    
+    <!-- Additional security headers (via meta tags where meta tags are supported) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()" />
+    
     <title>GlobalOfficeFinder — Discover Company Offices Worldwide</title>
     <meta name="description" content="Search for company offices worldwide. Filter by country, region, and industry to find where your company of interest operates globally." />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
+    
     <script>
       // GitHub Pages SPA fallback: restore path encoded by 404.html
       // The path after the base is stored as the search string starting with "/"
