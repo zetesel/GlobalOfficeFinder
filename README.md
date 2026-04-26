@@ -88,6 +88,10 @@ The goal is to build a clean, searchable, and maintainable directory of company 
 ### Local setup
 
 ```bash
+npm ci                 # Install dependencies
+npm run dev            # Start development server
+npm run build          # Build for production
+npm run lint           # Run linter
 npm run validate-data  # Validate JSON data against schemas
 npm run test           # Run unit and component tests (vitest)
 npm run test:e2e       # Run end-to-end tests (Playwright)

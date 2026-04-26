@@ -53,7 +53,7 @@ Monitor these endpoints:
 ### Adding a New Company
 
 **Process:**
-1. Create issue using [Add/Update Company template](../.github/ISSUE_TEMPLATE/add-company.yml)
+1. Create issue using [Add/Update Company template](.github/ISSUE_TEMPLATE/add-company.yml)
 2. Provide company and office information
 3. Maintainer reviews for accuracy and completeness
 4. Contributor creates PR with data changes

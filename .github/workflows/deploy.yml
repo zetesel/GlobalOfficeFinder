@@ -45,7 +45,7 @@ jobs:
         run: |
           $HOME/go/bin/gitleaks detect --source . --config .gitleaks.toml --report-format json --report-path gitleaks-report.json
 
-       - name: Validate JSON data
+      - name: Validate JSON data
         run: npm run validate-data
 
   test:

@@ -107,7 +107,7 @@ body:
       label: Confirmation
       description: Please confirm you have read our guidelines
       options:
-        - label: "I have read the [Data Contribution Guidelines](../blob/main/CONTRIBUTING.md)"
+        - label: "I have read the [Data Contribution Guidelines](https://github.com/zetesel/GlobalOfficeFinder/blob/main/CONTRIBUTING.md)"
           required: true
         - label: "This information is accurate and publicly available"
           required: true

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
-    <!-- Content Security Policy: Restrict resource loading to self, prevent inline scripts/styles -->
+    <!-- Content Security Policy: Restrict resource loading to self; allow inline styles required by the app and Leaflet -->
     <!-- This is the meta-tag version for static hosting (GitHub Pages doesn't support custom headers) -->
     <meta http-equiv="Content-Security-Policy" content="
       default-src 'self';
       script-src 'self';
-      style-src 'self' 'nonce-placeholder';
+      style-src 'self' 'unsafe-inline';
       img-src 'self' data: https:;
       font-src 'self' data:;
       connect-src 'self' https://tile.openstreetmap.org;
@@ -31,30 +31,7 @@
     <meta name="theme-color" content="#ffffff" />
     <meta name="color-scheme" content="light" />
     
-    <script>
-      // GitHub Pages SPA fallback: restore path encoded by 404.html
-      // The path after the base is stored as the search string starting with "/"
-      // (e.g. "?/company/123"), so we check for that marker to avoid
-      // interfering with normal query strings.
-      (function (l) {
-        if (l.search[1] === "/") {
-          var decoded = l.search
-            .slice(1)
-            .split("&")
-            .map(function (s) {
-              return s.replace(/~and~/g, "&");
-            });
-          window.history.replaceState(
-            null,
-            null,
-            l.pathname.slice(0, -1) +
-              decoded[0] +
-              (decoded[1] ? "?" + decoded[1] : "") +
-              l.hash
-          );
-        }
-      })(window.location);
-    </script>
+    <script src="/spa-redirect.js"></script>
   </head>
   <body>
     <div id="root"></div>

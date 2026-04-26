@@ -44,7 +44,7 @@
 ---
 
 ### Before submitting:
-- [ ] I have read the [Contributing Guidelines](../blob/main/CONTRIBUTING.md)
+- [ ] I have read the [Contributing Guidelines](https://github.com/zetesel/GlobalOfficeFinder/blob/main/CONTRIBUTING.md)
 - [ ] My data is accurate and from public sources
 - [ ] I have validated the JSON locally
 - [ ] I consent to this data being published under the project's license

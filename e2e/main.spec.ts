@@ -93,16 +93,15 @@ test.describe('GlobalOfficeFinder E2E Tests', () => {
     
     // Look for country link and click it
     const countryLink = page.locator('a[href*="/country/"]').first();
-    if (await countryLink.isVisible()) {
-      await countryLink.click();
-      
-      // Wait for navigation
-      await page.waitForLoadState('networkidle');
-      
-      // Verify we're on a country page
-      const heading = page.getByRole('heading', { level: 1 }).first();
-      await expect(heading).toBeVisible();
-    }
+    await expect(countryLink).toBeVisible();
+    await countryLink.click();
+    
+    // Wait for navigation
+    await page.waitForLoadState('networkidle');
+    
+    // Verify we're on a country page
+    const heading = page.getByRole('heading', { level: 1 }).first();
+    await expect(heading).toBeVisible();
   });
 
   test('map view displays on homepage', async ({ page }) => {
@@ -216,10 +215,9 @@ test.describe('Accessibility Tests', () => {
     // Tab through interactive elements
     await page.keyboard.press('Tab');
     
-    // Check that focus is visible
+    // Check that a visible element received focus
     const focusedElement = page.locator(':focus');
-    const isVisible = await focusedElement.isVisible().catch(() => false);
-    expect(isVisible || true).toBe(true); // At least one element should be focusable
+    await expect(focusedElement).toBeVisible();
   });
 
   test('all links have accessible names', async ({ page }) => {
