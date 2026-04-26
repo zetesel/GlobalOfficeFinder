@@ -8,7 +8,7 @@ import { sanitizeUrl } from "../utils/data";
 
 const allCompanies = companies as Company[];
 const allOffices = offices as Office[];
-const DEFAULT_WORLD_CENTER: [number, number] = [20, 0]; // [latitude, longitude] (20°N, Prime Meridian)
+const DEFAULT_WORLD_CENTER: [number, number] = [20, 0]; // Leaflet [lat, lng] tuple: 20°N latitude, 0° longitude (Prime Meridian)
 const SINGLE_OFFICE_ZOOM = 10;
 const MULTI_OFFICE_ZOOM = 3;
 
@@ -155,7 +155,7 @@ export default function CompanyPage() {
               />
             ) : (
               <p className="no-results">
-                Map is unavailable because no offices for this company have coordinates yet.
+                Map unavailable: office coordinates are not yet available for this company.
               </p>
             )}
           </aside>
