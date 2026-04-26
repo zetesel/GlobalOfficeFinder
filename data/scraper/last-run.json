@@ -1,7 +1,7 @@
 {
-  "startedAt": "2026-04-26T17:51:58.483Z",
-  "finishedAt": "2026-04-26T17:52:05.357Z",
-  "dryRun": true,
+  "startedAt": "2026-04-26T17:57:30.590Z",
+  "finishedAt": "2026-04-26T17:57:37.481Z",
+  "dryRun": false,
   "confidenceThreshold": "medium",
   "stages": {
     "discoveredCompanies": 2,
@@ -30,7 +30,7 @@
       "source": {
         "sourceId": "phase-a-official-tech-sample",
         "sourceUrl": "https://www.atlassian.com/company/contact",
-        "discoveredAt": "2026-04-26T17:52:02.939Z",
+        "discoveredAt": "2026-04-26T17:57:35.058Z",
         "confidence": "high"
       }
     },
@@ -44,7 +44,7 @@
       "source": {
         "sourceId": "phase-a-official-tech-sample",
         "sourceUrl": "https://www.atlassian.com/company/contact",
-        "discoveredAt": "2026-04-26T17:52:04.146Z",
+        "discoveredAt": "2026-04-26T17:57:36.266Z",
         "confidence": "high"
       }
     }
@@ -66,7 +66,7 @@
       "source": {
         "sourceId": "phase-a-official-tech-sample",
         "sourceUrl": "https://www.atlassian.com/company/contact",
-        "scrapedAt": "2026-04-26T17:52:02.940Z",
+        "scrapedAt": "2026-04-26T17:57:35.058Z",
         "confidence": "high",
         "confidenceScore": 90,
         "officialSourceMatch": true,

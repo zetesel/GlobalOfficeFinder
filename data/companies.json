@@ -1,5 +1,21 @@
 [
   {
+    "id": "amazon",
+    "name": "Amazon",
+    "website": "https://www.aboutamazon.com",
+    "industry": "E-Commerce / Cloud",
+    "description": "Amazon.com, Inc. is an American multinational technology company focusing on e-commerce, cloud computing, online advertising, digital streaming, and artificial intelligence.",
+    "logo": ""
+  },
+  {
+    "id": "atlassian",
+    "name": "Atlassian",
+    "website": "https://www.atlassian.com/",
+    "industry": "Enterprise Software",
+    "description": "Atlassian develops collaboration and productivity software for software teams and enterprises.",
+    "logo": ""
+  },
+  {
     "id": "google",
     "name": "Google",
     "website": "https://about.google",
@@ -8,19 +24,19 @@
     "logo": ""
   },
   {
-    "id": "microsoft",
-    "name": "Microsoft",
-    "website": "https://www.microsoft.com",
-    "industry": "Technology",
-    "description": "Microsoft Corporation is an American multinational technology corporation which produces computer software, consumer electronics, personal computers, and related services.",
+    "id": "hsbc",
+    "name": "HSBC",
+    "website": "https://www.hsbc.com",
+    "industry": "Banking / Finance",
+    "description": "HSBC Holdings plc is a British universal bank and financial services holding company headquartered in London.",
     "logo": ""
   },
   {
-    "id": "amazon",
-    "name": "Amazon",
-    "website": "https://www.aboutamazon.com",
-    "industry": "E-Commerce / Cloud",
-    "description": "Amazon.com, Inc. is an American multinational technology company focusing on e-commerce, cloud computing, online advertising, digital streaming, and artificial intelligence.",
+    "id": "ibm",
+    "name": "IBM",
+    "website": "https://www.ibm.com",
+    "industry": "Technology / Consulting",
+    "description": "International Business Machines Corporation is an American multinational technology company headquartered in Armonk, New York.",
     "logo": ""
   },
   {
@@ -32,6 +48,14 @@
     "logo": ""
   },
   {
+    "id": "microsoft",
+    "name": "Microsoft",
+    "website": "https://www.microsoft.com",
+    "industry": "Technology",
+    "description": "Microsoft Corporation is an American multinational technology corporation which produces computer software, consumer electronics, personal computers, and related services.",
+    "logo": ""
+  },
+  {
     "id": "salesforce",
     "name": "Salesforce",
     "website": "https://www.salesforce.com",
@@ -40,11 +64,11 @@
     "logo": ""
   },
   {
-    "id": "ibm",
-    "name": "IBM",
-    "website": "https://www.ibm.com",
-    "industry": "Technology / Consulting",
-    "description": "International Business Machines Corporation is an American multinational technology company headquartered in Armonk, New York.",
+    "id": "shopify",
+    "name": "Shopify",
+    "website": "https://www.shopify.com/",
+    "industry": "E-Commerce Platform",
+    "description": "Shopify provides commerce infrastructure for merchants to start, run, and grow online businesses.",
     "logo": ""
   },
   {
@@ -61,14 +85,6 @@
     "website": "https://global.toyota",
     "industry": "Automotive",
     "description": "Toyota Motor Corporation is a Japanese multinational automotive manufacturer headquartered in Toyota City, Aichi, Japan.",
-    "logo": ""
-  },
-  {
-    "id": "hsbc",
-    "name": "HSBC",
-    "website": "https://www.hsbc.com",
-    "industry": "Banking / Finance",
-    "description": "HSBC Holdings plc is a British universal bank and financial services holding company headquartered in London.",
     "logo": ""
   },
   {

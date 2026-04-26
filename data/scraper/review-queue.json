@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T17:52:05.357Z",
+  "generatedAt": "2026-04-26T17:57:37.481Z",
   "minPublishConfidence": "medium",
   "items": [
     {
@@ -21,7 +21,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 63,
-      "queuedAt": "2026-04-26T17:52:04.146Z"
+      "queuedAt": "2026-04-26T17:57:36.265Z"
     },
     {
       "type": "office",
@@ -42,7 +42,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 63,
-      "queuedAt": "2026-04-26T17:52:05.352Z"
+      "queuedAt": "2026-04-26T17:57:37.474Z"
     }
   ]
 }
