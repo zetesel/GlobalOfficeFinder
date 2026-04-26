@@ -1,6 +1,0 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="2.855556">
-<testsuite name="main.spec.ts" timestamp="2026-04-26T07:09:58.210Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.561" errors="0">
-<testcase name="GlobalOfficeFinder E2E Tests › navigate to company detail page" classname="main.spec.ts" time="1.561">
-</testcase>
-</testsuite>
-</testsuites>
