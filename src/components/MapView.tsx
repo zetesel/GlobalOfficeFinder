@@ -121,7 +121,7 @@ export function MapView({
         );
         map.fitBounds(bounds, {
           padding: AUTO_FIT_PADDING,
-          maxZoom: Math.max(zoom, AUTO_FIT_MAX_ZOOM),
+          maxZoom: Math.min(zoom, AUTO_FIT_MAX_ZOOM),
         });
       }
     }
