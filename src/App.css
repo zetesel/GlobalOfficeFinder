@@ -213,6 +213,25 @@
 .stat-label { font-size: .8rem; color: #374151; text-transform: uppercase; letter-spacing: .05em; }
 
 .offices-section h2 { font-size: 1.5rem; margin-bottom: 1rem; color: #1e3a5f; }
+.company-offices-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+.company-map-panel {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 1rem;
+  position: sticky;
+  top: 5rem;
+}
+.company-map-panel h3 {
+  margin: 0 0 .75rem;
+  font-size: 1.1rem;
+  color: #1e3a5f;
+}
 .region-group { margin-bottom: 2rem; }
 .region-heading {
   font-size: 1rem; font-weight: 700; text-transform: uppercase;
@@ -256,4 +275,6 @@
   .hero-section h1 { font-size: 1.6rem; }
   .company-page-header { flex-direction: column; }
   .filters { flex-direction: column; }
+  .company-offices-layout { grid-template-columns: 1fr; }
+  .company-map-panel { position: static; }
 }

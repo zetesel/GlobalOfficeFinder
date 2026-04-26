@@ -3,6 +3,7 @@ import companies from "../../data/companies.json";
 import offices from "../../data/offices.json";
 import type { Company, Office } from "../types";
 import OfficeCard from "../components/OfficeCard";
+import { MapView } from "../components/MapView";
 import { sanitizeUrl } from "../utils/data";
 
 const allCompanies = companies as Company[];
@@ -29,8 +30,20 @@ export default function CompanyPage() {
   }
 
   const companyOffices = allOffices.filter((o) => o.companyId === company.id);
+  const mapOffices = companyOffices.filter(
+    (office): office is Office & { latitude: number; longitude: number } =>
+      office.latitude !== undefined && office.longitude !== undefined
+  );
   const countries = [...new Set(companyOffices.map((o) => o.country))].sort();
   const regions = [...new Set(companyOffices.map((o) => o.region))].sort();
+  const mapCenter: [number, number] =
+    mapOffices.length > 0
+      ? [
+          mapOffices.reduce((sum, office) => sum + office.latitude, 0) / mapOffices.length,
+          mapOffices.reduce((sum, office) => sum + office.longitude, 0) / mapOffices.length,
+        ]
+      : [20, 0];
+  const mapZoom = mapOffices.length <= 1 ? 10 : 3;
 
   const safeWebsite = sanitizeUrl(company.website);
 
@@ -98,26 +111,43 @@ export default function CompanyPage() {
 
       <section className="offices-section">
         <h2>Office Locations</h2>
-        {[...grouped.entries()].sort().map(([region, byCountry]) => (
-          <div key={region} className="region-group">
-            <h3 className="region-heading">{region}</h3>
-            {[...byCountry.entries()].sort().map(([country, countryOffices]) => {
-              const countryCode = countryOffices[0].countryCode;
-              return (
-                <div key={country} className="country-group">
-                  <h4 className="country-heading">
-                    <Link to={`/country/${countryCode}`}>{country}</Link>
-                  </h4>
-                  <div className="office-grid">
-                    {countryOffices.map((office) => (
-                      <OfficeCard key={office.id} office={office} />
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
+        <div className="company-offices-layout">
+          <div className="company-offices-list">
+            {[...grouped.entries()].sort().map(([region, byCountry]) => (
+              <div key={region} className="region-group">
+                <h3 className="region-heading">{region}</h3>
+                {[...byCountry.entries()].sort().map(([country, countryOffices]) => {
+                  const countryCode = countryOffices[0].countryCode;
+                  return (
+                    <div key={country} className="country-group">
+                      <h4 className="country-heading">
+                        <Link to={`/country/${countryCode}`}>{country}</Link>
+                      </h4>
+                      <div className="office-grid">
+                        {countryOffices.map((office) => (
+                          <OfficeCard key={office.id} office={office} />
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
           </div>
-        ))}
+          <aside className="company-map-panel" aria-label="Company offices map">
+            <h3>Map</h3>
+            {mapOffices.length > 0 ? (
+              <MapView
+                offices={mapOffices}
+                center={mapCenter}
+                zoom={mapZoom}
+                height="520px"
+              />
+            ) : (
+              <p className="no-results">Map is unavailable because this company has no coordinates yet.</p>
+            )}
+          </aside>
+        </div>
       </section>
 
       {/* JSON-LD structured data */}
