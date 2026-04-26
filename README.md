@@ -144,6 +144,15 @@ Edit `data/companies.json` and `data/offices.json`. Run `npm run validate-data` 
 
 Pushes to `main` automatically build and deploy the site to GitHub Pages via the `deploy.yml` workflow. The deploy workflow uses fine-grained permissions (`pages: write`, `id-token: write`) and a concurrency guard so only one deploy runs at a time.
 
+Required repository configuration:
+- **Settings → Pages → Source** must be set to **GitHub Actions**
+- **Branch protection for `main`** should require passing CI checks before merge
+
+Post-merge verification (browser-based, after deployment completes):
+- https://zetesel.github.io/GlobalOfficeFinder/
+- https://zetesel.github.io/GlobalOfficeFinder/company/google
+- https://zetesel.github.io/GlobalOfficeFinder/country/US
+
 #### Phase 6: CI/CD & GitHub Pages
 
 The project is fully configured with automated CI/CD and secure deployment:
