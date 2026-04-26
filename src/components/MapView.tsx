@@ -4,6 +4,9 @@ import "leaflet.markercluster";
 import type { Office } from "../types";
 import { sanitizeUrl } from "../utils/data";
 
+const AUTO_FIT_MAX_ZOOM = 12;
+const AUTO_FIT_PADDING: L.PointExpression = [24, 24];
+
 interface MapViewProps {
   offices: Office[];
   center: [number, number];
@@ -116,7 +119,10 @@ export function MapView({
         const bounds = L.latLngBounds(
           coordinateOffices.map((office) => [office.latitude, office.longitude] as [number, number])
         );
-        map.fitBounds(bounds, { padding: [24, 24], maxZoom: Math.max(zoom, 12) });
+        map.fitBounds(bounds, {
+          padding: AUTO_FIT_PADDING,
+          maxZoom: Math.max(zoom, AUTO_FIT_MAX_ZOOM),
+        });
       }
     }
   }, [offices, autoFit, zoom]);
