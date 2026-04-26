@@ -156,6 +156,7 @@ Operational notes:
 - Low-confidence or incomplete records are routed to `data/scraper/review-queue.json`
 - Run audit metadata is stored in `data/scraper/last-run.json`
 - Newly published scraped offices must include latitude/longitude to ensure map visibility
+- Source hard filters, robots.txt checks, and per-source circuit breakers are enabled by default
 
 ### Data Sources
 

@@ -88,8 +88,13 @@ const DRY_RUN = process.env.SCRAPER_DRY_RUN === "1";
 const FETCH_OFFICE_PAGES = process.env.SCRAPER_FETCH_PAGES !== "0";
 const GEOCODE_ENABLED = process.env.SCRAPER_GEOCODE !== "0";
 const MIN_CONFIDENCE_FOR_PUBLISH = process.env.SCRAPER_MIN_CONFIDENCE ?? "medium";
+const MIN_SOURCE_TRUST = process.env.SCRAPER_MIN_SOURCE_TRUST ?? "high";
+const ENABLE_ROBOTS_CHECK = process.env.SCRAPER_CHECK_ROBOTS !== "0";
+const PER_SOURCE_FAILURE_THRESHOLD = Number(process.env.SCRAPER_SOURCE_FAILURE_THRESHOLD ?? "4");
 
 const CONFIDENCE_RANK = { low: 1, medium: 2, high: 3 };
+const SOURCE_TRUST_RANK = { low: 1, medium: 2, high: 3 };
+const robotsDecisionCache = new Map();
 
 /** @returns {string} */
 function nowIso() {
@@ -457,6 +462,123 @@ function levelPasses(level) {
   return CONFIDENCE_RANK[level] >= CONFIDENCE_RANK[MIN_CONFIDENCE_FOR_PUBLISH];
 }
 
+/**
+ * @param {string} robotsText
+ * @param {string} userAgent
+ */
+function extractDisallowRules(robotsText, userAgent) {
+  const lines = robotsText
+    .split(/\r?\n/)
+    .map((line) => line.replace(/#.*/, "").trim());
+  const rulesByAgent = new Map();
+  let activeAgents = [];
+
+  for (const line of lines) {
+    if (!line) continue;
+    const [rawKey, ...rest] = line.split(":");
+    if (!rawKey || rest.length === 0) continue;
+    const key = rawKey.trim().toLowerCase();
+    const value = rest.join(":").trim();
+    if (!value) continue;
+
+    if (key === "user-agent") {
+      const agent = value.toLowerCase();
+      activeAgents = [agent];
+      if (!rulesByAgent.has(agent)) rulesByAgent.set(agent, []);
+      continue;
+    }
+
+    if (key === "disallow") {
+      for (const agent of activeAgents) {
+        if (!rulesByAgent.has(agent)) rulesByAgent.set(agent, []);
+        rulesByAgent.get(agent).push(value);
+      }
+    }
+  }
+
+  const agentKey = userAgent.toLowerCase();
+  return rulesByAgent.get(agentKey) ?? rulesByAgent.get("*") ?? [];
+}
+
+/**
+ * @param {string[]} disallowRules
+ * @param {string} path
+ */
+function isPathDisallowed(disallowRules, path) {
+  for (const rule of disallowRules) {
+    const normalizedRule = rule.trim();
+    if (!normalizedRule) continue;
+    if (normalizedRule === "/") return true;
+    if (path.startsWith(normalizedRule)) return true;
+  }
+  return false;
+}
+
+/**
+ * @param {string} url
+ */
+async function isUrlAllowedByRobots(url) {
+  if (!ENABLE_ROBOTS_CHECK) {
+    return { allowed: true, checked: false, reason: "robots check disabled" };
+  }
+
+  try {
+    const parsed = new URL(url);
+    const origin = `${parsed.protocol}//${parsed.host}`;
+
+    if (!robotsDecisionCache.has(origin)) {
+      const robotsUrl = `${origin}/robots.txt`;
+      const response = await fetch(robotsUrl, { headers: REQUEST_HEADERS });
+      if (!response.ok) {
+        robotsDecisionCache.set(origin, { disallowRules: [], fetched: false, reason: `robots HTTP ${response.status}` });
+      } else {
+        const robotsText = await response.text();
+        robotsDecisionCache.set(origin, {
+          disallowRules: extractDisallowRules(robotsText, "globalofficefinderbot"),
+          fetched: true,
+          reason: "ok",
+        });
+      }
+    }
+
+    const cached = robotsDecisionCache.get(origin);
+    const path = parsed.pathname || "/";
+    const blocked = isPathDisallowed(cached.disallowRules, path);
+    return {
+      allowed: !blocked,
+      checked: true,
+      reason: blocked ? "blocked by robots.txt disallow rule" : cached.reason,
+    };
+  } catch (error) {
+    return { allowed: false, checked: true, reason: `robots check failed: ${String(error)}` };
+  }
+}
+
+/**
+ * @param {any} source
+ */
+function sourcePassesHardFilters(source) {
+  const sourceUrl = sanitizeUrl(source?.sourceUrl);
+  if (!sourceUrl || !sourceUrl.startsWith("https://")) {
+    return { ok: false, reason: "invalid or non-https source URL" };
+  }
+
+  const trust = String(source?.trust ?? "").toLowerCase();
+  if (!(trust in SOURCE_TRUST_RANK)) {
+    return { ok: false, reason: "missing/invalid source trust rating" };
+  }
+
+  if (SOURCE_TRUST_RANK[trust] < SOURCE_TRUST_RANK[MIN_SOURCE_TRUST]) {
+    return { ok: false, reason: `source trust ${trust} below minimum ${MIN_SOURCE_TRUST}` };
+  }
+
+  if (!Array.isArray(source?.companies) || source.companies.length === 0) {
+    return { ok: false, reason: "source has no company candidates" };
+  }
+
+  return { ok: true, reason: "ok" };
+}
+
 function runValidationCommand() {
   const result = spawnSync("npm", ["run", "validate-data"], {
     cwd: root,
@@ -477,11 +599,23 @@ async function main() {
 
   const regionMap = buildRegionMap(existingOffices);
   const countryCodeMap = buildCountryCodeMap(existingOffices);
+  const reviewQueue = [];
+  const skippedSources = [];
+  const sourceFailures = new Map();
 
   // Stage 1: discover companies from curated sources
   const discovered = [];
   for (const source of sources) {
-    if (!Array.isArray(source.companies)) continue;
+    const sourceCheck = sourcePassesHardFilters(source);
+    if (!sourceCheck.ok) {
+      skippedSources.push({
+        sourceId: source.id ?? "unknown",
+        sourceUrl: source.sourceUrl ?? null,
+        reason: sourceCheck.reason,
+      });
+      continue;
+    }
+
     for (const company of source.companies) {
       discovered.push({ source, company });
     }
@@ -490,6 +624,19 @@ async function main() {
   // Stage 2: collect office pages
   const collectedPageData = [];
   for (const entry of discovered) {
+    const sourceId = String(entry.source.id ?? "unknown");
+    const currentFailures = sourceFailures.get(sourceId) ?? 0;
+    if (currentFailures >= PER_SOURCE_FAILURE_THRESHOLD) {
+      collectedPageData.push({
+        sourceId,
+        fetched: false,
+        skipped: true,
+        reason: `circuit breaker open after ${currentFailures} failure(s)`,
+        fetchedAt: nowIso(),
+      });
+      continue;
+    }
+
     const urls = [
       sanitizeUrl(entry.company.website),
       ...(Array.isArray(entry.company.officePages) ? entry.company.officePages.map((u) => sanitizeUrl(u)).filter(Boolean) : []),
@@ -500,13 +647,30 @@ async function main() {
         collectedPageData.push({ url, fetched: false, skipped: true, fetchedAt: nowIso() });
         continue;
       }
-      collectedPageData.push(await fetchPage(url));
+      const robotsCheck = await isUrlAllowedByRobots(url);
+      if (!robotsCheck.allowed) {
+        collectedPageData.push({
+          url,
+          sourceId,
+          fetched: false,
+          skipped: true,
+          reason: robotsCheck.reason,
+          fetchedAt: nowIso(),
+        });
+        sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+        continue;
+      }
+
+      const pageResult = await fetchPage(url);
+      collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck });
+      if (!pageResult.fetched) {
+        sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+      }
       await sleep(200);
     }
   }
 
   // Stage 3+4+5: extract, normalize, geocode, dedupe, quality controls
-  const reviewQueue = [];
   const acceptedCompanies = [];
   const acceptedOffices = [];
   const companyIdRemap = new Map();
@@ -599,6 +763,10 @@ async function main() {
         normalizedOffice.longitude === undefined
       ) {
         const geocode = await geocodeOffice(normalizedOffice);
+        if (geocode.error) {
+          const sourceId = String(source.id ?? "unknown");
+          sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+        }
         if (typeof geocode.latitude === "number" && typeof geocode.longitude === "number") {
           normalizedOffice.latitude = geocode.latitude;
           normalizedOffice.longitude = geocode.longitude;
@@ -686,6 +854,14 @@ async function main() {
       acceptedCompanies: acceptedCompanies.length,
       acceptedOffices: acceptedOffices.length,
       reviewQueueItems: reviewQueue.length,
+      skippedSources: skippedSources.length,
+    },
+    safeguards: {
+      minSourceTrust: MIN_SOURCE_TRUST,
+      robotsCheckEnabled: ENABLE_ROBOTS_CHECK,
+      perSourceFailureThreshold: PER_SOURCE_FAILURE_THRESHOLD,
+      sourceFailures: Object.fromEntries(sourceFailures.entries()),
+      skippedSources,
     },
     sources: sources.map((source) => ({
       id: source.id,

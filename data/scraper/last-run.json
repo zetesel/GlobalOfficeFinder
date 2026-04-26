@@ -1,14 +1,24 @@
 {
-  "startedAt": "2026-04-26T17:57:30.590Z",
-  "finishedAt": "2026-04-26T17:57:37.481Z",
+  "startedAt": "2026-04-26T17:58:46.364Z",
+  "finishedAt": "2026-04-26T17:58:48.833Z",
   "dryRun": false,
   "confidenceThreshold": "medium",
   "stages": {
     "discoveredCompanies": 2,
     "collectedPages": 4,
-    "acceptedCompanies": 2,
-    "acceptedOffices": 1,
-    "reviewQueueItems": 2
+    "acceptedCompanies": 0,
+    "acceptedOffices": 0,
+    "reviewQueueItems": 2,
+    "skippedSources": 0
+  },
+  "safeguards": {
+    "minSourceTrust": "high",
+    "robotsCheckEnabled": true,
+    "perSourceFailureThreshold": 4,
+    "sourceFailures": {
+      "phase-a-official-tech-sample": 6
+    },
+    "skippedSources": []
   },
   "sources": [
     {
@@ -19,59 +29,6 @@
       "trust": "high"
     }
   ],
-  "acceptedCompanies": [
-    {
-      "id": "atlassian",
-      "name": "Atlassian",
-      "website": "https://www.atlassian.com/",
-      "industry": "Enterprise Software",
-      "description": "Atlassian develops collaboration and productivity software for software teams and enterprises.",
-      "logo": "",
-      "source": {
-        "sourceId": "phase-a-official-tech-sample",
-        "sourceUrl": "https://www.atlassian.com/company/contact",
-        "discoveredAt": "2026-04-26T17:57:35.058Z",
-        "confidence": "high"
-      }
-    },
-    {
-      "id": "shopify",
-      "name": "Shopify",
-      "website": "https://www.shopify.com/",
-      "industry": "E-Commerce Platform",
-      "description": "Shopify provides commerce infrastructure for merchants to start, run, and grow online businesses.",
-      "logo": "",
-      "source": {
-        "sourceId": "phase-a-official-tech-sample",
-        "sourceUrl": "https://www.atlassian.com/company/contact",
-        "discoveredAt": "2026-04-26T17:57:36.266Z",
-        "confidence": "high"
-      }
-    }
-  ],
-  "acceptedOffices": [
-    {
-      "id": "atlassian-au-sydney",
-      "companyId": "atlassian",
-      "country": "Australia",
-      "countryCode": "AU",
-      "region": "Asia-Pacific",
-      "city": "Sydney",
-      "address": "341 George Street",
-      "postalCode": "2000",
-      "officeType": "Headquarters",
-      "latitude": -33.8688,
-      "longitude": 151.2093,
-      "contactUrl": "https://www.atlassian.com/company/contact",
-      "source": {
-        "sourceId": "phase-a-official-tech-sample",
-        "sourceUrl": "https://www.atlassian.com/company/contact",
-        "scrapedAt": "2026-04-26T17:57:35.058Z",
-        "confidence": "high",
-        "confidenceScore": 90,
-        "officialSourceMatch": true,
-        "geocodeCertainty": "high"
-      }
-    }
-  ]
+  "acceptedCompanies": [],
+  "acceptedOffices": []
 }

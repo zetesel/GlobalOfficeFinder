@@ -157,6 +157,13 @@ Key behavior:
 - newly published scraped offices must include latitude/longitude
 - low-confidence records are routed to `data/scraper/review-queue.json` (not auto-published)
 - run metadata is written to `data/scraper/last-run.json`
+- hard source filters block low-trust/unverifiable sources before ingestion
+- robots.txt checks and per-source circuit breakers protect source systems and scraper reliability
+
+Useful environment flags:
+- `SCRAPER_MIN_SOURCE_TRUST` (`high|medium|low`, default `high`)
+- `SCRAPER_CHECK_ROBOTS` (`1|0`, default `1`)
+- `SCRAPER_SOURCE_FAILURE_THRESHOLD` (default `4`)
 
 Automation:
 - `.github/workflows/scraper-discovery.yml` runs on schedule and can be triggered manually
