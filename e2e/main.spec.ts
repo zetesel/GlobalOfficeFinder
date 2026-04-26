@@ -9,7 +9,7 @@ test.describe('GlobalOfficeFinder E2E Tests', () => {
     await expect(page).toHaveTitle(/GlobalOfficeFinder/i);
     
     // Check main heading
-    const heading = page.getByRole('heading', { name: /Search for company offices/i });
+    const heading = page.getByRole('heading', { name: /Find Company Offices Worldwide/i });
     await expect(heading).toBeVisible();
   });
 
@@ -187,7 +187,7 @@ test.describe('GlobalOfficeFinder E2E Tests', () => {
       await page.waitForLoadState('networkidle');
       
       // Should be back on homepage
-      const heading = page.getByRole('heading', { name: /Search for company offices/i });
+      const heading = page.getByRole('heading', { name: /Find Company Offices Worldwide/i });
       await expect(heading).toBeVisible();
     }
   });

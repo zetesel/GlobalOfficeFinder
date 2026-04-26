@@ -9,22 +9,24 @@ This document describes the security hardening measures implemented in Phase 8 f
 A strict Content Security Policy is implemented via HTML meta tags in `index.html` to prevent injection attacks:
 
 ```
-default-src 'self'                      # Only allow resources from same origin
-script-src 'self'                       # Only inline scripts from same origin
-style-src 'self'                        # Only stylesheets from same origin
-img-src 'self' data: https:            # Images from self, data URIs, and HTTPS external
-font-src 'self' data:                  # Fonts from self and data URIs
-connect-src 'self' https://tile.openstreetmap.org  # API calls to self and OSM tiles
-frame-ancestors 'none'                 # Prevent embedding in frames
-base-uri 'self'                        # Restrict base URL
-form-action 'self'                     # Restrict form submissions to self
+default-src 'self'                                         # Only allow resources from same origin
+script-src 'self'                                          # Only scripts from same origin (no inline scripts)
+style-src 'self' 'unsafe-inline'                          # Stylesheets from self; unsafe-inline required by Leaflet and app inline styles
+img-src 'self' data: https:                               # Images from self, data URIs, and HTTPS external
+font-src 'self' data:                                     # Fonts from self and data URIs
+connect-src 'self' https://tile.openstreetmap.org ws://localhost:5173 ws://127.0.0.1:5173  # API calls to self, OSM tiles, and Vite HMR WebSocket
+frame-ancestors 'none'                                    # Prevent embedding in frames
+base-uri 'self'                                           # Restrict base URL
+form-action 'self'                                        # Restrict form submissions to self
 ```
 
 **Implementation Notes:**
 - GitHub Pages does not support custom HTTP headers, so CSP is enforced via meta tag
-- The policy prevents inline JavaScript and CSS injection attacks
-- OpenStreetMap tile server is whitelisted for map functionality
-- All resources must be same-origin (no third-party CDNs)
+- `style-src 'unsafe-inline'` is required because Leaflet and React inline styles use `style` attributes at runtime; a nonce-based approach is not practical with static meta-tag CSP
+- `script-src 'self'` blocks inline scripts — the SPA fallback redirect is therefore served as `public/spa-redirect.js` rather than an inline `<script>`
+- OpenStreetMap tile server is whitelisted for map tile functionality
+- WebSocket origins (`ws://localhost:5173`, `ws://127.0.0.1:5173`) are added to `connect-src` to allow Vite HMR in local development
+- All other resources must be same-origin (no third-party CDNs)
 
 ### Additional Security Headers
 
