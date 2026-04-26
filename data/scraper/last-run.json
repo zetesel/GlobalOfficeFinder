@@ -1,0 +1,34 @@
+{
+  "startedAt": "2026-04-26T17:58:46.364Z",
+  "finishedAt": "2026-04-26T17:58:48.833Z",
+  "dryRun": false,
+  "confidenceThreshold": "medium",
+  "stages": {
+    "discoveredCompanies": 2,
+    "collectedPages": 4,
+    "acceptedCompanies": 0,
+    "acceptedOffices": 0,
+    "reviewQueueItems": 2,
+    "skippedSources": 0
+  },
+  "safeguards": {
+    "minSourceTrust": "high",
+    "robotsCheckEnabled": true,
+    "perSourceFailureThreshold": 4,
+    "sourceFailures": {
+      "phase-a-official-tech-sample": 6
+    },
+    "skippedSources": []
+  },
+  "sources": [
+    {
+      "id": "phase-a-official-tech-sample",
+      "name": "Phase A Trusted Tech Sources",
+      "sourceUrl": "https://www.atlassian.com/company/contact",
+      "companyCandidates": 2,
+      "trust": "high"
+    }
+  ],
+  "acceptedCompanies": [],
+  "acceptedOffices": []
+}

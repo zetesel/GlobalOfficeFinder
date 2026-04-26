@@ -7,6 +7,8 @@ import "./App.css";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const CompanyPage = lazy(() => import("./pages/CompanyPage"));
 const CountryPage = lazy(() => import("./pages/CountryPage"));
+const RecentChangesPage = lazy(() => import("./pages/RecentChangesPage"));
+const ReviewQueuePage = lazy(() => import("./pages/ReviewQueuePage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/company/:id" element={<CompanyPage />} />
               <Route path="/country/:code" element={<CountryPage />} />
+              <Route path="/recent-changes" element={<RecentChangesPage />} />
+              <Route path="/review-queue" element={<ReviewQueuePage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>

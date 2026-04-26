@@ -93,6 +93,8 @@ npm run dev            # Start development server
 npm run build          # Build for production
 npm run lint           # Run linter
 npm run validate-data  # Validate JSON data against schemas
+npm run scrape:companies      # Run discovery/enrichment scraper and update data files
+npm run scrape:companies:dry  # Run scraper in dry-run mode (no data mutations)
 npm run test           # Run unit and component tests (vitest)
 npm run test:e2e       # Run end-to-end tests (Playwright)
 npm run test:e2e:ui    # Run E2E tests with interactive UI
@@ -139,6 +141,33 @@ npm run test:e2e:ui    # Run E2E tests with interactive UI
 ### Adding data
 
 Edit `data/companies.json` and `data/offices.json`. Run `npm run validate-data` to check your changes against the JSON schemas before opening a PR.
+
+### Automated scraper pipeline
+
+The repository includes an automation-first discovery pipeline at `scripts/scraper/run-scraper.mjs` with stages:
+- discover candidate companies from trusted source lists
+- collect office pages
+- extract office candidates
+- normalize + deduplicate records
+- geocode missing coordinates
+- validate before persistence
+
+Key behavior:
+- output stays aligned with `data/companies.json` and `data/offices.json`
+- newly published scraped offices must include latitude/longitude
+- low-confidence records are routed to `data/scraper/review-queue.json` (not auto-published)
+- run metadata is written to `data/scraper/last-run.json`
+- hard source filters block low-trust/unverifiable sources before ingestion
+- robots.txt checks and per-source circuit breakers protect source systems and scraper reliability
+
+Useful environment flags:
+- `SCRAPER_MIN_SOURCE_TRUST` (`high|medium|low`, default `high`)
+- `SCRAPER_CHECK_ROBOTS` (`1|0`, default `1`)
+- `SCRAPER_SOURCE_FAILURE_THRESHOLD` (default `4`)
+
+Automation:
+- `.github/workflows/scraper-discovery.yml` runs on schedule and can be triggered manually
+- workflow runs scraper + validation/lint/test/build and opens a PR with data updates
 
 ### Deployment
 

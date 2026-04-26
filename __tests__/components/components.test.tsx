@@ -277,6 +277,19 @@ describe("Header Component", () => {
     const searchLink = screen.getByRole("link", { name: "Search" });
     expect(searchLink).toHaveAttribute("href", "/");
   });
+
+  it("renders recent changes and review queue links", () => {
+    render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    );
+
+    const recentChangesLink = screen.getByRole("link", { name: "Recent Changes" });
+    const reviewQueueLink = screen.getByRole("link", { name: "Review Queue" });
+    expect(recentChangesLink).toHaveAttribute("href", "/recent-changes");
+    expect(reviewQueueLink).toHaveAttribute("href", "/review-queue");
+  });
 });
 
 describe("Footer Component", () => {

@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-04-26T17:58:48.833Z",
+  "minPublishConfidence": "medium",
+  "items": [
+    {
+      "type": "office",
+      "sourceId": "phase-a-official-tech-sample",
+      "sourceUrl": "https://www.atlassian.com/company/contact",
+      "office": {
+        "id": "",
+        "companyId": "atlassian",
+        "country": "United States",
+        "countryCode": "US",
+        "region": "Americas",
+        "city": "San Francisco",
+        "address": "350 Bush Street",
+        "postalCode": "94104",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.atlassian.com/company/contact"
+      },
+      "reason": "missing latitude/longitude after geocoding",
+      "confidence": "low",
+      "confidenceScore": 63,
+      "queuedAt": "2026-04-26T17:58:47.617Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "phase-a-official-tech-sample",
+      "sourceUrl": "https://www.atlassian.com/company/contact",
+      "office": {
+        "id": "",
+        "companyId": "shopify",
+        "country": "Canada",
+        "countryCode": "CA",
+        "region": "Americas",
+        "city": "Ottawa",
+        "address": "151 O'Connor Street",
+        "postalCode": "K2P 2L8",
+        "officeType": "Headquarters",
+        "contactUrl": "https://www.shopify.com/contact"
+      },
+      "reason": "missing latitude/longitude after geocoding",
+      "confidence": "low",
+      "confidenceScore": 63,
+      "queuedAt": "2026-04-26T17:58:48.826Z"
+    }
+  ]
+}

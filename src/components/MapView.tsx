@@ -31,6 +31,7 @@ interface MapViewProps {
   height?: string;
   autoFit?: boolean;
   companyName?: string;
+  companyNamesById?: Record<string, string>;
 }
 
 export function MapView({
@@ -40,6 +41,7 @@ export function MapView({
   height = "400px",
   autoFit = false,
   companyName,
+  companyNamesById = {},
 }: MapViewProps) {
   const mapRef = useRef<L.Map | null>(null);
   const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
@@ -96,7 +98,7 @@ export function MapView({
         const container = document.createElement("div");
 
         const title = document.createElement("h4");
-        title.textContent = companyName || office.companyId;
+        title.textContent = companyName || companyNamesById[office.companyId] || office.companyId;
         title.style.margin = "0 0 5px 0";
         container.appendChild(title);
 
@@ -130,7 +132,6 @@ export function MapView({
           .bindPopup(container)
           .addTo(cluster);
       });
-
     if (autoFit && map && coordinateOffices.length > 0) {
       if (coordinateOffices.length === 1) {
         const office = coordinateOffices[0];
@@ -145,7 +146,7 @@ export function MapView({
         });
       }
     }
-  }, [offices, autoFit, zoom]);
+  }, [offices, autoFit, zoom, companyName, companyNamesById]);
 
   return <div ref={containerRef} style={{ height, width: "100%" }} />;
 }
