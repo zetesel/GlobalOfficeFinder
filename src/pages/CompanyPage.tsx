@@ -38,10 +38,17 @@ export default function CompanyPage() {
   const regions = [...new Set(companyOffices.map((o) => o.region))].sort();
   const mapCenter: [number, number] =
     mapOffices.length > 0
-      ? [
-          mapOffices.reduce((sum, office) => sum + office.latitude, 0) / mapOffices.length,
-          mapOffices.reduce((sum, office) => sum + office.longitude, 0) / mapOffices.length,
-        ]
+      ? (() => {
+          const { latSum, lonSum } = mapOffices.reduce(
+            (acc, office) => {
+              acc.latSum += office.latitude;
+              acc.lonSum += office.longitude;
+              return acc;
+            },
+            { latSum: 0, lonSum: 0 }
+          );
+          return [latSum / mapOffices.length, lonSum / mapOffices.length] as [number, number];
+        })()
       : [20, 0];
   const mapZoom = mapOffices.length <= 1 ? 10 : 3;
 
@@ -144,7 +151,9 @@ export default function CompanyPage() {
                 height="520px"
               />
             ) : (
-              <p className="no-results">Map is unavailable because this company has no coordinates yet.</p>
+              <p className="no-results">
+                Map is unavailable because no offices for this company include coordinates yet.
+              </p>
             )}
           </aside>
         </div>
