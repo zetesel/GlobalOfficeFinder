@@ -9,6 +9,8 @@ export default function Header() {
         </Link>
         <nav className="site-nav" aria-label="Main navigation">
           <Link to="/">Search</Link>
+          <Link to="/recent-changes">Recent Changes</Link>
+          <Link to="/review-queue">Review Queue</Link>
         </nav>
       </div>
     </header>
