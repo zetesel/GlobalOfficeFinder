@@ -155,7 +155,7 @@ export default function CompanyPage() {
               />
             ) : (
               <p className="no-results">
-                Map is unavailable because no offices for this company include coordinates yet.
+                Map is unavailable because no offices for this company have coordinates yet.
               </p>
             )}
           </aside>
