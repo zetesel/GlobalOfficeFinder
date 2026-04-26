@@ -89,9 +89,11 @@ describe("useCompanySearch", () => {
   });
 
   it("should update results when companies change", () => {
+    const googleOnly = testCompanies.filter((company) => company.id === "google");
+
     const { result, rerender } = renderHook(
       ({ companies }) => useCompanySearch(companies, "Goo"),
-      { initialProps: { companies: testCompanies.slice(0, 1) } }, // Only Google initially
+      { initialProps: { companies: googleOnly } }, // Only Google initially
     );
 
     expect(result.current.results).toHaveLength(1);
