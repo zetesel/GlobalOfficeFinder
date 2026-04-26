@@ -2,11 +2,11 @@
   "ci": {
     "collect": {
       "numberOfRuns": 1,
-      "staticDistDir": "./dist",
+      "startServerCommand": "npm run preview",
       "url": [
-        "/",
-        "/company/google",
-        "/country/US"
+        "http://localhost:4173/",
+        "http://localhost:4173/company/google",
+        "http://localhost:4173/country/US"
       ]
     },
     "upload": {
