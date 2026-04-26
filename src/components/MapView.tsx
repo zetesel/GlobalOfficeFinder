@@ -109,12 +109,17 @@ export function MapView({
       });
 
     if (autoFit && map && coordinateOffices.length > 0) {
+      if (coordinateOffices.length === 1) {
+        const office = coordinateOffices[0];
+        map.setView([office.latitude, office.longitude], zoom);
+        return;
+      }
       const bounds = L.latLngBounds(
         coordinateOffices.map((office) => [office.latitude, office.longitude] as [number, number])
       );
       map.fitBounds(bounds, { padding: [24, 24], maxZoom: 12 });
     }
-  }, [offices, autoFit]);
+  }, [offices, autoFit, zoom]);
 
   return <div ref={containerRef} style={{ height, width: "100%" }} />;
 }
