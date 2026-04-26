@@ -8,7 +8,7 @@ import { sanitizeUrl } from "../utils/data";
 
 const allCompanies = companies as Company[];
 const allOffices = offices as Office[];
-const DEFAULT_WORLD_CENTER: [number, number] = [20, 0]; // Leaflet center uses [lat, lng]
+const DEFAULT_WORLD_CENTER: [number, number] = [20, 0]; // [latitude, longitude] (20°N, Prime Meridian)
 const SINGLE_OFFICE_ZOOM = 10;
 const MULTI_OFFICE_ZOOM = 3;
 
@@ -53,7 +53,7 @@ export default function CompanyPage() {
           return [latSum / mapOffices.length, lonSum / mapOffices.length] as [number, number];
         })()
       : DEFAULT_WORLD_CENTER;
-  const mapZoom = mapOffices.length <= 1 ? SINGLE_OFFICE_ZOOM : MULTI_OFFICE_ZOOM;
+  const mapZoom = mapOffices.length === 1 ? SINGLE_OFFICE_ZOOM : MULTI_OFFICE_ZOOM;
 
   const safeWebsite = sanitizeUrl(company.website);
 
