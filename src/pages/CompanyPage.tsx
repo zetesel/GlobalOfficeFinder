@@ -156,6 +156,7 @@ export default function CompanyPage() {
                 zoom={mapZoom}
                 height="520px"
                 autoFit
+                companyName={company.name}
               />
             ) : (
               <p className="no-results">

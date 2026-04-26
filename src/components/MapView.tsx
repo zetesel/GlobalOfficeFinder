@@ -1,8 +1,25 @@
 import { useEffect, useRef } from "react";
 import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import "leaflet.markercluster";
+import "leaflet.markercluster/dist/MarkerCluster.css";
+import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import type { Office } from "../types";
 import { sanitizeUrl } from "../utils/data";
+
+// Fix for default marker icon issues with Vite/Leaflet
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+const DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 const AUTO_FIT_MAX_ZOOM = 12;
 const AUTO_FIT_PADDING: L.PointExpression = [24, 24];
@@ -13,6 +30,7 @@ interface MapViewProps {
   zoom?: number;
   height?: string;
   autoFit?: boolean;
+  companyName?: string;
 }
 
 export function MapView({
@@ -21,6 +39,7 @@ export function MapView({
   zoom = 2,
   height = "400px",
   autoFit = false,
+  companyName,
 }: MapViewProps) {
   const mapRef = useRef<L.Map | null>(null);
   const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
@@ -77,7 +96,8 @@ export function MapView({
         const container = document.createElement("div");
 
         const title = document.createElement("h4");
-        title.textContent = office.companyId;
+        title.textContent = companyName || office.companyId;
+        title.style.margin = "0 0 5px 0";
         container.appendChild(title);
 
         const location = document.createElement("p");
