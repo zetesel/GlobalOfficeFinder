@@ -39,7 +39,7 @@
   color: rgba(255,255,255,.85);
   margin-left: 0;
   padding: .35rem .55rem;
-  min-height: 44px;
+  min-height: 48px;
   display: inline-flex;
   align-items: center;
   font-size: .95rem;
@@ -117,7 +117,7 @@
   display: flex;
   align-items: center;
   gap: .5rem;
-  min-height: 44px;
+  min-height: 48px;
   font-size: .875rem;
   color: #1f2937;
 }
