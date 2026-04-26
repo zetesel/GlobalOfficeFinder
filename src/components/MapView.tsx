@@ -116,7 +116,7 @@ export function MapView({
         const bounds = L.latLngBounds(
           coordinateOffices.map((office) => [office.latitude, office.longitude] as [number, number])
         );
-        map.fitBounds(bounds, { padding: [24, 24], maxZoom: 12 });
+        map.fitBounds(bounds, { padding: [24, 24], maxZoom: Math.max(zoom, 12) });
       }
     }
   }, [offices, autoFit, zoom]);

@@ -17,7 +17,7 @@ function safeJsonLd(value: unknown): string {
   return JSON.stringify(value).replace(/</g, "\\u003c");
 }
 
-function getMapCenter(offices: CoordinateOffice[]): [number, number] {
+function getAverageCoordinates(offices: CoordinateOffice[]): [number, number] {
   if (offices.length === 0) return DEFAULT_WORLD_CENTER;
 
   const { latSum, lonSum } = offices.reduce(
@@ -55,7 +55,7 @@ export default function CompanyPage() {
   );
   const countries = [...new Set(companyOffices.map((o) => o.country))].sort();
   const regions = [...new Set(companyOffices.map((o) => o.region))].sort();
-  const mapCenter = getMapCenter(mapOffices);
+  const mapCenter = getAverageCoordinates(mapOffices);
   const mapZoom = mapOffices.length === 1 ? SINGLE_OFFICE_ZOOM : MULTI_OFFICE_ZOOM;
 
   const safeWebsite = sanitizeUrl(company.website);
