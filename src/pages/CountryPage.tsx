@@ -3,6 +3,7 @@ import offices from "../../data/offices.json";
 import companies from "../../data/companies.json";
 import type { Company, Office } from "../types";
 import OfficeCard from "../components/OfficeCard";
+import { MapView } from "../components/MapView";
 
 const allOffices = offices as Office[];
 const allCompanies = companies as Company[];
@@ -42,6 +43,10 @@ export default function CountryPage() {
     .filter(Boolean) as Company[];
   companiesHere.sort((a, b) => a.name.localeCompare(b.name));
 
+  const mapOffices = countryOffices.filter(
+    (o) => o.latitude !== undefined && o.longitude !== undefined
+  );
+
   return (
     <div className="country-page container">
       <nav aria-label="Breadcrumb" className="breadcrumb">
@@ -64,25 +69,44 @@ export default function CountryPage() {
         </div>
       </section>
 
-      <section className="country-companies">
-        <h2>Companies with offices in {countryName}</h2>
-        {companiesHere.map((company) => {
-          const cos = byCompany.get(company.id) ?? [];
-          return (
-            <div key={company.id} className="country-company-block">
-              <h3>
-                <Link to={`/company/${company.id}`}>{company.name}</Link>
-                <span className="company-industry-tag">{company.industry}</span>
-              </h3>
-              <div className="office-grid">
-                {cos.map((office) => (
-                  <OfficeCard key={office.id} office={office} />
-                ))}
+      <div className="company-offices-layout">
+        <section className="country-companies">
+          <h2>Companies with offices in {countryName}</h2>
+          {companiesHere.map((company) => {
+            const cos = byCompany.get(company.id) ?? [];
+            return (
+              <div key={company.id} className="country-company-block">
+                <h3>
+                  <Link to={`/company/${company.id}`}>{company.name}</Link>
+                  <span className="company-industry-tag">{company.industry}</span>
+                </h3>
+                <div className="office-grid">
+                  {cos.map((office) => (
+                    <OfficeCard key={office.id} office={office} />
+                  ))}
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </section>
+            );
+          })}
+        </section>
+
+        <aside className="company-map-panel" aria-label={`${countryName} offices map`}>
+          <h3>Map</h3>
+          {mapOffices.length > 0 ? (
+            <MapView
+              offices={mapOffices}
+              center={[0, 0]}
+              zoom={5}
+              height="520px"
+              autoFit
+            />
+          ) : (
+            <p className="no-results">
+              Map unavailable: office coordinates are not yet available for this country.
+            </p>
+          )}
+        </aside>
+      </div>
 
       {/* JSON-LD structured data */}
       <script

@@ -1,14 +1,36 @@
 import { useEffect, useRef } from "react";
 import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import "leaflet.markercluster";
+import "leaflet.markercluster/dist/MarkerCluster.css";
+import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import type { Office } from "../types";
 import { sanitizeUrl } from "../utils/data";
+
+// Fix for default marker icon issues with Vite/Leaflet
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+const DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
+
+const AUTO_FIT_MAX_ZOOM = 12;
+const AUTO_FIT_PADDING: L.PointExpression = [24, 24];
 
 interface MapViewProps {
   offices: Office[];
   center: [number, number];
   zoom?: number;
   height?: string;
+  autoFit?: boolean;
+  companyName?: string;
   companyNamesById?: Record<string, string>;
 }
 
@@ -17,6 +39,8 @@ export function MapView({
   center,
   zoom = 2,
   height = "400px",
+  autoFit = false,
+  companyName,
   companyNamesById = {},
 }: MapViewProps) {
   const mapRef = useRef<L.Map | null>(null);
@@ -53,26 +77,29 @@ export function MapView({
 
   // Update map view when center or zoom change
   useEffect(() => {
+    if (autoFit) return;
     mapRef.current?.setView(center as L.LatLngExpression, zoom);
-  }, [center, zoom]);
+  }, [center, zoom, autoFit]);
 
   // Update markers when offices change
   useEffect(() => {
     const cluster = clusterRef.current;
+    const map = mapRef.current;
     if (!cluster) return;
 
     cluster.clearLayers();
 
-    offices
-      .filter(
-        (office): office is Office & { latitude: number; longitude: number } =>
-          office.latitude !== undefined && office.longitude !== undefined
-      )
-      .forEach((office) => {
+    const coordinateOffices = offices.filter(
+      (office): office is Office & { latitude: number; longitude: number } =>
+        office.latitude !== undefined && office.longitude !== undefined
+    );
+
+    coordinateOffices.forEach((office) => {
         const container = document.createElement("div");
 
         const title = document.createElement("h4");
-        title.textContent = companyNamesById[office.companyId] ?? office.companyId;
+        title.textContent = companyName || companyNamesById[office.companyId] || office.companyId;
+        title.style.margin = "0 0 5px 0";
         container.appendChild(title);
 
         const location = document.createElement("p");
@@ -105,7 +132,21 @@ export function MapView({
           .bindPopup(container)
           .addTo(cluster);
       });
-  }, [offices, companyNamesById]);
+    if (autoFit && map && coordinateOffices.length > 0) {
+      if (coordinateOffices.length === 1) {
+        const office = coordinateOffices[0];
+        map.setView([office.latitude, office.longitude], zoom);
+      } else {
+        const bounds = L.latLngBounds(
+          coordinateOffices.map((office) => [office.latitude, office.longitude] as [number, number])
+        );
+        map.fitBounds(bounds, {
+          padding: AUTO_FIT_PADDING,
+          maxZoom: Math.min(zoom, AUTO_FIT_MAX_ZOOM),
+        });
+      }
+    }
+  }, [offices, autoFit, zoom, companyName, companyNamesById]);
 
   return <div ref={containerRef} style={{ height, width: "100%" }} />;
 }

@@ -3,13 +3,33 @@ import companies from "../../data/companies.json";
 import offices from "../../data/offices.json";
 import type { Company, Office } from "../types";
 import OfficeCard from "../components/OfficeCard";
+import { MapView } from "../components/MapView";
 import { sanitizeUrl } from "../utils/data";
 
 const allCompanies = companies as Company[];
 const allOffices = offices as Office[];
+const DEFAULT_WORLD_CENTER: [number, number] = [20, 0]; // Leaflet [lat, lng] tuple: 20°N latitude, 0° longitude
+const SINGLE_OFFICE_ZOOM = 10;
+const MULTI_OFFICE_ZOOM = 3;
+type CoordinateOffice = Office & { latitude: number; longitude: number };
 
 function safeJsonLd(value: unknown): string {
   return JSON.stringify(value).replace(/</g, "\\u003c");
+}
+
+function getAverageCoordinates(offices: CoordinateOffice[]): [number, number] {
+  if (offices.length === 0) return DEFAULT_WORLD_CENTER;
+
+  const { latSum, lonSum } = offices.reduce(
+    (acc, office) => {
+      acc.latSum += office.latitude;
+      acc.lonSum += office.longitude;
+      return acc;
+    },
+    { latSum: 0, lonSum: 0 }
+  );
+
+  return [latSum / offices.length, lonSum / offices.length];
 }
 
 export default function CompanyPage() {
@@ -29,8 +49,14 @@ export default function CompanyPage() {
   }
 
   const companyOffices = allOffices.filter((o) => o.companyId === company.id);
+  const mapOffices = companyOffices.filter(
+    (office): office is CoordinateOffice =>
+      office.latitude !== undefined && office.longitude !== undefined
+  );
   const countries = [...new Set(companyOffices.map((o) => o.country))].sort();
   const regions = [...new Set(companyOffices.map((o) => o.region))].sort();
+  const mapCenter = getAverageCoordinates(mapOffices);
+  const mapZoom = mapOffices.length === 1 ? SINGLE_OFFICE_ZOOM : MULTI_OFFICE_ZOOM;
 
   const safeWebsite = sanitizeUrl(company.website);
 
@@ -98,26 +124,47 @@ export default function CompanyPage() {
 
       <section className="offices-section">
         <h2>Office Locations</h2>
-        {[...grouped.entries()].sort().map(([region, byCountry]) => (
-          <div key={region} className="region-group">
-            <h3 className="region-heading">{region}</h3>
-            {[...byCountry.entries()].sort().map(([country, countryOffices]) => {
-              const countryCode = countryOffices[0].countryCode;
-              return (
-                <div key={country} className="country-group">
-                  <h4 className="country-heading">
-                    <Link to={`/country/${countryCode}`}>{country}</Link>
-                  </h4>
-                  <div className="office-grid">
-                    {countryOffices.map((office) => (
-                      <OfficeCard key={office.id} office={office} />
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
+        <div className="company-offices-layout">
+          <div className="company-offices-list">
+            {[...grouped.entries()].sort().map(([region, byCountry]) => (
+              <div key={region} className="region-group">
+                <h3 className="region-heading">{region}</h3>
+                {[...byCountry.entries()].sort().map(([country, countryOffices]) => {
+                  const countryCode = countryOffices[0].countryCode;
+                  return (
+                    <div key={country} className="country-group">
+                      <h4 className="country-heading">
+                        <Link to={`/country/${countryCode}`}>{country}</Link>
+                      </h4>
+                      <div className="office-grid">
+                        {countryOffices.map((office) => (
+                          <OfficeCard key={office.id} office={office} />
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
           </div>
-        ))}
+          <aside className="company-map-panel" aria-label="Company offices map">
+            <h3>Map</h3>
+            {mapOffices.length > 0 ? (
+              <MapView
+                offices={mapOffices}
+                center={mapCenter}
+                zoom={mapZoom}
+                height="520px"
+                autoFit
+                companyName={company.name}
+              />
+            ) : (
+              <p className="no-results">
+                Map unavailable: office coordinates are not yet available for this company.
+              </p>
+            )}
+          </aside>
+        </div>
       </section>
 
       {/* JSON-LD structured data */}
