@@ -215,6 +215,7 @@
 .offices-section h2 { font-size: 1.5rem; margin-bottom: 1rem; color: #1e3a5f; }
 .company-offices-layout {
   display: grid;
+  /* Keep office cards visually primary while preserving a readable map panel width. */
   grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
   gap: 1rem;
   align-items: start;

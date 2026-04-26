@@ -112,12 +112,12 @@ export function MapView({
       if (coordinateOffices.length === 1) {
         const office = coordinateOffices[0];
         map.setView([office.latitude, office.longitude], zoom);
-        return;
+      } else {
+        const bounds = L.latLngBounds(
+          coordinateOffices.map((office) => [office.latitude, office.longitude] as [number, number])
+        );
+        map.fitBounds(bounds, { padding: [24, 24], maxZoom: 12 });
       }
-      const bounds = L.latLngBounds(
-        coordinateOffices.map((office) => [office.latitude, office.longitude] as [number, number])
-      );
-      map.fitBounds(bounds, { padding: [24, 24], maxZoom: 12 });
     }
   }, [offices, autoFit, zoom]);
 

@@ -11,9 +11,25 @@ const allOffices = offices as Office[];
 const DEFAULT_WORLD_CENTER: [number, number] = [20, 0]; // Leaflet [lat, lng] tuple: 20°N latitude, 0° longitude
 const SINGLE_OFFICE_ZOOM = 10;
 const MULTI_OFFICE_ZOOM = 3;
+type CoordinateOffice = Office & { latitude: number; longitude: number };
 
 function safeJsonLd(value: unknown): string {
   return JSON.stringify(value).replace(/</g, "\\u003c");
+}
+
+function getMapCenter(offices: CoordinateOffice[]): [number, number] {
+  if (offices.length === 0) return DEFAULT_WORLD_CENTER;
+
+  const { latSum, lonSum } = offices.reduce(
+    (acc, office) => {
+      acc.latSum += office.latitude;
+      acc.lonSum += office.longitude;
+      return acc;
+    },
+    { latSum: 0, lonSum: 0 }
+  );
+
+  return [latSum / offices.length, lonSum / offices.length];
 }
 
 export default function CompanyPage() {
@@ -34,25 +50,12 @@ export default function CompanyPage() {
 
   const companyOffices = allOffices.filter((o) => o.companyId === company.id);
   const mapOffices = companyOffices.filter(
-    (office): office is Office & { latitude: number; longitude: number } =>
+    (office): office is CoordinateOffice =>
       office.latitude !== undefined && office.longitude !== undefined
   );
   const countries = [...new Set(companyOffices.map((o) => o.country))].sort();
   const regions = [...new Set(companyOffices.map((o) => o.region))].sort();
-  const mapCenter: [number, number] =
-    mapOffices.length > 0
-      ? (() => {
-          const { latSum, lonSum } = mapOffices.reduce(
-            (acc, office) => {
-              acc.latSum += office.latitude;
-              acc.lonSum += office.longitude;
-              return acc;
-            },
-            { latSum: 0, lonSum: 0 }
-          );
-          return [latSum / mapOffices.length, lonSum / mapOffices.length] as [number, number];
-        })()
-      : DEFAULT_WORLD_CENTER;
+  const mapCenter = getMapCenter(mapOffices);
   const mapZoom = mapOffices.length === 1 ? SINGLE_OFFICE_ZOOM : MULTI_OFFICE_ZOOM;
 
   const safeWebsite = sanitizeUrl(company.website);
