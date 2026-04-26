@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
@@ -14,8 +15,9 @@
       style-src 'self' 'unsafe-inline';
       img-src 'self' data: https:;
       font-src 'self' data:;
-      connect-src 'self' https://tile.openstreetmap.org ws://localhost:5173 ws://127.0.0.1:5173;
+      connect-src 'self' https://tile.openstreetmap.org ws://localhost:5173 ws://127.0.0.1:5173 ws://localhost:4173 ws://127.0.0.1:4173;
       frame-ancestors 'none';
+      object-src 'none';
       base-uri 'self';
       form-action 'self'
     " />
