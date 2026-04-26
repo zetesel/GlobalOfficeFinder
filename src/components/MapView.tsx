@@ -9,9 +9,16 @@ interface MapViewProps {
   center: [number, number];
   zoom?: number;
   height?: string;
+  autoFit?: boolean;
 }
 
-export function MapView({ offices, center, zoom = 2, height = "400px" }: MapViewProps) {
+export function MapView({
+  offices,
+  center,
+  zoom = 2,
+  height = "400px",
+  autoFit = false,
+}: MapViewProps) {
   const mapRef = useRef<L.Map | null>(null);
   const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -46,22 +53,24 @@ export function MapView({ offices, center, zoom = 2, height = "400px" }: MapView
 
   // Update map view when center or zoom change
   useEffect(() => {
+    if (autoFit) return;
     mapRef.current?.setView(center as L.LatLngExpression, zoom);
-  }, [center, zoom]);
+  }, [center, zoom, autoFit]);
 
   // Update markers when offices change
   useEffect(() => {
     const cluster = clusterRef.current;
+    const map = mapRef.current;
     if (!cluster) return;
 
     cluster.clearLayers();
 
-    offices
-      .filter(
-        (office): office is Office & { latitude: number; longitude: number } =>
-          office.latitude !== undefined && office.longitude !== undefined
-      )
-      .forEach((office) => {
+    const coordinateOffices = offices.filter(
+      (office): office is Office & { latitude: number; longitude: number } =>
+        office.latitude !== undefined && office.longitude !== undefined
+    );
+
+    coordinateOffices.forEach((office) => {
         const container = document.createElement("div");
 
         const title = document.createElement("h4");
@@ -98,7 +107,14 @@ export function MapView({ offices, center, zoom = 2, height = "400px" }: MapView
           .bindPopup(container)
           .addTo(cluster);
       });
-  }, [offices]);
+
+    if (autoFit && map && coordinateOffices.length > 0) {
+      const bounds = L.latLngBounds(
+        coordinateOffices.map((office) => [office.latitude, office.longitude] as [number, number])
+      );
+      map.fitBounds(bounds, { padding: [24, 24], maxZoom: 12 });
+    }
+  }, [offices, autoFit]);
 
   return <div ref={containerRef} style={{ height, width: "100%" }} />;
 }
