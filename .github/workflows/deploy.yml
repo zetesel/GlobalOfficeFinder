@@ -86,6 +86,13 @@ jobs:
         env:
           VITE_BASE_URL: /GlobalOfficeFinder/
 
+      - name: Verify static Pages artifacts
+        run: |
+          test -f dist/index.html
+          test -f dist/404.html
+          test -f dist/spa-redirect.js
+          grep -q "/GlobalOfficeFinder/" dist/index.html
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

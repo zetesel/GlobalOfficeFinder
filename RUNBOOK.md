@@ -44,9 +44,9 @@ Currently using GitHub Actions for build/test failure notifications:
 ### Health Checks
 
 Monitor these endpoints:
-- **Root**: https://zetesel.github.io/GlobalOfficeFinder/ (should return 200)
-- **Company Page**: https://zetesel.github.io/GlobalOfficeFinder/company/google (should return 200)
-- **Country Page**: https://zetesel.github.io/GlobalOfficeFinder/country/US (should return 200)
+- **Root**: https://zetesel.github.io/GlobalOfficeFinder/ (should load in browser)
+- **Company Page**: https://zetesel.github.io/GlobalOfficeFinder/company/google (should resolve via SPA fallback in browser)
+- **Country Page**: https://zetesel.github.io/GlobalOfficeFinder/country/US (should resolve via SPA fallback in browser)
 
 ## Updating Data
 
@@ -339,6 +339,15 @@ Current deployment is fully automated:
 - Look for green checkmark next to commit
 - Verify site loads at https://zetesel.github.io/GlobalOfficeFinder/
 
+**Required repository settings**:
+- **Settings → Pages → Source** = **GitHub Actions**
+- `main` branch protection requires passing checks before merge (at minimum PR checks and required security workflows)
+
+**Static deployment guardrails (enforced in CI)**:
+- Build with `VITE_BASE_URL=/GlobalOfficeFinder/`
+- Verify built output contains `dist/index.html`, `dist/404.html`, and `dist/spa-redirect.js`
+- Deploy only the generated static `dist/` artifact
+
 ### Manual Deployment (if needed)
 
 ```bash
@@ -446,6 +455,7 @@ npm run validate-data
 - Review [Issues](../../issues) for new contributions
 - Check [Discussions](../../discussions) for questions
 - Review dependency updates from Dependabot
+- Open deployed root and at least one deep link in a browser to confirm SPA fallback still works
 
 ### Monthly
 - Review [Lighthouse reports](../../actions/workflows/e2e-tests.yml)
