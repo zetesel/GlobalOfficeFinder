@@ -1,66 +1,126 @@
-# GlobalOfficeFinder
+# 🌐 GlobalOfficeFinder
 
-Global Office Finder is a searchable web application for discovering and viewing company offices in different countries. Users can search by company name, country, city, or region, and explore international corporate footprints through interactive maps and detailed profiles.
+Global Office Finder is a high-performance, searchable web application designed to centralize and visualize company office locations worldwide. It solves the fragmentation of corporate "contact us" pages by providing a single, unified interface for geographic discovery.
 
-Live site: [https://zetesel.github.io/GlobalOfficeFinder/](https://zetesel.github.io/GlobalOfficeFinder/)
+Live Site: [https://zetesel.github.io/GlobalOfficeFinder/](https://zetesel.github.io/GlobalOfficeFinder/)
 
-## Features
+---
 
-- **Company Search**: Advanced filtering by name, industry, region, and office type.
-- **Interactive Maps**: Global and local views of office locations with marker clustering.
-- **Company & Country Profiles**: Deep dives into organizational presence and regional hubs.
-- **SEO Optimized**: Structured JSON-LD data for all company and country pages.
-- **Automated Data Pipeline**: Built-in scraper and review queue for maintaining up-to-date information.
-- **Responsive Design**: Fully functional on desktop and mobile devices.
+## ✨ Key Features
 
-## Development
+- **🔍 Advanced Search & Filtering**: Real-time filtering by company name, industry, geographic region, and office type.
+- **🗺️ Interactive Map Interface**: Global and local views utilizing Leaflet with high-performance marker clustering.
+- **📊 Detailed Profiles**: Dedicated pages for companies and countries, providing deep insights into regional footprints.
+- **⚡ Performance First**: Near-instant search results using [Fuse.js](https://fusejs.io/) and optimized static data loading.
+- **🤖 Automated Data Pipeline**: Integrated scraper for data discovery, with a built-in review queue for data quality assurance.
+- **📱 Fully Responsive**: Seamless experience across mobile, tablet, and desktop viewports.
+- **🌐 SEO Optimized**: Full JSON-LD structured data support for automated search engine ingestion.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Core**: React 19, TypeScript, Vite
+- **Routing**: React Router 7
+- **Mapping**: Leaflet, Leaflet.markercluster
+- **Search**: Fuse.js
+- **Testing**: Vitest (Unit), Playwright (E2E), Lighthouse CI (Performance)
+- **CI/CD**: GitHub Actions
+- **Infrastructure**: GitHub Pages (Static Hosting)
+
+---
+
+## 📁 Project Structure
+
+```text
+├── data/
+│   ├── companies.json          # Core company records
+│   ├── offices.json            # Office location records
+│   ├── schema/                 # JSON Schemas for data validation
+│   └── scraper/                # Scraper metadata and review queue
+├── scripts/
+│   ├── scraper/                # Automated discovery and enrichment scripts
+│   └── validate-data.mjs       # Data integrity validation tool
+├── src/
+│   ├── components/             # Reusable UI components (Map, Cards, etc.)
+│   ├── pages/                  # Route-level components (Home, Company, Country)
+│   ├── utils/                  # Shared business logic and filters
+│   └── types/                  # TypeScript definitions
+├── e2e/                        # Playwright E2E test suites
+└── __tests__/                  # Vitest unit and integration tests
+```
+
+---
+
+## 🚀 Development
 
 ### Prerequisites
-
 - Node.js 20+
 - npm 9+
 
-### Local Setup
-
+### Quick Start
 ```bash
-npm ci                 # Install dependencies
-npm run dev            # Start development server
-npm run build          # Build for production
-npm run lint           # Run linter
-npm run validate-data  # Validate JSON data against schemas
-npm run scrape:companies      # Run discovery/enrichment scraper
-npm run test           # Run unit tests (vitest)
-npm run test:e2e       # Run end-to-end tests (Playwright)
+# Install dependencies
+npm ci
+
+# Start development server
+npm run dev
+
+# Run data validation
+npm run validate-data
+
+# Execute unit tests
+npm run test
+
+# Run E2E tests
+npm run test:e2e
 ```
 
-### Data Structure
+### Script Reference
+| Command | Description |
+|:---|:---|
+| `npm run build` | Compiles production-ready static assets to `/dist`. |
+| `npm run lint` | Performs static analysis via ESLint. |
+| `npm run format` | Auto-formats code and data files via Prettier. |
+| `npm run scrape:companies` | Runs the data discovery scraper. |
+| `npm run validate-data` | Verifies JSON data against official schemas. |
 
-- `data/companies.json`: Core company information.
-- `data/offices.json`: Detailed office locations and contact info.
-- `data/schema/`: JSON schemas used for data validation.
+---
 
-### Data Contribution
+## 🔄 Data Operations
 
-We welcome community contributions to expand our office directory.
+### Manual Contributions
 1. Fork the repository.
-2. Add company/office data to the JSON files in `data/`.
-3. Run `npm run validate-data` to ensure compliance.
-4. Submit a Pull Request.
+2. Update `data/companies.json` or `data/offices.json`.
+3. Run `npm run validate-data` to ensure schema compliance.
+4. Open a Pull Request.
 
-## Architecture & Security
+### Automated Scraper
+The discovery pipeline (`scripts/scraper/run-scraper.mjs`) can be configured via environment variables:
+- `SCRAPER_DRY_RUN=1`: Run without modifying data files.
+- `SCRAPER_CHECK_ROBOTS=0`: Disable robots.txt compliance checks (use with caution).
+- `SCRAPER_MIN_SOURCE_TRUST`: Set minimum trust level (`high`, `medium`, `low`).
 
-- **Static Deployment**: Hosted on GitHub Pages with automated CI/CD via GitHub Actions.
-- **Security Hardening**: Strict Content Security Policy (CSP), secure headers, and automated secret scanning.
-- **Quality Gates**: All PRs must pass data validation, linting, unit tests, and E2E scenarios.
-- **Performance**: Automated baseline monitoring via Lighthouse CI.
+---
 
-## Documentation
+## 🛡️ Security & Quality
 
-- [CONTRIBUTING.md](CONTRIBUTING.md): Detailed guide for contributors.
-- [RUNBOOK.md](RUNBOOK.md): Operational procedures for maintainers.
-- [SECURITY.md](SECURITY.md): Security policy and reporting.
-- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md): Community standards.
+- **CSP**: Strict Content Security Policy enforced via Meta tags.
+- **Validation**: Every PR undergoes rigorous automated schema validation and secret scanning.
+- **Testing**: 100% logic coverage with Vitest and full critical-path coverage with Playwright.
+- **Monitoring**: Performance baselines tracked via Lighthouse CI in every deployment.
 
-## License
+---
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📄 Documentation
+
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Guidelines for code and data contributions.
+- [RUNBOOK.md](RUNBOOK.md) - Operational procedures and troubleshooting for maintainers.
+- [SECURITY.md](SECURITY.md) - Security policy and vulnerability reporting.
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) - Community standards.
+
+---
+
+## 📜 License
+
+Licensed under the [MIT License](LICENSE).
