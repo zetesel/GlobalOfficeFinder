@@ -57,7 +57,7 @@ test.describe('GlobalOfficeFinder E2E Tests', () => {
     await expect(regionSelect).toBeVisible();
     
     // Select a region
-    await regionSelect.selectOption({ label: /Americas/i });
+    await regionSelect.selectOption({ label: 'Americas' });
     
     // Wait for filter to apply
     await page.waitForLoadState('networkidle');

@@ -51,7 +51,13 @@
   text-align: center;
 }
 .site-footer p { margin: .25rem 0; }
-.site-footer a { color: rgba(255,255,255,.85); }
+.site-footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+.site-footer a:hover {
+  text-decoration: none;
+}
 
 /* ── Hero ────────────────────────────────────────────────── */
 .hero-section { text-align: center; padding: 2rem 0 1.5rem; }
