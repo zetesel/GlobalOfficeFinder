@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { injectAxe, checkA11y } from 'axe-playwright';
+import AxeBuilder from '@axe-core/playwright';
 
 test.describe('GlobalOfficeFinder E2E Tests', () => {
   test('homepage loads successfully', async ({ page }) => {
@@ -198,15 +198,16 @@ test.describe('Accessibility Tests', () => {
   test('homepage has no accessibility violations', async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
-    
-    // Inject axe and check accessibility
-    await injectAxe(page);
-    await checkA11y(page, null, {
-      detailedReport: true,
-      detailedReportOptions: {
-        html: true,
-      },
-    });
+
+    const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
+    const violationSummary = accessibilityScanResults.violations
+      .map((violation) => `${violation.id} (${violation.nodes.length})`)
+      .join(', ');
+
+    expect(
+      accessibilityScanResults.violations,
+      `Accessibility violations found: ${violationSummary || 'none'}`
+    ).toEqual([]);
   });
 
   test('homepage is keyboard navigable', async ({ page }) => {
