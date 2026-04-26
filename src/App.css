@@ -147,43 +147,43 @@
 }
 .company-name { font-size: 1.1rem; margin: 0; }
 .company-name a { color: #1e3a5f; }
-.company-industry { font-size: .8rem; color: #4b5563; margin: .1rem 0 0; }
+.company-industry { font-size: .8rem; color: #374151; margin: .1rem 0 0; }
 .company-description {
-  font-size: .875rem; color: #374151;
+  font-size: .875rem; color: #1f2937;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
   overflow: hidden; margin-bottom: .75rem;
 }
 .company-meta { display: flex; gap: .5rem; margin-bottom: .5rem; }
 .meta-pill {
   font-size: .775rem; font-weight: 600;
-  background: #f3f4f6; color: #374151;
+  background: #e5e7eb; color: #1f2937;
   padding: .2rem .6rem; border-radius: 999px;
 }
-.company-countries { font-size: .8rem; color: #4b5563; }
+.company-countries { font-size: .8rem; color: #374151; }
 
 /* ── Office Card ─────────────────────────────────────────── */
 .office-card {
   background: #f9fafb;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #d1d5db;
   border-radius: 8px;
   padding: 1rem;
 }
 .office-card-header { display: flex; justify-content: space-between; margin-bottom: .5rem; }
 .office-type-badge {
   font-size: .75rem; font-weight: 700; text-transform: uppercase;
-  background: #dbeafe; color: #1e40af;
+  background: #1e40af; color: #fff;
   padding: .15rem .5rem; border-radius: 4px; letter-spacing: .02em;
 }
-.office-country-code { font-size: .75rem; font-weight: 700; color: #4b5563; }
+.office-country-code { font-size: .75rem; font-weight: 700; color: #374151; }
 .office-city { font-size: 1rem; margin: 0 0 .25rem; color: #1e3a5f; }
-.office-address { font-size: .875rem; color: #374151; margin-bottom: .2rem; }
-.office-postal { font-size: .8rem; color: #4b5563; margin: 0 0 .5rem; }
-.office-link { font-size: .8rem; color: #2563eb; font-weight: 500; }
+.office-address { font-size: .875rem; color: #1f2937; margin-bottom: .2rem; }
+.office-postal { font-size: .8rem; color: #374151; margin: 0 0 .5rem; }
+.office-link { font-size: .8rem; color: #1d4ed8; font-weight: 500; }
 
 /* ── Company Page ────────────────────────────────────────── */
 .company-page { padding-bottom: 3rem; }
-.breadcrumb { font-size: .875rem; color: #4b5563; margin-bottom: 1.5rem; }
-.breadcrumb a { color: #2563eb; }
+.breadcrumb { font-size: .875rem; color: #374151; margin-bottom: 1.5rem; }
+.breadcrumb a { color: #1d4ed8; }
 .company-page-header { display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 1.5rem; }
 .company-logo-large { width: 80px; height: 80px; object-fit: contain; border-radius: 10px; }
 .company-logo-large-placeholder {
@@ -193,35 +193,36 @@
   display: flex; align-items: center; justify-content: center;
   font-size: 2rem; font-weight: 700;
 }
-.company-page-header h1 { font-size: 2rem; margin-bottom: .25rem; }
+.company-page-header h1 { font-size: 2rem; margin-bottom: .25rem; color: #1e3a5f; }
 .company-industry-tag {
-  font-size: .85rem; color: #374151;
-  background: #e5e7eb; padding: .2rem .6rem; border-radius: 4px;
+  font-size: .85rem; color: #1f2937;
+  background: #d1d5db; padding: .2rem .6rem; border-radius: 4px;
   margin-left: .5rem;
 }
-.company-website-link { font-size: .9rem; display: block; margin-top: .25rem; }
-.company-description-section { color: #374151; margin-bottom: 1.5rem; }
+.company-website-link { font-size: .9rem; display: block; margin-top: .25rem; color: #1d4ed8; }
+.company-description-section { color: #1f2937; margin-bottom: 1.5rem; }
 
 .company-stats, .country-stats {
   display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;
 }
 .stat-box {
-  background: #fff; border: 1px solid #e5e7eb; border-radius: 8px;
+  background: #fff; border: 1px solid #d1d5db; border-radius: 8px;
   padding: 1rem 1.5rem; text-align: center; min-width: 100px;
 }
 .stat-number { display: block; font-size: 2rem; font-weight: 700; color: #1e40af; }
-.stat-label { font-size: .8rem; color: #4b5563; text-transform: uppercase; letter-spacing: .05em; }
+.stat-label { font-size: .8rem; color: #374151; text-transform: uppercase; letter-spacing: .05em; }
 
-.offices-section h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+.offices-section h2 { font-size: 1.5rem; margin-bottom: 1rem; color: #1e3a5f; }
 .region-group { margin-bottom: 2rem; }
 .region-heading {
   font-size: 1rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .08em; color: #4b5563; border-bottom: 1px solid #e5e7eb;
+  letter-spacing: .08em; color: #374151; border-bottom: 2px solid #d1d5db;
   padding-bottom: .5rem; margin-bottom: 1rem;
 }
 .country-group { margin-bottom: 1.5rem; }
 .country-heading { font-size: 1.1rem; margin-bottom: .75rem; color: #1e3a5f; }
-.country-heading a { color: inherit; }
+.country-heading a { color: inherit; text-decoration: underline; }
+.country-heading a:hover { text-decoration: none; }
 .office-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -231,17 +232,18 @@
 /* ── Country Page ────────────────────────────────────────── */
 .country-page { padding-bottom: 3rem; }
 .country-page-header { margin-bottom: 1.5rem; }
-.country-page-header h1 { font-size: 2rem; margin-bottom: .25rem; }
-.country-region { color: #4b5563; font-size: 1rem; }
-.country-companies h2 { font-size: 1.5rem; margin-bottom: 1.25rem; }
+.country-page-header h1 { font-size: 2rem; margin-bottom: .25rem; color: #1e3a5f; }
+.country-region { color: #374151; font-size: 1rem; }
+.country-companies h2 { font-size: 1.5rem; margin-bottom: 1.25rem; color: #1e3a5f; }
 .country-company-block { margin-bottom: 2rem; }
 .country-company-block h3 { display: flex; align-items: center; gap: .5rem; margin-bottom: .75rem; }
-.country-company-block h3 a { color: #1e3a5f; font-size: 1.2rem; }
+.country-company-block h3 a { color: #1e3a5f; font-size: 1.2rem; text-decoration: underline; }
+.country-company-block h3 a:hover { text-decoration: none; }
 
 /* ── Error / 404 ─────────────────────────────────────────── */
 .page-error { text-align: center; padding: 4rem 1rem; }
-.page-error h1 { font-size: 2rem; margin-bottom: .75rem; }
-.page-error p { color: #4b5563; margin-bottom: 1.5rem; }
+.page-error h1 { font-size: 2rem; margin-bottom: .75rem; color: #1e3a5f; }
+.page-error p { color: #374151; margin-bottom: 1.5rem; }
 .btn-primary {
   display: inline-block; padding: .6rem 1.25rem;
   background: #2563eb; color: #fff; border-radius: 6px;
