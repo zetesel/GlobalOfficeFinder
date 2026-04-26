@@ -9,9 +9,16 @@ interface MapViewProps {
   center: [number, number];
   zoom?: number;
   height?: string;
+  companyNamesById?: Record<string, string>;
 }
 
-export function MapView({ offices, center, zoom = 2, height = "400px" }: MapViewProps) {
+export function MapView({
+  offices,
+  center,
+  zoom = 2,
+  height = "400px",
+  companyNamesById = {},
+}: MapViewProps) {
   const mapRef = useRef<L.Map | null>(null);
   const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -65,7 +72,7 @@ export function MapView({ offices, center, zoom = 2, height = "400px" }: MapView
         const container = document.createElement("div");
 
         const title = document.createElement("h4");
-        title.textContent = office.companyId;
+        title.textContent = companyNamesById[office.companyId] ?? office.companyId;
         container.appendChild(title);
 
         const location = document.createElement("p");
@@ -98,7 +105,7 @@ export function MapView({ offices, center, zoom = 2, height = "400px" }: MapView
           .bindPopup(container)
           .addTo(cluster);
       });
-  }, [offices]);
+  }, [offices, companyNamesById]);
 
   return <div ref={containerRef} style={{ height, width: "100%" }} />;
 }

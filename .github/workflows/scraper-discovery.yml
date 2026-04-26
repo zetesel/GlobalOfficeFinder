@@ -1,0 +1,85 @@
+name: Scraper Discovery
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run scraper without mutating data files"
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+  schedule:
+    - cron: "30 3 * * 1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  discover-and-pr:
+    name: Discover companies and open PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run scraper (dry-run)
+        if: github.event_name == 'workflow_dispatch' && inputs.dry_run == 'true'
+        run: npm run scrape:companies:dry
+
+      - name: Run scraper
+        if: github.event_name != 'workflow_dispatch' || inputs.dry_run != 'true'
+        run: npm run scrape:companies
+
+      - name: Validate JSON data
+        run: npm run validate-data
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Run tests
+        run: npm run test -- --run
+
+      - name: Build
+        run: npm run build
+        env:
+          VITE_BASE_URL: /GlobalOfficeFinder/
+
+      - name: Create Pull Request
+        if: github.event_name != 'workflow_dispatch' || inputs.dry_run != 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/scraper-discovery
+          delete-branch: true
+          title: "chore(data): automated scraper discovery update"
+          commit-message: "chore(data): update discovered companies and offices"
+          body: |
+            ## Summary
+            - ran automated discovery + enrichment pipeline
+            - normalized and deduplicated company/office records
+            - geocoded missing office coordinates
+            - updated scraper run metadata and review queue
+
+            ## Validation
+            - npm run validate-data
+            - npm run lint
+            - npm run test -- --run
+            - npm run build
+          labels: |
+            data
+            automation
+          add-paths: |
+            data/companies.json
+            data/offices.json
+            data/scraper/last-run.json
+            data/scraper/review-queue.json

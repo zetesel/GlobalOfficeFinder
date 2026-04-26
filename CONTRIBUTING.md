@@ -137,6 +137,26 @@ This checks:
 - HTML injection detection
 - Cross-reference integrity
 
+### Automated discovery scraper
+
+The project also supports a controlled scraper/enrichment pipeline:
+
+```bash
+npm run scrape:companies
+```
+
+Dry-run mode:
+
+```bash
+npm run scrape:companies:dry
+```
+
+Operational notes:
+- Source candidates live under `data/scraper/sources/`
+- Low-confidence or incomplete records are routed to `data/scraper/review-queue.json`
+- Run audit metadata is stored in `data/scraper/last-run.json`
+- Newly published scraped offices must include latitude/longitude to ensure map visibility
+
 ### Data Sources
 
 Preferred sources (in order):

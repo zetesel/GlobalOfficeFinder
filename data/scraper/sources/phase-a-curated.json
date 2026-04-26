@@ -1,0 +1,66 @@
+[
+  {
+    "id": "phase-a-official-tech-sample",
+    "name": "Phase A Trusted Tech Sources",
+    "sourceUrl": "https://www.atlassian.com/company/contact",
+    "trust": "high",
+    "companies": [
+      {
+        "name": "Atlassian",
+        "website": "https://www.atlassian.com",
+        "industry": "Enterprise Software",
+        "description": "Atlassian develops collaboration and productivity software for software teams and enterprises.",
+        "logo": "",
+        "officePages": [
+          "https://www.atlassian.com/company/contact"
+        ],
+        "offices": [
+          {
+            "country": "Australia",
+            "countryCode": "AU",
+            "city": "Sydney",
+            "address": "341 George Street",
+            "postalCode": "2000",
+            "officeType": "Headquarters",
+            "latitude": -33.8688,
+            "longitude": 151.2093,
+            "contactUrl": "https://www.atlassian.com/company/contact",
+            "sourceUrl": "https://www.atlassian.com/company/contact"
+          },
+          {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "San Francisco",
+            "address": "350 Bush Street",
+            "postalCode": "94104",
+            "officeType": "Regional Office",
+            "contactUrl": "https://www.atlassian.com/company/contact",
+            "sourceUrl": "https://www.atlassian.com/company/contact"
+          }
+        ]
+      },
+      {
+        "name": "Shopify",
+        "website": "https://www.shopify.com",
+        "industry": "E-Commerce Platform",
+        "description": "Shopify provides commerce infrastructure for merchants to start, run, and grow online businesses.",
+        "logo": "",
+        "officePages": [
+          "https://www.shopify.com/contact"
+        ],
+        "offices": [
+          {
+            "country": "Canada",
+            "countryCode": "CA",
+            "city": "Ottawa",
+            "address": "151 O'Connor Street",
+            "postalCode": "K2P 2L8",
+            "officeType": "Headquarters",
+            "contactUrl": "https://www.shopify.com/contact",
+            "sourceUrl": "https://www.shopify.com/contact"
+          }
+        ]
+      }
+    ]
+  }
+]

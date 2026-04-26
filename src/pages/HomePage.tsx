@@ -31,6 +31,11 @@ export default function HomePage() {
     return map;
   }, []);
 
+  const companyNamesById = useMemo(
+    () => Object.fromEntries(allCompanies.map((company) => [company.id, company.name])),
+    []
+  );
+
   const filteredCompanies = useMemo(() => {
     if (!region && !country) return searchResults;
     const matchingCompanyIds = new Set(
@@ -177,10 +182,15 @@ export default function HomePage() {
              </div>
              <div className="map-section">
                <h2>Office Locations Map</h2>
-               <MapView offices={mapOffices} center={[20, 0]} zoom={2} />
-             </div>
-           </>
-         )}
+                <MapView
+                  offices={mapOffices}
+                  center={[20, 0]}
+                  zoom={2}
+                  companyNamesById={companyNamesById}
+                />
+              </div>
+            </>
+          )}
        </section>
     </div>
   );
