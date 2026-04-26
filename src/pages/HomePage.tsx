@@ -14,6 +14,9 @@ const ALL_REGIONS = [...new Set(allOffices.map((o) => o.region))].sort();
 const ALL_COUNTRIES = [
   ...new Map(allOffices.map((o) => [o.countryCode, o.country])).entries(),
 ].sort((a, b) => a[1].localeCompare(b[1]));
+const ALL_COMPANY_NAMES_BY_ID = Object.fromEntries(
+  allCompanies.map((company) => [company.id, company.name])
+);
 
 export default function HomePage() {
   const [query, setQuery] = useState("");
@@ -30,11 +33,6 @@ export default function HomePage() {
     }
     return map;
   }, []);
-
-  const companyNamesById = useMemo(
-    () => Object.fromEntries(allCompanies.map((company) => [company.id, company.name])),
-    []
-  );
 
   const filteredCompanies = useMemo(() => {
     if (!region && !country) return searchResults;
@@ -186,7 +184,7 @@ export default function HomePage() {
                   offices={mapOffices}
                   center={[20, 0]}
                   zoom={2}
-                  companyNamesById={companyNamesById}
+                  companyNamesById={ALL_COMPANY_NAMES_BY_ID}
                 />
               </div>
             </>
