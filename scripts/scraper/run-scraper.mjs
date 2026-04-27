@@ -677,6 +677,81 @@ function extractOfficesFromHtml(body, pageUrl) {
     // noop
   }
 
+  // 3) Look for lists (<ul>/<ol>) where each <li> may be an address or contain comma-separated address parts
+  try {
+    const listMatches = [...body.matchAll(/<(?:ul|ol)[^>]*>([\s\S]*?)<\/(?:ul|ol)>/gi)];
+    for (const lm of listMatches) {
+      const liMatches = [...lm[1].matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)];
+      for (const li of liMatches) {
+        const text = li[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+        // heuristics: comma-separated pieces > 1
+        const parts = text.split(/,|;|\n/).map((s) => s.trim()).filter(Boolean);
+        if (parts.length >= 2 && /\d/.test(parts[0] + parts.join(' '))) {
+          // choose first as street, last as city/postal/country if present
+          const street = parts[0];
+          const tail = parts.slice(1).join(', ');
+          // try to split city and postal from tail
+          const pcMatch = tail.match(/(\b\d{3,}\b.*$)/);
+          const postal = pcMatch ? pcMatch[1] : "";
+          const city = pcMatch ? tail.replace(pcMatch[1], "").replace(/,$/, '').trim() : (parts[1] || '');
+          results.push({ country: "", countryCode: undefined, city, address: street, postalCode: postal, contactUrl: pageUrl, sourceUrl: pageUrl });
+        }
+      }
+    }
+  } catch (e) {
+    // noop
+  }
+
+  // 4) Look for table rows that look like addresses (td count >=2 and contains digits/words)
+  try {
+    const tableRowMatches = [...body.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)];
+    for (const tr of tableRowMatches) {
+      const tds = [...tr[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map((m) => m[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).filter(Boolean);
+      if (tds.length >= 2) {
+        const joined = tds.join(', ');
+        if (/\d/.test(joined) && /[A-Za-z]/.test(joined)) {
+          // attempt to extract street, city
+          const parts = joined.split(/,|;|\n/).map((s) => s.trim()).filter(Boolean);
+          if (parts.length >= 2) {
+            const street = parts[0];
+            const city = parts.slice(1, 2).join(' ');
+            const postalMatch = joined.match(/(\b\d{3,}\b)/);
+            const postal = postalMatch ? postalMatch[1] : '';
+            results.push({ country: '', countryCode: undefined, city, address: street, postalCode: postal, contactUrl: pageUrl, sourceUrl: pageUrl });
+          }
+        }
+      }
+    }
+  } catch (e) {
+    // noop
+  }
+
+  // 5) Look for location blocks: elements with class names containing 'location' or 'office'
+  try {
+    const locBlockMatches = [...body.matchAll(/<([a-z0-9]+)[^>]*class=(?:"|')([^"']*)(?:"|')[^>]*>([\s\S]*?)<\/\1>/gi)];
+    for (const m of locBlockMatches) {
+      const cls = (m[2] || '').toLowerCase();
+      if (!/location|office|headquarter|address|branch/.test(cls)) continue;
+      const inner = (m[3] || '').replace(/<[^>]+>/g, '\n').replace(/\s+/g, ' ').trim();
+      const lines = inner.split(/\n|,|\r/).map((s) => s.trim()).filter(Boolean);
+      if (lines.length === 0) continue;
+      // Find a line with digits (street) and a line with city/postal
+      let street = '';
+      let city = '';
+      let postal = '';
+      for (const line of lines) {
+        if (!street && /\d/.test(line)) street = line;
+        else if (!city && /[A-Za-z]/.test(line)) city = line;
+      }
+      if (street) {
+        const pc = city.match(/(\b\d{3,}\b.*)/);
+        if (pc) { postal = pc[1]; city = city.replace(pc[1], '').trim(); }
+        results.push({ country: '', countryCode: undefined, city: city || '', address: street, postalCode: postal || '', contactUrl: pageUrl, sourceUrl: pageUrl });
+      }
+    }
+  } catch (e) {
+    // noop
+  }
   return results;
 }
 
