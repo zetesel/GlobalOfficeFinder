@@ -56,6 +56,34 @@
     "contactUrl": "https://www.atlassian.com/company/contact"
   },
   {
+    "id": "atlassian-us-san-francisc",
+    "companyId": "atlassian",
+    "country": "United States",
+    "countryCode": "US",
+    "region": "Americas",
+    "city": "San Francisco",
+    "address": "350 Bush Street",
+    "postalCode": "94104",
+    "officeType": "Regional Office",
+    "latitude": 37.7913454,
+    "longitude": -122.4032976,
+    "contactUrl": "https://www.atlassian.com/company/contact"
+  },
+  {
+    "id": "google-ch-zurich",
+    "companyId": "google",
+    "country": "Switzerland",
+    "countryCode": "CH",
+    "region": "Europe",
+    "city": "Zurich",
+    "address": "Brandschenkestrasse 110",
+    "postalCode": "8002",
+    "officeType": "Regional Office",
+    "latitude": 47.3686,
+    "longitude": 8.5392,
+    "contactUrl": "https://about.google/contact/"
+  },
+  {
     "id": "google-de-ham",
     "companyId": "google",
     "country": "Germany",
@@ -84,6 +112,34 @@
     "contactUrl": "https://about.google/locations/"
   },
   {
+    "id": "google-gb-london",
+    "companyId": "google",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "region": "Europe",
+    "city": "London",
+    "address": "1 St Giles High St",
+    "postalCode": "WC2H 8AG",
+    "officeType": "Regional Office",
+    "latitude": 51.5154,
+    "longitude": -0.131,
+    "contactUrl": "https://about.google/contact/"
+  },
+  {
+    "id": "google-jp-tokyo",
+    "companyId": "google",
+    "country": "Japan",
+    "countryCode": "JP",
+    "region": "Asia-Pacific",
+    "city": "Tokyo",
+    "address": "Roppongi Hills Mori Tower, 6-10-1 Roppongi",
+    "postalCode": "106-6140",
+    "officeType": "Regional Office",
+    "latitude": 35.6586,
+    "longitude": 139.7454,
+    "contactUrl": "https://about.google/contact/"
+  },
+  {
     "id": "google-sg-sin",
     "companyId": "google",
     "country": "Singapore",
@@ -110,6 +166,20 @@
     "latitude": 37.422,
     "longitude": -122.0841,
     "contactUrl": "https://about.google/locations/"
+  },
+  {
+    "id": "google-us-new-york",
+    "companyId": "google",
+    "country": "United States",
+    "countryCode": "US",
+    "region": "Americas",
+    "city": "New York",
+    "address": "76 9th Avenue",
+    "postalCode": "10011",
+    "officeType": "Regional Office",
+    "latitude": 40.7484,
+    "longitude": -74.006,
+    "contactUrl": "https://about.google/contact/"
   },
   {
     "id": "google-us-nyc",
@@ -376,6 +446,20 @@
     "latitude": 37.7894,
     "longitude": -122.3961,
     "contactUrl": "https://www.salesforce.com/company/contact/"
+  },
+  {
+    "id": "shopify-ca-ottawa",
+    "companyId": "shopify",
+    "country": "Canada",
+    "countryCode": "CA",
+    "region": "Americas",
+    "city": "Ottawa",
+    "address": "151 O'Connor Street",
+    "postalCode": "K2P 2L8",
+    "officeType": "Headquarters",
+    "latitude": 45.4199879,
+    "longitude": -75.6970497,
+    "contactUrl": "https://www.shopify.com/contact"
   },
   {
     "id": "siemens-cn-bei",

@@ -91,7 +91,6 @@ const MIN_CONFIDENCE_FOR_PUBLISH = process.env.SCRAPER_MIN_CONFIDENCE ?? "medium
 const MIN_SOURCE_TRUST = process.env.SCRAPER_MIN_SOURCE_TRUST ?? "high";
 const ENABLE_ROBOTS_CHECK = process.env.SCRAPER_CHECK_ROBOTS !== "0";
 const PER_SOURCE_FAILURE_THRESHOLD = Number(process.env.SCRAPER_SOURCE_FAILURE_THRESHOLD ?? "4");
-const AUTO_DISCOVER = process.env.SCRAPER_AUTO_DISCOVER === "1";
 
 const CONFIDENCE_RANK = { low: 1, medium: 2, high: 3 };
 const SOURCE_TRUST_RANK = { low: 1, medium: 2, high: 3 };
@@ -622,14 +621,6 @@ async function main() {
     }
   }
 
-  // Optional: auto-discover candidate pages for existing companies in companies.json
-  if (AUTO_DISCOVER) {
-    const autoSource = { id: "auto-discover", name: "Auto Discover", sourceUrl: "https://auto-discover.local", trust: "medium" };
-    for (const existingCompany of existingCompanies) {
-      discovered.push({ source: autoSource, company: { name: existingCompany.name, website: existingCompany.website, industry: existingCompany.industry, description: existingCompany.description, logo: existingCompany.logo, officePages: [] } });
-    }
-  }
-
   // Stage 2: collect office pages
   const collectedPageData = [];
   for (const entry of discovered) {
@@ -652,50 +643,30 @@ async function main() {
     ].filter(Boolean);
 
     for (const url of new Set(urls)) {
-      // Build candidate list: include common locations/contact paths for auto-discovered entries
-      const candidateUrls = [url];
-      try {
-        if (String(entry.source?.id ?? "") === "auto-discover") {
-          const base = new URL(url);
-          const candidatePaths = ["/locations", "/locations/", "/about/locations", "/about/locations/", "/contact", "/contact/", "/about", "/about/", "/locations.html", "/office-locations", "/our-locations"];
-          for (const p of candidatePaths) {
-            try {
-              candidateUrls.push(new URL(p, base).href);
-            } catch {
-              // ignore bad URL concat
-            }
-          }
-        }
-      } catch {
-        // noop
+      if (!FETCH_OFFICE_PAGES) {
+        collectedPageData.push({ url, fetched: false, skipped: true, fetchedAt: nowIso() });
+        continue;
+      }
+      const robotsCheck = await isUrlAllowedByRobots(url);
+      if (!robotsCheck.allowed) {
+        collectedPageData.push({
+          url,
+          sourceId,
+          fetched: false,
+          skipped: true,
+          reason: robotsCheck.reason,
+          fetchedAt: nowIso(),
+        });
+        sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+        continue;
       }
 
-      for (const candidateUrl of new Set(candidateUrls)) {
-        if (!FETCH_OFFICE_PAGES) {
-          collectedPageData.push({ url: candidateUrl, fetched: false, skipped: true, fetchedAt: nowIso() });
-          continue;
-        }
-        const robotsCheck = await isUrlAllowedByRobots(candidateUrl);
-        if (!robotsCheck.allowed) {
-          collectedPageData.push({
-            url: candidateUrl,
-            sourceId,
-            fetched: false,
-            skipped: true,
-            reason: robotsCheck.reason,
-            fetchedAt: nowIso(),
-          });
-          sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-          continue;
-        }
-
-        const pageResult = await fetchPage(candidateUrl);
-        collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck });
-        if (!pageResult.fetched) {
-          sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-        }
-        await sleep(200);
+      const pageResult = await fetchPage(url);
+      collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck });
+      if (!pageResult.fetched) {
+        sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
       }
+      await sleep(200);
     }
   }
 

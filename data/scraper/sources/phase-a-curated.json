@@ -60,6 +60,78 @@
             "sourceUrl": "https://www.shopify.com/contact"
           }
         ]
+      },
+      {
+        "name": "Google",
+        "website": "https://about.google",
+        "industry": "Technology",
+        "description": "Google LLC is an American multinational technology company focusing on search engine technology, online advertising, cloud computing, computer software, quantum computing, e-commerce, and artificial intelligence.",
+        "logo": "",
+        "officePages": [
+          "https://about.google/contact/"
+        ],
+        "offices": [
+          {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "Mountain View",
+            "address": "1600 Amphitheatre Parkway",
+            "postalCode": "94043",
+            "officeType": "Headquarters",
+            "contactUrl": "https://about.google/contact/",
+            "sourceUrl": "https://about.google/contact/",
+            "latitude": 37.422,
+            "longitude": -122.084
+          },
+          {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "New York",
+            "address": "76 9th Avenue",
+            "postalCode": "10011",
+            "officeType": "Regional Office",
+            "contactUrl": "https://about.google/contact/",
+            "sourceUrl": "https://about.google/contact/",
+            "latitude": 40.7484,
+            "longitude": -74.006
+          },
+          {
+            "country": "United Kingdom",
+            "countryCode": "GB",
+            "city": "London",
+            "address": "1 St Giles High St",
+            "postalCode": "WC2H 8AG",
+            "officeType": "Regional Office",
+            "contactUrl": "https://about.google/contact/",
+            "sourceUrl": "https://about.google/contact/",
+            "latitude": 51.5154,
+            "longitude": -0.131
+          },
+          {
+            "country": "Japan",
+            "countryCode": "JP",
+            "city": "Tokyo",
+            "address": "Roppongi Hills Mori Tower, 6-10-1 Roppongi",
+            "postalCode": "106-6140",
+            "officeType": "Regional Office",
+            "contactUrl": "https://about.google/contact/",
+            "sourceUrl": "https://about.google/contact/",
+            "latitude": 35.6586,
+            "longitude": 139.7454
+          },
+          {
+            "country": "Switzerland",
+            "countryCode": "CH",
+            "city": "Zurich",
+            "address": "Brandschenkestrasse 110",
+            "postalCode": "8002",
+            "officeType": "Regional Office",
+            "contactUrl": "https://about.google/contact/",
+            "sourceUrl": "https://about.google/contact/",
+            "latitude": 47.3686,
+            "longitude": 8.5392
+          }
+        ]
       }
     ]
   }
