@@ -58,6 +58,47 @@ function normalizeCountryCode(country, countryCode) {
   return COUNTRY_CODE_FALLBACK[normalized] || '';
 }
 
+const REGION_BY_COUNTRY_CODE = {
+  US: 'Americas',
+  CA: 'Americas',
+  MX: 'Americas',
+  BR: 'Americas',
+  AR: 'Americas',
+  CL: 'Americas',
+  GB: 'Europe',
+  IE: 'Europe',
+  DE: 'Europe',
+  FR: 'Europe',
+  NL: 'Europe',
+  LU: 'Europe',
+  SE: 'Europe',
+  NO: 'Europe',
+  FI: 'Europe',
+  PL: 'Europe',
+  CH: 'Europe',
+  ES: 'Europe',
+  IT: 'Europe',
+  PT: 'Europe',
+  JP: 'Asia-Pacific',
+  SG: 'Asia-Pacific',
+  AU: 'Asia-Pacific',
+  NZ: 'Asia-Pacific',
+  IN: 'Asia-Pacific',
+  KR: 'Asia-Pacific',
+  CN: 'Asia-Pacific',
+  HK: 'Asia-Pacific',
+  AE: 'Middle East & Africa',
+  ZA: 'Middle East & Africa',
+  EG: 'Middle East & Africa',
+  NG: 'Middle East & Africa',
+  SA: 'Middle East & Africa',
+};
+
+function normalizeRegion(countryCode) {
+  if (!countryCode) return '';
+  return REGION_BY_COUNTRY_CODE[String(countryCode).toUpperCase()] || '';
+}
+
 async function geocodeOffice(office) {
   // minimal geocode via Nominatim
   try {
@@ -178,11 +219,28 @@ async function main() {
     return;
   }
 
-  // APPLY: append accepted proposals to offices.json, with ids and provenance
+  // APPLY: append accepted proposals to offices.json, with ids and normalized fields
   const toAdd = [];
   for (const o of accepted) {
-    const id = makeOfficeId(existingOffices.concat(toAdd), o.companyId, o.countryCode, o.city);
-    toAdd.push({ id, ...o });
+    // ensure companyId exists
+    if (!o.companyId || o.companyId === 'unknown') continue;
+    const cc = String(o.countryCode || '').toUpperCase();
+    const region = normalizeRegion(cc) || 'Americas';
+    const office = {
+      companyId: o.companyId,
+      country: o.country || '',
+      countryCode: cc,
+      region,
+      city: o.city || '',
+      address: o.address || '',
+      postalCode: o.postalCode || '',
+      officeType: o.officeType || 'Regional Office',
+      latitude: o.latitude,
+      longitude: o.longitude,
+      contactUrl: sanitizeUrl(o.contactUrl) || undefined,
+    };
+    const id = makeOfficeId(existingOffices.concat(toAdd), office.companyId, office.countryCode, office.city);
+    toAdd.push({ id, ...office });
   }
 
   if (toAdd.length === 0) {
