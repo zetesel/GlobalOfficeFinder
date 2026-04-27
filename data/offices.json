@@ -1358,12 +1358,12 @@
     "contactUrl": "https://www.telekom.com"
   },
   {
-    "id": "vodafone-gb-lon",
+    "id": "vodafone-gb-new",
     "companyId": "vodafone",
     "country": "United Kingdom",
     "countryCode": "GB",
     "region": "Europe",
-    "city": "London",
+    "city": "Newbury",
     "address": "Vodafone House, The Connection, Newbury",
     "postalCode": "RG14 2FN",
     "officeType": "Headquarters",
