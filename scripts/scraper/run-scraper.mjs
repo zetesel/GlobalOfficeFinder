@@ -1094,6 +1094,13 @@ async function main() {
     items: reviewQueue,
   });
 
+  // Persist collected page data so the CLI and humans can inspect what was fetched and what was extracted
+  try {
+    writeJson(join(root, "data", "scraper", "collected-pages.json"), collectedPageData);
+  } catch (e) {
+    // ignore write errors
+  }
+
   if (!DRY_RUN) {
     writeJson(COMPANIES_PATH, mergedCompanies);
     writeJson(OFFICES_PATH, mergedOffices);
