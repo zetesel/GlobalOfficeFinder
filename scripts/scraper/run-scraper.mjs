@@ -343,6 +343,40 @@ async function geocodeOffice(office) {
     }
   }
 
+  // Attach any extracted offices (from HTML JSON-LD or <address>) back to the discovered company entries
+  try {
+    const extractedEntries = collectedPageData.filter((p) => p.extractedOffice);
+    if (extractedEntries.length > 0) {
+      for (const ex of extractedEntries) {
+        const exUrl = ex.url || ex.sourceUrl || "";
+        let exDomain = "";
+        try {
+          exDomain = new URL(exUrl.replace(/#.*$/, "")).hostname.replace(/^www\./, "");
+        } catch {
+          // noop
+        }
+
+        for (const entry of discovered) {
+          const companyUrl = sanitizeUrl(entry.company.website) || "";
+          let companyDomain = "";
+          try {
+            companyDomain = new URL(companyUrl).hostname.replace(/^www\./, "");
+          } catch {
+            // noop
+          }
+
+          if (!companyDomain) continue;
+          if (exDomain === companyDomain) {
+            entry.company.offices = entry.company.offices || [];
+            entry.company.offices.push(ex.extractedOffice);
+          }
+        }
+      }
+    }
+  } catch (e) {
+    // ignore mapping errors
+  }
+
   return { latitude: undefined, longitude: undefined, certainty: "none" };
 }
 
