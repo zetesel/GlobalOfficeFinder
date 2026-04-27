@@ -140,8 +140,11 @@ async function main() {
   const APPLY = args.has('--apply');
   const DO_GEOCODE = args.has('--geocode');
 
-  const companies = readJson(join(root, 'data', 'companies.json')) || [];
-  const existingOffices = readJson(join(root, 'data', 'offices.json')) || [];
+  const USE_STAGING = process.env.SCRAPER_STAGING === '1';
+  const companiesPath = USE_STAGING ? join(root, 'data', 'companies-staging.json') : join(root, 'data', 'companies.json');
+  const officesPath = USE_STAGING ? join(root, 'data', 'offices-staging.json') : join(root, 'data', 'offices.json');
+  const companies = readJson(companiesPath) || [];
+  const existingOffices = readJson(officesPath) || [];
   const collected = readJson(join(root, 'data', 'scraper', 'collected-pages.json')) || [];
   const reviewQueue = readJson(join(root, 'data', 'scraper', 'review-queue.json')) || { items: [] };
 
@@ -201,12 +204,27 @@ async function main() {
     }
     o.latitude = geocodeInfo.latitude;
     o.longitude = geocodeInfo.longitude;
-    // minimal acceptance criteria for auto-accept: address + city + countryCode
-    const hasMinimal = String(o.address).trim() && String(o.city).trim() && String(o.countryCode).trim();
-    if (APPLY && hasMinimal) accepted.push(o);
+
+    // Compute a simple completeness score over key fields
+    const completenessFields = ['country', 'countryCode', 'region', 'city', 'address', 'officeType', 'latitude', 'longitude'];
+    const filled = completenessFields.filter((k) => {
+      const v = o[k];
+      return v !== undefined && v !== null && String(v).toString().trim() !== '';
+    }).length;
+    const completenessScore = filled / completenessFields.length;
+
+    // Acceptance policy (tightened): require either high-confidence geocode OR high completeness
+    const geocodedHigh = DO_GEOCODE && geocodeInfo.certainty === 'high' && typeof o.latitude === 'number' && typeof o.longitude === 'number';
+    const completenessHigh = completenessScore >= 0.8;
+
+    if (APPLY && (geocodedHigh || completenessHigh)) {
+      accepted.push(o);
+    }
+
     // add metadata
     p.proposal.geocode = geocodeInfo;
-    p.proposal.minimal = !!hasMinimal;
+    p.proposal.minimal = completenessScore >= 0.5;
+    p.proposal.completenessScore = completenessScore;
   }
 
   // Write proposals to disk for inspection
@@ -248,26 +266,28 @@ async function main() {
     return;
   }
 
-  // backup and write
-  const officesPath = join(root, 'data', 'offices.json');
-  const backup = readJson(officesPath);
+  // backup and write to either staging or canonical files
+  const backup = readJson(officesPath) || [];
   const merged = [...backup, ...toAdd];
-  // write
   writeJson(officesPath, merged);
-  console.log(`Appended ${toAdd.length} offices to data/offices.json (backup available in memory).`);
+  console.log(`Appended ${toAdd.length} offices to ${officesPath}${USE_STAGING ? ' (staging)' : ''}.`);
 
-  // run validation
-  try {
-    const cp = await import('child_process');
-    const res = cp.spawnSync('npm', ['run', 'validate-data'], { cwd: root, stdio: 'inherit', shell: process.platform === 'win32' });
-    if (res.status !== 0) {
-      // restore
-      writeJson(officesPath, backup);
-      console.error('validate-data failed; restored original offices.json');
-      process.exit(1);
+  // run validation only when applying to canonical files
+  if (!USE_STAGING) {
+    try {
+      const cp = await import('child_process');
+      const res = cp.spawnSync('npm', ['run', 'validate-data'], { cwd: root, stdio: 'inherit', shell: process.platform === 'win32' });
+      if (res.status !== 0) {
+        // restore
+        writeJson(officesPath, backup);
+        console.error('validate-data failed; restored original offices.json');
+        process.exit(1);
+      }
+    } catch (e) {
+      console.error('Failed to run validate-data', e);
     }
-  } catch (e) {
-    console.error('Failed to run validate-data', e);
+  } else {
+    console.log('Staging mode: skipped validate-data. Inspect staging files before promoting.');
   }
 
   console.log('Apply complete.');
