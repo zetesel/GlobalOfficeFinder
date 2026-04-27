@@ -91,6 +91,7 @@ const MIN_CONFIDENCE_FOR_PUBLISH = process.env.SCRAPER_MIN_CONFIDENCE ?? "medium
 const MIN_SOURCE_TRUST = process.env.SCRAPER_MIN_SOURCE_TRUST ?? "high";
 const ENABLE_ROBOTS_CHECK = process.env.SCRAPER_CHECK_ROBOTS !== "0";
 const PER_SOURCE_FAILURE_THRESHOLD = Number(process.env.SCRAPER_SOURCE_FAILURE_THRESHOLD ?? "4");
+const AUTO_ACCEPT = process.env.SCRAPER_AUTO_ACCEPT === "1";
 const AUTO_DISCOVER = process.env.SCRAPER_AUTO_DISCOVER === "1";
 
 const CONFIDENCE_RANK = { low: 1, medium: 2, high: 3 };
@@ -1168,6 +1169,78 @@ async function main() {
     minPublishConfidence: MIN_CONFIDENCE_FOR_PUBLISH,
     items: reviewQueue,
   });
+
+  // Optional: try to auto-accept some review-queue items when enabled.
+  if (AUTO_ACCEPT && reviewQueue.length > 0) {
+    const remainingQueue = [];
+    for (const item of reviewQueue) {
+      if (item.type !== 'office') {
+        remainingQueue.push(item);
+        continue;
+      }
+      const raw = item.office || {};
+      const country = safeText(raw.country);
+      let countryCode = normalizeCountryCode(country, raw.countryCode, countryCodeMap);
+      const region = raw.region && safeText(raw.region) ? safeText(raw.region) : normalizeRegion(countryCode, regionMap);
+
+      const normalizedOffice = {
+        id: '',
+        companyId: raw.companyId || raw.companyId || '',
+        country: country || safeText(raw.country) || '',
+        countryCode: countryCode || '',
+        region,
+        city: safeText(raw.city),
+        address: safeText(raw.address),
+        postalCode: safeText(raw.postalCode),
+        officeType: safeText(raw.officeType) || 'Regional Office',
+        latitude: typeof raw.latitude === 'number' ? raw.latitude : undefined,
+        longitude: typeof raw.longitude === 'number' ? raw.longitude : undefined,
+        contactUrl: sanitizeUrl(raw.contactUrl) || sanitizeUrl(item.sourceUrl) || undefined,
+      };
+
+      // geocode if coords missing
+      let geocodeCertainty = 'none';
+      if (GEOCODE_ENABLED && (normalizedOffice.latitude === undefined || normalizedOffice.longitude === undefined)) {
+        const geocode = await geocodeOffice(normalizedOffice);
+        if (geocode.error) {
+          sourceFailures.set(String(item.sourceId ?? 'unknown'), (sourceFailures.get(String(item.sourceId ?? 'unknown')) ?? 0) + 1);
+        }
+        if (typeof geocode.latitude === 'number' && typeof geocode.longitude === 'number') {
+          normalizedOffice.latitude = geocode.latitude;
+          normalizedOffice.longitude = geocode.longitude;
+        }
+        geocodeCertainty = geocode.certainty || 'none';
+      } else if (normalizedOffice.latitude !== undefined && normalizedOffice.longitude !== undefined) {
+        geocodeCertainty = 'high';
+      }
+
+      const completenessScore =
+        REQUIRED_OFFICE_FIELDS.filter((k) => normalizedOffice[k] !== undefined && normalizedOffice[k] !== null && String(normalizedOffice[k]).trim() !== '').length /
+        REQUIRED_OFFICE_FIELDS.length;
+
+      const confidence = scoreConfidence({ officialSourceMatch: false, pageFetchSuccess: false, completenessScore, geocodeCertainty });
+
+      // acceptance policy: accept if confidence level passes current threshold OR geocode is high OR completeness >= 0.6
+      if (levelPasses(confidence.level) || geocodeCertainty === 'high' || completenessScore >= 0.6) {
+        const dedupeKey = officeDedupKey({ companyId: normalizedOffice.companyId, address: normalizedOffice.address, city: normalizedOffice.city, countryCode: normalizedOffice.countryCode });
+        if (!officeKeys.has(dedupeKey)) {
+          normalizedOffice.id = makeOfficeId(mergedOffices, normalizedOffice.companyId, normalizedOffice.countryCode, normalizedOffice.city);
+          officeKeys.add(dedupeKey);
+          mergedOffices.push(normalizedOffice);
+          acceptedOffices.push({ ...normalizedOffice, source: { sourceId: item.sourceId || 'auto-accepted', sourceUrl: item.sourceUrl || null, scrapedAt: nowIso(), confidence: confidence.level, confidenceScore: confidence.score, geocodeCertainty } });
+        }
+      } else {
+        remainingQueue.push(item);
+      }
+    }
+
+    // overwrite reviewQueue with remaining items
+    writeJson(REVIEW_QUEUE_PATH, {
+      generatedAt: nowIso(),
+      minPublishConfidence: MIN_CONFIDENCE_FOR_PUBLISH,
+      items: remainingQueue,
+    });
+  }
 
   // Persist collected page data so the CLI and humans can inspect what was fetched and what was extracted
   try {
