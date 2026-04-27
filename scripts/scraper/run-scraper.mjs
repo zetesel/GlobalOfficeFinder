@@ -364,6 +364,7 @@ async function fetchPage(url) {
         fetched: true,
         status: response.status,
         title: safeText(titleMatch?.[1] ?? "") || undefined,
+        body: text,
         fetchedAt: nowIso(),
       };
     } catch (error) {
@@ -556,6 +557,69 @@ async function isUrlAllowedByRobots(url) {
 }
 
 /**
+ * Try to extract office/address information from an HTML page body.
+ * Returns an array of partial office objects: {country, countryCode, city, address, postalCode, contactUrl, sourceUrl}
+ */
+function extractOfficesFromHtml(body, pageUrl) {
+  const results = [];
+  if (!body || typeof body !== "string") return results;
+
+  // 1) Try to parse JSON-LD blocks for PostalAddress or LocalBusiness
+  try {
+    const jsonLdMatches = [...body.matchAll(/<script[^>]*type=(?:"|')application\/ld\+json(?:"|')[^>]*>([\s\S]*?)<\/script>/gi)];
+    for (const m of jsonLdMatches) {
+      try {
+        const payload = JSON.parse(m[1]);
+        const items = Array.isArray(payload) ? payload : [payload];
+        for (const item of items) {
+          // PostalAddress inside
+          const address = item.address || (item['@graph'] && item['@graph'].find((g) => g.address)?.address);
+          if (address && (address.streetAddress || address.addressLocality || address.postalCode)) {
+            results.push({
+              country: address.addressCountry || "",
+              countryCode: typeof address.addressCountry === 'string' && address.addressCountry.length === 2 ? address.addressCountry : undefined,
+              city: address.addressLocality || "",
+              address: address.streetAddress || "",
+              postalCode: address.postalCode || "",
+              contactUrl: pageUrl,
+              sourceUrl: pageUrl,
+            });
+          }
+        }
+      } catch {
+        // ignore JSON parse errors
+      }
+    }
+  } catch (e) {
+    // noop
+  }
+
+  // 2) Look for <address> tags
+  try {
+    const addrMatches = [...body.matchAll(/<address[^>]*>([\s\S]*?)<\/address>/gi)];
+    for (const m of addrMatches) {
+      let inner = m[1].replace(/<[^>]+>/g, "\n").replace(/\s+/g, " ").trim();
+      const parts = inner.split(/\n|,|\r/).map((s) => s.trim()).filter(Boolean);
+      if (parts.length === 0) continue;
+      const street = parts[0] || "";
+      let city = parts[1] || "";
+      let postal = "";
+      // try to extract postal code from city line
+      const pcMatch = city.match(/(\d{3,}\b.*)/);
+      if (pcMatch) {
+        postal = pcMatch[1];
+        city = city.replace(pcMatch[1], "").trim();
+      }
+      results.push({ country: "", countryCode: undefined, city, address: street, postalCode: postal, contactUrl: pageUrl, sourceUrl: pageUrl });
+    }
+  } catch (e) {
+    // noop
+  }
+
+  return results;
+}
+
+/**
  * @param {any} source
  */
 function sourcePassesHardFilters(source) {
@@ -691,6 +755,15 @@ async function main() {
 
         const pageResult = await fetchPage(candidateUrl);
         collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck });
+        // Try to extract offices from HTML body for possible auto-discovery
+        try {
+          const extracted = extractOfficesFromHtml(pageResult.body, candidateUrl);
+          for (const ex of extracted) {
+            collectedPageData.push({ url: candidateUrl + "#extracted", fetched: true, status: 200, title: pageResult.title, body: undefined, sourceId, extractedOffice: ex, robots: robotsCheck, fetchedAt: nowIso() });
+          }
+        } catch (e) {
+          // ignore
+        }
         if (!pageResult.fetched) {
           sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
         }
