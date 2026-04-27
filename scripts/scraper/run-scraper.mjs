@@ -681,6 +681,34 @@ function extractOfficesFromHtml(body, pageUrl) {
 }
 
 /**
+ * Extract candidate links from a page HTML body that likely point to location/contact pages.
+ * Returns absolute URLs.
+ */
+function extractCandidateLinksFromHtml(body, baseUrl) {
+  const links = new Set();
+  if (!body || typeof body !== 'string') return [];
+  try {
+    const anchorMatches = [...body.matchAll(/<a[^>]+href=(?:"|')([^"']+)(?:"|')[^>]*>/gi)];
+    const keywords = ['location', 'office', 'locations', 'offices', 'contact', 'find-us', 'where-we-are', 'our-locations'];
+    for (const m of anchorMatches) {
+      const href = m[1];
+      if (!href) continue;
+      const lower = href.toLowerCase();
+      if (!keywords.some((k) => lower.includes(k))) continue;
+      try {
+        const abs = new URL(href, baseUrl).href;
+        links.add(abs);
+      } catch {
+        // ignore
+      }
+    }
+  } catch (e) {
+    // noop
+  }
+  return Array.from(links);
+}
+
+/**
  * @param {any} source
  */
 function sourcePassesHardFilters(source) {
@@ -822,6 +850,28 @@ async function main() {
           const extracted = extractOfficesFromHtml(pageResult.body, candidateUrl);
           for (const ex of extracted) {
             collectedPageData.push({ url: candidateUrl + "#extracted", fetched: true, status: 200, title: pageResult.title, body: undefined, sourceId, extractedOffice: ex, robots: robotsCheck, fetchedAt: nowIso() });
+          }
+        } catch (e) {
+          // ignore
+        }
+        // Also follow any candidate links found within the page (keeps probing to find addresses)
+        try {
+          const extraLinks = extractCandidateLinksFromHtml(pageResult.body, candidateUrl);
+          for (const l of extraLinks) {
+            // respect robots and circuit breaker
+            const rc = await isUrlAllowedByRobots(l);
+            if (!rc.allowed) continue;
+            const pl = await fetchPage(l);
+            collectedPageData.push({ ...pl, sourceId, robots: rc });
+            try {
+              const extracted2 = extractOfficesFromHtml(pl.body, l);
+              for (const ex of extracted2) {
+                collectedPageData.push({ url: l + "#extracted", fetched: true, status: 200, title: pl.title, body: undefined, sourceId, extractedOffice: ex, robots: rc, fetchedAt: nowIso() });
+              }
+            } catch {
+              // ignore
+            }
+            await sleep(150);
           }
         } catch (e) {
           // ignore
