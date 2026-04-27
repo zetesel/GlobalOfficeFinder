@@ -666,5 +666,19 @@
     "latitude": 35.2565176,
     "longitude": 128.8967512,
     "contactUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=nl#extracted"
+  },
+  {
+    "id": "shopify-xx-s",
+    "companyId": "shopify",
+    "country": "South Korea",
+    "countryCode": "KR",
+    "region": "Asia-Pacific",
+    "city": "s",
+    "address": "Thema'",
+    "postalCode": "",
+    "officeType": "Regional Office",
+    "latitude": 35.2565176,
+    "longitude": 128.8967512,
+    "contactUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=nl#extracted"
   }
 ]
