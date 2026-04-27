@@ -94,5 +94,709 @@
     "industry": "Consumer Goods",
     "description": "Unilever plc is a British multinational consumer goods company headquartered in London, England.",
     "logo": ""
+  },
+  {
+    "id": "apple",
+    "name": "Apple",
+    "website": "https://www.apple.com",
+    "industry": "Technology / Consumer Electronics",
+    "description": "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, that designs, develops, and sells consumer electronics, computer software, and online services.",
+    "logo": ""
+  },
+  {
+    "id": "netflix",
+    "name": "Netflix",
+    "website": "https://www.netflix.com",
+    "industry": "Media / Streaming",
+    "description": "Netflix, Inc. is an American subscription video on-demand over-the-top streaming service and production company headquartered in Los Gatos, California.",
+    "logo": ""
+  },
+  {
+    "id": "oracle",
+    "name": "Oracle",
+    "website": "https://www.oracle.com",
+    "industry": "Technology / Cloud",
+    "description": "Oracle Corporation is an American multinational computer technology company headquartered in Austin, Texas, offering cloud computing, database software, and enterprise software products.",
+    "logo": ""
+  },
+  {
+    "id": "sap",
+    "name": "SAP",
+    "website": "https://www.sap.com",
+    "industry": "Enterprise Software",
+    "description": "SAP SE is a German multinational software corporation headquartered in Walldorf, Baden-Wurttemberg, Germany that makes enterprise software to manage business operations and customer relations.",
+    "logo": ""
+  },
+  {
+    "id": "adobe",
+    "name": "Adobe",
+    "website": "https://www.adobe.com",
+    "industry": "Technology / Creative Software",
+    "description": "Adobe Inc. is an American multinational computer software company headquartered in San Jose, California, known for Photoshop, Acrobat, Creative Cloud, and digital marketing solutions.",
+    "logo": ""
+  },
+  {
+    "id": "intel",
+    "name": "Intel",
+    "website": "https://www.intel.com",
+    "industry": "Semiconductors",
+    "description": "Intel Corporation is an American multinational corporation and technology company headquartered in Santa Clara, California, the world's largest semiconductor chip manufacturer by revenue.",
+    "logo": ""
+  },
+  {
+    "id": "nvidia",
+    "name": "NVIDIA",
+    "website": "https://www.nvidia.com",
+    "industry": "Semiconductors / AI",
+    "description": "NVIDIA Corporation is an American multinational technology company incorporated in Delaware and based in Santa Clara, California, designing graphics processing units and system on chips.",
+    "logo": ""
+  },
+  {
+    "id": "cisco",
+    "name": "Cisco",
+    "website": "https://www.cisco.com",
+    "industry": "Networking / Technology",
+    "description": "Cisco Systems, Inc. is an American multinational digital communications technology conglomerate corporation headquartered in San Jose, California, known for networking hardware, software, and services.",
+    "logo": ""
+  },
+  {
+    "id": "qualcomm",
+    "name": "Qualcomm",
+    "website": "https://www.qualcomm.com",
+    "industry": "Semiconductors / Wireless",
+    "description": "Qualcomm Incorporated is an American multinational corporation headquartered in San Diego, California, that creates semiconductors, software, and services related to wireless technology.",
+    "logo": ""
+  },
+  {
+    "id": "amd",
+    "name": "AMD",
+    "website": "https://www.amd.com",
+    "industry": "Semiconductors",
+    "description": "Advanced Micro Devices, Inc. (AMD) is an American multinational semiconductor company headquartered in Santa Clara, California, developing computer processors and related technologies.",
+    "logo": ""
+  },
+  {
+    "id": "uber",
+    "name": "Uber",
+    "website": "https://www.uber.com",
+    "industry": "Technology / Mobility",
+    "description": "Uber Technologies, Inc. is an American multinational transportation company headquartered in San Francisco, California, offering ride-hailing, food delivery, and freight services globally.",
+    "logo": ""
+  },
+  {
+    "id": "airbnb",
+    "name": "Airbnb",
+    "website": "https://www.airbnb.com",
+    "industry": "Technology / Hospitality",
+    "description": "Airbnb, Inc. is an American San Francisco-based company operating an online marketplace for short-term homestays and experiences, connecting hosts with guests worldwide.",
+    "logo": ""
+  },
+  {
+    "id": "spotify",
+    "name": "Spotify",
+    "website": "https://www.spotify.com",
+    "industry": "Media / Music Streaming",
+    "description": "Spotify Technology S.A. is a Swedish audio streaming and media services provider founded in 2006, offering music, podcasts, and audiobooks to users worldwide.",
+    "logo": ""
+  },
+  {
+    "id": "linkedin",
+    "name": "LinkedIn",
+    "website": "https://www.linkedin.com",
+    "industry": "Technology / Professional Networking",
+    "description": "LinkedIn is an American business and employment-focused social media platform owned by Microsoft, with headquarters in Sunnyvale, California, serving over 900 million professionals worldwide.",
+    "logo": ""
+  },
+  {
+    "id": "samsung",
+    "name": "Samsung",
+    "website": "https://www.samsung.com",
+    "industry": "Technology / Consumer Electronics",
+    "description": "Samsung Electronics Co., Ltd. is a South Korean multinational semiconductor and electronics corporation headquartered in Yongin, Gyeonggi-do, South Korea, one of the world's largest technology companies.",
+    "logo": ""
+  },
+  {
+    "id": "sony",
+    "name": "Sony",
+    "website": "https://www.sony.com",
+    "industry": "Technology / Entertainment",
+    "description": "Sony Group Corporation is a Japanese multinational conglomerate corporation headquartered in Minato, Tokyo, Japan, operating in electronics, gaming, music, movies, and financial services.",
+    "logo": ""
+  },
+  {
+    "id": "jpmorgan-chase",
+    "name": "JPMorgan Chase",
+    "website": "https://www.jpmorganchase.com",
+    "industry": "Banking / Finance",
+    "description": "JPMorgan Chase and Co. is an American multinational investment bank and financial services holding company headquartered in New York City, the largest bank in the United States.",
+    "logo": ""
+  },
+  {
+    "id": "goldman-sachs",
+    "name": "Goldman Sachs",
+    "website": "https://www.goldmansachs.com",
+    "industry": "Banking / Finance",
+    "description": "The Goldman Sachs Group, Inc. is an American multinational investment banking and financial services company headquartered in New York City, offering investment banking, securities, and asset management.",
+    "logo": ""
+  },
+  {
+    "id": "citigroup",
+    "name": "Citigroup",
+    "website": "https://www.citigroup.com",
+    "industry": "Banking / Finance",
+    "description": "Citigroup Inc. or Citi is an American multinational investment banking and financial services company headquartered in New York City, serving over 200 million customer accounts in more than 160 countries.",
+    "logo": ""
+  },
+  {
+    "id": "bank-of-america",
+    "name": "Bank of America",
+    "website": "https://www.bankofamerica.com",
+    "industry": "Banking / Finance",
+    "description": "Bank of America Corporation is an American multinational investment banking and financial services holding company headquartered in Charlotte, North Carolina, serving individuals, small businesses, and large corporations.",
+    "logo": ""
+  },
+  {
+    "id": "visa",
+    "name": "Visa",
+    "website": "https://www.visa.com",
+    "industry": "Financial Technology",
+    "description": "Visa Inc. is an American multinational payment card services corporation headquartered in San Francisco, California, facilitating electronic funds transfers throughout the world.",
+    "logo": ""
+  },
+  {
+    "id": "mastercard",
+    "name": "Mastercard",
+    "website": "https://www.mastercard.com",
+    "industry": "Financial Technology",
+    "description": "Mastercard Incorporated is an American multinational financial services corporation headquartered in Purchase, New York, providing transaction processing and other payment-related products and services.",
+    "logo": ""
+  },
+  {
+    "id": "paypal",
+    "name": "PayPal",
+    "website": "https://www.paypal.com",
+    "industry": "Financial Technology",
+    "description": "PayPal Holdings, Inc. is an American multinational financial technology company operating an online payments system headquartered in San Jose, California, enabling digital and mobile payments worldwide.",
+    "logo": ""
+  },
+  {
+    "id": "american-express",
+    "name": "American Express",
+    "website": "https://www.americanexpress.com",
+    "industry": "Banking / Finance",
+    "description": "American Express Company (Amex) is an American multinational financial services corporation headquartered in New York City, known for its credit card, charge card, and traveler's cheque businesses.",
+    "logo": ""
+  },
+  {
+    "id": "blackrock",
+    "name": "BlackRock",
+    "website": "https://www.blackrock.com",
+    "industry": "Asset Management",
+    "description": "BlackRock, Inc. is an American multinational investment management corporation based in New York City, the world's largest asset manager with over 10 trillion dollars in assets under management.",
+    "logo": ""
+  },
+  {
+    "id": "morgan-stanley",
+    "name": "Morgan Stanley",
+    "website": "https://www.morganstanley.com",
+    "industry": "Banking / Finance",
+    "description": "Morgan Stanley is an American multinational investment management and financial services company headquartered in New York City, providing investment banking, securities, wealth management, and investment management services.",
+    "logo": ""
+  },
+  {
+    "id": "walmart",
+    "name": "Walmart",
+    "website": "https://www.walmart.com",
+    "industry": "Retail",
+    "description": "Walmart Inc. is an American multinational retail corporation headquartered in Bentonville, Arkansas, operating a chain of hypermarkets, discount department stores, and grocery stores.",
+    "logo": ""
+  },
+  {
+    "id": "ikea",
+    "name": "IKEA",
+    "website": "https://www.ikea.com",
+    "industry": "Retail / Furniture",
+    "description": "IKEA is a Swedish-founded, Dutch-headquartered multinational conglomerate that designs and sells ready-to-assemble furniture, kitchen appliances, and home accessories, among other useful goods.",
+    "logo": ""
+  },
+  {
+    "id": "nike",
+    "name": "Nike",
+    "website": "https://www.nike.com",
+    "industry": "Retail / Sportswear",
+    "description": "Nike, Inc. is an American multinational corporation headquartered near Beaverton, Oregon, engaged in the design, development, manufacturing, and worldwide marketing and sales of footwear, apparel, and equipment.",
+    "logo": ""
+  },
+  {
+    "id": "adidas",
+    "name": "Adidas",
+    "website": "https://www.adidas.com",
+    "industry": "Retail / Sportswear",
+    "description": "Adidas AG is a German athletic apparel and footwear corporation headquartered in Herzogenaurach, Bavaria, Germany, designing and manufacturing shoes, clothing, and accessories.",
+    "logo": ""
+  },
+  {
+    "id": "inditex",
+    "name": "Inditex",
+    "website": "https://www.inditex.com",
+    "industry": "Retail / Fashion",
+    "description": "Industria de Diseno Textil, S.A. (Inditex) is a Spanish multinational clothing company headquartered in Arteixo, Galicia, Spain, known for its flagship brand Zara, one of the world's largest fashion retailers.",
+    "logo": ""
+  },
+  {
+    "id": "volkswagen",
+    "name": "Volkswagen",
+    "website": "https://www.volkswagen-group.com",
+    "industry": "Automotive",
+    "description": "Volkswagen AG is a German multinational automotive manufacturer headquartered in Wolfsburg, Germany, one of the world's largest automakers by sales, owning brands such as VW, Audi, Porsche, and Lamborghini.",
+    "logo": ""
+  },
+  {
+    "id": "mercedes-benz",
+    "name": "Mercedes-Benz",
+    "website": "https://www.mercedes-benz.com",
+    "industry": "Automotive",
+    "description": "Mercedes-Benz Group AG is a German multinational automotive corporation headquartered in Stuttgart, Baden-Wurttemberg, Germany, known for luxury vehicles, buses, coaches, and trucks.",
+    "logo": ""
+  },
+  {
+    "id": "bmw",
+    "name": "BMW",
+    "website": "https://www.bmw.com",
+    "industry": "Automotive",
+    "description": "Bayerische Motoren Werke AG (BMW) is a German multinational manufacturer of luxury vehicles and motorcycles headquartered in Munich, Bavaria, Germany.",
+    "logo": ""
+  },
+  {
+    "id": "ford",
+    "name": "Ford",
+    "website": "https://www.ford.com",
+    "industry": "Automotive",
+    "description": "Ford Motor Company is an American multinational automobile manufacturer headquartered in Dearborn, Michigan, known for producing and selling automobiles and commercial vehicles under the Ford brand.",
+    "logo": ""
+  },
+  {
+    "id": "general-motors",
+    "name": "General Motors",
+    "website": "https://www.gm.com",
+    "industry": "Automotive",
+    "description": "General Motors Company (GM) is an American multinational automotive manufacturing company headquartered in Detroit, Michigan, operating under Chevrolet, Buick, Cadillac, and GMC brands.",
+    "logo": ""
+  },
+  {
+    "id": "tesla",
+    "name": "Tesla",
+    "website": "https://www.tesla.com",
+    "industry": "Automotive / Clean Energy",
+    "description": "Tesla, Inc. is an American multinational automotive and clean energy company headquartered in Austin, Texas, designing and manufacturing electric vehicles, battery energy storage, and solar products.",
+    "logo": ""
+  },
+  {
+    "id": "honda",
+    "name": "Honda",
+    "website": "https://global.honda",
+    "industry": "Automotive",
+    "description": "Honda Motor Co., Ltd. is a Japanese public multinational conglomerate manufacturer of automobiles, motorcycles, and power equipment, headquartered in Minato, Tokyo, Japan.",
+    "logo": ""
+  },
+  {
+    "id": "shell",
+    "name": "Shell",
+    "website": "https://www.shell.com",
+    "industry": "Energy / Oil & Gas",
+    "description": "Shell plc is a British multinational oil and gas company headquartered in London, England, one of the largest companies in the world by revenue, operating across upstream, downstream, and integrated gas segments.",
+    "logo": ""
+  },
+  {
+    "id": "bp",
+    "name": "BP",
+    "website": "https://www.bp.com",
+    "industry": "Energy / Oil & Gas",
+    "description": "BP p.l.c. is a British multinational oil and gas company headquartered in London, England, one of the world's seven supermajor oil and gas companies, operating across more than 70 countries.",
+    "logo": ""
+  },
+  {
+    "id": "exxonmobil",
+    "name": "ExxonMobil",
+    "website": "https://www.exxonmobil.com",
+    "industry": "Energy / Oil & Gas",
+    "description": "ExxonMobil Corporation is an American multinational oil and gas corporation headquartered in Spring, Texas, one of the largest publicly traded companies by revenue.",
+    "logo": ""
+  },
+  {
+    "id": "totalenergies",
+    "name": "TotalEnergies",
+    "website": "https://www.totalenergies.com",
+    "industry": "Energy / Oil & Gas",
+    "description": "TotalEnergies SE is a French multinational integrated energy company headquartered in Courbevoie, France, producing and marketing energies including oil, natural gas, and low-carbon electricity.",
+    "logo": ""
+  },
+  {
+    "id": "chevron",
+    "name": "Chevron",
+    "website": "https://www.chevron.com",
+    "industry": "Energy / Oil & Gas",
+    "description": "Chevron Corporation is an American multinational energy corporation headquartered in San Ramon, California, actively engaged in every aspect of the oil and gas industry globally.",
+    "logo": ""
+  },
+  {
+    "id": "johnson-johnson",
+    "name": "Johnson & Johnson",
+    "website": "https://www.jnj.com",
+    "industry": "Healthcare / Pharmaceuticals",
+    "description": "Johnson and Johnson is an American multinational pharmaceutical, medical devices, and consumer packaged goods manufacturing corporation headquartered in New Brunswick, New Jersey.",
+    "logo": ""
+  },
+  {
+    "id": "pfizer",
+    "name": "Pfizer",
+    "website": "https://www.pfizer.com",
+    "industry": "Pharmaceuticals",
+    "description": "Pfizer Inc. is an American multinational pharmaceutical and biotechnology corporation headquartered in New York City, one of the world's largest pharmaceutical companies.",
+    "logo": ""
+  },
+  {
+    "id": "roche",
+    "name": "Roche",
+    "website": "https://www.roche.com",
+    "industry": "Pharmaceuticals / Diagnostics",
+    "description": "Roche Holding AG is a Swiss multinational healthcare company headquartered in Basel, Switzerland, operating worldwide in pharmaceuticals and diagnostics.",
+    "logo": ""
+  },
+  {
+    "id": "novartis",
+    "name": "Novartis",
+    "website": "https://www.novartis.com",
+    "industry": "Pharmaceuticals",
+    "description": "Novartis AG is a Swiss multinational pharmaceutical corporation headquartered in Basel, Switzerland, one of the largest pharmaceutical companies in the world by market capitalization.",
+    "logo": ""
+  },
+  {
+    "id": "astrazeneca",
+    "name": "AstraZeneca",
+    "website": "https://www.astrazeneca.com",
+    "industry": "Pharmaceuticals / Biopharmaceuticals",
+    "description": "AstraZeneca plc is a British-Swedish multinational pharmaceutical and biopharmaceutical company headquartered in Cambridge, England, focused on discovery, development, and commercialisation of prescription medicines.",
+    "logo": ""
+  },
+  {
+    "id": "abbott",
+    "name": "Abbott",
+    "website": "https://www.abbott.com",
+    "industry": "Healthcare / Medical Devices",
+    "description": "Abbott Laboratories is an American multinational medical devices and health care company headquartered in Abbott Park, Illinois, operating in diagnostics, medical devices, nutrition, and pharmaceuticals.",
+    "logo": ""
+  },
+  {
+    "id": "merck",
+    "name": "Merck",
+    "website": "https://www.merck.com",
+    "industry": "Pharmaceuticals",
+    "description": "Merck and Co., Inc. is an American multinational pharmaceutical company headquartered in Rahway, New Jersey, one of the largest pharmaceutical companies in the world, known for vaccines and biologic therapies.",
+    "logo": ""
+  },
+  {
+    "id": "nestle",
+    "name": "Nestle",
+    "website": "https://www.nestle.com",
+    "industry": "Food & Beverage",
+    "description": "Nestle S.A. is a Swiss multinational food and drink processing conglomerate corporation headquartered in Vevey, Vaud, Switzerland, the largest food company in the world measured by revenues.",
+    "logo": ""
+  },
+  {
+    "id": "coca-cola",
+    "name": "Coca-Cola",
+    "website": "https://www.coca-colacompany.com",
+    "industry": "Food & Beverage",
+    "description": "The Coca-Cola Company is an American multinational beverage corporation headquartered in Atlanta, Georgia, known for manufacturing, retailing, and marketing nonalcoholic beverage concentrates and syrups.",
+    "logo": ""
+  },
+  {
+    "id": "pepsico",
+    "name": "PepsiCo",
+    "website": "https://www.pepsico.com",
+    "industry": "Food & Beverage",
+    "description": "PepsiCo, Inc. is an American multinational food, snack, and beverage corporation headquartered in Purchase, New York, with products sold in over 200 countries and territories worldwide.",
+    "logo": ""
+  },
+  {
+    "id": "mcdonalds",
+    "name": "McDonald's",
+    "website": "https://corporate.mcdonalds.com",
+    "industry": "Food & Beverage / Fast Food",
+    "description": "McDonald's Corporation is an American multinational fast food corporation headquartered in Chicago, Illinois, operating the world's largest chain of fast-food restaurants with over 40,000 locations worldwide.",
+    "logo": ""
+  },
+  {
+    "id": "disney",
+    "name": "Disney",
+    "website": "https://www.thewaltdisneycompany.com",
+    "industry": "Media / Entertainment",
+    "description": "The Walt Disney Company, commonly known as Disney, is an American multinational mass media and entertainment conglomerate headquartered at the Walt Disney Studios complex in Burbank, California.",
+    "logo": ""
+  },
+  {
+    "id": "comcast",
+    "name": "Comcast",
+    "website": "https://www.comcast.com",
+    "industry": "Media / Telecommunications",
+    "description": "Comcast Corporation is an American multinational telecommunications and media conglomerate headquartered in Philadelphia, Pennsylvania, operating as one of the world's largest broadcasting and cable television companies.",
+    "logo": ""
+  },
+  {
+    "id": "att",
+    "name": "AT&T",
+    "website": "https://www.att.com",
+    "industry": "Telecommunications",
+    "description": "AT&T Inc. is an American multinational telecommunications holding company headquartered in Dallas, Texas, one of the world's largest telecommunications companies.",
+    "logo": ""
+  },
+  {
+    "id": "verizon",
+    "name": "Verizon",
+    "website": "https://www.verizon.com",
+    "industry": "Telecommunications",
+    "description": "Verizon Communications Inc. is an American multinational telecommunications conglomerate headquartered in New York City, providing communications, technology, information, and entertainment products and services.",
+    "logo": ""
+  },
+  {
+    "id": "deutsche-telekom",
+    "name": "Deutsche Telekom",
+    "website": "https://www.telekom.com",
+    "industry": "Telecommunications",
+    "description": "Deutsche Telekom AG is a German multinational telecommunications company headquartered in Bonn, Germany, one of the world's largest telecommunications companies by revenue.",
+    "logo": ""
+  },
+  {
+    "id": "vodafone",
+    "name": "Vodafone",
+    "website": "https://www.vodafone.com",
+    "industry": "Telecommunications",
+    "description": "Vodafone Group plc is a British multinational telecommunications company headquartered in Paddington, London, operating networks in Europe, Asia-Pacific, Africa, and the Americas.",
+    "logo": ""
+  },
+  {
+    "id": "boeing",
+    "name": "Boeing",
+    "website": "https://www.boeing.com",
+    "industry": "Aerospace / Defense",
+    "description": "The Boeing Company is an American multinational corporation headquartered in Arlington, Virginia, that designs, manufactures, and sells airplanes, rotorcraft, rockets, satellites, and missiles worldwide.",
+    "logo": ""
+  },
+  {
+    "id": "airbus",
+    "name": "Airbus",
+    "website": "https://www.airbus.com",
+    "industry": "Aerospace / Defense",
+    "description": "Airbus SE is a European multinational aerospace corporation incorporated in the Netherlands with its principal place of business in France, designing, manufacturing, and delivering aerospace products worldwide.",
+    "logo": ""
+  },
+  {
+    "id": "lockheed-martin",
+    "name": "Lockheed Martin",
+    "website": "https://www.lockheedmartin.com",
+    "industry": "Aerospace / Defense",
+    "description": "Lockheed Martin Corporation is an American multinational aerospace, defense, weapons, security, and advanced technologies company headquartered in Bethesda, Maryland.",
+    "logo": ""
+  },
+  {
+    "id": "accenture",
+    "name": "Accenture",
+    "website": "https://www.accenture.com",
+    "industry": "Consulting / Technology Services",
+    "description": "Accenture plc is an Irish-American professional services company based in Dublin, specializing in information technology services and consulting, with clients in more than 120 countries.",
+    "logo": ""
+  },
+  {
+    "id": "deloitte",
+    "name": "Deloitte",
+    "website": "https://www.deloitte.com",
+    "industry": "Professional Services / Consulting",
+    "description": "Deloitte Touche Tohmatsu Limited, commonly referred to as Deloitte, is a British multinational professional services network headquartered in London, England, one of the Big Four accounting organizations.",
+    "logo": ""
+  },
+  {
+    "id": "pwc",
+    "name": "PwC",
+    "website": "https://www.pwc.com",
+    "industry": "Professional Services / Consulting",
+    "description": "PricewaterhouseCoopers International Limited (PwC) is a British multinational professional services brand of firms headquartered in London, United Kingdom, one of the Big Four accounting firms.",
+    "logo": ""
+  },
+  {
+    "id": "ey",
+    "name": "EY",
+    "website": "https://www.ey.com",
+    "industry": "Professional Services / Consulting",
+    "description": "Ernst and Young Global Limited (EY) is a British multinational professional services partnership headquartered in London, England, one of the largest professional services networks in the world.",
+    "logo": ""
+  },
+  {
+    "id": "kpmg",
+    "name": "KPMG",
+    "website": "https://kpmg.com",
+    "industry": "Professional Services / Consulting",
+    "description": "KPMG International Limited is a multinational professional services network headquartered in Amstelveen, Netherlands, one of the Big Four accounting organizations providing audit, tax, and advisory services.",
+    "logo": ""
+  },
+  {
+    "id": "3m",
+    "name": "3M",
+    "website": "https://www.3m.com",
+    "industry": "Manufacturing / Technology",
+    "description": "3M Company is an American multinational conglomerate corporation headquartered in Saint Paul, Minnesota, operating in the fields of industry, safety, health care, and consumer products.",
+    "logo": ""
+  },
+  {
+    "id": "honeywell",
+    "name": "Honeywell",
+    "website": "https://www.honeywell.com",
+    "industry": "Manufacturing / Technology",
+    "description": "Honeywell International Inc. is an American publicly traded multinational conglomerate corporation headquartered in Charlotte, North Carolina, operating in aerospace, building technologies, safety, and performance materials.",
+    "logo": ""
+  },
+  {
+    "id": "procter-gamble",
+    "name": "Procter & Gamble",
+    "website": "https://www.pg.com",
+    "industry": "Consumer Goods",
+    "description": "The Procter and Gamble Company (P&G) is an American multinational consumer goods corporation headquartered in Cincinnati, Ohio, specializing in personal health, consumer health, and personal care products.",
+    "logo": ""
+  },
+  {
+    "id": "lvmh",
+    "name": "LVMH",
+    "website": "https://www.lvmh.com",
+    "industry": "Luxury Goods",
+    "description": "LVMH Moet Hennessy Louis Vuitton SE is a French multinational luxury goods conglomerate headquartered in Paris, France, whose subsidiaries include prestigious brands across fashion, wines, cosmetics, jewelry, and hospitality.",
+    "logo": ""
+  },
+  {
+    "id": "ups",
+    "name": "UPS",
+    "website": "https://www.ups.com",
+    "industry": "Logistics / Shipping",
+    "description": "United Parcel Service, Inc. (UPS) is an American multinational shipping and receiving and supply chain management company headquartered in Sandy Springs, Georgia.",
+    "logo": ""
+  },
+  {
+    "id": "fedex",
+    "name": "FedEx",
+    "website": "https://www.fedex.com",
+    "industry": "Logistics / Shipping",
+    "description": "FedEx Corporation is an American multinational conglomerate holding company headquartered in Memphis, Tennessee, providing transportation, e-commerce, and business services worldwide.",
+    "logo": ""
+  },
+  {
+    "id": "hp",
+    "name": "HP",
+    "website": "https://www.hp.com",
+    "industry": "Technology / Hardware",
+    "description": "HP Inc. is an American multinational information technology company headquartered in Palo Alto, California, that develops personal computers, printers, and related supplies.",
+    "logo": ""
+  },
+  {
+    "id": "dell",
+    "name": "Dell",
+    "website": "https://www.dell.com",
+    "industry": "Technology / Hardware",
+    "description": "Dell Technologies Inc. is an American multinational technology company headquartered in Round Rock, Texas, offering personal computers, servers, data storage devices, network switches, and software.",
+    "logo": ""
+  },
+  {
+    "id": "alibaba",
+    "name": "Alibaba",
+    "website": "https://www.alibabagroup.com",
+    "industry": "E-Commerce / Technology",
+    "description": "Alibaba Group Holding Limited is a Chinese multinational technology company headquartered in Hangzhou, Zhejiang, specializing in e-commerce, retail, internet, and technology.",
+    "logo": ""
+  },
+  {
+    "id": "tencent",
+    "name": "Tencent",
+    "website": "https://www.tencent.com",
+    "industry": "Technology / Internet",
+    "description": "Tencent Holdings Limited is a Chinese multinational technology and entertainment conglomerate and holding company headquartered in Shenzhen, Guangdong, operating in internet services, AI, and entertainment.",
+    "logo": ""
+  },
+  {
+    "id": "mckinsey",
+    "name": "McKinsey & Company",
+    "website": "https://www.mckinsey.com",
+    "industry": "Management Consulting",
+    "description": "McKinsey and Company is an American multinational strategy and management consulting firm founded in 1926, offering professional services to the world's leading businesses, governments, and organizations.",
+    "logo": ""
+  },
+  {
+    "id": "sanofi",
+    "name": "Sanofi",
+    "website": "https://www.sanofi.com",
+    "industry": "Pharmaceuticals",
+    "description": "Sanofi S.A. is a French multinational pharmaceutical and healthcare company headquartered in Paris, France, one of the world's largest pharmaceutical companies by prescription sales.",
+    "logo": ""
+  },
+  {
+    "id": "bayer",
+    "name": "Bayer",
+    "website": "https://www.bayer.com",
+    "industry": "Pharmaceuticals / Life Sciences",
+    "description": "Bayer AG is a German multinational pharmaceutical and biotechnology company headquartered in Leverkusen, North Rhine-Westphalia, Germany, with operations in human and veterinary pharmaceuticals and crop science.",
+    "logo": ""
+  },
+  {
+    "id": "bosch",
+    "name": "Bosch",
+    "website": "https://www.bosch.com",
+    "industry": "Engineering / Technology",
+    "description": "Robert Bosch GmbH is a German multinational engineering and technology company headquartered in Gerlingen, Germany, the world's largest automotive supplier, also operating in industrial technology, consumer goods, and energy.",
+    "logo": ""
+  },
+  {
+    "id": "capgemini",
+    "name": "Capgemini",
+    "website": "https://www.capgemini.com",
+    "industry": "Technology / Consulting",
+    "description": "Capgemini SE is a French multinational information technology services and consulting company headquartered in Paris, France, providing technology and digital transformation services across multiple industries.",
+    "logo": ""
+  },
+  {
+    "id": "infosys",
+    "name": "Infosys",
+    "website": "https://www.infosys.com",
+    "industry": "Technology / IT Services",
+    "description": "Infosys Limited is an Indian multinational information technology company headquartered in Bengaluru, Karnataka, providing business consulting, information technology, and outsourcing services.",
+    "logo": ""
+  },
+  {
+    "id": "wipro",
+    "name": "Wipro",
+    "website": "https://www.wipro.com",
+    "industry": "Technology / IT Services",
+    "description": "Wipro Limited is an Indian multinational corporation headquartered in Bangalore, Karnataka, India, offering information technology, consulting, and business process services.",
+    "logo": ""
+  },
+  {
+    "id": "tata-consultancy",
+    "name": "Tata Consultancy Services",
+    "website": "https://www.tcs.com",
+    "industry": "Technology / IT Services",
+    "description": "Tata Consultancy Services Limited (TCS) is an Indian multinational information technology services and consulting company headquartered in Mumbai, Maharashtra, a subsidiary of the Tata Group.",
+    "logo": ""
+  },
+  {
+    "id": "servicenow",
+    "name": "ServiceNow",
+    "website": "https://www.servicenow.com",
+    "industry": "Enterprise Software / Cloud",
+    "description": "ServiceNow, Inc. is an American software company headquartered in Santa Clara, California, providing a cloud-based platform and solutions that help companies digitize and unify their operations.",
+    "logo": ""
+  },
+  {
+    "id": "workday",
+    "name": "Workday",
+    "website": "https://www.workday.com",
+    "industry": "Enterprise Software / Cloud",
+    "description": "Workday, Inc. is an American on-demand financial management and human capital management software vendor headquartered in Pleasanton, California.",
+    "logo": ""
   }
 ]
