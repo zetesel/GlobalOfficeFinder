@@ -688,7 +688,8 @@ async function main() {
 
   // Optional: auto-discover candidate pages for existing companies in companies.json
   if (AUTO_DISCOVER) {
-    const autoSource = { id: "auto-discover", name: "Auto Discover", sourceUrl: "https://auto-discover.local", trust: "medium" };
+    // auto-discover should be considered high-trust for the purposes of probing existing company websites
+    const autoSource = { id: "auto-discover", name: "Auto Discover", sourceUrl: "https://auto-discover.local", trust: "high" };
     for (const existingCompany of existingCompanies) {
       discovered.push({ source: autoSource, company: { name: existingCompany.name, website: existingCompany.website, industry: existingCompany.industry, description: existingCompany.description, logo: existingCompany.logo, officePages: [] } });
     }
