@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // @ts-check
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { spawnSync } from "child_process";
@@ -11,7 +11,8 @@ const root = join(__dirname, "..", "..");
 
 const COMPANIES_PATH = join(root, "data", "companies.json");
 const OFFICES_PATH = join(root, "data", "offices.json");
-const SOURCES_PATH = join(root, "data", "scraper", "sources", "phase-a-curated.json");
+/** Directory that holds all source definition files (*.json). */
+const SOURCES_DIR = join(root, "data", "scraper", "sources");
 const REVIEW_QUEUE_PATH = join(root, "data", "scraper", "review-queue.json");
 const RUN_REPORT_PATH = join(root, "data", "scraper", "last-run.json");
 
@@ -595,7 +596,22 @@ async function main() {
 
   const existingCompanies = readJson(COMPANIES_PATH);
   const existingOffices = readJson(OFFICES_PATH);
-  const sources = readJson(SOURCES_PATH);
+
+  // Load all *.json source files from SOURCES_DIR and flatten into a single array.
+  // This allows the discover-top-companies script (and any future source files)
+  // to be picked up automatically without modifying this file.
+  const sourceFiles = readdirSync(SOURCES_DIR)
+    .filter((f) => f.endsWith(".json"))
+    .sort(); // consistent ordering across runs
+  const sources = sourceFiles.flatMap((f) => {
+    try {
+      return readJson(join(SOURCES_DIR, f));
+    } catch (err) {
+      console.warn(`[scraper] Could not read source file ${f}: ${err.message}`);
+      return [];
+    }
+  });
+  console.log(`[scraper] Loaded ${sources.length} source(s) from ${sourceFiles.length} file(s) in ${SOURCES_DIR}`);
 
   const regionMap = buildRegionMap(existingOffices);
   const countryCodeMap = buildCountryCodeMap(existingOffices);
@@ -603,7 +619,7 @@ async function main() {
   const skippedSources = [];
   const sourceFailures = new Map();
 
-  // Stage 1: discover companies from curated sources
+  // Stage 1: discover companies from curated/auto-discovered sources
   const discovered = [];
   for (const source of sources) {
     const sourceCheck = sourcePassesHardFilters(source);
@@ -863,6 +879,7 @@ async function main() {
       sourceFailures: Object.fromEntries(sourceFailures.entries()),
       skippedSources,
     },
+    sourceFiles,
     sources: sources.map((source) => ({
       id: source.id,
       name: source.name,

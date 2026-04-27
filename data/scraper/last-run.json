@@ -1,7 +1,7 @@
 {
-  "startedAt": "2026-04-26T17:58:46.364Z",
-  "finishedAt": "2026-04-26T17:58:48.833Z",
-  "dryRun": false,
+  "startedAt": "2026-04-27T19:07:49.319Z",
+  "finishedAt": "2026-04-27T19:07:49.329Z",
+  "dryRun": true,
   "confidenceThreshold": "medium",
   "stages": {
     "discoveredCompanies": 2,
@@ -15,11 +15,12 @@
     "minSourceTrust": "high",
     "robotsCheckEnabled": true,
     "perSourceFailureThreshold": 4,
-    "sourceFailures": {
-      "phase-a-official-tech-sample": 6
-    },
+    "sourceFailures": {},
     "skippedSources": []
   },
+  "sourceFiles": [
+    "phase-a-curated.json"
+  ],
   "sources": [
     {
       "id": "phase-a-official-tech-sample",
