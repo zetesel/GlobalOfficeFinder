@@ -56,6 +56,20 @@
     "contactUrl": "https://www.atlassian.com/company/contact"
   },
   {
+    "id": "atlassian-us-san-francisc",
+    "companyId": "atlassian",
+    "country": "United States",
+    "countryCode": "US",
+    "region": "Americas",
+    "city": "San Francisco",
+    "address": "350 Bush Street",
+    "postalCode": "94104",
+    "officeType": "Regional Office",
+    "latitude": 37.7913454,
+    "longitude": -122.4032976,
+    "contactUrl": "https://www.atlassian.com/company/contact"
+  },
+  {
     "id": "google-de-ham",
     "companyId": "google",
     "country": "Germany",
@@ -376,6 +390,20 @@
     "latitude": 37.7894,
     "longitude": -122.3961,
     "contactUrl": "https://www.salesforce.com/company/contact/"
+  },
+  {
+    "id": "shopify-ca-ottawa",
+    "companyId": "shopify",
+    "country": "Canada",
+    "countryCode": "CA",
+    "region": "Americas",
+    "city": "Ottawa",
+    "address": "151 O'Connor Street",
+    "postalCode": "K2P 2L8",
+    "officeType": "Headquarters",
+    "latitude": 45.4199879,
+    "longitude": -75.6970497,
+    "contactUrl": "https://www.shopify.com/contact"
   },
   {
     "id": "siemens-cn-bei",

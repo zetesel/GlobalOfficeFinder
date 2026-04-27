@@ -1,23 +1,21 @@
 {
-  "startedAt": "2026-04-26T17:58:46.364Z",
-  "finishedAt": "2026-04-26T17:58:48.833Z",
+  "startedAt": "2026-04-27T06:15:05.582Z",
+  "finishedAt": "2026-04-27T06:15:11.685Z",
   "dryRun": false,
   "confidenceThreshold": "medium",
   "stages": {
     "discoveredCompanies": 2,
     "collectedPages": 4,
     "acceptedCompanies": 0,
-    "acceptedOffices": 0,
-    "reviewQueueItems": 2,
+    "acceptedOffices": 2,
+    "reviewQueueItems": 0,
     "skippedSources": 0
   },
   "safeguards": {
     "minSourceTrust": "high",
     "robotsCheckEnabled": true,
     "perSourceFailureThreshold": 4,
-    "sourceFailures": {
-      "phase-a-official-tech-sample": 6
-    },
+    "sourceFailures": {},
     "skippedSources": []
   },
   "sources": [
@@ -30,5 +28,52 @@
     }
   ],
   "acceptedCompanies": [],
-  "acceptedOffices": []
+  "acceptedOffices": [
+    {
+      "id": "atlassian-us-san-francisc",
+      "companyId": "atlassian",
+      "country": "United States",
+      "countryCode": "US",
+      "region": "Americas",
+      "city": "San Francisco",
+      "address": "350 Bush Street",
+      "postalCode": "94104",
+      "officeType": "Regional Office",
+      "latitude": 37.7913454,
+      "longitude": -122.4032976,
+      "contactUrl": "https://www.atlassian.com/company/contact",
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.atlassian.com/company/contact",
+        "scrapedAt": "2026-04-27T06:15:09.718Z",
+        "confidence": "medium",
+        "confidenceScore": 78,
+        "officialSourceMatch": true,
+        "geocodeCertainty": "low"
+      }
+    },
+    {
+      "id": "shopify-ca-ottawa",
+      "companyId": "shopify",
+      "country": "Canada",
+      "countryCode": "CA",
+      "region": "Americas",
+      "city": "Ottawa",
+      "address": "151 O'Connor Street",
+      "postalCode": "K2P 2L8",
+      "officeType": "Headquarters",
+      "latitude": 45.4199879,
+      "longitude": -75.6970497,
+      "contactUrl": "https://www.shopify.com/contact",
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.atlassian.com/company/contact",
+        "scrapedAt": "2026-04-27T06:15:11.678Z",
+        "confidence": "medium",
+        "confidenceScore": 78,
+        "officialSourceMatch": true,
+        "geocodeCertainty": "low"
+      }
+    }
+  ]
 }
