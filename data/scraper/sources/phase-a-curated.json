@@ -133,6 +133,103 @@
           }
         ]
       }
+      ,
+      {
+        "name": "Amazon",
+        "website": "https://www.aboutamazon.com",
+        "industry": "E-Commerce / Cloud",
+        "description": "Amazon.com, Inc. is an American multinational technology company focusing on e-commerce, cloud computing, online advertising, digital streaming, and artificial intelligence.",
+        "logo": "",
+        "officePages": [
+          "https://www.aboutamazon.com/contact-us"
+        ],
+        "offices": [
+          {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "Seattle",
+            "address": "410 Terry Ave N",
+            "postalCode": "98109",
+            "officeType": "Headquarters",
+            "contactUrl": "https://www.aboutamazon.com/contact-us",
+            "sourceUrl": "https://www.aboutamazon.com/contact-us",
+            "latitude": 47.6229,
+            "longitude": -122.3361
+          }
+        ]
+      },
+      {
+        "name": "Microsoft",
+        "website": "https://www.microsoft.com",
+        "industry": "Technology",
+        "description": "Microsoft Corporation is an American multinational technology corporation which produces computer software, consumer electronics, personal computers, and related services.",
+        "logo": "",
+        "officePages": [
+          "https://www.microsoft.com/en-us/about/locations"
+        ],
+        "offices": [
+          {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "Redmond",
+            "address": "One Microsoft Way",
+            "postalCode": "98052",
+            "officeType": "Headquarters",
+            "contactUrl": "https://www.microsoft.com/en-us/about/locations",
+            "sourceUrl": "https://www.microsoft.com/en-us/about/locations",
+            "latitude": 47.6426,
+            "longitude": -122.1384
+          }
+        ]
+      },
+      {
+        "name": "Meta",
+        "website": "https://about.meta.com",
+        "industry": "Technology / Social Media",
+        "description": "Meta Platforms, Inc. is an American multinational technology conglomerate that owns and operates Facebook, Instagram, Threads, and WhatsApp.",
+        "logo": "",
+        "officePages": [
+          "https://about.meta.com/company/locations/"
+        ],
+        "offices": [
+          {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "Menlo Park",
+            "address": "1 Hacker Way",
+            "postalCode": "94025",
+            "officeType": "Headquarters",
+            "contactUrl": "https://about.meta.com/company/locations/",
+            "sourceUrl": "https://about.meta.com/company/locations/",
+            "latitude": 37.4848,
+            "longitude": -122.1484
+          }
+        ]
+      },
+      {
+        "name": "IBM",
+        "website": "https://www.ibm.com",
+        "industry": "Technology / Consulting",
+        "description": "International Business Machines Corporation is an American multinational technology company headquartered in Armonk, New York.",
+        "logo": "",
+        "officePages": [
+          "https://www.ibm.com/contact/us/en/"
+        ],
+        "offices": [
+          {
+            "country": "United States",
+            "countryCode": "US",
+            "city": "Armonk",
+            "address": "1 New Orchard Road",
+            "postalCode": "10504",
+            "officeType": "Headquarters",
+            "contactUrl": "https://www.ibm.com/contact/us/en/",
+            "sourceUrl": "https://www.ibm.com/contact/us/en/",
+            "latitude": 41.126,
+            "longitude": -73.714
+          }
+        ]
+      }
     ]
   }
 ]
