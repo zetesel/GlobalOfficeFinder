@@ -377,6 +377,33 @@ async function geocodeOffice(office) {
     // ignore mapping errors
   }
 
+  // Persist collected page data for inspection/debugging
+  try {
+    writeJson(join(root, "data", "scraper", "collected-pages.json"), collectedPageData);
+  } catch (e) {
+    // ignore write errors
+  }
+
+  // Also add any extracted office candidates directly to the review queue (so they can be accepted manually)
+  try {
+    for (const p of collectedPageData) {
+      if (p.extractedOffice) {
+        reviewQueue.push({
+          type: "office",
+          sourceId: p.sourceId || "auto-discover",
+          sourceUrl: p.url || null,
+          office: p.extractedOffice,
+          reason: "extracted from page HTML",
+          confidence: "low",
+          confidenceScore: 0,
+          queuedAt: nowIso(),
+        });
+      }
+    }
+  } catch (e) {
+    // ignore
+  }
+
   return { latitude: undefined, longitude: undefined, certainty: "none" };
 }
 
