@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { useCompanySearch } from "../../src/hooks/useCompanySearch";
-import type { Company } from "../src/types";
+import type { Company } from "../../src/types";
 import companies from "../../data/companies.json";
 
 // A small, stable fixture used by tests that rely on predictable search counts.

@@ -811,17 +811,11 @@ async function buildCompanyEntry(wikiTitle, index, total) {
     }
   }
 
-  // Last resort: use the Wikipedia content URL so the entry isn't dropped entirely.
-  // This is intentional — it lets the scraper attempt to ingest the company using
-  // its Wikipedia page as a data source; the "website" field will be flagged as a
-  // Wikipedia fallback rather than an official site by downstream processors.
-  if (!website && wikiInfo.contentUrl) {
-    website = wikiInfo.contentUrl;
-    console.warn(`[discover]   Using Wikipedia page as website fallback for "${name}" (no official site found)`);
-  }
-
+  // If no official website was found via Wikidata or DuckDuckGo, skip this entry.
+  // Using a Wikipedia URL as the website would incorrectly trigger officialSourceMatch
+  // in the scraper and generate noisy office-page fetch attempts on en.wikipedia.org.
   if (!website) {
-    console.warn(`[discover]   Skipping "${name}" — no website found`);
+    console.warn(`[discover]   Skipping "${name}" — no official website found`);
     return null;
   }
 
@@ -831,7 +825,8 @@ async function buildCompanyEntry(wikiTitle, index, total) {
     industry,
     description,
     logo: "",
-    officePages: guessOfficePages(website),
+    // Only guess office pages for real company domains, not Wikipedia/fallback URLs
+    officePages: isOfficialWebsite(website) ? guessOfficePages(website) : [],
     offices,
   };
 
