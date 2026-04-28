@@ -369,7 +369,12 @@ async function fetchFortuneArticleList(limit, knownTitles) {
 
     // If cross-referencing with known titles left nothing (e.g. different capitalization),
     // fall back to extracting all wikilinks from table rows that look like company names.
-    if (seen.size < 10) {
+    // MIN_CROSS_REF: minimum matches needed before we trust the category cross-reference.
+    // MIN_FALLBACK:  minimum titles needed for the article parse to be useful at all.
+    const MIN_CROSS_REF = 10;
+    const MIN_FALLBACK = 5;
+    const countryNameSet = new Set(Object.keys(COUNTRY_LABEL_TO_CODE));
+    if (seen.size < MIN_CROSS_REF) {
       // Re-scan without the knownTitles filter, but apply heuristics
       wikilinkRe.lastIndex = 0;
       for (const line of lines) {
@@ -380,15 +385,15 @@ async function fetchFortuneArticleList(limit, knownTitles) {
           // Skip obvious non-company links: short names, template-like, file/image
           if (title.length < 3) continue;
           if (title.startsWith("File:") || title.startsWith("Image:") || title.startsWith("Category:")) continue;
-          // Skip if it looks like a country name
-          if (Object.keys(COUNTRY_LABEL_TO_CODE).some((c) => title === c)) continue;
+          // Skip if it looks like a country name (O(1) Set lookup)
+          if (countryNameSet.has(title)) continue;
           if (!seen.has(title)) seen.set(title, true);
         }
       }
     }
 
     const titles = [...seen.keys()].slice(0, limit);
-    if (titles.length < 5) return null;
+    if (titles.length < MIN_FALLBACK) return null;
 
     console.log(`[discover] Extracted ${titles.length} ranked company titles from article`);
     return titles;
@@ -793,8 +798,11 @@ async function buildCompanyEntry(wikiTitle, index, total) {
               ? { latitude: location.lat, longitude: location.lon }
               : {}),
             contactUrl: website ?? `https://en.wikipedia.org/wiki/${encodeURIComponent(wikiTitle.replace(/ /g, "_"))}`,
-            // Set sourceUrl to the company's official website so officialSourceMatch fires
-            sourceUrl: website ?? "",
+            // sourceUrl drives the officialSourceMatch signal in the scraper.
+            // Use the Wikipedia URL as a stable fallback when the official website
+            // isn't known yet (it will be filled in by the DDG search below or
+            // kept as a Wikipedia reference that callers can distinguish).
+            sourceUrl: website ?? `https://en.wikipedia.org/wiki/${encodeURIComponent(wikiTitle.replace(/ /g, "_"))}`,
           });
         } else {
           console.warn(`[discover]   Could not resolve HQ location for "${name}" (hq: ${hqQid})`);
@@ -812,10 +820,13 @@ async function buildCompanyEntry(wikiTitle, index, total) {
     }
   }
 
-  // Last resort: use the Wikipedia content URL so the entry isn't dropped entirely
+  // Last resort: use the Wikipedia content URL so the entry isn't dropped entirely.
+  // This is intentional — it lets the scraper attempt to ingest the company using
+  // its Wikipedia page as a data source; the "website" field will be flagged as a
+  // Wikipedia fallback rather than an official site by downstream processors.
   if (!website && wikiInfo.contentUrl) {
     website = wikiInfo.contentUrl;
-    console.warn(`[discover]   Using Wikipedia page as website fallback for "${name}"`);
+    console.warn(`[discover]   Using Wikipedia page as website fallback for "${name}" (no official site found)`);
   }
 
   if (!website) {
