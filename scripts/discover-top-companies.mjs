@@ -101,8 +101,6 @@ const COUNTRY_QID_TO_CODE = {
   Q736: "EC",  // Ecuador
   Q733: "PY",  // Paraguay
   Q750: "BO",  // Bolivia
-  Q733: "PY",  // Paraguay
-  Q750: "BO",  // Bolivia
   Q423: "KP",  // North Korea
   Q1064: "MZ", // Mozambique
   Q986: "LR",  // Liberia
