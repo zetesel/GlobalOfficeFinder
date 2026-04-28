@@ -6,16 +6,16 @@ import companies from "../../data/companies.json";
 // A small, stable fixture used by tests that rely on predictable search counts.
 // This decouples those tests from the growing data/companies.json dataset.
 const FIXTURE_COMPANIES: Company[] = [
-  { id: "google", name: "Google", industry: "Technology", description: "Google LLC is an American multinational technology company.", logo: "" },
-  { id: "microsoft", name: "Microsoft", industry: "Technology", description: "Microsoft Corporation is an American multinational technology company.", logo: "" },
-  { id: "ibm", name: "IBM", industry: "Technology / Consulting", description: "IBM is an American multinational technology company.", logo: "" },
-  { id: "meta", name: "Meta", industry: "Technology / Social Media", description: "Meta is an American technology company.", logo: "" },
-  { id: "siemens", name: "Siemens", industry: "Industrial / Technology", description: "Siemens AG is a German multinational conglomerate.", logo: "" },
-  { id: "amazon", name: "Amazon", industry: "E-Commerce / Cloud", description: "Amazon.com, Inc. is an American e-commerce company.", logo: "" },
-  { id: "salesforce", name: "Salesforce", industry: "Enterprise Software", description: "Salesforce is a cloud-based software company.", logo: "" },
-  { id: "toyota", name: "Toyota", industry: "Automotive", description: "Toyota Motor Corporation is a Japanese automotive manufacturer.", logo: "" },
-  { id: "hsbc", name: "HSBC", industry: "Banking / Finance", description: "HSBC Holdings plc is a British universal bank.", logo: "" },
-  { id: "unilever", name: "Unilever", industry: "Consumer Goods", description: "Unilever plc is a British consumer goods company.", logo: "" },
+  { id: "google", name: "Google", website: "https://about.google", industry: "Technology", description: "Google LLC is an American multinational technology company.", logo: "" },
+  { id: "microsoft", name: "Microsoft", website: "https://www.microsoft.com", industry: "Technology", description: "Microsoft Corporation is an American multinational technology company.", logo: "" },
+  { id: "ibm", name: "IBM", website: "https://www.ibm.com", industry: "Technology / Consulting", description: "IBM is an American multinational technology company.", logo: "" },
+  { id: "meta", name: "Meta", website: "https://about.meta.com", industry: "Technology / Social Media", description: "Meta is an American technology company.", logo: "" },
+  { id: "siemens", name: "Siemens", website: "https://www.siemens.com", industry: "Industrial / Technology", description: "Siemens AG is a German multinational conglomerate.", logo: "" },
+  { id: "amazon", name: "Amazon", website: "https://www.aboutamazon.com", industry: "E-Commerce / Cloud", description: "Amazon.com, Inc. is an American e-commerce company.", logo: "" },
+  { id: "salesforce", name: "Salesforce", website: "https://www.salesforce.com", industry: "Enterprise Software", description: "Salesforce is a cloud-based software company.", logo: "" },
+  { id: "toyota", name: "Toyota", website: "https://global.toyota", industry: "Automotive", description: "Toyota Motor Corporation is a Japanese automotive manufacturer.", logo: "" },
+  { id: "hsbc", name: "HSBC", website: "https://www.hsbc.com", industry: "Banking / Finance", description: "HSBC Holdings plc is a British universal bank.", logo: "" },
+  { id: "unilever", name: "Unilever", website: "https://www.unilever.com", industry: "Consumer Goods", description: "Unilever plc is a British consumer goods company.", logo: "" },
 ];
 
 describe("useCompanySearch", () => {

@@ -600,6 +600,10 @@ async function main() {
   // Load all *.json source files from SOURCES_DIR and flatten into a single array.
   // This allows the discover-top-companies script (and any future source files)
   // to be picked up automatically without modifying this file.
+  if (!existsSync(SOURCES_DIR)) {
+    console.error(`[scraper] Sources directory not found: ${SOURCES_DIR}\nRun "npm run discover:companies" first to generate source files.`);
+    process.exit(1);
+  }
   const sourceFiles = readdirSync(SOURCES_DIR)
     .filter((f) => f.endsWith(".json"))
     .sort(); // consistent ordering across runs

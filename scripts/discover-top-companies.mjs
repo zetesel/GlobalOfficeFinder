@@ -380,8 +380,8 @@ async function fetchFortuneArticleList(limit, knownTitles) {
           // Skip obvious non-company links: short names, template-like, file/image
           if (title.length < 3) continue;
           if (title.startsWith("File:") || title.startsWith("Image:") || title.startsWith("Category:")) continue;
-          // Skip if it looks like a country or well-known geographic name
-          if (Object.values(COUNTRY_QID_TO_CODE).some((c) => title === c)) continue;
+          // Skip if it looks like a country name
+          if (Object.keys(COUNTRY_LABEL_TO_CODE).some((c) => title === c)) continue;
           if (!seen.has(title)) seen.set(title, true);
         }
       }
