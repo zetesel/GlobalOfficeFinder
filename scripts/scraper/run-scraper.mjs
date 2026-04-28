@@ -93,6 +93,7 @@ const ENABLE_ROBOTS_CHECK = process.env.SCRAPER_CHECK_ROBOTS !== "0";
 const PER_SOURCE_FAILURE_THRESHOLD = Number(process.env.SCRAPER_SOURCE_FAILURE_THRESHOLD ?? "4");
 const AUTO_ACCEPT = process.env.SCRAPER_AUTO_ACCEPT === "1";
 const AUTO_DISCOVER = process.env.SCRAPER_AUTO_DISCOVER === "1";
+const CAPTURE_PAGE_BODY = process.env.SCRAPER_CAPTURE_BODY === "1";
 
 const CONFIDENCE_RANK = { low: 1, medium: 2, high: 3 };
 const SOURCE_TRUST_RANK = { low: 1, medium: 2, high: 3 };
@@ -342,67 +343,6 @@ async function geocodeOffice(office) {
       }
       await sleep(400 * attempt);
     }
-  }
-
-  // Attach any extracted offices (from HTML JSON-LD or <address>) back to the discovered company entries
-  try {
-    const extractedEntries = collectedPageData.filter((p) => p.extractedOffice);
-    if (extractedEntries.length > 0) {
-      for (const ex of extractedEntries) {
-        const exUrl = ex.url || ex.sourceUrl || "";
-        let exDomain = "";
-        try {
-          exDomain = new URL(exUrl.replace(/#.*$/, "")).hostname.replace(/^www\./, "");
-        } catch {
-          // noop
-        }
-
-        for (const entry of discovered) {
-          const companyUrl = sanitizeUrl(entry.company.website) || "";
-          let companyDomain = "";
-          try {
-            companyDomain = new URL(companyUrl).hostname.replace(/^www\./, "");
-          } catch {
-            // noop
-          }
-
-          if (!companyDomain) continue;
-          if (exDomain === companyDomain) {
-            entry.company.offices = entry.company.offices || [];
-            entry.company.offices.push(ex.extractedOffice);
-          }
-        }
-      }
-    }
-  } catch (e) {
-    // ignore mapping errors
-  }
-
-  // Persist collected page data for inspection/debugging
-  try {
-    writeJson(join(root, "data", "scraper", "collected-pages.json"), collectedPageData);
-  } catch (e) {
-    // ignore write errors
-  }
-
-  // Also add any extracted office candidates directly to the review queue (so they can be accepted manually)
-  try {
-    for (const p of collectedPageData) {
-      if (p.extractedOffice) {
-        reviewQueue.push({
-          type: "office",
-          sourceId: p.sourceId || "auto-discover",
-          sourceUrl: p.url || null,
-          office: p.extractedOffice,
-          reason: "extracted from page HTML",
-          confidence: "low",
-          confidenceScore: 0,
-          queuedAt: nowIso(),
-        });
-      }
-    }
-  } catch (e) {
-    // ignore
   }
 
   return { latitude: undefined, longitude: undefined, certainty: "none" };
@@ -660,8 +600,11 @@ function extractOfficesFromHtml(body, pageUrl) {
   try {
     const addrMatches = [...body.matchAll(/<address[^>]*>([\s\S]*?)<\/address>/gi)];
     for (const m of addrMatches) {
-      let inner = m[1].replace(/<[^>]+>/g, "\n").replace(/\s+/g, " ").trim();
-      const parts = inner.split(/\n|,|\r/).map((s) => s.trim()).filter(Boolean);
+      let inner = m[1].replace(/<[^>]+>/g, "\n").trim();
+      const parts = inner
+        .split(/\n|,|\r/)
+        .map((s) => s.replace(/[^\S\r\n]+/g, " ").trim())
+        .filter(Boolean);
       if (parts.length === 0) continue;
       const street = parts[0] || "";
       let city = parts[1] || "";
@@ -920,32 +863,37 @@ async function main() {
         }
 
         const pageResult = await fetchPage(candidateUrl);
-        collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck });
-        // Try to extract offices from HTML body for possible auto-discovery
+        // Try to extract offices from HTML body for possible auto-discovery; attach to the page record
+        let extractedOffices = [];
         try {
-          const extracted = extractOfficesFromHtml(pageResult.body, candidateUrl);
-          for (const ex of extracted) {
-            collectedPageData.push({ url: candidateUrl + "#extracted", fetched: true, status: 200, title: pageResult.title, body: undefined, sourceId, extractedOffice: ex, robots: robotsCheck, fetchedAt: nowIso() });
-          }
+          extractedOffices = extractOfficesFromHtml(pageResult.body, candidateUrl);
         } catch (e) {
           // ignore
         }
+        collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck, extractedOffices: extractedOffices.length > 0 ? extractedOffices : undefined });
         // Also follow any candidate links found within the page (keeps probing to find addresses)
         try {
           const extraLinks = extractCandidateLinksFromHtml(pageResult.body, candidateUrl);
           for (const l of extraLinks) {
             // respect robots and circuit breaker
+            if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
             const rc = await isUrlAllowedByRobots(l);
-            if (!rc.allowed) continue;
+            if (!rc.allowed) {
+              sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+              if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+              continue;
+            }
             const pl = await fetchPage(l);
-            collectedPageData.push({ ...pl, sourceId, robots: rc });
+            let extracted2 = [];
             try {
-              const extracted2 = extractOfficesFromHtml(pl.body, l);
-              for (const ex of extracted2) {
-                collectedPageData.push({ url: l + "#extracted", fetched: true, status: 200, title: pl.title, body: undefined, sourceId, extractedOffice: ex, robots: rc, fetchedAt: nowIso() });
-              }
+              extracted2 = extractOfficesFromHtml(pl.body, l);
             } catch {
               // ignore
+            }
+            collectedPageData.push({ ...pl, sourceId, robots: rc, extractedOffices: extracted2.length > 0 ? extracted2 : undefined });
+            if (!pl.fetched) {
+              sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+              if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
             }
             await sleep(150);
           }
@@ -1244,7 +1192,10 @@ async function main() {
 
   // Persist collected page data so the CLI and humans can inspect what was fetched and what was extracted
   try {
-    writeJson(join(root, "data", "scraper", "collected-pages.json"), collectedPageData);
+    const pageDataToWrite = collectedPageData.map(({ body: _body, ...rest }) =>
+      CAPTURE_PAGE_BODY ? { body: _body, ...rest } : rest,
+    );
+    writeJson(join(root, "data", "scraper", "collected-pages.json"), pageDataToWrite);
   } catch (e) {
     // ignore write errors
   }
