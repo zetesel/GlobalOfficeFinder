@@ -16,8 +16,10 @@
  *   DISCOVER_OUTPUT         Output path (default: data/scraper/sources/auto-top-100.json)
  *   WIKIPEDIA_BASE_URL      Override Wikipedia API base (default: https://en.wikipedia.org)
  *   WIKIDATA_BASE_URL       Override Wikidata API base (default: https://www.wikidata.org)
+ *   DUCKDUCKGO_BASE_URL     Override DuckDuckGo Instant Answers base (default: https://api.duckduckgo.com)
  *   DISCOVER_REQUEST_DELAY  ms between API requests (default: 350)
  *   DISCOVER_DRY_RUN        If "1", print discovery results without writing the file
+ *   DISCOVER_WEBSITE_SEARCH If "0", disable DuckDuckGo fallback for official website lookup (default: enabled)
  *
  * Output file format is an array of source objects compatible with run-scraper.mjs:
  * [{ id, name, sourceUrl, trust, companies: [{ name, website, industry, description,
@@ -39,8 +41,10 @@ const OUTPUT_PATH =
   join(root, "data", "scraper", "sources", "auto-top-100.json");
 const WIKIPEDIA_BASE = (process.env.WIKIPEDIA_BASE_URL ?? "https://en.wikipedia.org").replace(/\/$/, "");
 const WIKIDATA_BASE = (process.env.WIKIDATA_BASE_URL ?? "https://www.wikidata.org").replace(/\/$/, "");
+const DUCKDUCKGO_BASE = (process.env.DUCKDUCKGO_BASE_URL ?? "https://api.duckduckgo.com").replace(/\/$/, "");
 const REQUEST_DELAY = Number(process.env.DISCOVER_REQUEST_DELAY ?? "350");
 const DRY_RUN = process.env.DISCOVER_DRY_RUN === "1";
+const WEBSITE_SEARCH = process.env.DISCOVER_WEBSITE_SEARCH !== "0";
 
 const REQUEST_HEADERS = {
   "User-Agent": "GlobalOfficeFinderBot/1.0 (https://github.com/zetesel/GlobalOfficeFinder; discovery stage)",
@@ -314,6 +318,179 @@ async function fetchCategoryMembers(limit) {
 
   console.error("[discover] Could not fetch any company list from Wikipedia");
   return [];
+}
+
+/**
+ * Fetches the live Fortune Global 500 Wikipedia article wikitext and extracts
+ * an ordered list of company Wikipedia page titles by parsing [[wikilinks]] from
+ * table rows.  Cross-references against `knownTitles` (a Set from the category
+ * API) to filter out non-company links such as country or industry names.
+ *
+ * Falls back gracefully: if parsing yields fewer than 10 titles we return null
+ * so the caller can use the category-based list instead.
+ *
+ * @param {number} limit
+ * @param {Set<string>} knownTitles   Set of titles from the category API (used as filter)
+ * @returns {Promise<string[]|null>}
+ */
+async function fetchFortuneArticleList(limit, knownTitles) {
+  const articlePage = "Fortune_Global_500";
+  try {
+    const url = new URL(`${WIKIPEDIA_BASE}/w/api.php`);
+    url.searchParams.set("action", "parse");
+    url.searchParams.set("page", articlePage);
+    url.searchParams.set("prop", "wikitext");
+    url.searchParams.set("format", "json");
+
+    console.log(`[discover] Fetching ranked list from Wikipedia article: ${articlePage}`);
+    const data = await fetchJSON(url.toString(), REQUEST_HEADERS);
+    const wikitext = data?.parse?.wikitext?.["*"] ?? "";
+    if (!wikitext) return null;
+
+    // Extract wikilinks from table rows (lines starting with | or |- )
+    // Match [[Page Title]] or [[Page Title|Display text]]
+    const wikilinkRe = /\[\[([^\]|#]+)(?:\|[^\]]+)?\]\]/g;
+    /** @type {Map<string, true>} preserves first-seen order */
+    const seen = new Map();
+    const lines = wikitext.split("\n");
+
+    for (const line of lines) {
+      // Only consider lines that are part of a table (start with | or ! )
+      if (!line.trimStart().startsWith("|") && !line.trimStart().startsWith("!")) continue;
+      let match;
+      while ((match = wikilinkRe.exec(line)) !== null) {
+        const title = match[1].trim();
+        // Filter: must be in the known category set (skips country/industry links)
+        if (knownTitles.has(title) && !seen.has(title)) {
+          seen.set(title, true);
+        }
+      }
+    }
+
+    // If cross-referencing with known titles left nothing (e.g. different capitalization),
+    // fall back to extracting all wikilinks from table rows that look like company names.
+    if (seen.size < 10) {
+      // Re-scan without the knownTitles filter, but apply heuristics
+      wikilinkRe.lastIndex = 0;
+      for (const line of lines) {
+        if (!line.trimStart().startsWith("|") && !line.trimStart().startsWith("!")) continue;
+        let match;
+        while ((match = wikilinkRe.exec(line)) !== null) {
+          const title = match[1].trim();
+          // Skip obvious non-company links: short names, template-like, file/image
+          if (title.length < 3) continue;
+          if (title.startsWith("File:") || title.startsWith("Image:") || title.startsWith("Category:")) continue;
+          // Skip if it looks like a country or well-known geographic name
+          if (Object.values(COUNTRY_QID_TO_CODE).some((c) => title === c)) continue;
+          if (!seen.has(title)) seen.set(title, true);
+        }
+      }
+    }
+
+    const titles = [...seen.keys()].slice(0, limit);
+    if (titles.length < 5) return null;
+
+    console.log(`[discover] Extracted ${titles.length} ranked company titles from article`);
+    return titles;
+  } catch (err) {
+    console.warn(`[discover] Could not parse Fortune article: ${err.message}`);
+    return null;
+  }
+}
+
+// ─── DuckDuckGo Instant Answers ──────────────────────────────────────────────
+
+/** Domains that should never be treated as an official company website. */
+const NON_OFFICIAL_DOMAINS = new Set([
+  "wikipedia.org",
+  "en.wikipedia.org",
+  "wikidata.org",
+  "twitter.com",
+  "x.com",
+  "facebook.com",
+  "linkedin.com",
+  "instagram.com",
+  "youtube.com",
+  "reddit.com",
+  "bloomberg.com",
+  "reuters.com",
+  "forbes.com",
+  "crunchbase.com",
+  "owler.com",
+  "dnb.com",
+]);
+
+/**
+ * Returns true if the URL looks like a plausible official corporate website.
+ * @param {string} url
+ */
+function isOfficialWebsite(url) {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, "");
+    return !NON_OFFICIAL_DOMAINS.has(host) && !host.includes("wikipedia");
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Uses the DuckDuckGo Instant Answers API to find the official website for a
+ * company.  Checks `Infobox.content` (same data as the Wikipedia infobox, but
+ * fetched live) then falls back to the first non-Wikipedia `AbstractURL`.
+ *
+ * No API key required.  Rate-limited by REQUEST_DELAY.
+ *
+ * @param {string} companyName
+ * @returns {Promise<string|null>}
+ */
+async function searchWebsiteViaDDG(companyName) {
+  if (!WEBSITE_SEARCH) return null;
+  await sleep(REQUEST_DELAY);
+  try {
+    const url = new URL(DUCKDUCKGO_BASE + "/");
+    url.searchParams.set("q", companyName);
+    url.searchParams.set("format", "json");
+    url.searchParams.set("ia", "about");
+    url.searchParams.set("no_redirect", "1");
+    url.searchParams.set("no_html", "1");
+    url.searchParams.set("skip_disambig", "1");
+
+    const data = await fetchJSON(url.toString(), {
+      ...REQUEST_HEADERS,
+      Accept: "application/json",
+    });
+
+    // 1. Check infobox for an explicit "Official website" entry
+    const infobox = data?.Infobox?.content ?? [];
+    for (const item of infobox) {
+      if (
+        typeof item.label === "string" &&
+        item.label.toLowerCase().includes("official") &&
+        typeof item.value === "string" &&
+        isOfficialWebsite(item.value)
+      ) {
+        return item.value.trim();
+      }
+    }
+
+    // 2. Check the RelatedTopics URLs for a plausible official site
+    const topics = data?.RelatedTopics ?? [];
+    for (const topic of topics) {
+      const firstUrl = topic?.FirstURL ?? "";
+      if (firstUrl && isOfficialWebsite(firstUrl)) {
+        return firstUrl;
+      }
+    }
+
+    // 3. Fall back to AbstractURL if it's not Wikipedia
+    const abstractUrl = data?.AbstractURL ?? "";
+    if (abstractUrl && isOfficialWebsite(abstractUrl)) {
+      return abstractUrl;
+    }
+  } catch (err) {
+    console.warn(`[discover]   DuckDuckGo search error for "${companyName}": ${err.message}`);
+  }
+  return null;
 }
 
 /**
@@ -594,7 +771,6 @@ async function buildCompanyEntry(wikiTitle, index, total) {
     if (entity) {
       // P856 = official website
       website = claimStringValue(entity.claims, "P856");
-
       // P452 = industry
       const industryQid = claimQidValue(entity.claims, "P452");
       if (industryQid) {
@@ -627,7 +803,16 @@ async function buildCompanyEntry(wikiTitle, index, total) {
     }
   }
 
-  // If Wikidata didn't provide a website, fall back to Wikipedia content URL
+  // If Wikidata didn't provide a website, try a live DuckDuckGo Instant Answers search
+  if (!website) {
+    const ddgSite = await searchWebsiteViaDDG(name);
+    if (ddgSite) {
+      website = ddgSite;
+      console.log(`[discover]   ✦ Found website via DuckDuckGo for "${name}": ${website}`);
+    }
+  }
+
+  // Last resort: use the Wikipedia content URL so the entry isn't dropped entirely
   if (!website && wikiInfo.contentUrl) {
     website = wikiInfo.contentUrl;
     console.warn(`[discover]   Using Wikipedia page as website fallback for "${name}"`);
@@ -662,15 +847,23 @@ async function main() {
   console.log(`[discover] Starting top-${DISCOVER_LIMIT} company discovery...`);
   console.log(`[discover] Wikipedia: ${WIKIPEDIA_BASE}`);
   console.log(`[discover] Wikidata:  ${WIKIDATA_BASE}`);
+  console.log(`[discover] DuckDuckGo website search: ${WEBSITE_SEARCH ? "enabled" : "disabled"}`);
   if (DRY_RUN) console.log("[discover] DRY RUN — will not write output file");
 
-  // Step 1: Get company titles from Wikipedia category
-  const titles = await fetchCategoryMembers(DISCOVER_LIMIT);
+  // Step 1: Get company titles.
+  // Prefer the ranked list from the live Fortune Global 500 article (more current
+  // than alphabetical category membership).  Fall back to category members.
+  const categoryTitles = await fetchCategoryMembers(Math.max(DISCOVER_LIMIT * 2, 500));
+  const knownTitles = new Set(categoryTitles);
+
+  const articleTitles = await fetchFortuneArticleList(DISCOVER_LIMIT, knownTitles);
+  const titles = articleTitles ?? categoryTitles.slice(0, DISCOVER_LIMIT);
+
   if (titles.length === 0) {
     console.error("[discover] No company titles discovered. Aborting.");
     process.exit(1);
   }
-  console.log(`[discover] Discovered ${titles.length} Wikipedia titles to process`);
+  console.log(`[discover] Using ${titles.length} Wikipedia titles to process (source: ${articleTitles ? "Fortune article" : "category members"})`);
 
   // Step 2: Build company entries
   /** @type {CompanyEntry[]} */
