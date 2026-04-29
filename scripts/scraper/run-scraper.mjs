@@ -908,6 +908,46 @@ async function main() {
     }
   }
 
+  // Map extracted offices (from HTML pages) back to discovered company entries and add to review queue
+  for (const page of collectedPageData) {
+    if (!Array.isArray(page.extractedOffices) || page.extractedOffices.length === 0) continue;
+    const pageUrl = page.url || page.sourceUrl || "";
+    let pageDomain = "";
+    try {
+      pageDomain = new URL(pageUrl.split(/[?#]/)[0]).hostname.replace(/^www\./, "");
+    } catch {
+      // noop
+    }
+    for (const ex of page.extractedOffices) {
+      // Add to the review queue so candidates can be inspected/accepted
+      reviewQueue.push({
+        type: "office",
+        sourceId: page.sourceId || "auto-discover",
+        sourceUrl: pageUrl || null,
+        office: ex,
+        reason: "extracted from page HTML",
+        confidence: "low",
+        confidenceScore: 0,
+        queuedAt: nowIso(),
+      });
+      // Also attach back to the matching discovered company entry by domain
+      if (!pageDomain) continue;
+      for (const entry of discovered) {
+        const companyUrl = sanitizeUrl(entry.company.website) || "";
+        let companyDomain = "";
+        try {
+          companyDomain = new URL(companyUrl).hostname.replace(/^www\./, "");
+        } catch {
+          // noop
+        }
+        if (companyDomain && pageDomain === companyDomain) {
+          entry.company.offices = entry.company.offices || [];
+          entry.company.offices.push(ex);
+        }
+      }
+    }
+  }
+
   // Stage 3+4+5: extract, normalize, geocode, dedupe, quality controls
   const acceptedCompanies = [];
   const acceptedOffices = [];
@@ -1133,8 +1173,8 @@ async function main() {
 
       const normalizedOffice = {
         id: '',
-        companyId: raw.companyId || raw.companyId || '',
-        country: country || safeText(raw.country) || '',
+        companyId: raw.companyId || '',
+        country: country || '',
         countryCode: countryCode || '',
         region,
         city: safeText(raw.city),
@@ -1170,6 +1210,10 @@ async function main() {
 
       // acceptance policy: accept if confidence level passes current threshold OR geocode is high OR completeness >= 0.6
       if (levelPasses(confidence.level) || geocodeCertainty === 'high' || completenessScore >= 0.6) {
+        if (!hasAllRequired(normalizedOffice, REQUIRED_OFFICE_FIELDS)) {
+          remainingQueue.push(item);
+          continue;
+        }
         const dedupeKey = officeDedupKey({ companyId: normalizedOffice.companyId, address: normalizedOffice.address, city: normalizedOffice.city, countryCode: normalizedOffice.countryCode });
         if (!officeKeys.has(dedupeKey)) {
           normalizedOffice.id = makeOfficeId(mergedOffices, normalizedOffice.companyId, normalizedOffice.countryCode, normalizedOffice.city);

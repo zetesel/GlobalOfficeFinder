@@ -2,8 +2,9 @@
 // @ts-check
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
-const root = dirname(dirname(dirname(new URL(import.meta.url).pathname)));
+const root = dirname(dirname(dirname(fileURLToPath(import.meta.url))));
 
 function readJson(p) {
   if (!existsSync(p)) return undefined;
@@ -129,6 +130,11 @@ function makeOfficeId(existingOffices, companyId, countryCode, city) {
   return id;
 }
 
+function makeOfficeDedupeKey(o) {
+  const cc = String(o.countryCode || '').toUpperCase();
+  return `${o.companyId}|${(o.address || '').toLowerCase()}|${(o.city || '').toLowerCase()}|${cc}`;
+}
+
 function usage() {
   console.log('Usage: node scripts/scraper/review-queue-cli.mjs [--apply] [--geocode]');
   process.exit(1);
@@ -238,12 +244,20 @@ async function main() {
   }
 
   // APPLY: append accepted proposals to offices.json, with ids and normalized fields
+  const existingKeys = new Set(existingOffices.map((o) => makeOfficeDedupeKey(o)));
   const toAdd = [];
   for (const o of accepted) {
     // ensure companyId exists
     if (!o.companyId || o.companyId === 'unknown') continue;
     const cc = String(o.countryCode || '').toUpperCase();
-    const region = normalizeRegion(cc) || 'Americas';
+    const region = normalizeRegion(cc);
+    if (!region) {
+      console.warn(`Skipping accepted proposal with unknown region mapping for countryCode "${cc}" (companyId=${o.companyId}, city=${o.city || ''}).`);
+      continue;
+    }
+    // deduplicate: skip if same companyId+address+city+countryCode already exists
+    const dedupeKey = makeOfficeDedupeKey({ companyId: o.companyId, address: o.address, city: o.city, countryCode: cc });
+    if (existingKeys.has(dedupeKey)) continue;
     const office = {
       companyId: o.companyId,
       country: o.country || '',
@@ -258,6 +272,7 @@ async function main() {
       contactUrl: sanitizeUrl(o.contactUrl) || undefined,
     };
     const id = makeOfficeId(existingOffices.concat(toAdd), office.companyId, office.countryCode, office.city);
+    existingKeys.add(dedupeKey);
     toAdd.push({ id, ...office });
   }
 
