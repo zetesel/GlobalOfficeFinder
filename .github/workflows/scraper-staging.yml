@@ -1,0 +1,51 @@
+name: Scraper Staging
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * 1' # weekly on Monday at 03:00 UTC
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install
+        run: npm ci
+
+      - name: Run scraper (staging)
+        env:
+          SCRAPER_STAGING: '1'
+          SCRAPER_AUTO_DISCOVER: '1'
+          SCRAPER_AUTO_ACCEPT: '1'
+          SCRAPER_GEOCODE: '1'
+          SCRAPER_MIN_CONFIDENCE: 'low'
+        run: |
+          node scripts/scraper/run-scraper.mjs
+
+      - name: Commit staging files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b scraper/staging-$(date +%s)
+          git add data/companies-staging.json data/offices-staging.json data/scraper/collected-pages.json data/scraper/proposed-accepts.json data/scraper/top-proposals.json || true
+          git commit -m "scraper: staging run $(date -u +%Y-%m-%d)" || echo "no changes to commit"
+          git push --set-upstream origin HEAD
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "Scraper staging run: $(date -u +%Y-%m-%d)"
+          body: |
+            Automated scraper staging run. Please review data/companies-staging.json and data/offices-staging.json before promoting.
+            This run may include auto-accepted candidates; inspect confidence and provenance fields in data/scraper/collected-pages.json.
+          base: main
+          head: scraper/staging-*

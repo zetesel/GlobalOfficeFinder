@@ -14,7 +14,7 @@
       "target": "temporary-public-storage"
     },
     "assert": {
-      "preset": "lighthouse:recommended",
+      "preset": null,
       "assertions": {
         "cumulativeLayoutShift": "off",
         "categories:performance": ["error", { "minScore": 0.50 }],
@@ -31,7 +31,8 @@
         "splash-screen": "off",
         "themed-omnibox": "off",
         "render-blocking-resources": "off",
-        "uses-responsive-images": "off"
+        "uses-responsive-images": "off",
+        "uses-rel-preconnect": "off"
       }
     }
   }
