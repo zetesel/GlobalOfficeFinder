@@ -70,30 +70,6 @@
     "contactUrl": "https://www.atlassian.com/company/contact"
   },
   {
-    "id": "atlassian-us-san-francisc-2",
-    "companyId": "atlassian",
-    "country": "US",
-    "countryCode": "US",
-    "region": "Americas",
-    "city": "San Francisco",
-    "address": "350 Bush Street, Floor 13",
-    "postalCode": "94104",
-    "officeType": "Regional Office",
-    "contactUrl": "https://www.atlassian.com/#extracted"
-  },
-  {
-    "id": "atlassian-us-san-francisc-3",
-    "companyId": "atlassian",
-    "country": "US",
-    "countryCode": "US",
-    "region": "Americas",
-    "city": "San Francisco",
-    "address": "350 Bush Street, Floor 13",
-    "postalCode": "94104",
-    "officeType": "Regional Office",
-    "contactUrl": "https://www.atlassian.com/#extracted"
-  },
-  {
     "id": "google-ch-zurich",
     "companyId": "google",
     "country": "Switzerland",
@@ -652,33 +628,5 @@
     "latitude": 40.8754,
     "longitude": -73.957,
     "contactUrl": "https://www.unilever.com/contact/"
-  },
-  {
-    "id": "shopify-xx-s",
-    "companyId": "shopify",
-    "country": "대한민국",
-    "countryCode": "KR",
-    "region": "Asia-Pacific",
-    "city": "s",
-    "address": "Thema&#x27",
-    "postalCode": "",
-    "officeType": "Regional Office",
-    "latitude": 35.2565176,
-    "longitude": 128.8967512,
-    "contactUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=nl#extracted"
-  },
-  {
-    "id": "shopify-xx-s",
-    "companyId": "shopify",
-    "country": "South Korea",
-    "countryCode": "KR",
-    "region": "Asia-Pacific",
-    "city": "s",
-    "address": "Thema'",
-    "postalCode": "",
-    "officeType": "Regional Office",
-    "latitude": 35.2565176,
-    "longitude": 128.8967512,
-    "contactUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=nl#extracted"
   }
 ]
