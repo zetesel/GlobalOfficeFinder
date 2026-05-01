@@ -212,6 +212,11 @@ test.describe('Accessibility Tests', () => {
   test('homepage is keyboard navigable', async ({ page }) => {
     await page.goto('/');
     
+    // Wait for the search input to be visible and enabled
+    const searchInput = page.getByPlaceholder(/search by company/i);
+    await expect(searchInput).toBeVisible();
+    await expect(searchInput).toBeEnabled();
+    
     // Tab through interactive elements
     await page.keyboard.press('Tab');
     
