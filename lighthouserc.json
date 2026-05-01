@@ -31,7 +31,8 @@
         "splash-screen": "off",
         "themed-omnibox": "off",
         "render-blocking-resources": "off",
-        "uses-responsive-images": "off"
+        "uses-responsive-images": "off",
+        "uses-rel-preconnect": "off"
       }
     }
   }
