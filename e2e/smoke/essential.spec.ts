@@ -10,8 +10,7 @@ test('search by company name loads results', async ({ page }) => {
   await page.goto('/');
   const search = page.locator('#search-input');
   await search.fill('Google');
-  // Small delay to allow results to render
-  await page.waitForTimeout(500);
-  // Verify that Google appears in results
-  await expect(page.locator('text=Google')).toBeVisible();
+  // Wait for the Google company link to appear in results
+  await page.waitForSelector('a[href="/company/google"]', { state: 'attached' });
+  await expect(page.locator('a[href="/company/google"]')).toBeVisible();
 });
