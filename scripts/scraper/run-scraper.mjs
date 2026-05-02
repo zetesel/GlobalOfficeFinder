@@ -788,6 +788,12 @@ async function main() {
       return [];
     }
   });
+  // Optional: limit number of sources scanned for faster runs (particularly in CI)
+  const MAX_SOURCES = Number(process.env.SCRAPER_MAX_SOURCES ?? 0);
+  if (Number.isFinite(MAX_SOURCES) && MAX_SOURCES > 0 && sources.length > MAX_SOURCES) {
+    sources.length = MAX_SOURCES;
+    console.log(`[scraper] Trimming sources to ${MAX_SOURCES} (SCRAPER_MAX_SOURCES) for speed`);
+  }
   console.log(`[scraper] Loaded ${sources.length} source(s) from ${sourceFiles.length} file(s) in ${SOURCES_DIR}`);
 
   const regionMap = buildRegionMap(existingOffices);
@@ -799,7 +805,7 @@ async function main() {
   // Stage 1: discover companies from curated/auto-discovered sources
   const discovered = [];
   for (const source of sources) {
-    const sourceCheck = sourcePassesHardFilters(source);
+  const sourceCheck = sourcePassesHardFilters(source);
     if (!sourceCheck.ok) {
       skippedSources.push({
         sourceId: source.id ?? "unknown",
@@ -809,7 +815,8 @@ async function main() {
       continue;
     }
 
-    for (const company of source.companies) {
+  console.log(`[scraper] Stage1: scanning source ${source.id ?? 'unknown'} (${source.name ?? 'unknown'}) with ${source.companies?.length ?? 0} candidate(s)`);
+  for (const company of source.companies) {
       discovered.push({ source, company });
     }
   }
