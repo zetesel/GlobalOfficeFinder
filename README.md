@@ -101,6 +101,12 @@ The discovery pipeline (`scripts/scraper/run-scraper.mjs`) can be configured via
 - `SCRAPER_CHECK_ROBOTS=0`: Disable robots.txt compliance checks (use with caution).
 - `SCRAPER_MIN_SOURCE_TRUST`: Set minimum trust level (`high`, `medium`, `low`).
 
+## Scraper Performance Hint
+- For CI speedups, you can limit the number of sources the scraper processes by setting SCRAPER_MAX_SOURCES to a positive integer.
+- Example: SCRAPER_MAX_SOURCES=1 SCRAPER_FETCH_PAGES=0 node scripts/scraper/run-scraper.mjs
+- If SCRAPER_MAX_SOURCES is not set or <= 0, the scraper processes all sources as before.
+- This change preserves data integrity since only the subset of sources is processed; the rest of the pipeline remains unchanged.
+
 ---
 
 ## 🛡️ Security & Quality
