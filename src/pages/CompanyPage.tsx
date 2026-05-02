@@ -37,6 +37,8 @@ export default function CompanyPage() {
   const { id } = useParams<{ id: string }>();
   const company = allCompanies.find((c) => c.id === id);
 
+  // Initialize hook early to satisfy React's hooks rules
+  const [selectedOffice, setSelectedOffice] = React.useState<CoordinateOffice | null>(null);
   if (!company) {
     return (
       <div className="container page-error">
@@ -62,7 +64,6 @@ const mapCenter = getAverageCoordinates(mapOffices);
   // (closer-in view helps users see the immediate vicinity of the office)
   // Adjusted to 17 for an even closer zoom on the selected office area
   const OFFICE_FOCUS_ZOOM = 17;
-  const [selectedOffice, setSelectedOffice] = React.useState<CoordinateOffice | null>(null);
   const initialOfficeFocus = mapOffices.length > 0
     ? {
         lat: mapOffices[0].latitude,
