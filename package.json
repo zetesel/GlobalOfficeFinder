@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "validate-data": "node scripts/validate-data.mjs",
+    "validate-data-fast": "node scripts/validate-data-fast.mjs",
     "discover:companies": "node scripts/discover-top-companies.mjs",
     "discover:companies:dry": "DISCOVER_DRY_RUN=1 node scripts/discover-top-companies.mjs",
     "scrape:companies": "node scripts/scraper/run-scraper.mjs",
@@ -19,6 +20,9 @@
     "scrape:discover": "node scripts/discover-top-companies.mjs && node scripts/scraper/run-scraper.mjs",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"data/**/*.json\"",
     "test": "vitest",
+    "test:ci:unit": "vitest run --reporter dot",
+    "test:ci:e2e": "playwright test",
+    "test:ci": "npm ci --silent && npm run test:ci:unit && npm run test:ci:e2e",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:debug": "playwright test --debug"

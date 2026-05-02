@@ -1,4 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
+import { cpus } from 'os';
+const CPU_CORES = cpus().length;
+const CI = Boolean(process.env.CI);
 
 /**
  * Playwright configuration for end-to-end testing of GlobalOfficeFinder
@@ -7,8 +10,8 @@ export default defineConfig({
   testDir: './e2e',
   testMatch: '**/*.spec.ts',
   
-  // Run tests in 3 worker processes in parallel
-  workers: 3,
+  // Run tests in parallel with a CI-safe cap
+  workers: CI ? 2 : Math.min(3, CPU_CORES),
   
   // Number of retries for failed tests
   retries: 1,
@@ -36,9 +39,9 @@ export default defineConfig({
   // Use baseURL for relative navigation
   use: {
     baseURL: 'http://localhost:5173',
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    trace: CI ? 'off' : 'on-first-retry',
+    screenshot: CI ? 'off' : 'only-on-failure',
+    video: CI ? 'off' : 'retain-on-failure',
   },
 
   // Configure web server
