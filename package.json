@@ -19,6 +19,9 @@
     "scrape:discover": "node scripts/discover-top-companies.mjs && node scripts/scraper/run-scraper.mjs",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"data/**/*.json\"",
     "test": "vitest",
+    "test:ci:unit": "vitest run --reporter dot",
+    "test:ci:e2e": "playwright test",
+    "test:ci": "npm ci --silent && npm run test:ci:unit && npm run test:ci:e2e",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:debug": "playwright test --debug"
