@@ -1,10 +1,13 @@
 import { defineConfig, devices } from '@playwright/test';
+const CI = Boolean(process.env.CI);
+const SMOKE = Boolean(process.env.CI_SMOKE);
 
 /**
  * Playwright configuration for end-to-end testing of GlobalOfficeFinder
  */
+// Optionally run a smoke subset on CI when CI_SMOKE is set
 export default defineConfig({
-  testDir: './e2e',
+  testDir: SMOKE ? './e2e/smoke' : './e2e',
   testMatch: '**/*.spec.ts',
   
   // Run tests in 3 worker processes in parallel
