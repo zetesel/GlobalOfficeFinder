@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "validate-data": "node scripts/validate-data.mjs",
+    "validate-data-fast": "node scripts/validate-data-fast.mjs",
     "discover:companies": "node scripts/discover-top-companies.mjs",
     "discover:companies:dry": "DISCOVER_DRY_RUN=1 node scripts/discover-top-companies.mjs",
     "scrape:companies": "node scripts/scraper/run-scraper.mjs",

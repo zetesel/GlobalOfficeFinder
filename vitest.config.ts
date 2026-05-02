@@ -1,7 +1,5 @@
 import { defineConfig } from "vitest/config";
 import { cpus } from "os";
-const CPU_CORES = cpus().length;
-const IS_CI = Boolean(process.env.CI);
 import react from "@vitejs/plugin-react";
 
 const CPU_CORES = cpus().length;
