@@ -1,13 +1,13 @@
 {
-  "startedAt": "2026-04-27T06:15:05.582Z",
-  "finishedAt": "2026-04-27T06:15:11.685Z",
+  "startedAt": "2026-04-27T11:42:17.187Z",
+  "finishedAt": "2026-04-27T11:42:22.860Z",
   "dryRun": false,
-  "confidenceThreshold": "medium",
+  "confidenceThreshold": "low",
   "stages": {
-    "discoveredCompanies": 2,
-    "collectedPages": 4,
+    "discoveredCompanies": 3,
+    "collectedPages": 6,
     "acceptedCompanies": 0,
-    "acceptedOffices": 2,
+    "acceptedOffices": 4,
     "reviewQueueItems": 0,
     "skippedSources": 0
   },
@@ -15,64 +15,115 @@
     "minSourceTrust": "high",
     "robotsCheckEnabled": true,
     "perSourceFailureThreshold": 4,
-    "sourceFailures": {},
+    "sourceFailures": {
+      "phase-a-official-tech-sample": 1
+    },
     "skippedSources": []
   },
+  "sourceFiles": [
+    "phase-a-curated.json"
+  ],
   "sources": [
     {
       "id": "phase-a-official-tech-sample",
       "name": "Phase A Trusted Tech Sources",
       "sourceUrl": "https://www.atlassian.com/company/contact",
-      "companyCandidates": 2,
+      "companyCandidates": 3,
       "trust": "high"
     }
   ],
   "acceptedCompanies": [],
   "acceptedOffices": [
     {
-      "id": "atlassian-us-san-francisc",
-      "companyId": "atlassian",
+      "id": "google-us-new-york",
+      "companyId": "google",
       "country": "United States",
       "countryCode": "US",
       "region": "Americas",
-      "city": "San Francisco",
-      "address": "350 Bush Street",
-      "postalCode": "94104",
+      "city": "New York",
+      "address": "76 9th Avenue",
+      "postalCode": "10011",
       "officeType": "Regional Office",
-      "latitude": 37.7913454,
-      "longitude": -122.4032976,
-      "contactUrl": "https://www.atlassian.com/company/contact",
+      "latitude": 40.7484,
+      "longitude": -74.006,
+      "contactUrl": "https://about.google/contact/",
       "source": {
         "sourceId": "phase-a-official-tech-sample",
         "sourceUrl": "https://www.atlassian.com/company/contact",
-        "scrapedAt": "2026-04-27T06:15:09.718Z",
-        "confidence": "medium",
-        "confidenceScore": 78,
+        "scrapedAt": "2026-04-27T11:42:22.843Z",
+        "confidence": "high",
+        "confidenceScore": 100,
         "officialSourceMatch": true,
-        "geocodeCertainty": "low"
+        "geocodeCertainty": "high"
       }
     },
     {
-      "id": "shopify-ca-ottawa",
-      "companyId": "shopify",
-      "country": "Canada",
-      "countryCode": "CA",
-      "region": "Americas",
-      "city": "Ottawa",
-      "address": "151 O'Connor Street",
-      "postalCode": "K2P 2L8",
-      "officeType": "Headquarters",
-      "latitude": 45.4199879,
-      "longitude": -75.6970497,
-      "contactUrl": "https://www.shopify.com/contact",
+      "id": "google-gb-london",
+      "companyId": "google",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "region": "Europe",
+      "city": "London",
+      "address": "1 St Giles High St",
+      "postalCode": "WC2H 8AG",
+      "officeType": "Regional Office",
+      "latitude": 51.5154,
+      "longitude": -0.131,
+      "contactUrl": "https://about.google/contact/",
       "source": {
         "sourceId": "phase-a-official-tech-sample",
         "sourceUrl": "https://www.atlassian.com/company/contact",
-        "scrapedAt": "2026-04-27T06:15:11.678Z",
-        "confidence": "medium",
-        "confidenceScore": 78,
+        "scrapedAt": "2026-04-27T11:42:22.843Z",
+        "confidence": "high",
+        "confidenceScore": 100,
         "officialSourceMatch": true,
-        "geocodeCertainty": "low"
+        "geocodeCertainty": "high"
+      }
+    },
+    {
+      "id": "google-jp-tokyo",
+      "companyId": "google",
+      "country": "Japan",
+      "countryCode": "JP",
+      "region": "Asia-Pacific",
+      "city": "Tokyo",
+      "address": "Roppongi Hills Mori Tower, 6-10-1 Roppongi",
+      "postalCode": "106-6140",
+      "officeType": "Regional Office",
+      "latitude": 35.6586,
+      "longitude": 139.7454,
+      "contactUrl": "https://about.google/contact/",
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.atlassian.com/company/contact",
+        "scrapedAt": "2026-04-27T11:42:22.843Z",
+        "confidence": "high",
+        "confidenceScore": 100,
+        "officialSourceMatch": true,
+        "geocodeCertainty": "high"
+      }
+    },
+    {
+      "id": "google-ch-zurich",
+      "companyId": "google",
+      "country": "Switzerland",
+      "countryCode": "CH",
+      "region": "Europe",
+      "city": "Zurich",
+      "address": "Brandschenkestrasse 110",
+      "postalCode": "8002",
+      "officeType": "Regional Office",
+      "latitude": 47.3686,
+      "longitude": 8.5392,
+      "contactUrl": "https://about.google/contact/",
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.atlassian.com/company/contact",
+        "scrapedAt": "2026-04-27T11:42:22.843Z",
+        "confidence": "high",
+        "confidenceScore": 100,
+        "officialSourceMatch": true,
+        "geocodeCertainty": "high"
       }
     }
   ]

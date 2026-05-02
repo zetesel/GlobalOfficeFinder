@@ -32,6 +32,7 @@ interface MapViewProps {
   autoFit?: boolean;
   companyName?: string;
   companyNamesById?: Record<string, string>;
+  focus?: { lat: number; lng: number; zoom: number };
 }
 
 export function MapView({
@@ -42,6 +43,7 @@ export function MapView({
   autoFit = false,
   companyName,
   companyNamesById = {},
+  focus,
 }: MapViewProps) {
   const mapRef = useRef<L.Map | null>(null);
   const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
@@ -75,11 +77,25 @@ export function MapView({
   // center and zoom are intentionally read only at mount; a separate effect handles updates
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Update map view when center or zoom change
+  // Update map view when center or zoom change; respect focus when provided
   useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    if (focus) {
+      map.setView([focus.lat, focus.lng], focus.zoom);
+      return;
+    }
     if (autoFit) return;
-    mapRef.current?.setView(center as L.LatLngExpression, zoom);
-  }, [center, zoom, autoFit]);
+    map.setView(center as L.LatLngExpression, zoom);
+  }, [center, zoom, autoFit, focus]);
+
+  // If a focus is provided, center and zoom the map to the focused office
+  useEffect(() => {
+    if (!focus) return;
+    const map = mapRef.current;
+    if (map == null) return;
+    map.setView([focus.lat, focus.lng], focus.zoom);
+  }, [focus]);
 
   // Update markers when offices change
   useEffect(() => {

@@ -1,7 +1,22 @@
 import { renderHook, act } from "@testing-library/react";
 import { useCompanySearch } from "../../src/hooks/useCompanySearch";
-import type { Company } from "../src/types";
+import type { Company } from "../../src/types";
 import companies from "../../data/companies.json";
+
+// A small, stable fixture used by tests that rely on predictable search counts.
+// This decouples those tests from the growing data/companies.json dataset.
+const FIXTURE_COMPANIES: Company[] = [
+  { id: "google", name: "Google", website: "https://about.google", industry: "Technology", description: "Google LLC is an American multinational technology company.", logo: "" },
+  { id: "microsoft", name: "Microsoft", website: "https://www.microsoft.com", industry: "Technology", description: "Microsoft Corporation is an American multinational technology company.", logo: "" },
+  { id: "ibm", name: "IBM", website: "https://www.ibm.com", industry: "Technology / Consulting", description: "IBM is an American multinational technology company.", logo: "" },
+  { id: "meta", name: "Meta", website: "https://about.meta.com", industry: "Technology / Social Media", description: "Meta is an American technology company.", logo: "" },
+  { id: "siemens", name: "Siemens", website: "https://www.siemens.com", industry: "Industrial / Technology", description: "Siemens AG is a German multinational conglomerate.", logo: "" },
+  { id: "amazon", name: "Amazon", website: "https://www.aboutamazon.com", industry: "E-Commerce / Cloud", description: "Amazon.com, Inc. is an American e-commerce company.", logo: "" },
+  { id: "salesforce", name: "Salesforce", website: "https://www.salesforce.com", industry: "Enterprise Software", description: "Salesforce is a cloud-based software company.", logo: "" },
+  { id: "toyota", name: "Toyota", website: "https://global.toyota", industry: "Automotive", description: "Toyota Motor Corporation is a Japanese automotive manufacturer.", logo: "" },
+  { id: "hsbc", name: "HSBC", website: "https://www.hsbc.com", industry: "Banking / Finance", description: "HSBC Holdings plc is a British universal bank.", logo: "" },
+  { id: "unilever", name: "Unilever", website: "https://www.unilever.com", industry: "Consumer Goods", description: "Unilever plc is a British consumer goods company.", logo: "" },
+];
 
 describe("useCompanySearch", () => {
   const testCompanies: Company[] = companies as Company[];
@@ -24,7 +39,7 @@ describe("useCompanySearch", () => {
 
   it("should return matching companies for partial match", () => {
     const { result } = renderHook(() =>
-      useCompanySearch(testCompanies, "Micro"),
+      useCompanySearch(FIXTURE_COMPANIES, "Micro"),
     );
 
     expect(result.current.results).toHaveLength(1);
@@ -33,21 +48,18 @@ describe("useCompanySearch", () => {
 
   it("should search in description field", () => {
     const { result } = renderHook(() =>
-      useCompanySearch(testCompanies, "technology"),
+      useCompanySearch(FIXTURE_COMPANIES, "technology"),
     );
 
     // Should find companies with technology in any field (name, industry, or description)
-    // Based on data with Fuse.js threshold 0.2:
-    // - Google: name, description (perfect match)
-    // - Microsoft: name, description (perfect match)
-    // - IBM: name, description (good match)
-    // - Meta: name, description (good match)
+    // Based on FIXTURE_COMPANIES with Fuse.js threshold 0.2:
+    // - Google: industry + description (perfect match)
+    // - Microsoft: industry + description (perfect match)
+    // - IBM: industry + description (good match)
+    // - Meta: industry + description (good match)
     // - Siemens: industry (Industrial / Technology) (fair match)
-    // - Amazon: description (requires higher threshold ~0.5, so NOT included)
-    // - Salesforce: none
-    // - Toyota: none
-    // - HSBC: none
-    // - Unilever: none
+    // - Amazon: no "technology" in fixture fields (not included)
+    // - Salesforce, Toyota, HSBC, Unilever: none
     expect(result.current.results.length).toBe(5);
 
     // Check that each result actually contains "technology" in at least one field
@@ -65,10 +77,10 @@ describe("useCompanySearch", () => {
 
   it("should search in industry field", () => {
     const { result } = renderHook(() =>
-      useCompanySearch(testCompanies, "Technology"),
+      useCompanySearch(FIXTURE_COMPANIES, "Technology"),
     );
 
-    // Based on data: Google, Microsoft, Meta, IBM, Siemens have "Technology" in industry
+    // Based on FIXTURE_COMPANIES: Google, Microsoft, Meta, IBM, Siemens have "Technology" in industry
     expect(result.current.results.length).toBe(5);
   });
 
@@ -89,7 +101,7 @@ describe("useCompanySearch", () => {
   });
 
   it("should update results when companies change", () => {
-    const googleOnly = testCompanies.filter((company) => company.id === "google");
+    const googleOnly = FIXTURE_COMPANIES.filter((company) => company.id === "google");
 
     const { result, rerender } = renderHook(
       ({ companies }) => useCompanySearch(companies, "Goo"),
@@ -99,13 +111,13 @@ describe("useCompanySearch", () => {
     expect(result.current.results).toHaveLength(1);
     expect(result.current.results[0].id).toBe("google");
 
-    // Update to include all companies
+    // Update to include all fixture companies
     act(() => {
-      rerender({ companies: testCompanies });
+      rerender({ companies: FIXTURE_COMPANIES });
     });
 
-    // With all companies, both Google and Unilever match "Goo"
-    // (Google in name/description, Unilever in industry/description)
+    // With all fixture companies, both Google and Unilever match "Goo"
+    // (Google in name/description, Unilever in industry/description via "Consumer Goods")
     expect(result.current.results).toHaveLength(2);
     const ids = result.current.results.map((r) => r.id).sort();
     expect(ids).toEqual(["google", "unilever"]);
@@ -113,7 +125,7 @@ describe("useCompanySearch", () => {
 
   it("should update results when query changes", () => {
     const { result, rerender } = renderHook(
-      ({ query }) => useCompanySearch(testCompanies, query),
+      ({ query }) => useCompanySearch(FIXTURE_COMPANIES, query),
       { initialProps: { query: "Mic" } },
     );
 
@@ -126,7 +138,7 @@ describe("useCompanySearch", () => {
     });
 
     // With query "Goo", both Google and Unilever match
-    // (Google in name/description, Unilever in industry/description)
+    // (Google in name/description, Unilever in industry/description via "Consumer Goods")
     expect(result.current.results).toHaveLength(2);
     const ids = result.current.results.map((r) => r.id).sort();
     expect(ids).toEqual(["google", "unilever"]);

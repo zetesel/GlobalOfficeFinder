@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 import companies from "../../data/companies.json";
 import offices from "../../data/offices.json";
@@ -36,6 +37,8 @@ export default function CompanyPage() {
   const { id } = useParams<{ id: string }>();
   const company = allCompanies.find((c) => c.id === id);
 
+  // Initialize hook early to satisfy React's hooks rules
+  const [selectedOffice, setSelectedOffice] = React.useState<CoordinateOffice | null>(null);
   if (!company) {
     return (
       <div className="container page-error">
@@ -55,8 +58,24 @@ export default function CompanyPage() {
   );
   const countries = [...new Set(companyOffices.map((o) => o.country))].sort();
   const regions = [...new Set(companyOffices.map((o) => o.region))].sort();
-  const mapCenter = getAverageCoordinates(mapOffices);
+const mapCenter = getAverageCoordinates(mapOffices);
   const mapZoom = mapOffices.length === 1 ? SINGLE_OFFICE_ZOOM : MULTI_OFFICE_ZOOM;
+  // Increase focus zoom to show only the nearest roads around the selected office
+  // (closer-in view helps users see the immediate vicinity of the office)
+  // Adjusted to 17 for an even closer zoom on the selected office area
+  const OFFICE_FOCUS_ZOOM = 17;
+  const initialOfficeFocus = mapOffices.length > 0
+    ? {
+        lat: mapOffices[0].latitude,
+        lng: mapOffices[0].longitude,
+        zoom: OFFICE_FOCUS_ZOOM,
+      }
+    : undefined;
+  const focus = selectedOffice
+    ? { lat: selectedOffice.latitude, lng: selectedOffice.longitude, zoom: OFFICE_FOCUS_ZOOM }
+    : initialOfficeFocus;
+
+  // Removed automatic first-office focus to avoid race conditions
 
   const safeWebsite = sanitizeUrl(company.website);
 
@@ -138,7 +157,11 @@ export default function CompanyPage() {
                       </h4>
                       <div className="office-grid">
                         {countryOffices.map((office) => (
-                          <OfficeCard key={office.id} office={office} />
+                          <OfficeCard
+                            key={office.id}
+                            office={office}
+                            onClick={() => setSelectedOffice(office as CoordinateOffice)}
+                          />
                         ))}
                       </div>
                     </div>
@@ -155,13 +178,19 @@ export default function CompanyPage() {
                 center={mapCenter}
                 zoom={mapZoom}
                 height="520px"
-                autoFit
+                autoFit={selectedOffice == null && mapOffices.length > 1}
+                focus={focus}
                 companyName={company.name}
               />
             ) : (
               <p className="no-results">
                 Map unavailable: office coordinates are not yet available for this company.
               </p>
+            )}
+            {selectedOffice && (
+              <button className="btn-reset" onClick={() => setSelectedOffice(null)}>
+                Clear focus
+              </button>
             )}
           </aside>
         </div>

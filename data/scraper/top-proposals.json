@@ -1,0 +1,619 @@
+{
+  "generatedAt": "2026-04-27T17:52:10.233Z",
+  "totalProposals": 291,
+  "topCount": 20,
+  "top": [
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "s",
+        "address": "Thema&#x27",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=nl#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=nl#extracted"
+        },
+        "latitude": 35.2565176,
+        "longitude": 128.8967512,
+        "geocode": {
+          "latitude": 35.2565176,
+          "longitude": 128.8967512,
+          "certainty": "low"
+        },
+        "minimal": true,
+        "completenessScore": 0.625
+      },
+      "completenessScore": 0.625,
+      "geocode": {
+        "latitude": 35.2565176,
+        "longitude": 128.8967512,
+        "certainty": "low"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=nl#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "s",
+        "address": "Thema&#x27",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en#extracted"
+        },
+        "latitude": 35.2565176,
+        "longitude": 128.8967512,
+        "geocode": {
+          "latitude": 35.2565176,
+          "longitude": 128.8967512,
+          "certainty": "low"
+        },
+        "minimal": true,
+        "completenessScore": 0.625
+      },
+      "completenessScore": 0.625,
+      "geocode": {
+        "latitude": 35.2565176,
+        "longitude": 128.8967512,
+        "certainty": "low"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "atlassian",
+        "country": "US",
+        "countryCode": "US",
+        "region": "",
+        "city": "San Francisco",
+        "address": "350 Bush Street, Floor 13",
+        "postalCode": "94104",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.atlassian.com/#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.atlassian.com/#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": true,
+        "completenessScore": 0.625
+      },
+      "completenessScore": 0.625,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.atlassian.com/#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "atlassian",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "s blueprint for how teams work together",
+        "address": "System of Work New Atlassian&#x27",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.atlassian.com/#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.atlassian.com/#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.atlassian.com/#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "atlassian",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "s security",
+        "address": "Trust center Ensure your data&#x27",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.atlassian.com/#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.atlassian.com/#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.atlassian.com/#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "atlassian",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "informatique Équipes métier Équipes de direction Voir toutes les apps En vedette Apps recommandées Jira Gestion de projet flexible Confluence Espace de travail collaboratif Jira Service Management Fourniture de services haute vélocité ATLASSIAN COLLECTIONS Booster le travail d'équipe en toute simplicité Jira • Confluence • Loom • Rovo Optimiser la stratégie et les résultats en toute confiance Focus • Talent • Align Offrir un service à haute vélocité Jira Service Management • Customer Service Management • Actifs • Rovo Livrer plus rapidement des logiciels de haute qualité Rovo Dev • DX • Pipelines • Bitbucket • Compass Optimisé par Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Développeurs Jira Gestion de projet flexible Bitbucket Code source et CI/CD Rovo Dev IA agentique pour les développeurs Pipelines Automatisation CI/CD évolutive DX (En cours d&#",
+        "address": "Produits En vedette Développeurs Product Owners Professionnels de l'informatique Équipes métier Équipes de direction En vedette Développeurs Product Owners Professionnels de l&#039",
+        "postalCode": "039, acquisition) Mesure de la productivité et de l'impact de l'IA Compass Catalogue de logiciels pour les équipes Livrer plus rapidement des logiciels de haute qualité Rovo Dev • DX • Pipelines • Bitbucket • Compass Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Product Owners Jira Product Discovery NOUVEAU Capturez et priorisez les idées Jira Gestion de projet flexible Confluence Les connaissances réunies en un seul endroit Booster le travail d'équipe en toute simplicité Jira • Confluence • Loom • Rovo Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Professionnels de l&#039, informatique Jira Service Management Fourniture de services haute vélocité Guard NOUVEAU Sécurité du cloud renforcée Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Équipes métier Jira Gestion de projet flexible Confluence Les connaissances réunies en un seul endroit Trello Collectez et organisez vos tâches Loom NOUVEAU Mises à jour vidéo rapides et asynchrones Jira Service Management Fourniture de services haute vélocité Gestion des services client Une toute nouvelle expérience client Booster le travail d'équipe en toute simplicité Jira • Confluence • Loom • Rovo Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Équipes de direction Focus NOUVEAU Planification stratégique à l'échelle de l'entreprise Talent NOUVEAU Planification des effectifs qualifiés Jira Align Planification et valeur du travail à l'échelle de l'entreprise Optimiser la stratégie et les résultats en toute confiance Focus • Talent • Align Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Back",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.atlassian.com/fr/company/contact#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.atlassian.com/fr/company/contact#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.atlassian.com/fr/company/contact#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "atlassian",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "ingegneria Dai inizio alla tua carriera Premi TEAM Anywhere Team Everyone Risorse per i candidati Community di talenti Back",
+        "address": "Opportunità di carriera Opportunità di carriera Pagina iniziale Applica Opportunità di lavoro nell&#039",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.atlassian.com/it/company/contact#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.atlassian.com/it/company/contact#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.atlassian.com/it/company/contact#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/contact#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/contact#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/contact#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/contact#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/contact#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/contact#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/contact#contact-sales#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/contact#contact-sales#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/contact#contact-sales#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/contact#contact-sales#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/contact#contact-sales#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/contact#contact-sales#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/contact#contact-plus-sales#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/contact#contact-plus-sales#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/contact#contact-plus-sales#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/contact#contact-plus-sales#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/contact#contact-plus-sales#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/contact#contact-plus-sales#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/contact#contact-enterprise-sales#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/contact#contact-enterprise-sales#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/contact#contact-enterprise-sales#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/contact#contact-enterprise-sales#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/contact#contact-enterprise-sales#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/contact#contact-enterprise-sales#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=es#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=es#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=es#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=en#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=en#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=en#extracted"
+      }
+    },
+    {
+      "proposal": {
+        "companyId": "shopify",
+        "country": "",
+        "countryCode": "",
+        "region": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.shopify.com/au/contact?country=au&amp;lang=en#extracted",
+        "source": {
+          "sourceId": "phase-a-official-tech-sample",
+          "sourceUrl": "https://www.shopify.com/au/contact?country=au&amp;lang=en#extracted"
+        },
+        "geocode": {
+          "certainty": "none"
+        },
+        "minimal": false,
+        "completenessScore": 0.375
+      },
+      "completenessScore": 0.375,
+      "geocode": {
+        "certainty": "none"
+      },
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.shopify.com/au/contact?country=au&amp;lang=en#extracted"
+      }
+    }
+  ]
+}

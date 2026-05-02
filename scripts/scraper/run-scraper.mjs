@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // @ts-check
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { spawnSync } from "child_process";
@@ -11,7 +11,8 @@ const root = join(__dirname, "..", "..");
 
 const COMPANIES_PATH = join(root, "data", "companies.json");
 const OFFICES_PATH = join(root, "data", "offices.json");
-const SOURCES_PATH = join(root, "data", "scraper", "sources", "phase-a-curated.json");
+/** Directory that holds all source definition files (*.json). */
+const SOURCES_DIR = join(root, "data", "scraper", "sources");
 const REVIEW_QUEUE_PATH = join(root, "data", "scraper", "review-queue.json");
 const RUN_REPORT_PATH = join(root, "data", "scraper", "last-run.json");
 
@@ -91,6 +92,9 @@ const MIN_CONFIDENCE_FOR_PUBLISH = process.env.SCRAPER_MIN_CONFIDENCE ?? "medium
 const MIN_SOURCE_TRUST = process.env.SCRAPER_MIN_SOURCE_TRUST ?? "high";
 const ENABLE_ROBOTS_CHECK = process.env.SCRAPER_CHECK_ROBOTS !== "0";
 const PER_SOURCE_FAILURE_THRESHOLD = Number(process.env.SCRAPER_SOURCE_FAILURE_THRESHOLD ?? "4");
+const AUTO_ACCEPT = process.env.SCRAPER_AUTO_ACCEPT === "1";
+const AUTO_DISCOVER = process.env.SCRAPER_AUTO_DISCOVER === "1";
+const CAPTURE_PAGE_BODY = process.env.SCRAPER_CAPTURE_BODY === "1";
 
 const CONFIDENCE_RANK = { low: 1, medium: 2, high: 3 };
 const SOURCE_TRUST_RANK = { low: 1, medium: 2, high: 3 };
@@ -363,6 +367,7 @@ async function fetchPage(url) {
         fetched: true,
         status: response.status,
         title: safeText(titleMatch?.[1] ?? "") || undefined,
+        body: text,
         fetchedAt: nowIso(),
       };
     } catch (error) {
@@ -555,6 +560,175 @@ async function isUrlAllowedByRobots(url) {
 }
 
 /**
+ * Try to extract office/address information from an HTML page body.
+ * Returns an array of partial office objects: {country, countryCode, city, address, postalCode, contactUrl, sourceUrl}
+ */
+function extractOfficesFromHtml(body, pageUrl) {
+  const results = [];
+  if (!body || typeof body !== "string") return results;
+
+  // 1) Try to parse JSON-LD blocks for PostalAddress or LocalBusiness
+  try {
+    const jsonLdMatches = [...body.matchAll(/<script[^>]*type=(?:"|')application\/ld\+json(?:"|')[^>]*>([\s\S]*?)<\/script>/gi)];
+    for (const m of jsonLdMatches) {
+      try {
+        const payload = JSON.parse(m[1]);
+        const items = Array.isArray(payload) ? payload : [payload];
+        for (const item of items) {
+          // PostalAddress inside
+          const address = item.address || (item['@graph'] && item['@graph'].find((g) => g.address)?.address);
+          if (address && (address.streetAddress || address.addressLocality || address.postalCode)) {
+            results.push({
+              country: address.addressCountry || "",
+              countryCode: typeof address.addressCountry === 'string' && address.addressCountry.length === 2 ? address.addressCountry : undefined,
+              city: address.addressLocality || "",
+              address: address.streetAddress || "",
+              postalCode: address.postalCode || "",
+              contactUrl: pageUrl,
+              sourceUrl: pageUrl,
+            });
+          }
+        }
+      } catch {
+        // ignore JSON parse errors
+      }
+    }
+  } catch (e) {
+    // noop
+  }
+
+  // 2) Look for <address> tags
+  try {
+    const addrMatches = [...body.matchAll(/<address[^>]*>([\s\S]*?)<\/address>/gi)];
+    for (const m of addrMatches) {
+      let inner = m[1].replace(/<[^>]+>/g, "\n").trim();
+      const parts = inner
+        .split(/\n|,|\r/)
+        .map((s) => s.replace(/[^\S\r\n]+/g, " ").trim())
+        .filter(Boolean);
+      if (parts.length === 0) continue;
+      const street = parts[0] || "";
+      let city = parts[1] || "";
+      let postal = "";
+      // try to extract postal code from city line
+      const pcMatch = city.match(/(\d{3,}\b.*)/);
+      if (pcMatch) {
+        postal = pcMatch[1];
+        city = city.replace(pcMatch[1], "").trim();
+      }
+      results.push({ country: "", countryCode: undefined, city, address: street, postalCode: postal, contactUrl: pageUrl, sourceUrl: pageUrl });
+    }
+  } catch (e) {
+    // noop
+  }
+
+  // 3) Look for lists (<ul>/<ol>) where each <li> may be an address or contain comma-separated address parts
+  try {
+    const listMatches = [...body.matchAll(/<(?:ul|ol)[^>]*>([\s\S]*?)<\/(?:ul|ol)>/gi)];
+    for (const lm of listMatches) {
+      const liMatches = [...lm[1].matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)];
+      for (const li of liMatches) {
+        const text = li[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+        // heuristics: comma-separated pieces > 1
+        const parts = text.split(/,|;|\n/).map((s) => s.trim()).filter(Boolean);
+        if (parts.length >= 2 && /\d/.test(parts[0] + parts.join(' '))) {
+          // choose first as street, last as city/postal/country if present
+          const street = parts[0];
+          const tail = parts.slice(1).join(', ');
+          // try to split city and postal from tail
+          const pcMatch = tail.match(/(\b\d{3,}\b.*$)/);
+          const postal = pcMatch ? pcMatch[1] : "";
+          const city = pcMatch ? tail.replace(pcMatch[1], "").replace(/,$/, '').trim() : (parts[1] || '');
+          results.push({ country: "", countryCode: undefined, city, address: street, postalCode: postal, contactUrl: pageUrl, sourceUrl: pageUrl });
+        }
+      }
+    }
+  } catch (e) {
+    // noop
+  }
+
+  // 4) Look for table rows that look like addresses (td count >=2 and contains digits/words)
+  try {
+    const tableRowMatches = [...body.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)];
+    for (const tr of tableRowMatches) {
+      const tds = [...tr[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map((m) => m[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).filter(Boolean);
+      if (tds.length >= 2) {
+        const joined = tds.join(', ');
+        if (/\d/.test(joined) && /[A-Za-z]/.test(joined)) {
+          // attempt to extract street, city
+          const parts = joined.split(/,|;|\n/).map((s) => s.trim()).filter(Boolean);
+          if (parts.length >= 2) {
+            const street = parts[0];
+            const city = parts.slice(1, 2).join(' ');
+            const postalMatch = joined.match(/(\b\d{3,}\b)/);
+            const postal = postalMatch ? postalMatch[1] : '';
+            results.push({ country: '', countryCode: undefined, city, address: street, postalCode: postal, contactUrl: pageUrl, sourceUrl: pageUrl });
+          }
+        }
+      }
+    }
+  } catch (e) {
+    // noop
+  }
+
+  // 5) Look for location blocks: elements with class names containing 'location' or 'office'
+  try {
+    const locBlockMatches = [...body.matchAll(/<([a-z0-9]+)[^>]*class=(?:"|')([^"']*)(?:"|')[^>]*>([\s\S]*?)<\/\1>/gi)];
+    for (const m of locBlockMatches) {
+      const cls = (m[2] || '').toLowerCase();
+      if (!/location|office|headquarter|address|branch/.test(cls)) continue;
+      const inner = (m[3] || '').replace(/<[^>]+>/g, '\n').replace(/\s+/g, ' ').trim();
+      const lines = inner.split(/\n|,|\r/).map((s) => s.trim()).filter(Boolean);
+      if (lines.length === 0) continue;
+      // Find a line with digits (street) and a line with city/postal
+      let street = '';
+      let city = '';
+      let postal = '';
+      for (const line of lines) {
+        if (!street && /\d/.test(line)) street = line;
+        else if (!city && /[A-Za-z]/.test(line)) city = line;
+      }
+      if (street) {
+        const pc = city.match(/(\b\d{3,}\b.*)/);
+        if (pc) { postal = pc[1]; city = city.replace(pc[1], '').trim(); }
+        results.push({ country: '', countryCode: undefined, city: city || '', address: street, postalCode: postal || '', contactUrl: pageUrl, sourceUrl: pageUrl });
+      }
+    }
+  } catch (e) {
+    // noop
+  }
+  return results;
+}
+
+/**
+ * Extract candidate links from a page HTML body that likely point to location/contact pages.
+ * Returns absolute URLs.
+ */
+function extractCandidateLinksFromHtml(body, baseUrl) {
+  const links = new Set();
+  if (!body || typeof body !== 'string') return [];
+  try {
+    const anchorMatches = [...body.matchAll(/<a[^>]+href=(?:"|')([^"']+)(?:"|')[^>]*>/gi)];
+    const keywords = ['location', 'office', 'locations', 'offices', 'contact', 'find-us', 'where-we-are', 'our-locations'];
+    for (const m of anchorMatches) {
+      const href = m[1];
+      if (!href) continue;
+      const lower = href.toLowerCase();
+      if (!keywords.some((k) => lower.includes(k))) continue;
+      try {
+        const abs = new URL(href, baseUrl).href;
+        links.add(abs);
+      } catch {
+        // ignore
+      }
+    }
+  } catch (e) {
+    // noop
+  }
+  return Array.from(links);
+}
+
+/**
  * @param {any} source
  */
 function sourcePassesHardFilters(source) {
@@ -595,7 +769,26 @@ async function main() {
 
   const existingCompanies = readJson(COMPANIES_PATH);
   const existingOffices = readJson(OFFICES_PATH);
-  const sources = readJson(SOURCES_PATH);
+
+  // Load all *.json source files from SOURCES_DIR and flatten into a single array.
+  // This allows the discover-top-companies script (and any future source files)
+  // to be picked up automatically without modifying this file.
+  if (!existsSync(SOURCES_DIR)) {
+    console.error(`[scraper] Sources directory not found: ${SOURCES_DIR}\nRun "npm run discover:companies" first to generate source files.`);
+    process.exit(1);
+  }
+  const sourceFiles = readdirSync(SOURCES_DIR)
+    .filter((f) => f.endsWith(".json"))
+    .sort(); // consistent ordering across runs
+  const sources = sourceFiles.flatMap((f) => {
+    try {
+      return readJson(join(SOURCES_DIR, f));
+    } catch (err) {
+      console.warn(`[scraper] Could not read source file ${f}: ${err.message}`);
+      return [];
+    }
+  });
+  console.log(`[scraper] Loaded ${sources.length} source(s) from ${sourceFiles.length} file(s) in ${SOURCES_DIR}`);
 
   const regionMap = buildRegionMap(existingOffices);
   const countryCodeMap = buildCountryCodeMap(existingOffices);
@@ -603,7 +796,7 @@ async function main() {
   const skippedSources = [];
   const sourceFailures = new Map();
 
-  // Stage 1: discover companies from curated sources
+  // Stage 1: discover companies from curated/auto-discovered sources
   const discovered = [];
   for (const source of sources) {
     const sourceCheck = sourcePassesHardFilters(source);
@@ -618,6 +811,15 @@ async function main() {
 
     for (const company of source.companies) {
       discovered.push({ source, company });
+    }
+  }
+
+  // Optional: auto-discover candidate pages for existing companies in companies.json
+  if (AUTO_DISCOVER) {
+    // auto-discover should be considered high-trust for the purposes of probing existing company websites
+    const autoSource = { id: "auto-discover", name: "Auto Discover", sourceUrl: "https://auto-discover.local", trust: "high" };
+    for (const existingCompany of existingCompanies) {
+      discovered.push({ source: autoSource, company: { name: existingCompany.name, website: existingCompany.website, industry: existingCompany.industry, description: existingCompany.description, logo: existingCompany.logo, officePages: [] } });
     }
   }
 
@@ -643,30 +845,126 @@ async function main() {
     ].filter(Boolean);
 
     for (const url of new Set(urls)) {
-      if (!FETCH_OFFICE_PAGES) {
-        collectedPageData.push({ url, fetched: false, skipped: true, fetchedAt: nowIso() });
-        continue;
-      }
-      const robotsCheck = await isUrlAllowedByRobots(url);
-      if (!robotsCheck.allowed) {
-        collectedPageData.push({
-          url,
-          sourceId,
-          fetched: false,
-          skipped: true,
-          reason: robotsCheck.reason,
-          fetchedAt: nowIso(),
-        });
-        sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-        continue;
+      // Build candidate list: include common locations/contact paths for auto-discovered entries
+      const candidateUrls = [url];
+      try {
+        if (String(entry.source?.id ?? "") === "auto-discover") {
+          const base = new URL(url);
+          const candidatePaths = ["/locations", "/locations/", "/about/locations", "/about/locations/", "/contact", "/contact/", "/about", "/about/", "/locations.html", "/office-locations", "/our-locations"];
+          for (const p of candidatePaths) {
+            try {
+              candidateUrls.push(new URL(p, base).href);
+            } catch {
+              // ignore bad URL concat
+            }
+          }
+        }
+      } catch {
+        // noop
       }
 
-      const pageResult = await fetchPage(url);
-      collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck });
-      if (!pageResult.fetched) {
-        sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+      for (const candidateUrl of new Set(candidateUrls)) {
+        if (!FETCH_OFFICE_PAGES) {
+          collectedPageData.push({ url: candidateUrl, fetched: false, skipped: true, fetchedAt: nowIso() });
+          continue;
+        }
+        const robotsCheck = await isUrlAllowedByRobots(candidateUrl);
+        if (!robotsCheck.allowed) {
+          collectedPageData.push({
+            url: candidateUrl,
+            sourceId,
+            fetched: false,
+            skipped: true,
+            reason: robotsCheck.reason,
+            fetchedAt: nowIso(),
+          });
+          sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+          continue;
+        }
+
+        const pageResult = await fetchPage(candidateUrl);
+        // Try to extract offices from HTML body for possible auto-discovery; attach to the page record
+        let extractedOffices = [];
+        try {
+          extractedOffices = extractOfficesFromHtml(pageResult.body, candidateUrl);
+        } catch (e) {
+          // ignore
+        }
+        collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck, extractedOffices: extractedOffices.length > 0 ? extractedOffices : undefined });
+        // Also follow any candidate links found within the page (keeps probing to find addresses)
+        try {
+          const extraLinks = extractCandidateLinksFromHtml(pageResult.body, candidateUrl);
+          for (const l of extraLinks) {
+            // respect robots and circuit breaker
+            if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+            const rc = await isUrlAllowedByRobots(l);
+            if (!rc.allowed) {
+              sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+              if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+              continue;
+            }
+            const pl = await fetchPage(l);
+            let extracted2 = [];
+            try {
+              extracted2 = extractOfficesFromHtml(pl.body, l);
+            } catch {
+              // ignore
+            }
+            collectedPageData.push({ ...pl, sourceId, robots: rc, extractedOffices: extracted2.length > 0 ? extracted2 : undefined });
+            if (!pl.fetched) {
+              sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+              if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+            }
+            await sleep(150);
+          }
+        } catch (e) {
+          // ignore
+        }
+        if (!pageResult.fetched) {
+          sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+        }
+        await sleep(200);
       }
-      await sleep(200);
+    }
+  }
+
+  // Map extracted offices (from HTML pages) back to discovered company entries and add to review queue
+  for (const page of collectedPageData) {
+    if (!Array.isArray(page.extractedOffices) || page.extractedOffices.length === 0) continue;
+    const pageUrl = page.url || page.sourceUrl || "";
+    let pageDomain = "";
+    try {
+      pageDomain = new URL(pageUrl.split(/[?#]/)[0]).hostname.replace(/^www\./, "");
+    } catch {
+      // noop
+    }
+    for (const ex of page.extractedOffices) {
+      // Add to the review queue so candidates can be inspected/accepted
+      reviewQueue.push({
+        type: "office",
+        sourceId: page.sourceId || "auto-discover",
+        sourceUrl: pageUrl || null,
+        office: ex,
+        reason: "extracted from page HTML",
+        confidence: "low",
+        confidenceScore: 0,
+        queuedAt: nowIso(),
+      });
+      // Also attach back to the matching discovered company entry by domain
+      if (!pageDomain) continue;
+      for (const entry of discovered) {
+        const companyUrl = sanitizeUrl(entry.company.website) || "";
+        let companyDomain = "";
+        try {
+          companyDomain = new URL(companyUrl).hostname.replace(/^www\./, "");
+        } catch {
+          // noop
+        }
+        if (companyDomain && pageDomain === companyDomain) {
+          entry.company.offices = entry.company.offices || [];
+          entry.company.offices.push(ex);
+        }
+      }
     }
   }
 
@@ -863,6 +1161,7 @@ async function main() {
       sourceFailures: Object.fromEntries(sourceFailures.entries()),
       skippedSources,
     },
+    sourceFiles,
     sources: sources.map((source) => ({
       id: source.id,
       name: source.name,
@@ -879,6 +1178,92 @@ async function main() {
     minPublishConfidence: MIN_CONFIDENCE_FOR_PUBLISH,
     items: reviewQueue,
   });
+
+  // Optional: try to auto-accept some review-queue items when enabled.
+  if (AUTO_ACCEPT && reviewQueue.length > 0) {
+    const remainingQueue = [];
+    for (const item of reviewQueue) {
+      if (item.type !== 'office') {
+        remainingQueue.push(item);
+        continue;
+      }
+      const raw = item.office || {};
+      const country = safeText(raw.country);
+      let countryCode = normalizeCountryCode(country, raw.countryCode, countryCodeMap);
+      const region = raw.region && safeText(raw.region) ? safeText(raw.region) : normalizeRegion(countryCode, regionMap);
+
+      const normalizedOffice = {
+        id: '',
+        companyId: raw.companyId || '',
+        country: country || '',
+        countryCode: countryCode || '',
+        region,
+        city: safeText(raw.city),
+        address: safeText(raw.address),
+        postalCode: safeText(raw.postalCode),
+        officeType: safeText(raw.officeType) || 'Regional Office',
+        latitude: typeof raw.latitude === 'number' ? raw.latitude : undefined,
+        longitude: typeof raw.longitude === 'number' ? raw.longitude : undefined,
+        contactUrl: sanitizeUrl(raw.contactUrl) || sanitizeUrl(item.sourceUrl) || undefined,
+      };
+
+      // geocode if coords missing
+      let geocodeCertainty = 'none';
+      if (GEOCODE_ENABLED && (normalizedOffice.latitude === undefined || normalizedOffice.longitude === undefined)) {
+        const geocode = await geocodeOffice(normalizedOffice);
+        if (geocode.error) {
+          sourceFailures.set(String(item.sourceId ?? 'unknown'), (sourceFailures.get(String(item.sourceId ?? 'unknown')) ?? 0) + 1);
+        }
+        if (typeof geocode.latitude === 'number' && typeof geocode.longitude === 'number') {
+          normalizedOffice.latitude = geocode.latitude;
+          normalizedOffice.longitude = geocode.longitude;
+        }
+        geocodeCertainty = geocode.certainty || 'none';
+      } else if (normalizedOffice.latitude !== undefined && normalizedOffice.longitude !== undefined) {
+        geocodeCertainty = 'high';
+      }
+
+      const completenessScore =
+        REQUIRED_OFFICE_FIELDS.filter((k) => normalizedOffice[k] !== undefined && normalizedOffice[k] !== null && String(normalizedOffice[k]).trim() !== '').length /
+        REQUIRED_OFFICE_FIELDS.length;
+
+      const confidence = scoreConfidence({ officialSourceMatch: false, pageFetchSuccess: false, completenessScore, geocodeCertainty });
+
+      // acceptance policy: accept if confidence level passes current threshold OR geocode is high OR completeness >= 0.6
+      if (levelPasses(confidence.level) || geocodeCertainty === 'high' || completenessScore >= 0.6) {
+        if (!hasAllRequired(normalizedOffice, REQUIRED_OFFICE_FIELDS)) {
+          remainingQueue.push(item);
+          continue;
+        }
+        const dedupeKey = officeDedupKey({ companyId: normalizedOffice.companyId, address: normalizedOffice.address, city: normalizedOffice.city, countryCode: normalizedOffice.countryCode });
+        if (!officeKeys.has(dedupeKey)) {
+          normalizedOffice.id = makeOfficeId(mergedOffices, normalizedOffice.companyId, normalizedOffice.countryCode, normalizedOffice.city);
+          officeKeys.add(dedupeKey);
+          mergedOffices.push(normalizedOffice);
+          acceptedOffices.push({ ...normalizedOffice, source: { sourceId: item.sourceId || 'auto-accepted', sourceUrl: item.sourceUrl || null, scrapedAt: nowIso(), confidence: confidence.level, confidenceScore: confidence.score, geocodeCertainty } });
+        }
+      } else {
+        remainingQueue.push(item);
+      }
+    }
+
+    // overwrite reviewQueue with remaining items
+    writeJson(REVIEW_QUEUE_PATH, {
+      generatedAt: nowIso(),
+      minPublishConfidence: MIN_CONFIDENCE_FOR_PUBLISH,
+      items: remainingQueue,
+    });
+  }
+
+  // Persist collected page data so the CLI and humans can inspect what was fetched and what was extracted
+  try {
+    const pageDataToWrite = collectedPageData.map(({ body: _body, ...rest }) =>
+      CAPTURE_PAGE_BODY ? { body: _body, ...rest } : rest,
+    );
+    writeJson(join(root, "data", "scraper", "collected-pages.json"), pageDataToWrite);
+  } catch (e) {
+    // ignore write errors
+  }
 
   if (!DRY_RUN) {
     writeJson(COMPANIES_PATH, mergedCompanies);

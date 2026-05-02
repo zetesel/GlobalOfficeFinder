@@ -21,11 +21,3 @@ export interface Office {
   longitude?: number;
   contactUrl?: string;
 }
-
-export interface CountrySummary {
-  code: string;
-  name: string;
-  region: string;
-  officeCount: number;
-  companyIds: string[];
-}
