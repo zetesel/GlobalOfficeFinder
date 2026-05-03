@@ -84,4 +84,8 @@ describe('Scraper utilities (Phase 3: unit tests)', () => {
     expect(levelPasses(c.level)).toBe(true)
   })
 })
+<<<<<<< HEAD
 // PR-51: reaffirm URL tests fix
+=======
+// PR-51: re-affirm URL tests fix
+>>>>>>> pr-52
