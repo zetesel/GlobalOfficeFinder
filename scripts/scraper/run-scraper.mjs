@@ -888,67 +888,138 @@ async function main() {
         // noop
       }
 
-      for (const candidateUrl of new Set(candidateUrls)) {
-        if (!FETCH_OFFICE_PAGES) {
-          collectedPageData.push({ url: candidateUrl, fetched: false, skipped: true, fetchedAt: nowIso() });
-          continue;
-        }
-        const robotsCheck = await isUrlAllowedByRobots(candidateUrl);
-        if (!robotsCheck.allowed) {
-          collectedPageData.push({
-            url: candidateUrl,
-            sourceId,
-            fetched: false,
-            skipped: true,
-            reason: robotsCheck.reason,
-            fetchedAt: nowIso(),
-          });
-          sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-          continue;
-        }
-
-        const pageResult = await fetchPage(candidateUrl);
-        // Try to extract offices from HTML body for possible auto-discovery; attach to the page record
-        let extractedOffices = [];
-        try {
-          extractedOffices = extractOfficesFromHtml(pageResult.body, candidateUrl);
-        } catch (e) {
-          // ignore
-        }
-        collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck, extractedOffices: extractedOffices.length > 0 ? extractedOffices : undefined });
-        // Also follow any candidate links found within the page (keeps probing to find addresses)
-        try {
-          const extraLinks = extractCandidateLinksFromHtml(pageResult.body, candidateUrl);
-          for (const l of extraLinks) {
-            // respect robots and circuit breaker
-            if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
-            const rc = await isUrlAllowedByRobots(l);
-            if (!rc.allowed) {
-              sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-              if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
-              continue;
-            }
-            const pl = await fetchPage(l);
-            let extracted2 = [];
-            try {
-              extracted2 = extractOfficesFromHtml(pl.body, l);
-            } catch {
-              // ignore
-            }
-            collectedPageData.push({ ...pl, sourceId, robots: rc, extractedOffices: extracted2.length > 0 ? extracted2 : undefined });
-            if (!pl.fetched) {
-              sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-              if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
-            }
-            await sleep(150);
+      // Stage 2 concurrency: process candidate URLs with a bounded concurrency
+      const candidateUrlsUnique = Array.from(new Set(candidateUrls));
+      const MAX_FETCH_CONCURRENCY = Number(process.env.SCRAPER_FETCH_CONCURRENCY ?? "4");
+      if (MAX_FETCH_CONCURRENCY > 1 && candidateUrlsUnique.length > 1) {
+        const tasks = candidateUrlsUnique.map((candidateUrl) => async () => {
+          if (!FETCH_OFFICE_PAGES) {
+            collectedPageData.push({ url: candidateUrl, fetched: false, skipped: true, fetchedAt: nowIso() });
+            return;
           }
-        } catch (e) {
-          // ignore
+          const robotsCheck = await isUrlAllowedByRobots(candidateUrl);
+          if (!robotsCheck.allowed) {
+            collectedPageData.push({
+              url: candidateUrl,
+              sourceId,
+              fetched: false,
+              skipped: true,
+              reason: robotsCheck.reason,
+              fetchedAt: nowIso(),
+            });
+            sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+            return;
+          }
+
+          const pageResult = await fetchPage(candidateUrl);
+          // Try to extract offices from HTML body for possible auto-discovery; attach to the page record
+          let extractedOffices = [];
+          try {
+            extractedOffices = extractOfficesFromHtml(pageResult.body, candidateUrl);
+          } catch (e) {
+            // ignore
+          }
+          collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck, extractedOffices: extractedOffices.length > 0 ? extractedOffices : undefined });
+          // Also follow any candidate links found within the page (keeps probing to find addresses)
+          try {
+            const extraLinks = extractCandidateLinksFromHtml(pageResult.body, candidateUrl);
+            for (const l of extraLinks) {
+              // respect robots and circuit breaker
+              if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+              const rc = await isUrlAllowedByRobots(l);
+              if (!rc.allowed) {
+                sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+                if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+                continue;
+              }
+              const pl = await fetchPage(l);
+              let extracted2 = [];
+              try {
+                extracted2 = extractOfficesFromHtml(pl.body, l);
+              } catch {
+                // ignore
+              }
+              collectedPageData.push({ ...pl, sourceId, robots: rc, extractedOffices: extracted2.length > 0 ? extracted2 : undefined });
+              if (!pl.fetched) {
+                sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+                if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+              }
+              await sleep(150);
+            }
+          } catch {
+            // ignore
+          }
+          if (!pageResult.fetched) {
+            sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+          }
+          await sleep(200);
+        });
+        for (let i = 0; i < tasks.length; i += MAX_FETCH_CONCURRENCY) {
+          await Promise.all(tasks.slice(i, i + MAX_FETCH_CONCURRENCY).map((t) => t()));
         }
-        if (!pageResult.fetched) {
-          sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+      } else {
+        for (const candidateUrl of candidateUrlsUnique) {
+          if (!FETCH_OFFICE_PAGES) {
+            collectedPageData.push({ url: candidateUrl, fetched: false, skipped: true, fetchedAt: nowIso() });
+            continue;
+          }
+          const robotsCheck = await isUrlAllowedByRobots(candidateUrl);
+          if (!robotsCheck.allowed) {
+            collectedPageData.push({
+              url: candidateUrl,
+              sourceId,
+              fetched: false,
+              skipped: true,
+              reason: robotsCheck.reason,
+              fetchedAt: nowIso(),
+            });
+            sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+            continue;
+          }
+
+          const pageResult = await fetchPage(candidateUrl);
+          // Try to extract offices from HTML body for possible auto-discovery; attach to the page record
+          let extractedOffices = [];
+          try {
+            extractedOffices = extractOfficesFromHtml(pageResult.body, candidateUrl);
+          } catch (e) {
+            // ignore
+          }
+          collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck, extractedOffices: extractedOffices.length > 0 ? extractedOffices : undefined });
+          // Also follow any candidate links found within the page (keeps probing to find addresses)
+          try {
+            const extraLinks = extractCandidateLinksFromHtml(pageResult.body, candidateUrl);
+            for (const l of extraLinks) {
+              // respect robots and circuit breaker
+              if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+              const rc = await isUrlAllowedByRobots(l);
+              if (!rc.allowed) {
+                sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+                if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+                continue;
+              }
+              const pl = await fetchPage(l);
+              let extracted2 = [];
+              try {
+                extracted2 = extractOfficesFromHtml(pl.body, l);
+              } catch {
+                // ignore
+              }
+              collectedPageData.push({ ...pl, sourceId, robots: rc, extractedOffices: extracted2.length > 0 ? extracted2 : undefined });
+              if (!pl.fetched) {
+                sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+                if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+              }
+              await sleep(150);
+            }
+          } catch {
+            // ignore
+          }
+          if (!pageResult.fetched) {
+            sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+          }
+          await sleep(200);
         }
-        await sleep(200);
       }
     }
   }
