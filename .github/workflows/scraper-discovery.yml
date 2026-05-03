@@ -60,7 +60,7 @@ jobs:
         run: echo "Creating PR using available token..."
 
       - name: Create Pull Request with bot token
-        if: ${{ secrets.SCRAPER_BOT_TOKEN }}
+        if: ${{ secrets.SCRAPER_BOT_TOKEN != '' }}
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.SCRAPER_BOT_TOKEN }}
