@@ -22,6 +22,8 @@ jobs:
   discover-and-pr:
     name: Discover companies and open PR
     runs-on: ubuntu-latest
+    env:
+      SCRAPER_BOT_TOKEN: ${{ secrets.SCRAPER_BOT_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -60,7 +62,7 @@ jobs:
         run: echo "Creating PR using available token..."
 
       - name: Create Pull Request with bot token
-        if: secrets.SCRAPER_BOT_TOKEN != ''
+        if: env.SCRAPER_BOT_TOKEN != ''
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.SCRAPER_BOT_TOKEN }}
@@ -90,7 +92,7 @@ jobs:
             data/scraper/review-queue.json
 
       - name: Create Issue to Request PR (fallback)
-        if: secrets.SCRAPER_BOT_TOKEN == ''
+        if: env.SCRAPER_BOT_TOKEN == ''
         uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
