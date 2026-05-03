@@ -25,11 +25,18 @@ describe('Scraper utilities (Phase 3: unit tests)', () => {
     const u1 = sanitizeUrl('https://example.com')
     expect(u1).toBeDefined()
     expect(u1?.startsWith('https://')).toBe(true)
-    expect(u1?.includes('example.com')).toBe(true)
+    // Validate domain robustly to avoid CodeQL substring issues
+    if (u1) {
+      const parsed = new URL(u1)
+      expect(parsed.hostname.endsWith('example.com')).toBe(true)
+    }
     const u2 = sanitizeUrl('http://example.com')
     expect(u2).toBeDefined()
     expect(u2?.startsWith('http://')).toBe(true)
-    expect(u2?.includes('example.com')).toBe(true)
+    if (u2) {
+      const parsed2 = new URL(u2)
+      expect(parsed2.hostname.endsWith('example.com')).toBe(true)
+    }
     expect(sanitizeUrl('ftp://example.com')).toBeUndefined()
   })
 
