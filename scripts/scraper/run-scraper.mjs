@@ -86,6 +86,9 @@ const REQUEST_HEADERS = {
 };
 
 const DRY_RUN = process.env.SCRAPER_DRY_RUN === "1";
+// Simple in-memory geocoding cache to avoid repeated calls within a run
+const GEOCODE_CACHE = new Map();
+const GEOCODE_CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
 const FETCH_OFFICE_PAGES = process.env.SCRAPER_FETCH_PAGES !== "0";
 const GEOCODE_ENABLED = process.env.SCRAPER_GEOCODE !== "0";
 const MIN_CONFIDENCE_FOR_PUBLISH = process.env.SCRAPER_MIN_CONFIDENCE ?? "medium";
@@ -309,6 +312,13 @@ async function geocodeOffice(office) {
   const baseUrl = process.env.NOMINATIM_BASE_URL || "https://nominatim.openstreetmap.org/search";
   const url = `${baseUrl}?format=jsonv2&limit=1&q=${encodeURIComponent(query)}`;
 
+  // Check in-memory cache first
+  const cacheKey = `${office.address}::${office.city}::${office.countryCode ?? office.country}`;
+  const cached = GEOCODE_CACHE.get(cacheKey);
+  if (cached && Date.now() - cached.ts < GEOCODE_CACHE_TTL_MS) {
+    return cached.value;
+  }
+
   const maxAttempts = 3;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
@@ -328,25 +338,33 @@ async function geocodeOffice(office) {
       const payload = await response.json();
       const top = Array.isArray(payload) ? payload[0] : undefined;
       if (!top?.lat || !top?.lon) {
-        return { latitude: undefined, longitude: undefined, certainty: "none" };
+        const result = { latitude: undefined, longitude: undefined, certainty: "none" };
+        GEOCODE_CACHE.set(cacheKey, { ts: Date.now(), value: result });
+        return result;
       }
 
       const importance = Number(top.importance ?? 0);
       const certainty = importance >= 0.7 ? "high" : importance >= 0.4 ? "medium" : "low";
-      return {
+      const result = {
         latitude: Number(top.lat),
         longitude: Number(top.lon),
         certainty,
       };
+      GEOCODE_CACHE.set(cacheKey, { ts: Date.now(), value: result });
+      return result;
     } catch (error) {
       if (attempt === maxAttempts) {
-        return { latitude: undefined, longitude: undefined, certainty: "none", error: String(error) };
+        const result = { latitude: undefined, longitude: undefined, certainty: "none", error: String(error) };
+        GEOCODE_CACHE.set(cacheKey, { ts: Date.now(), value: result });
+        return result;
       }
       await sleep(400 * attempt);
     }
   }
 
-  return { latitude: undefined, longitude: undefined, certainty: "none" };
+  const fallback = { latitude: undefined, longitude: undefined, certainty: "none" };
+  GEOCODE_CACHE.set(cacheKey, { ts: Date.now(), value: fallback });
+  return fallback;
 }
 
 /**
