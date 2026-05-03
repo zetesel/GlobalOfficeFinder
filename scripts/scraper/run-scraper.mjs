@@ -717,7 +717,16 @@ function extractCandidateLinksFromHtml(body, baseUrl) {
       if (!keywords.some((k) => lower.includes(k))) continue;
       try {
         const abs = new URL(href, baseUrl).href;
-        links.add(abs);
+        // Only keep URLs within the same origin to mitigate CodeQL alerts
+        try {
+          const baseHost = new URL(baseUrl).host;
+          const absHost = new URL(abs).host;
+          if (absHost.endsWith(baseHost)) {
+            links.add(abs);
+          }
+        } catch {
+          // ignore
+        }
       } catch {
         // ignore
       }
