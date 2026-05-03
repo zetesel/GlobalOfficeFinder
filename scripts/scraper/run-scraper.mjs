@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+// Removed shebang for compatibility when imported as a module
 // @ts-check
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from "fs";
