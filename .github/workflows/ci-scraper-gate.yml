@@ -1,0 +1,24 @@
+name: Scraper Gate
+on:
+  push:
+  pull_request:
+jobs:
+  scraper-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Run unit tests
+        run: npm run test --silent
+      - name: Scraper gate (sequential and concurrent, dry-run)
+        run: npm run ci:gate
+        env:
+          SCRAPER_DRY_RUN: 1

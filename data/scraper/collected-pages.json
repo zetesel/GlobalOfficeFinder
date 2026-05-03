@@ -1,86 +1,3956 @@
 [
   {
     "url": "https://www.atlassian.com/",
-    "fetched": false,
-    "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
+    "fetched": true,
+    "status": 200,
+    "title": "Collaboration software for software, IT and business teams | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:04.455Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "US",
+        "countryCode": "US",
+        "city": "San Francisco",
+        "address": "350 Bush Street, Floor 13",
+        "postalCode": "94104",
+        "contactUrl": "https://www.atlassian.com/",
+        "sourceUrl": "https://www.atlassian.com/"
+      },
+      {
+        "country": "",
+        "city": "s blueprint for how teams work together",
+        "address": "System of Work New Atlassian&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.atlassian.com/",
+        "sourceUrl": "https://www.atlassian.com/"
+      },
+      {
+        "country": "",
+        "city": "s security",
+        "address": "Trust center Ensure your data&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.atlassian.com/",
+        "sourceUrl": "https://www.atlassian.com/"
+      }
+    ]
+  },
+  {
+    "url": "https://www.atlassian.com/company/contact/general-inquiries",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian Support: General Inquiries | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:04.519Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://support.atlassian.com/contact/",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian Support",
+    "fetchedAt": "2026-05-03T10:53:05.931Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/company/contact/product-evaluator-advice",
+    "fetched": true,
+    "status": 200,
+    "title": "Product advice | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:06.139Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/company/contact/purchasing-licensing",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian Support: Pricing, Billing, &amp; Licensing | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:06.336Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
   },
   {
     "url": "https://www.atlassian.com/company/contact",
-    "fetched": false,
-    "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian Support: Contact Us | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:06.542Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian Support: Contact Us | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:06.959Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/zh/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian 支持：联系我们 | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:07.013Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/de/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian-Support: Kontakt | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:07.211Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian Support: Contact Us | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:07.422Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/es/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Asistencia de Atlassian: ponte en contacto con nosotros | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:07.631Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/fr/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Support Atlassian : contactez-nous | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:07.839Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "informatique Équipes métier Équipes de direction Voir toutes les apps En vedette Apps recommandées Jira Gestion de projet flexible Confluence Espace de travail collaboratif Jira Service Management Fourniture de services haute vélocité ATLASSIAN COLLECTIONS Booster le travail d'équipe en toute simplicité Jira • Confluence • Loom • Rovo Optimiser la stratégie et les résultats en toute confiance Focus • Talent • Align Offrir un service à haute vélocité Jira Service Management • Customer Service Management • Actifs • Rovo Livrer plus rapidement des logiciels de haute qualité Rovo Dev • DX • Pipelines • Bitbucket • Compass Optimisé par Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Développeurs Jira Gestion de projet flexible Bitbucket Code source et CI/CD Rovo Dev IA agentique pour les développeurs Pipelines Automatisation CI/CD évolutive DX (En cours d&#",
+        "address": "Produits En vedette Développeurs Product Owners Professionnels de l'informatique Équipes métier Équipes de direction En vedette Développeurs Product Owners Professionnels de l&#039",
+        "postalCode": "039, acquisition) Mesure de la productivité et de l'impact de l'IA Compass Catalogue de logiciels pour les équipes Livrer plus rapidement des logiciels de haute qualité Rovo Dev • DX • Pipelines • Bitbucket • Compass Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Product Owners Jira Product Discovery NOUVEAU Capturez et priorisez les idées Jira Gestion de projet flexible Confluence Les connaissances réunies en un seul endroit Booster le travail d'équipe en toute simplicité Jira • Confluence • Loom • Rovo Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Professionnels de l&#039, informatique Jira Service Management Fourniture de services haute vélocité Guard NOUVEAU Sécurité du cloud renforcée Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Équipes métier Jira Gestion de projet flexible Confluence Les connaissances réunies en un seul endroit Trello Collectez et organisez vos tâches Loom NOUVEAU Mises à jour vidéo rapides et asynchrones Jira Service Management Fourniture de services haute vélocité Gestion des services client Une toute nouvelle expérience client Booster le travail d'équipe en toute simplicité Jira • Confluence • Loom • Rovo Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Équipes de direction Focus NOUVEAU Planification stratégique à l'échelle de l'entreprise Talent NOUVEAU Planification des effectifs qualifiés Jira Align Planification et valeur du travail à l'échelle de l'entreprise Optimiser la stratégie et les résultats en toute confiance Focus • Talent • Align Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Back",
+        "contactUrl": "https://www.atlassian.com/fr/company/contact",
+        "sourceUrl": "https://www.atlassian.com/fr/company/contact"
+      }
+    ]
+  },
+  {
+    "url": "https://www.atlassian.com/it/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Assistenza Atlassian: contattaci | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:08.062Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "ingegneria Dai inizio alla tua carriera Premi TEAM Anywhere Team Everyone Risorse per i candidati Community di talenti Back",
+        "address": "Opportunità di carriera Opportunità di carriera Pagina iniziale Applica Opportunità di lavoro nell&#039",
+        "postalCode": "",
+        "contactUrl": "https://www.atlassian.com/it/company/contact",
+        "sourceUrl": "https://www.atlassian.com/it/company/contact"
+      }
+    ]
+  },
+  {
+    "url": "https://www.atlassian.com/ko/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian 고객 지원팀: 문의하기 | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:08.279Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/nl/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian-support: contact opnemen | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:08.507Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/ja/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Japan | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:08.889Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/br/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Suporte da Atlassian: entre em contato | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:09.109Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/ru/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Поддержка Atlassian: свяжитесь с нами | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:09.310Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/pl/company/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Wsparcie Atlassian: skontaktuj się z nami | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:09.517Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/company/contact/general-inquiries",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian Support: General Inquiries | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:09.721Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/company/contact/product-evaluator-advice",
+    "fetched": true,
+    "status": 200,
+    "title": "Product advice | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:09.945Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://support.atlassian.com/contact/",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian Support",
+    "fetchedAt": "2026-05-03T10:53:10.284Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/company/contact/purchasing-licensing",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian Support: Pricing, Billing, &amp; Licensing | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:10.501Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/company/contact/suppliers",
+    "fetched": true,
+    "status": 200,
+    "title": "Atlassian Suppliers - How to work with us | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:10.709Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.atlassian.com/company/contact/contact-ceos",
+    "fetched": true,
+    "status": 200,
+    "title": "Feedback for the CEO | Atlassian",
+    "fetchedAt": "2026-05-03T10:53:10.924Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
   },
   {
     "url": "https://www.shopify.com/",
-    "fetched": false,
-    "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
+    "fetched": true,
+    "status": 200,
+    "title": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+    "fetchedAt": "2026-05-03T10:53:12.527Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/",
+        "sourceUrl": "https://www.shopify.com/"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/",
+        "sourceUrl": "https://www.shopify.com/"
+      }
+    ]
   },
   {
     "url": "https://www.shopify.com/contact",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify",
+    "fetchedAt": "2026-05-03T10:53:13.031Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/contact",
+        "sourceUrl": "https://www.shopify.com/contact"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/contact",
+        "sourceUrl": "https://www.shopify.com/contact"
+      }
+    ]
+  },
+  {
+    "url": "https://admin.shopify.com/signup?locale=en&amp;language=en&amp;signup_page=https%3A%2F%2Fwww.shopify.com%2Fcontact&amp;signup_types%5B%5D=paid_trial_experience",
     "fetched": false,
-    "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
+    "error": "Error: HTTP 403",
+    "fetchedAt": "2026-05-03T10:53:15.105Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "robots HTTP 403"
+    }
+  },
+  {
+    "url": "https://www.shopify.com/contact#contact-sales",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify",
+    "fetchedAt": "2026-05-03T10:53:15.419Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/contact#contact-sales",
+        "sourceUrl": "https://www.shopify.com/contact#contact-sales"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/contact#contact-sales",
+        "sourceUrl": "https://www.shopify.com/contact#contact-sales"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/contact#contact-plus-sales",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify",
+    "fetchedAt": "2026-05-03T10:53:15.728Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/contact#contact-plus-sales",
+        "sourceUrl": "https://www.shopify.com/contact#contact-plus-sales"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/contact#contact-plus-sales",
+        "sourceUrl": "https://www.shopify.com/contact#contact-plus-sales"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/contact#contact-enterprise-sales",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify",
+    "fetchedAt": "2026-05-03T10:53:16.032Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/contact#contact-enterprise-sales",
+        "sourceUrl": "https://www.shopify.com/contact#contact-enterprise-sales"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/contact#contact-enterprise-sales",
+        "sourceUrl": "https://www.shopify.com/contact#contact-enterprise-sales"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=es",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify Argentina",
+    "fetchedAt": "2026-05-03T10:53:16.311Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=es",
+        "sourceUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=es"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify Argentina",
+    "fetchedAt": "2026-05-03T10:53:16.617Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/au/contact?country=au&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify Australia",
+    "fetchedAt": "2026-05-03T10:53:16.921Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/au/contact?country=au&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/au/contact?country=au&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/au/contact?country=au&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/au/contact?country=au&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/by/contact?country=by&amp;lang=ru",
+    "fetched": true,
+    "status": 200,
+    "title": "Свяжитесь с нами — Shopify Беларусь",
+    "fetchedAt": "2026-05-03T10:53:17.229Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.shopify.com/by/contact?country=by&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Свяжитесь с нами — Shopify Беларусь",
+    "fetchedAt": "2026-05-03T10:53:17.527Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.shopify.com/be/contact?country=be&amp;lang=nl",
+    "fetched": true,
+    "status": 200,
+    "title": "Neem contact met ons op - Shopify België",
+    "fetchedAt": "2026-05-03T10:53:17.825Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s",
+        "address": "Thema&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=nl",
+        "sourceUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=nl"
+      },
+      {
+        "country": "",
+        "city": "twee keer per jaar.",
+        "address": "Shopify Editions Meer dan 150 updates aan Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=nl",
+        "sourceUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=nl"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/be-fr/contact?country=be&amp;lang=fr",
+    "fetched": true,
+    "status": 200,
+    "title": "Contactez-nous – Shopify Belgique",
+    "fetchedAt": "2026-05-03T10:53:18.139Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "deux fois par an.",
+        "address": "Shopify Editions Plus de 150 mises à jour sur Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/be-fr/contact?country=be&amp;lang=fr",
+        "sourceUrl": "https://www.shopify.com/be-fr/contact?country=be&amp;lang=fr"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/be/contact?country=be&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Neem contact met ons op - Shopify België",
+    "fetchedAt": "2026-05-03T10:53:18.415Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s",
+        "address": "Thema&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twee keer per jaar.",
+        "address": "Shopify Editions Meer dan 150 updates aan Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/bg/contact?country=bg&amp;lang=bg",
+    "fetched": true,
+    "status": 200,
+    "title": "Свържете се с нас – Shopify България",
+    "fetchedAt": "2026-05-03T10:53:18.737Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "два пъти годишно.",
+        "address": "Shopify Editions Над 150 актуализации на Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/bg/contact?country=bg&amp;lang=bg",
+        "sourceUrl": "https://www.shopify.com/bg/contact?country=bg&amp;lang=bg"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/bg/contact?country=bg&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Свържете се с нас – Shopify България",
+    "fetchedAt": "2026-05-03T10:53:19.029Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "два пъти годишно.",
+        "address": "Shopify Editions Над 150 актуализации на Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/bg/contact?country=bg&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/bg/contact?country=bg&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/ca/contact?country=ca&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify Canada",
+    "fetchedAt": "2026-05-03T10:53:19.392Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ca/contact?country=ca&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/ca/contact?country=ca&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ca/contact?country=ca&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/ca/contact?country=ca&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/ca-fr/contact?country=ca&amp;lang=fr",
+    "fetched": true,
+    "status": 200,
+    "title": "Contactez-nous – Shopify Canada",
+    "fetchedAt": "2026-05-03T10:53:19.690Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "deux fois par an.",
+        "address": "Shopify Editions Plus de 150 mises à jour sur Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ca-fr/contact?country=ca&amp;lang=fr",
+        "sourceUrl": "https://www.shopify.com/ca-fr/contact?country=ca&amp;lang=fr"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/cl/contacto?country=cl&amp;lang=es",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify Chile",
+    "fetchedAt": "2026-05-03T10:53:20.047Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/cl/contacto?country=cl&amp;lang=es",
+        "sourceUrl": "https://www.shopify.com/cl/contacto?country=cl&amp;lang=es"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/cl/contacto?country=cl&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify Chile",
+    "fetchedAt": "2026-05-03T10:53:20.381Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/cl/contacto?country=cl&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/cl/contacto?country=cl&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/co/contacto?country=co&amp;lang=es",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify Colombia",
+    "fetchedAt": "2026-05-03T10:53:20.703Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/co/contacto?country=co&amp;lang=es",
+        "sourceUrl": "https://www.shopify.com/co/contacto?country=co&amp;lang=es"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/co/contacto?country=co&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify Colombia",
+    "fetchedAt": "2026-05-03T10:53:21.021Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/co/contacto?country=co&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/co/contacto?country=co&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/hr/contact?country=hr&amp;lang=hr",
+    "fetched": true,
+    "status": 200,
+    "title": "Obratite nam se – Shopify Hrvatska",
+    "fetchedAt": "2026-05-03T10:53:21.309Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/hr/contact?country=hr&amp;lang=hr",
+        "sourceUrl": "https://www.shopify.com/hr/contact?country=hr&amp;lang=hr"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/hr/contact?country=hr&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Obratite nam se – Shopify Hrvatska",
+    "fetchedAt": "2026-05-03T10:53:21.603Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/hr/contact?country=hr&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/hr/contact?country=hr&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/fr/contact?country=fr&amp;lang=fr",
+    "fetched": true,
+    "status": 200,
+    "title": "Contactez-nous – Shopify France",
+    "fetchedAt": "2026-05-03T10:53:21.937Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "deux fois par an.",
+        "address": "Shopify Editions Plus de 150 mises à jour sur Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/fr/contact?country=fr&amp;lang=fr",
+        "sourceUrl": "https://www.shopify.com/fr/contact?country=fr&amp;lang=fr"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/fr/contact?country=fr&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contactez-nous – Shopify France",
+    "fetchedAt": "2026-05-03T10:53:22.227Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "deux fois par an.",
+        "address": "Shopify Editions Plus de 150 mises à jour sur Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/fr/contact?country=fr&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/fr/contact?country=fr&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/gr/contact?country=gr&amp;lang=el",
+    "fetched": true,
+    "status": 200,
+    "title": "Επικοινωνήστε μαζί μας — Shopify Ελλάδα",
+    "fetchedAt": "2026-05-03T10:53:22.507Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "δύο φορές τον χρόνο.",
+        "address": "Shopify Editions Περισσότερες από 150 ενημερώσεις στο Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/gr/contact?country=gr&amp;lang=el",
+        "sourceUrl": "https://www.shopify.com/gr/contact?country=gr&amp;lang=el"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/gr/contact?country=gr&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Επικοινωνήστε μαζί μας — Shopify Ελλάδα",
+    "fetchedAt": "2026-05-03T10:53:22.839Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "δύο φορές τον χρόνο.",
+        "address": "Shopify Editions Περισσότερες από 150 ενημερώσεις στο Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/gr/contact?country=gr&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/gr/contact?country=gr&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/hk/contact?country=hk&amp;lang=zh",
+    "fetched": true,
+    "status": 200,
+    "title": "Shopify - 聯絡我們 - Shopify 香港特別行政區",
+    "fetchedAt": "2026-05-03T10:53:23.141Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.shopify.com/hk-en/contact?country=hk&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify Hong Kong SAR",
+    "fetchedAt": "2026-05-03T10:53:23.443Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/hk-en/contact?country=hk&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/hk-en/contact?country=hk&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/hk-en/contact?country=hk&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/hk-en/contact?country=hk&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/hu/contact?country=hu&amp;lang=hu",
+    "fetched": true,
+    "status": 200,
+    "title": "Kapcsolatfelvétel – Shopify Magyarország",
+    "fetchedAt": "2026-05-03T10:53:23.734Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "évente kétszer.",
+        "address": "Shopify Editions Több mint 150 frissítés a Shopifyhoz",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/hu/contact?country=hu&amp;lang=hu",
+        "sourceUrl": "https://www.shopify.com/hu/contact?country=hu&amp;lang=hu"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/hu/contact?country=hu&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Kapcsolatfelvétel – Shopify Magyarország",
+    "fetchedAt": "2026-05-03T10:53:24.049Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "évente kétszer.",
+        "address": "Shopify Editions Több mint 150 frissítés a Shopifyhoz",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/hu/contact?country=hu&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/hu/contact?country=hu&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/in-hi/contact?country=in&amp;lang=hi",
+    "fetched": true,
+    "status": 200,
+    "title": "हमसे संपर्क करें — Shopify भारत",
+    "fetchedAt": "2026-05-03T10:53:24.492Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "साल में दो बार.",
+        "address": "Shopify Editions Shopify में 150+ अपडेट",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/in-hi/contact?country=in&amp;lang=hi",
+        "sourceUrl": "https://www.shopify.com/in-hi/contact?country=in&amp;lang=hi"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/in/contact?country=in&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify India",
+    "fetchedAt": "2026-05-03T10:53:24.764Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/in/contact?country=in&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/in/contact?country=in&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/in/contact?country=in&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/in/contact?country=in&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/id-id/contact?country=id&amp;lang=id",
+    "fetched": true,
+    "status": 200,
+    "title": "Hubungi Kami — Shopify Indonesia",
+    "fetchedAt": "2026-05-03T10:53:25.045Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dua kali setahun.",
+        "address": "Shopify Editions 150+ pembaruan pada Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/id-id/contact?country=id&amp;lang=id",
+        "sourceUrl": "https://www.shopify.com/id-id/contact?country=id&amp;lang=id"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/id/contact?country=id&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify Indonesia",
+    "fetchedAt": "2026-05-03T10:53:25.323Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/id/contact?country=id&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/id/contact?country=id&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/id/contact?country=id&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/id/contact?country=id&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/ie/contact?country=ie&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify Ireland",
+    "fetchedAt": "2026-05-03T10:53:25.595Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ie/contact?country=ie&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/ie/contact?country=ie&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ie/contact?country=ie&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/ie/contact?country=ie&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/il/contact?country=il&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify Israel",
+    "fetchedAt": "2026-05-03T10:53:25.883Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/il/contact?country=il&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/il/contact?country=il&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/il/contact?country=il&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/il/contact?country=il&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/jp/contact?country=jp&amp;lang=ja",
+    "fetched": true,
+    "status": 200,
+    "title": "お問い合わせ - Shopify 日本",
+    "fetchedAt": "2026-05-03T10:53:26.172Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.shopify.com/jp/contact?country=jp&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "お問い合わせ - Shopify 日本",
+    "fetchedAt": "2026-05-03T10:53:26.471Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.shopify.com/kr/contact?country=kr&amp;lang=ko",
+    "fetched": true,
+    "status": 200,
+    "title": "문의사항은 Shopify Korea로 연락해주세요 - Shopify 대한민국",
+    "fetchedAt": "2026-05-03T10:53:26.773Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "",
+        "address": "Shopify Editions Shopify는 매년 두 차례",
+        "postalCode": "150개 이상의 업데이트를 진행합니다.",
+        "contactUrl": "https://www.shopify.com/kr/contact?country=kr&amp;lang=ko",
+        "sourceUrl": "https://www.shopify.com/kr/contact?country=kr&amp;lang=ko"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/kr/contact?country=kr&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "문의사항은 Shopify Korea로 연락해주세요 - Shopify 대한민국",
+    "fetchedAt": "2026-05-03T10:53:27.061Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "",
+        "address": "Shopify Editions Shopify는 매년 두 차례",
+        "postalCode": "150개 이상의 업데이트를 진행합니다.",
+        "contactUrl": "https://www.shopify.com/kr/contact?country=kr&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/kr/contact?country=kr&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/lt/contact?country=lt&amp;lang=lt",
+    "fetched": true,
+    "status": 200,
+    "title": "Susisiekite su mumis – Shopify Lietuva",
+    "fetchedAt": "2026-05-03T10:53:27.391Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.shopify.com/lt/contact?country=lt&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Susisiekite su mumis – Shopify Lietuva",
+    "fetchedAt": "2026-05-03T10:53:27.707Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.shopify.com/my/contact?country=my&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify Malaysia",
+    "fetchedAt": "2026-05-03T10:53:28.007Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/my/contact?country=my&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/my/contact?country=my&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/my/contact?country=my&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/my/contact?country=my&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/my-ms/contact?country=my&amp;lang=ms",
+    "fetched": true,
+    "status": 200,
+    "title": "Hubungi Kami — Shopify Malaysia",
+    "fetchedAt": "2026-05-03T10:53:28.333Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/my-ms/contact?country=my&amp;lang=ms",
+        "sourceUrl": "https://www.shopify.com/my-ms/contact?country=my&amp;lang=ms"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/mx/contacto?country=mx&amp;lang=es",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify México",
+    "fetchedAt": "2026-05-03T10:53:28.661Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/mx/contacto?country=mx&amp;lang=es",
+        "sourceUrl": "https://www.shopify.com/mx/contacto?country=mx&amp;lang=es"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/mx/contacto?country=mx&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify México",
+    "fetchedAt": "2026-05-03T10:53:28.939Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/mx/contacto?country=mx&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/mx/contacto?country=mx&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/nl/contact?country=nl&amp;lang=nl",
+    "fetched": true,
+    "status": 200,
+    "title": "Neem contact met ons op - Shopify Nederland",
+    "fetchedAt": "2026-05-03T10:53:29.265Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s",
+        "address": "Thema&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=nl",
+        "sourceUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=nl"
+      },
+      {
+        "country": "",
+        "city": "twee keer per jaar.",
+        "address": "Shopify Editions Meer dan 150 updates aan Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=nl",
+        "sourceUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=nl"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Neem contact met ons op - Shopify Nederland",
+    "fetchedAt": "2026-05-03T10:53:29.587Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s",
+        "address": "Thema&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twee keer per jaar.",
+        "address": "Shopify Editions Meer dan 150 updates aan Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/nz/contact?country=nz&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify New Zealand",
+    "fetchedAt": "2026-05-03T10:53:29.924Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/nz/contact?country=nz&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/nz/contact?country=nz&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/nz/contact?country=nz&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/nz/contact?country=nz&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/ng/contact?country=ng&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify Nigeria",
+    "fetchedAt": "2026-05-03T10:53:30.271Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ng/contact?country=ng&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/ng/contact?country=ng&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ng/contact?country=ng&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/ng/contact?country=ng&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/no-en/contact?country=no&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify Norway",
+    "fetchedAt": "2026-05-03T10:53:30.617Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/no-en/contact?country=no&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/no-en/contact?country=no&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/no-en/contact?country=no&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/no-en/contact?country=no&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/pk/contact?country=pk&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify Pakistan",
+    "fetchedAt": "2026-05-03T10:53:30.941Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/pk/contact?country=pk&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/pk/contact?country=pk&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/pk/contact?country=pk&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/pk/contact?country=pk&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/pe/contacto?country=pe&amp;lang=es",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify Perú",
+    "fetchedAt": "2026-05-03T10:53:31.313Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/pe/contacto?country=pe&amp;lang=es",
+        "sourceUrl": "https://www.shopify.com/pe/contacto?country=pe&amp;lang=es"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/pe/contacto?country=pe&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify Perú",
+    "fetchedAt": "2026-05-03T10:53:31.621Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/pe/contacto?country=pe&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/pe/contacto?country=pe&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/ph/contact?country=ph&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify Philippines",
+    "fetchedAt": "2026-05-03T10:53:31.901Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ph/contact?country=ph&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/ph/contact?country=ph&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ph/contact?country=ph&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/ph/contact?country=ph&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/ro/contact?country=ro&amp;lang=ro",
+    "fetched": true,
+    "status": 200,
+    "title": "Contactează-ne – Shopify România",
+    "fetchedAt": "2026-05-03T10:53:32.181Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "de două ori pe an.",
+        "address": "Shopify Editions Peste 150 de actualizări pentru Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ro/contact?country=ro&amp;lang=ro",
+        "sourceUrl": "https://www.shopify.com/ro/contact?country=ro&amp;lang=ro"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/ro/contact?country=ro&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contactează-ne – Shopify România",
+    "fetchedAt": "2026-05-03T10:53:32.465Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "de două ori pe an.",
+        "address": "Shopify Editions Peste 150 de actualizări pentru Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ro/contact?country=ro&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/ro/contact?country=ro&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/sg/contact?country=sg&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify Singapore",
+    "fetchedAt": "2026-05-03T10:53:32.773Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/sg/contact?country=sg&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/sg/contact?country=sg&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/sg/contact?country=sg&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/sg/contact?country=sg&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/sk/contact?country=sk&amp;lang=sk",
+    "fetched": true,
+    "status": 200,
+    "title": "Kontakt – Shopify Slovensko",
+    "fetchedAt": "2026-05-03T10:53:33.072Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/sk/contact?country=sk&amp;lang=sk",
+        "sourceUrl": "https://www.shopify.com/sk/contact?country=sk&amp;lang=sk"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/sk/contact?country=sk&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Kontakt – Shopify Slovensko",
+    "fetchedAt": "2026-05-03T10:53:33.399Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/sk/contact?country=sk&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/sk/contact?country=sk&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/si/contact?country=si&amp;lang=sl",
+    "fetched": true,
+    "status": 200,
+    "title": "Stopite v stik z nami — Shopify Slovenija",
+    "fetchedAt": "2026-05-03T10:53:33.689Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/si/contact?country=si&amp;lang=sl",
+        "sourceUrl": "https://www.shopify.com/si/contact?country=si&amp;lang=sl"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/si/contact?country=si&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Stopite v stik z nami — Shopify Slovenija",
+    "fetchedAt": "2026-05-03T10:53:34.001Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/si/contact?country=si&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/si/contact?country=si&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/za/contact?country=za&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify South Africa",
+    "fetchedAt": "2026-05-03T10:53:34.293Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/za/contact?country=za&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/za/contact?country=za&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/za/contact?country=za&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/za/contact?country=za&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/es-es/contacto?country=es&amp;lang=es",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify España",
+    "fetchedAt": "2026-05-03T10:53:34.925Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/es-es/contacto?country=es&amp;lang=es",
+        "sourceUrl": "https://www.shopify.com/es-es/contacto?country=es&amp;lang=es"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/es-es/contacto?country=es&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify España",
+    "fetchedAt": "2026-05-03T10:53:35.268Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/es-es/contacto?country=es&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/es-es/contacto?country=es&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/ch-fr/contact?country=ch&amp;lang=fr",
+    "fetched": true,
+    "status": 200,
+    "title": "Contactez-nous – Shopify Suisse",
+    "fetchedAt": "2026-05-03T10:53:35.548Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "deux fois par an.",
+        "address": "Shopify Editions Plus de 150 mises à jour sur Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ch-fr/contact?country=ch&amp;lang=fr",
+        "sourceUrl": "https://www.shopify.com/ch-fr/contact?country=ch&amp;lang=fr"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/tw/contact?country=tw&amp;lang=zh",
+    "fetched": true,
+    "status": 200,
+    "title": "Shopify - 聯絡我們 - Shopify 台灣",
+    "fetchedAt": "2026-05-03T10:53:35.867Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.shopify.com/tw/contact?country=tw&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Shopify - 聯絡我們 - Shopify 台灣",
+    "fetchedAt": "2026-05-03T10:53:36.151Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.shopify.com/ae/contact?country=ae&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify UAE",
+    "fetchedAt": "2026-05-03T10:53:36.464Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ae/contact?country=ae&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/ae/contact?country=ae&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/ae/contact?country=ae&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/ae/contact?country=ae&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/uk/contact?country=gb&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify UK",
+    "fetchedAt": "2026-05-03T10:53:36.761Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/uk/contact?country=gb&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/uk/contact?country=gb&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/uk/contact?country=gb&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/uk/contact?country=gb&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/contact?country=us&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Contact Us — Shopify",
+    "fetchedAt": "2026-05-03T10:53:37.043Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/contact?country=us&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/contact?country=us&amp;lang=en"
+      },
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/contact?country=us&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/contact?country=us&amp;lang=en"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/es/contacto?country=us&amp;lang=es",
+    "fetched": true,
+    "status": 200,
+    "title": "Contáctanos: Shopify",
+    "fetchedAt": "2026-05-03T10:53:37.366Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "dos veces al año.",
+        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/es/contacto?country=us&amp;lang=es",
+        "sourceUrl": "https://www.shopify.com/es/contacto?country=us&amp;lang=es"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/zh/contact?country=us&amp;lang=zh",
+    "fetched": true,
+    "status": 200,
+    "title": "联系我们 - Shopify",
+    "fetchedAt": "2026-05-03T10:53:37.944Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://www.shopify.com/vn/contact?country=vn&amp;lang=vi",
+    "fetched": true,
+    "status": 200,
+    "title": "Liên hệ — Shopify Việt Nam",
+    "fetchedAt": "2026-05-03T10:53:38.237Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/vn/contact?country=vn&amp;lang=vi",
+        "sourceUrl": "https://www.shopify.com/vn/contact?country=vn&amp;lang=vi"
+      }
+    ]
+  },
+  {
+    "url": "https://www.shopify.com/vn/contact?country=vn&amp;lang=en",
+    "fetched": true,
+    "status": 200,
+    "title": "Liên hệ — Shopify Việt Nam",
+    "fetchedAt": "2026-05-03T10:53:38.551Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/vn/contact?country=vn&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/vn/contact?country=vn&amp;lang=en"
+      }
+    ]
   },
   {
     "url": "https://about.google/",
-    "fetched": false,
-    "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
+    "fetched": true,
+    "status": 200,
+    "title": "About Google: Our products, technology and company information - About Google",
+    "fetchedAt": "2026-05-03T10:53:39.450Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://about.google/company-info/contact-google/",
+    "fetched": true,
+    "status": 200,
+    "title": "Google support: Contact information, product help, office locations - About Google",
+    "fetchedAt": "2026-05-03T10:53:39.705Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://about.google/company-info/locations/",
+    "fetched": true,
+    "status": 200,
+    "title": "Browse a list of Google’s office locations - About Google",
+    "fetchedAt": "2026-05-03T10:53:40.213Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "Ann Arbor, MI",
+        "address": "North America Ann Arbor 2300 Traverwood Dr",
+        "postalCode": "48105 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Atlanta, GA",
+        "address": "1105 W Peachtree St NW",
+        "postalCode": "30309 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Austin, TX",
+        "address": "500 W 2nd St",
+        "postalCode": "78701 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Boulder, CO",
+        "address": "Google Boulder - Pearl Street 2930 Pearl St",
+        "postalCode": "80301 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Boulder, CO",
+        "address": "Google Boulder - Walnut Street 3333 Walnut St",
+        "postalCode": "80301 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Cambridge, Massachusetts",
+        "address": "325 Main Street",
+        "postalCode": "02142 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Chicago, IL",
+        "address": "Google Chicago - Carpenter St 210 N Carpenter St",
+        "postalCode": "60607 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Chicago, IL",
+        "address": "Google Chicago - Fulton Market 320 N Morgan St Suite 600",
+        "postalCode": "60607 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Addison, TX",
+        "address": "15303 North Dallas Parkway Suite 1100",
+        "postalCode": "75001 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Detroit, MI",
+        "address": "52 Henry St",
+        "postalCode": "48201 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Durham, NC",
+        "address": "200 Morris St",
+        "postalCode": "27701 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Houston, TX",
+        "address": "3663 Washington Ave",
+        "postalCode": "77007 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Irvine, CA",
+        "address": "19510 Jamboree Rd",
+        "postalCode": "92612 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Kirkland, WA",
+        "address": "Google Kirkland - 6th St Campus 777 6th St South Building A",
+        "postalCode": "98033 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Kirkland, WA",
+        "address": "Google Kirkland - Kirkland Urban 425 Urban Plz",
+        "postalCode": "98033 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Kitchener",
+        "address": "51 Breithaupt St",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Venice, CA",
+        "address": "340 Main St",
+        "postalCode": "90291 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Madison, WI",
+        "address": "811 E Washington Ave",
+        "postalCode": "53703 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Miami, FL",
+        "address": "1450 Brickell Ave Suite 901",
+        "postalCode": "33131 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Montréal",
+        "address": "425 Av. Viger O",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Mountain View, CA",
+        "address": "Google Mountain View - Bay View 100 Bay View Drive",
+        "postalCode": "94043 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Mountain View, CA",
+        "address": "Google Mountain View - Googleplex 1600 Amphitheatre Pkwy",
+        "postalCode": "94043 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "New York, NY",
+        "address": "Google NYC - 9th Avenue 111 8th Ave",
+        "postalCode": "10011 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "New York, NY",
+        "address": "Google NYC - Chelsea Market 75 9th Ave",
+        "postalCode": "10011 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Pier 57, New York, NY",
+        "address": "Google NYC - Pier 57 29 11th Ave",
+        "postalCode": "10011 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "New York, NY",
+        "address": "Google NYC - St. John's Terminal 550 Washington St",
+        "postalCode": "10014 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Pittsburgh, PA",
+        "address": "6425 Penn Ave",
+        "postalCode": "15206 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "15, 16, Playa Vista, CA",
+        "address": "5865 Campus Center Drive Building 14",
+        "postalCode": "90094 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "5, Portland, OR",
+        "address": "555 SW Morrison St Ste 500 Floors 4 &amp",
+        "postalCode": "97204 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Reston, VA",
+        "address": "1900 Reston Metro Plaza",
+        "postalCode": "20190 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "San Bruno, CA",
+        "address": "901 Cherry Ave",
+        "postalCode": "94066 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "San Diego, CA",
+        "address": "6420 Sequence Dr",
+        "postalCode": "92121 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "San Francisco, CA",
+        "address": "Google San Francisco - 121 Spear St 121 Spear St",
+        "postalCode": "94105 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "San Francisco, CA",
+        "address": "Google San Francisco - 345 Spear St 345 Spear St",
+        "postalCode": "94105 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "1 Market St, San Francisco, CA",
+        "address": "Google San Francisco - One Market Plaza The Landmark Building",
+        "postalCode": "94105 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "San Jose, CA",
+        "address": "255 W Tasman Dr",
+        "postalCode": "95134 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Seattle, WA",
+        "address": "1021 Valley St",
+        "postalCode": "98109 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Sunnyvale, CA",
+        "address": "Google Sunnyvale - 237 MPD 237 Moffett Park Dr",
+        "postalCode": "94089 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Sunnyvale, CA",
+        "address": "Google Sunnyvale - Humboldt 242 Humboldt Ct",
+        "postalCode": "94089 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Sunnyvale, CA",
+        "address": "Google Sunnyvale - Moffett Place 1195 Borregas Ave",
+        "postalCode": "94089 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Thornton, CO",
+        "address": "12396 Grant St",
+        "postalCode": "80241 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Toronto",
+        "address": "65 King St E",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Washington, DC",
+        "address": "25 Massachusetts Ave NW",
+        "postalCode": "20001 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Av. dos Andradas",
+        "postalCode": "3000 - Santa Efigênia, Belo Horizonte - MG, 30260-070, Brazil Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Cra. 11a #94-25/45",
+        "address": "Centro Empresarial Oxo Center",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "C1107 Cdad. Autónoma de Buenos Aires",
+        "address": "Av. Alicia Moreau de Justo 350",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Vía Principal",
+        "address": "Torre real 2",
+        "postalCode": "133, San Isidro 15073, Peru Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Lomas - Virreyes, Lomas de Chapultepec, Miguel Hidalgo,",
+        "address": "C. Montes Urales 445",
+        "postalCode": "11000 Ciudad de México, CDMX, Mexico Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Torre B Piso 15-16,",
+        "address": "Costanera Sur 2730",
+        "postalCode": "7550692 Las Condes, Región Metropolitana, Chile Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Google São Paulo - Edifício Pátio Victor Malzoni Av. Brig. Faria Lima",
+        "postalCode": "3477 - Vila Olímpia, São Paulo - SP, 04538-132, Brazil Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Google São Paulo - São Paulo Corporate Towers Av. Pres. Juscelino Kubitschek",
+        "postalCode": "1909 - Vila Nova Conceição, São Paulo - SP, 04543-011, Brazil Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Claude Debussylaan 34",
+        "postalCode": "1082 MD Amsterdam, Netherlands Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Athina",
+        "address": "Fragkokklisias 6",
+        "postalCode": "151 25, Greece Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Tucholskystraße 2",
+        "postalCode": "10117 Berlin, Germany Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Chau. d'Etterbeek 180",
+        "postalCode": "1040 Brussel, Belgium Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "București",
+        "address": "Bulevardul Corneliu Coposu 6-8",
+        "postalCode": "030167, Romania Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Sankt Petri Passage 5,",
+        "address": "2",
+        "postalCode": "1165 København, Denmark Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Grand Canal Dock",
+        "address": "Google Dublin - Docks 4 Barrow St",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "4 Barrow St",
+        "address": "Google Dublin - Gordon House Gordon House",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Neue Mainzer Str. 32-36",
+        "postalCode": "60311 Frankfurt am Main, Germany Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "ABC-Straße 19",
+        "postalCode": "20354 Hamburg, Germany Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Arkadiankatu 6",
+        "postalCode": "00100 Helsinki, Finland Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "31-",
+        "address": "Rynek Główny 12",
+        "postalCode": "042 Kraków, Poland Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "R. Duque de Palmela 37 Piso 4",
+        "postalCode": "1250-097 Lisboa, Portugal Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "London WC2H 8AG",
+        "address": "Google London - Central Saint Giles 1-13 St Giles High St",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "London N1C 4AG",
+        "address": "Google London - Pancras Square 6 Pancras Sq",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Pl. Pablo Ruiz Picasso, 1, Tetuán,",
+        "address": "Torre Picasso",
+        "postalCode": "28020 Madrid, Spain Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Via Federico Confalonieri, 4,",
+        "address": "Isola Building C",
+        "postalCode": "20124 Milano MI, Italy Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Google Munich - Cloud Space Deroystraße 23",
+        "postalCode": "80335 München, Germany Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Google Munich - Safety Engineering Center Erika-Mann-Straße 33",
+        "postalCode": "80636 München, Germany Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Bryggegata 6",
+        "postalCode": "0250 Oslo, Norway Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Google Paris - 8 Rue de Londres 8 Rue de Londres",
+        "postalCode": "75009 Paris, France Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Google Paris - 14 Rue de Londres 14 Rue de Londres",
+        "postalCode": "75009 Paris, France Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Stroupežnického 3191/17",
+        "postalCode": "150 00 Praha 5-Smíchov, Czechia Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Kungsbron 2",
+        "postalCode": "111 22 Stockholm, Sweden Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Sønderhøj 48",
+        "postalCode": "8260 Viby J, Denmark Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Antakalnis st. 17, 2nd building, LT-",
+        "address": "Vilnius Tech Park",
+        "postalCode": "10312, Vilnius, Lithuania Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "00-",
+        "address": "Rondo Daszynskiego 2",
+        "postalCode": "843 Warsaw, Poland Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "50-",
+        "address": "Generała Józefa Bema 2",
+        "postalCode": "265 Wrocław, Poland Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Google Zurich - Brandschenkestrasse Brandschenkestrasse 110",
+        "postalCode": "8002 Zürich, Switzerland Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Google Zurich - Europaallee Europaallee 36",
+        "postalCode": "8004 Zürich, Switzerland Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Wynyard Central, Auckland",
+        "address": "10 Madden Street",
+        "postalCode": "1010, New Zealand Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Mahadevapura Village, Krishnarajapuram, Hobli, Bengaluru East, Bengaluru, Karnataka",
+        "address": "Google Bangalore - Ananta Rio Business Park",
+        "postalCode": "560037, India Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Old Madras Rd, Sadanandanagar, Bennigana Halli, Bengaluru, Karnataka",
+        "address": "Google Bangalore - Old Madras Road No. 3",
+        "postalCode": "560016, India Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "57 Witthayu Rd, Lumphini, Pathum Wan, Bangkok",
+        "address": "14th Floor Park Ventures Ecoplex",
+        "postalCode": "10330, Thailand Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Tower B, Raycom InfoTech Park, 2 Kexueyuan S Rd, Haidian District, China,",
+        "address": "6th Floor",
+        "postalCode": "100190 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Silokhera, Sector 15 Part 2, Gurugram, Haryana",
+        "address": "Signature Towers III - Tower B (SIGD)",
+        "postalCode": "122002, India Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Tower 2",
+        "address": "Level 25",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "DivyaSree Omega Survey No 13, Kothaguda, Telangana",
+        "address": "Block 1",
+        "postalCode": "500084, India Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Jl. Jenderal Sudirman No.53, RT.5/RW.3, Senayan, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta",
+        "address": "Pacific Century Place Tower Level 45 SCBD Lot 10",
+        "postalCode": "12190, Indonesia Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Axiata tower, 9, Jalan Stesen Sentral 5, Kuala Lumpur Sentral,",
+        "address": "Level 20",
+        "postalCode": "50470 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Melbourne VIC",
+        "address": "161 Collins St",
+        "postalCode": "3000, Australia Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Plot, C, FIFC Building, 54&amp, 55, G Block BKC, Bandra East, Mumbai, Maharashtra",
+        "address": "Level 7",
+        "postalCode": "400051, India Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Yuandong Rd, Banqiao District, New Taipei City, Taiwan",
+        "address": "No. 66",
+        "postalCode": "220 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "AP81, 83, N Main Rd, near Hard Rock Cafe, Koregaon Park Annexe, Mundhwa, Pune, Maharashtra",
+        "address": "S. No",
+        "postalCode": "411036, India Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "22nd Floor,",
+        "address": "Gangnam Finance Centre",
+        "postalCode": "152 Teheran-ro, Gangnam-gu, Seoul, South Korea Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Shanghai World Financial Center, No.",
+        "address": "L60",
+        "postalCode": "100 Century Avenue, Pudong New Area, Shanghai, China, 200120 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "31F, Tower A, UpperHills, No.",
+        "address": "30F &amp",
+        "postalCode": "5001, Huanggang Road, Futian District, China, 518033 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "#03-71 Mapletree Business City II, Singapore",
+        "address": "70 Pasir Panjang Rd",
+        "postalCode": "117371 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Pyrmont NSW",
+        "address": "Google Sydney - One Darling Island One Darling Island Rd",
+        "postalCode": "2009, Australia Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Pyrmont NSW",
+        "address": "Google Sydney - Pirrama Road 48 Pirrama Rd",
+        "postalCode": "2009, Australia Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Seven NEO, Building 5th Ave, Manila,",
+        "address": "38th Floor",
+        "postalCode": "1016 Metro Manila, Philippines Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Taiwan",
+        "address": "110615",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "3 Chome-21-3 Shibuya, Shibuya City, Tokyo",
+        "address": "Shibuya Stream",
+        "postalCode": "150-0002, Japan Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Taiyuan 1st St, Zhubei City, Hsinchu County, Taiwan",
+        "address": "No. 1",
+        "postalCode": "302 Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Accra",
+        "address": "87 Independence Ave",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Building 2 - Level 5 Al Falak St - Dubai Internet City - Dubai - United Arab Emirates Open in Google Maps",
+        "address": "Innovation Hub",
+        "postalCode": "",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Building 10.2 Haifa,",
+        "address": "Andrei Sakharov Street 9",
+        "postalCode": "3508409 Israel Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Eski Buyukdere Cad. No:",
+        "address": "Levent",
+        "postalCode": "209, 9th Floor 4, 34394 İstanbul, Türkiye Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Ballyoaks Office Park, 35 Ballyclare Dr, Johannesburg,",
+        "address": "Building E",
+        "postalCode": "2021, South Africa Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Ikoyi, Lagos",
+        "address": "21 Lugard Ave",
+        "postalCode": "101233, Lagos, Nigeria Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "The Promenade",
+        "postalCode": "110 General Mathenge Dr, Nairobi, Kenya Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      },
+      {
+        "country": "",
+        "city": "Yigal Alon St 98, Tel Aviv-Yafo,",
+        "address": "Electra Tower",
+        "postalCode": "6789141, Israel Open in Google Maps",
+        "contactUrl": "https://about.google/company-info/locations/",
+        "sourceUrl": "https://about.google/company-info/locations/"
+      }
+    ]
   },
   {
     "url": "https://about.google/contact/",
     "fetched": false,
-    "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
+    "error": "Error: HTTP 404",
+    "fetchedAt": "2026-05-03T10:53:41.703Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
   },
   {
     "url": "https://www.aboutamazon.com/",
-    "fetched": false,
-    "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
+    "fetched": true,
+    "status": 200,
+    "title": "Amazon News: Breaking news about Amazon and latest company updates",
+    "fetchedAt": "2026-05-03T10:53:42.283Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
   },
   {
     "url": "https://www.aboutamazon.com/contact-us",
     "fetched": false,
-    "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
+    "error": "Error: HTTP 404",
+    "fetchedAt": "2026-05-03T10:53:44.338Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
   },
   {
     "url": "https://www.microsoft.com/",
-    "fetched": false,
-    "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
+    "fetched": true,
+    "status": 200,
+    "title": "Microsoft – sztuczna inteligencja, chmura, produktywność, obliczenia, gry i aplikacje",
+    "fetchedAt": "2026-05-03T10:53:45.857Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
+  },
+  {
+    "url": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+    "fetched": true,
+    "status": 200,
+    "title": "Przechodzenie z programu Skype do Microsoft Teams (wersja bezp&#x142;atna) - Pomoc techniczna firmy Microsoft",
+    "fetchedAt": "2026-05-03T10:53:46.876Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "tworzenie konta lub dodawanie nowego konta",
+        "address": "Logowanie si&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "do niew&#x142",
+        "address": "Zalogowano si&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "w&#xA0",
+        "address": "Dodatek spotka&#x144",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "wi&#x119",
+        "address": "Dowiedz si&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "ci e-mail",
+        "address": "Zmienianie numeru telefonu lub wiadomo&#x15B",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "atnej",
+        "address": "Przechodzenie z aplikacji Skype do aplikacji Teams w wersji bezp&#x142",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "w programu Skype",
+        "address": "Znajdowanie czatu i kontakt&#xF3",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "dzanie powiadomieniami",
+        "address": "Zarz&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "u Aktywno&#x15B",
+        "address": "Poznawanie kana&#x142",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "ci e-mail o pomini&#x119",
+        "address": "Ustawianie wiadomo&#x15B",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "du aplikacji",
+        "address": "Dostosowywanie wygl&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "p&#xF3",
+        "address": "Zmienianie odst&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "dzanie informacjami kontaktowymi",
+        "address": "Zarz&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "dzanie ustawieniami urz&#x105",
+        "address": "Zarz&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "ywa&#x107",
+        "address": "Jak u&#x17C",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "w",
+        "address": "Synchronizowanie kontakt&#xF3",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "dzanie ustawieniami prywatno&#x15B",
+        "address": "Zarz&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "dzanie danymi i magazynem",
+        "address": "Zarz&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "cych pliku",
+        "address": "Zmienianie preferencji dotycz&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "pu do plik&#xF3",
+        "address": "Uzyskiwanie dost&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "dzia u&#x142",
+        "address": "Narz&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "kszanie i pomniejszanie",
+        "address": "Powi&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "ty klawiszowe",
+        "address": "Skr&#xF3",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "wna",
+        "address": "Strona gł&#243",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "w",
+        "address": "Brak wynik&#243",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "tworzenie konta lub dodawanie nowego konta",
+        "address": "Logowanie si&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "do niew&#x142",
+        "address": "Zalogowano si&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "w&#xA0",
+        "address": "Dodatek spotka&#x144",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "wi&#x119",
+        "address": "Dowiedz si&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "ci e-mail",
+        "address": "Zmienianie numeru telefonu lub wiadomo&#x15B",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "atnej",
+        "address": "Przechodzenie z aplikacji Skype do aplikacji Teams w wersji bezp&#x142",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "w programu Skype",
+        "address": "Znajdowanie czatu i kontakt&#xF3",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "dzanie powiadomieniami",
+        "address": "Zarz&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "u Aktywno&#x15B",
+        "address": "Poznawanie kana&#x142",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "ci e-mail o pomini&#x119",
+        "address": "Ustawianie wiadomo&#x15B",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "du aplikacji",
+        "address": "Dostosowywanie wygl&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "p&#xF3",
+        "address": "Zmienianie odst&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "dzanie informacjami kontaktowymi",
+        "address": "Zarz&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "dzanie ustawieniami urz&#x105",
+        "address": "Zarz&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "ywa&#x107",
+        "address": "Jak u&#x17C",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "w",
+        "address": "Synchronizowanie kontakt&#xF3",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "dzanie ustawieniami prywatno&#x15B",
+        "address": "Zarz&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "dzanie danymi i magazynem",
+        "address": "Zarz&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "cych pliku",
+        "address": "Zmienianie preferencji dotycz&#x105",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "pu do plik&#xF3",
+        "address": "Uzyskiwanie dost&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "dzia u&#x142",
+        "address": "Narz&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "kszanie i pomniejszanie",
+        "address": "Powi&#x119",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "ty klawiszowe",
+        "address": "Skr&#xF3",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "wienia",
+        "address": "Śledzenie zam&#243",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "możliwości rozwoju dla nauczycieli",
+        "address": "Szkolenia i&#160",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "w i&#",
+        "address": "Oferty dla uczni&#243",
+        "postalCode": "160, rodzic&#243, w",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "w",
+        "address": "Azure dla uczni&#243",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "firmie Microsoft",
+        "address": "Informacje o&#160",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "wnoważony rozw&#",
+        "address": "Zr&#243",
+        "postalCode": "243, j",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      },
+      {
+        "country": "",
+        "city": "Microsoft",
+        "address": "&#169",
+        "postalCode": "2026",
+        "contactUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype",
+        "sourceUrl": "https://support.microsoft.com/pl-pl/office/przechodzenie-z-aplikacji-skype-do-aplikacji-microsoft-teams-w-wersji-bezp%C5%82atnej-3c0caa26-d9db-4179-bcb3-930ae2c87570?icid=DSM_All_Skype"
+      }
+    ]
+  },
+  {
+    "url": "https://www.microsoft.com/education/products/office",
+    "fetched": true,
+    "status": 200,
+    "title": "Bezpłatna usługa Office 365 dla uczniów, studentów, nauczycieli i wykładowców | Microsoft Education",
+    "fetchedAt": "2026-05-03T10:53:47.611Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "na dowolnym urządzeniu Korzystaj z konwersacji, zawartości i aplikacji w jednym środowisku usługi Office",
+        "address": "Dostęp w dowolnym miejscu i czasie",
+        "postalCode": "365 Education. Współpracuj w czasie rzeczywistym bez ograniczeń i bez obaw o utratę formatowania.",
+        "contactUrl": "https://www.microsoft.com/education/products/office",
+        "sourceUrl": "https://www.microsoft.com/education/products/office"
+      },
+      {
+        "country": "",
+        "city": "oparte na współpracy zajęcia dla klas, korzystając z możliwości usługi Office",
+        "address": "Uproszczone zarządzanie zajęciami Twórz nowoczesne",
+        "postalCode": "365. Konfiguruj zajęcia i grupy dla usługi Teams, usługę Microsoft Intune for Education i notesy zajęć programu OneNote za pomocą systemu School Data Sync.",
+        "contactUrl": "https://www.microsoft.com/education/products/office",
+        "sourceUrl": "https://www.microsoft.com/education/products/office"
+      },
+      {
+        "country": "",
+        "city": "korzystając z usługi Office",
+        "address": "Przygotowywanie uczniów i studentów do osiągania sukcesów Przygotuj uczniów do rozpoczęcia kariery zawodowej",
+        "postalCode": "365 Education w ramach zajęć w klasie. Niezależnie od tego, czy będzie to używanie programu Outlook, Word, PowerPoint, Microsoft Access, czy OneNote, rozwijanie biegłości w obsłudze aplikacji biurowych ułatwia uczniom i studentom zdobywanie podstaw potrzebnych do osiągania sukcesów teraz i w przyszłości.",
+        "contactUrl": "https://www.microsoft.com/education/products/office",
+        "sourceUrl": "https://www.microsoft.com/education/products/office"
+      },
+      {
+        "country": "",
+        "city": "studenci, nauczyciele i wykładowcy mający kwalifikujące się szkolne lub uczelniane adresy e-mail mogą bezpłatnie otrzymać usługę Office",
+        "address": "1. Kto jest uprawniony do uzyskania bezpłatnego planu Microsoft Office 365 A1? Uczniowie",
+        "postalCode": "365 A1 .",
+        "contactUrl": "https://www.microsoft.com/education/products/office",
+        "sourceUrl": "https://www.microsoft.com/education/products/office"
+      },
+      {
+        "country": "",
+        "city": "co oznacza",
+        "address": "2. Jak długo mogę używać planu Office 365 Education? Z planu Office 365 Education można korzystać do chwili zakończenia pracy lub nauki w uprawnionej instytucji edukacyjnej. Uprawnienia mogą być ponownie weryfikowane w dowolnym momencie. Po wygaśnięciu planu usługi Office 365 Education: Aplikacje usługi Office 365 przejdą w tryb ograniczonej funkcjonalności",
+        "postalCode": "",
+        "contactUrl": "https://www.microsoft.com/education/products/office",
+        "sourceUrl": "https://www.microsoft.com/education/products/office"
+      },
+      {
+        "country": "",
+        "city": "na przykład aplikacje internetowe usługi Office",
+        "address": "Usługi online przypisane do szkolnego adresu e-mail",
+        "postalCode": "365 i usługa OneDrive, przestaną działać.",
+        "contactUrl": "https://www.microsoft.com/education/products/office",
+        "sourceUrl": "https://www.microsoft.com/education/products/office"
+      },
+      {
+        "country": "",
+        "city": "możesz go przedłużyć, ponownie weryfikując swój status ucznia, studenta, nauczyciela lub wykładowcy albo przechodząc na plan Office",
+        "address": "Jeśli Twój plan wygaśnie",
+        "postalCode": "365 Personal.",
+        "contactUrl": "https://www.microsoft.com/education/products/office",
+        "sourceUrl": "https://www.microsoft.com/education/products/office"
+      },
+      {
+        "country": "",
+        "city": "aby zapewnić równy dostęp do narzędzi do nauki i rozwijania umiejętności przydatnych w przyszłości. Zacznij korzystać już dziś .",
+        "address": "[1] Firma Microsoft bezpłatnie przekazuje kwalifikującym się instytucjom (dla nauczycieli lub wykładowców i uczniów lub studentów) usługę Office 365 A1 dla instytucji edukacyjnych",
+        "postalCode": "",
+        "contactUrl": "https://www.microsoft.com/education/products/office",
+        "sourceUrl": "https://www.microsoft.com/education/products/office"
+      }
+    ]
+  },
+  {
+    "url": "https://support.microsoft.com/contactus",
+    "fetched": true,
+    "status": 200,
+    "title": "P&#xF3;ngase en contacto con nosotros: soporte t&#xE9;cnico de Microsoft",
+    "fetchedAt": "2026-05-03T10:53:48.379Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    },
+    "extractedOffices": [
+      {
+        "country": "",
+        "city": "a digital",
+        "address": "Soberan&#237",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "n",
+        "address": "Educaci&#243",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "",
+        "address": "Productos Microsoft&#xA0",
+        "postalCode": "365",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "Edge",
+        "address": "Microsoft&#xA0",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "s...",
+        "address": "m&#xE1",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "vil",
+        "address": "M&#xF3",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "n",
+        "address": "Microsoft Store y facturaci&#xF3",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "n de Microsoft&#xA0,",
+        "address": "Administraci&#xF3",
+        "postalCode": "365",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "as empresas",
+        "address": "Portal para peque&#xF1",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "n",
+        "address": "Educaci&#xF3",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "cnico",
+        "address": "Informar de una estafa de soporte t&#xE9",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "as y medianas empresas",
+        "address": "Peque&#xF1",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "n",
+        "address": "Microsoft Educaci&#243",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "n",
+        "address": "Microsoft Teams para Educaci&#243",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "n",
+        "address": "Microsoft 365 Educaci&#243",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "n",
+        "address": "Office Educaci&#243",
+        "postalCode": "",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      },
+      {
+        "country": "",
+        "city": "Microsoft",
+        "address": "&#169",
+        "postalCode": "2026",
+        "contactUrl": "https://support.microsoft.com/contactus",
+        "sourceUrl": "https://support.microsoft.com/contactus"
+      }
+    ]
   },
   {
     "url": "https://www.microsoft.com/en-us/about/locations",
     "fetched": false,
-    "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
+    "error": "Error: HTTP 404",
+    "fetchedAt": "2026-05-03T10:53:50.794Z",
+    "sourceId": "phase-a-official-tech-sample",
+    "robots": {
+      "allowed": true,
+      "checked": true,
+      "reason": "ok"
+    }
   },
   {
-    "url": "https://about.meta.com/",
+    "sourceId": "phase-a-official-tech-sample",
     "fetched": false,
     "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
+    "reason": "circuit breaker open after 4 failure(s)",
+    "fetchedAt": "2026-05-03T10:53:50.994Z"
   },
   {
-    "url": "https://about.meta.com/company/locations/",
+    "sourceId": "phase-a-official-tech-sample",
     "fetched": false,
     "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
-  },
-  {
-    "url": "https://www.ibm.com/",
-    "fetched": false,
-    "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
-  },
-  {
-    "url": "https://www.ibm.com/contact/us/en/",
-    "fetched": false,
-    "skipped": true,
-    "fetchedAt": "2026-05-02T22:54:34.727Z"
+    "reason": "circuit breaker open after 4 failure(s)",
+    "fetchedAt": "2026-05-03T10:53:50.994Z"
   }
 ]

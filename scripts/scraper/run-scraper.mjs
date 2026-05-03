@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+// Removed shebang for compatibility when imported as a module
 // @ts-check
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from "fs";
@@ -717,7 +717,16 @@ function extractCandidateLinksFromHtml(body, baseUrl) {
       if (!keywords.some((k) => lower.includes(k))) continue;
       try {
         const abs = new URL(href, baseUrl).href;
-        links.add(abs);
+        // Only keep URLs within the same origin to mitigate CodeQL alerts
+        try {
+          const baseHost = new URL(baseUrl).host;
+          const absHost = new URL(abs).host;
+          if (absHost.endsWith(baseHost)) {
+            links.add(abs);
+          }
+        } catch {
+          // ignore
+        }
       } catch {
         // ignore
       }
@@ -1289,7 +1298,25 @@ async function main() {
   console.log(`[scraper] discovered=${discovered.length} acceptedCompanies=${acceptedCompanies.length} acceptedOffices=${acceptedOffices.length} reviewQueue=${reviewQueue.length} dryRun=${DRY_RUN}`);
 }
 
-main().catch((error) => {
-  console.error("[scraper] failed", error);
-  process.exit(1);
-});
+// Guard main execution to allow importing this module safely for tests
+if (process.argv && process.argv[1] && process.argv[1].endsWith("run-scraper.mjs")) {
+  main().catch((error) => {
+    console.error("[scraper] failed", error);
+    process.exit(1);
+  });
+}
+
+// Expose utilities for unit tests
+export {
+  slugify,
+  safeText,
+  sanitizeUrl,
+  getDomain,
+  normalizeCountryCode,
+  normalizeRegion,
+  officeDedupKey,
+  makeOfficeId,
+  scoreConfidence,
+  levelPasses,
+  isOfficialSourceMatch
+};

@@ -50,7 +50,11 @@ describe("sanitizeUrl utility function", () => {
     const url = "https://EXAMPLE.COM/Path";
     const sanitized = sanitizeUrl(url);
     expect(sanitized).toBeDefined();
-    // URL normalization lowercases the domain
-    expect(sanitized).toContain("example.com");
+    // Validate via URL parsing to avoid substring checks
+    if (sanitized) {
+      const parsed = new URL(sanitized);
+      expect(parsed.hostname).toBe("example.com");
+      expect(parsed.pathname).toBe("/Path");
+    }
   });
 });

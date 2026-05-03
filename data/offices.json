@@ -14,20 +14,6 @@
     "contactUrl": "https://www.3m.com"
   },
   {
-    "id": "shopify-ca-ottawa",
-    "companyId": "shopify",
-    "country": "Canada",
-    "countryCode": "CA",
-    "region": "Americas",
-    "city": "Ottawa",
-    "address": "151 O'Connor Street",
-    "postalCode": "K2P 2L8",
-    "officeType": "Headquarters",
-    "latitude": 45.4215,
-    "longitude": -75.6972,
-    "contactUrl": "https://www.shopify.com/contact"
-  },
-  {
     "id": "shopify-ie-dub",
     "companyId": "shopify",
     "country": "Ireland",
