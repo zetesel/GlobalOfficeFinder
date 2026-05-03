@@ -4,35 +4,39 @@ import { describe, it, expect } from 'vitest'
 
 describe('Office data validation', () => {
   const dataPath = resolve(process.cwd(), 'data', 'offices.json')
-  // @ts-ignore - dynamic load of JSON in node
-  const offices: any[] = JSON.parse(readFileSync(dataPath, 'utf-8'))
+  // @ts-expect-error - dynamic load of JSON in node
+  const offices: unknown[] = JSON.parse(readFileSync(dataPath, 'utf-8'))
 
   it('all offices have required fields with sensible types', () => {
     const requiredFields = ['country','countryCode','region','city','address','officeType','latitude','longitude']
-    offices.forEach((o) => {
+  offices.forEach((o) => {
+      const oAny = o as unknown as { [key: string]: unknown }
       // basic shape checks
       requiredFields.forEach((f) => {
-        expect(o).toHaveProperty(f)
-        const v = o[f]
+        expect(oAny).toHaveProperty(f)
+        const v = oAny[f as string] as unknown
         if (f === 'latitude' || f === 'longitude') {
-          expect(typeof v).toBe('number')
-          if (f === 'latitude') expect(v).toBeGreaterThanOrEqual(-90).toBeLessThanOrEqual(90)
-          if (f === 'longitude') expect(v).toBeGreaterThanOrEqual(-180).toBeLessThanOrEqual(180)
+          const num = v as number
+          expect(typeof num).toBe('number')
+          if (f === 'latitude') expect(num).toBeGreaterThanOrEqual(-90).toBeLessThanOrEqual(90)
+          if (f === 'longitude') expect(num).toBeGreaterThanOrEqual(-180).toBeLessThanOrEqual(180)
         } else {
-          expect(typeof v).toBe('string')
-          expect(v).toBeTruthy()
+          const s = v as string
+          expect(typeof s).toBe('string')
+          expect(s).toBeTruthy()
         }
       })
       // optional postalCode
-      if (Object.prototype.hasOwnProperty.call(o, 'postalCode')) {
-        expect(typeof o.postalCode).toMatch(/^(.*)$/) // string if present
+      if (Object.prototype.hasOwnProperty.call(oAny, 'postalCode')) {
+        const pc = oAny['postalCode'] as string
+        expect(typeof pc).toMatch(/^(.*)$/) // string if present
       }
       // optional contactUrl
-      if (Object.prototype.hasOwnProperty.call(o, 'contactUrl') && o.contactUrl) {
+      if (Object.prototype.hasOwnProperty.call(oAny, 'contactUrl') && oAny.contactUrl) {
         try {
-          new URL(o.contactUrl)
+          new URL(oAny.contactUrl as string)
         } catch {
-          fail(`Invalid contactUrl for id ${o.id}: ${o.contactUrl}`)
+          fail(`Invalid contactUrl for id ${oAny['id']}: ${oAny['contactUrl']}`)
         }
       }
     })
