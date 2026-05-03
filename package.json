@@ -25,7 +25,8 @@
     "test:ci": "npm ci --silent && npm run test:ci:unit && npm run test:ci:e2e",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:e2e:debug": "playwright test --debug"
+    "test:e2e:debug": "playwright test --debug",
+    "ci:gate": "node scripts/ci/scraper-ci-gate.mjs"
   },
   "dependencies": {
     "fuse.js": "^7.3.0",
