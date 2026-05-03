@@ -39,6 +39,48 @@ function main() {
   }
 
   console.log("[ci-gate] Scraper gate passed: both sequential and concurrent runs completed (dry-run)");
+  // Optional: run a small subset of end-to-end tests in dry-run to exercise E2E paths
+  const e2eSubset = process.env.SCRAPER_GATE_E2E_SUBSET;
+  if (e2eSubset === "minimal" || e2eSubset === "extended" || e2eSubset === "full") {
+    try {
+      // Decide which test files to run based on the subset
+      const testFiles = ["e2e/smoke/essential.spec.ts"];
+      if (e2eSubset === "extended" || e2eSubset === "full") {
+        testFiles.push("e2e/main.spec.ts");
+      }
+      console.log(`[ci-gate] Running Playwright E2E subset: ${testFiles.join(", ")}`);
+      const res = spawnSync("npx", ["playwright", "test", ...testFiles], {
+        cwd: ROOT,
+        stdio: "inherit",
+        shell: false,
+      });
+      if ((res.status ?? 1) !== 0) {
+        console.error("[ci-gate] E2E gate failed");
+        process.exit(1);
+      }
+    } catch (err) {
+      console.error("[ci-gate] E2E gate encountered an error:", err);
+      process.exit(1);
+    }
+  }
+  // Phase 2: optional drift gate (data drift regression) - run when enabled
+  if (process.env.SCRAPER_GATE_DRIFT === '1') {
+    try {
+      console.log('[ci-gate] Running Shopify drift regression gate (single-file)');
+      const drift = spawnSync('npx', ['vitest', 'run', 'tests/regress/shopify-drift.spec.ts'], {
+        cwd: ROOT,
+        stdio: 'inherit',
+        shell: false,
+      });
+      if ((drift.status ?? 1) !== 0) {
+        console.error('[ci-gate] Shopify drift regression failed');
+        process.exit(1);
+      }
+    } catch (err) {
+      console.error('[ci-gate] Shopify drift regression error:', err);
+      process.exit(1);
+    }
+  }
   process.exit(0);
 }
 

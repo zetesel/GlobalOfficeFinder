@@ -86,9 +86,6 @@ const REQUEST_HEADERS = {
 };
 
 const DRY_RUN = process.env.SCRAPER_DRY_RUN === "1";
-// Simple in-memory geocoding cache to avoid repeated calls within a run
-const GEOCODE_CACHE = new Map();
-const GEOCODE_CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
 const FETCH_OFFICE_PAGES = process.env.SCRAPER_FETCH_PAGES !== "0";
 const GEOCODE_ENABLED = process.env.SCRAPER_GEOCODE !== "0";
 const MIN_CONFIDENCE_FOR_PUBLISH = process.env.SCRAPER_MIN_CONFIDENCE ?? "medium";
@@ -312,13 +309,6 @@ async function geocodeOffice(office) {
   const baseUrl = process.env.NOMINATIM_BASE_URL || "https://nominatim.openstreetmap.org/search";
   const url = `${baseUrl}?format=jsonv2&limit=1&q=${encodeURIComponent(query)}`;
 
-  // Check in-memory cache first
-  const cacheKey = `${office.address}::${office.city}::${office.countryCode ?? office.country}`;
-  const cached = GEOCODE_CACHE.get(cacheKey);
-  if (cached && Date.now() - cached.ts < GEOCODE_CACHE_TTL_MS) {
-    return cached.value;
-  }
-
   const maxAttempts = 3;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
@@ -338,33 +328,25 @@ async function geocodeOffice(office) {
       const payload = await response.json();
       const top = Array.isArray(payload) ? payload[0] : undefined;
       if (!top?.lat || !top?.lon) {
-        const result = { latitude: undefined, longitude: undefined, certainty: "none" };
-        GEOCODE_CACHE.set(cacheKey, { ts: Date.now(), value: result });
-        return result;
+        return { latitude: undefined, longitude: undefined, certainty: "none" };
       }
 
       const importance = Number(top.importance ?? 0);
       const certainty = importance >= 0.7 ? "high" : importance >= 0.4 ? "medium" : "low";
-      const result = {
+      return {
         latitude: Number(top.lat),
         longitude: Number(top.lon),
         certainty,
       };
-      GEOCODE_CACHE.set(cacheKey, { ts: Date.now(), value: result });
-      return result;
     } catch (error) {
       if (attempt === maxAttempts) {
-        const result = { latitude: undefined, longitude: undefined, certainty: "none", error: String(error) };
-        GEOCODE_CACHE.set(cacheKey, { ts: Date.now(), value: result });
-        return result;
+        return { latitude: undefined, longitude: undefined, certainty: "none", error: String(error) };
       }
       await sleep(400 * attempt);
     }
   }
 
-  const fallback = { latitude: undefined, longitude: undefined, certainty: "none" };
-  GEOCODE_CACHE.set(cacheKey, { ts: Date.now(), value: fallback });
-  return fallback;
+  return { latitude: undefined, longitude: undefined, certainty: "none" };
 }
 
 /**
@@ -888,138 +870,67 @@ async function main() {
         // noop
       }
 
-      // Stage 2 concurrency: process candidate URLs with a bounded concurrency
-      const candidateUrlsUnique = Array.from(new Set(candidateUrls));
-      const MAX_FETCH_CONCURRENCY = Number(process.env.SCRAPER_FETCH_CONCURRENCY ?? "4");
-      if (MAX_FETCH_CONCURRENCY > 1 && candidateUrlsUnique.length > 1) {
-        const tasks = candidateUrlsUnique.map((candidateUrl) => async () => {
-          if (!FETCH_OFFICE_PAGES) {
-            collectedPageData.push({ url: candidateUrl, fetched: false, skipped: true, fetchedAt: nowIso() });
-            return;
-          }
-          const robotsCheck = await isUrlAllowedByRobots(candidateUrl);
-          if (!robotsCheck.allowed) {
-            collectedPageData.push({
-              url: candidateUrl,
-              sourceId,
-              fetched: false,
-              skipped: true,
-              reason: robotsCheck.reason,
-              fetchedAt: nowIso(),
-            });
-            sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-            return;
-          }
-
-          const pageResult = await fetchPage(candidateUrl);
-          // Try to extract offices from HTML body for possible auto-discovery; attach to the page record
-          let extractedOffices = [];
-          try {
-            extractedOffices = extractOfficesFromHtml(pageResult.body, candidateUrl);
-          } catch (e) {
-            // ignore
-          }
-          collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck, extractedOffices: extractedOffices.length > 0 ? extractedOffices : undefined });
-          // Also follow any candidate links found within the page (keeps probing to find addresses)
-          try {
-            const extraLinks = extractCandidateLinksFromHtml(pageResult.body, candidateUrl);
-            for (const l of extraLinks) {
-              // respect robots and circuit breaker
-              if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
-              const rc = await isUrlAllowedByRobots(l);
-              if (!rc.allowed) {
-                sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-                if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
-                continue;
-              }
-              const pl = await fetchPage(l);
-              let extracted2 = [];
-              try {
-                extracted2 = extractOfficesFromHtml(pl.body, l);
-              } catch {
-                // ignore
-              }
-              collectedPageData.push({ ...pl, sourceId, robots: rc, extractedOffices: extracted2.length > 0 ? extracted2 : undefined });
-              if (!pl.fetched) {
-                sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-                if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
-              }
-              await sleep(150);
-            }
-          } catch {
-            // ignore
-          }
-          if (!pageResult.fetched) {
-            sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-          }
-          await sleep(200);
-        });
-        for (let i = 0; i < tasks.length; i += MAX_FETCH_CONCURRENCY) {
-          await Promise.all(tasks.slice(i, i + MAX_FETCH_CONCURRENCY).map((t) => t()));
+      for (const candidateUrl of new Set(candidateUrls)) {
+        if (!FETCH_OFFICE_PAGES) {
+          collectedPageData.push({ url: candidateUrl, fetched: false, skipped: true, fetchedAt: nowIso() });
+          continue;
         }
-      } else {
-        for (const candidateUrl of candidateUrlsUnique) {
-          if (!FETCH_OFFICE_PAGES) {
-            collectedPageData.push({ url: candidateUrl, fetched: false, skipped: true, fetchedAt: nowIso() });
-            continue;
-          }
-          const robotsCheck = await isUrlAllowedByRobots(candidateUrl);
-          if (!robotsCheck.allowed) {
-            collectedPageData.push({
-              url: candidateUrl,
-              sourceId,
-              fetched: false,
-              skipped: true,
-              reason: robotsCheck.reason,
-              fetchedAt: nowIso(),
-            });
-            sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-            continue;
-          }
-
-          const pageResult = await fetchPage(candidateUrl);
-          // Try to extract offices from HTML body for possible auto-discovery; attach to the page record
-          let extractedOffices = [];
-          try {
-            extractedOffices = extractOfficesFromHtml(pageResult.body, candidateUrl);
-          } catch (e) {
-            // ignore
-          }
-          collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck, extractedOffices: extractedOffices.length > 0 ? extractedOffices : undefined });
-          // Also follow any candidate links found within the page (keeps probing to find addresses)
-          try {
-            const extraLinks = extractCandidateLinksFromHtml(pageResult.body, candidateUrl);
-            for (const l of extraLinks) {
-              // respect robots and circuit breaker
-              if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
-              const rc = await isUrlAllowedByRobots(l);
-              if (!rc.allowed) {
-                sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-                if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
-                continue;
-              }
-              const pl = await fetchPage(l);
-              let extracted2 = [];
-              try {
-                extracted2 = extractOfficesFromHtml(pl.body, l);
-              } catch {
-                // ignore
-              }
-              collectedPageData.push({ ...pl, sourceId, robots: rc, extractedOffices: extracted2.length > 0 ? extracted2 : undefined });
-              if (!pl.fetched) {
-                sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-                if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
-              }
-              await sleep(150);
-            }
-          } catch {
-            // ignore
-          }
-          if (!pageResult.fetched) {
-            sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
-          }
-          await sleep(200);
+        const robotsCheck = await isUrlAllowedByRobots(candidateUrl);
+        if (!robotsCheck.allowed) {
+          collectedPageData.push({
+            url: candidateUrl,
+            sourceId,
+            fetched: false,
+            skipped: true,
+            reason: robotsCheck.reason,
+            fetchedAt: nowIso(),
+          });
+          sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+          continue;
         }
+
+        const pageResult = await fetchPage(candidateUrl);
+        // Try to extract offices from HTML body for possible auto-discovery; attach to the page record
+        let extractedOffices = [];
+        try {
+          extractedOffices = extractOfficesFromHtml(pageResult.body, candidateUrl);
+        } catch (e) {
+          // ignore
+        }
+        collectedPageData.push({ ...pageResult, sourceId, robots: robotsCheck, extractedOffices: extractedOffices.length > 0 ? extractedOffices : undefined });
+        // Also follow any candidate links found within the page (keeps probing to find addresses)
+        try {
+          const extraLinks = extractCandidateLinksFromHtml(pageResult.body, candidateUrl);
+          for (const l of extraLinks) {
+            // respect robots and circuit breaker
+            if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+            const rc = await isUrlAllowedByRobots(l);
+            if (!rc.allowed) {
+              sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+              if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+              continue;
+            }
+            const pl = await fetchPage(l);
+            let extracted2 = [];
+            try {
+              extracted2 = extractOfficesFromHtml(pl.body, l);
+            } catch {
+              // ignore
+            }
+            collectedPageData.push({ ...pl, sourceId, robots: rc, extractedOffices: extracted2.length > 0 ? extracted2 : undefined });
+            if (!pl.fetched) {
+              sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+              if ((sourceFailures.get(sourceId) ?? 0) >= PER_SOURCE_FAILURE_THRESHOLD) break;
+            }
+            await sleep(150);
+          }
+        } catch (e) {
+          // ignore
+        }
+        if (!pageResult.fetched) {
+          sourceFailures.set(sourceId, (sourceFailures.get(sourceId) ?? 0) + 1);
+        }
+        await sleep(200);
       }
     }
   }
@@ -1378,7 +1289,25 @@ async function main() {
   console.log(`[scraper] discovered=${discovered.length} acceptedCompanies=${acceptedCompanies.length} acceptedOffices=${acceptedOffices.length} reviewQueue=${reviewQueue.length} dryRun=${DRY_RUN}`);
 }
 
-main().catch((error) => {
-  console.error("[scraper] failed", error);
-  process.exit(1);
-});
+// Guard main execution to allow importing this module safely for tests
+if (process.argv && process.argv[1] && process.argv[1].endsWith("run-scraper.mjs")) {
+  main().catch((error) => {
+    console.error("[scraper] failed", error);
+    process.exit(1);
+  });
+}
+
+// Expose utilities for unit tests
+export {
+  slugify,
+  safeText,
+  sanitizeUrl,
+  getDomain,
+  normalizeCountryCode,
+  normalizeRegion,
+  officeDedupKey,
+  makeOfficeId,
+  scoreConfidence,
+  levelPasses,
+  isOfficialSourceMatch
+};
