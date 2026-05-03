@@ -66,4 +66,9 @@
     "vite": "^8.0.10",
     "vitest": "^4.1.4"
   }
+  ,
+  "overrides": {
+    // Force transitive dependency resolution to use a patched uuid version
+    "uuid": "^9.0.0"
+  }
 }
