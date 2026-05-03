@@ -14,6 +14,48 @@
     "contactUrl": "https://www.3m.com"
   },
   {
+    "id": "shopify-ca-ottawa",
+    "companyId": "shopify",
+    "country": "Canada",
+    "countryCode": "CA",
+    "region": "Americas",
+    "city": "Ottawa",
+    "address": "151 O'Connor Street",
+    "postalCode": "K2P 2L8",
+    "officeType": "Headquarters",
+    "latitude": 45.4215,
+    "longitude": -75.6972,
+    "contactUrl": "https://www.shopify.com/contact"
+  },
+  {
+    "id": "shopify-ie-dub",
+    "companyId": "shopify",
+    "country": "Ireland",
+    "countryCode": "IE",
+    "region": "Europe",
+    "city": "Dublin",
+    "address": "2 Grand Canal Square",
+    "postalCode": "D02",
+    "officeType": "Regional Office",
+    "latitude": 53.3478,
+    "longitude": -6.2439,
+    "contactUrl": "https://www.shopify.com/contact"
+  },
+  {
+    "id": "shopify-sg-sin",
+    "companyId": "shopify",
+    "country": "Singapore",
+    "countryCode": "SG",
+    "region": "Asia-Pacific",
+    "city": "Singapore",
+    "address": "100 Peck Seah Street",
+    "postalCode": "079333",
+    "officeType": "Regional Office",
+    "latitude": 1.2761,
+    "longitude": 103.8458,
+    "contactUrl": "https://www.shopify.com/contact"
+  },
+  {
     "id": "abbott-us-abt",
     "companyId": "abbott",
     "country": "United States",
