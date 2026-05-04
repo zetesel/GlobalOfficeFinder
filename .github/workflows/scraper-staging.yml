@@ -52,4 +52,4 @@ jobs:
             Automated scraper staging run. Please review data/companies-staging.json and data/offices-staging.json before promoting.
             This run may include auto-accepted candidates; inspect confidence and provenance fields in data/scraper/collected-pages.json.
           base: main
-      branch: scraper/staging-*
+          branch: scraper/staging-*
