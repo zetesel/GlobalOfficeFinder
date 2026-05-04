@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: '0 3 * * 1' # weekly on Monday at 03:00 UTC
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
@@ -48,4 +52,4 @@ jobs:
             Automated scraper staging run. Please review data/companies-staging.json and data/offices-staging.json before promoting.
             This run may include auto-accepted candidates; inspect confidence and provenance fields in data/scraper/collected-pages.json.
           base: main
-          head: scraper/staging-*
+      branch: scraper/staging-*
