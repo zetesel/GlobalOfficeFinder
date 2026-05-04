@@ -1,14 +1,14 @@
 {
-  "startedAt": "2026-05-03T10:53:03.673Z",
-  "finishedAt": "2026-05-03T10:56:36.603Z",
-  "dryRun": true,
-  "confidenceThreshold": "medium",
+  "startedAt": "2026-05-04T05:54:08.547Z",
+  "finishedAt": "2026-05-04T06:18:24.445Z",
+  "dryRun": false,
+  "confidenceThreshold": "low",
   "stages": {
-    "discoveredCompanies": 7,
-    "collectedPages": 115,
+    "discoveredCompanies": 107,
+    "collectedPages": 221,
     "acceptedCompanies": 0,
     "acceptedOffices": 0,
-    "reviewQueueItems": 510,
+    "reviewQueueItems": 633,
     "skippedSources": 0
   },
   "safeguards": {
@@ -16,7 +16,8 @@
     "robotsCheckEnabled": true,
     "perSourceFailureThreshold": 4,
     "sourceFailures": {
-      "phase-a-official-tech-sample": 4
+      "phase-a-official-tech-sample": 4,
+      "auto-discover": 12
     },
     "skippedSources": []
   },
