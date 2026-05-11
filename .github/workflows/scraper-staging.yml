@@ -41,7 +41,7 @@ jobs:
           git checkout -B scraper/staging
           git add data/companies-staging.json data/offices-staging.json data/scraper/collected-pages.json data/scraper/proposed-accepts.json data/scraper/top-proposals.json || true
           git commit -m "scraper: staging run $(date -u +%Y-%m-%d)" || echo "no changes to commit"
-          git push --force --set-upstream origin scraper/staging
+          git push --force-with-lease --set-upstream origin scraper/staging
 
       - name: Create PR
         uses: peter-evans/create-pull-request@v5
