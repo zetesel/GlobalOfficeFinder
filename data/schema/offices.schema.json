@@ -75,6 +75,10 @@
         "type": "string",
         "pattern": "^(https?://.*)?$",
         "description": "Optional contact URL"
+      },
+      "approved": {
+        "type": "boolean",
+        "description": "If false, office is hidden on the public site until set to true"
       }
     }
   }

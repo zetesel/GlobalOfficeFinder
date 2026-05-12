@@ -273,7 +273,7 @@ async function main() {
     };
     const id = makeOfficeId(existingOffices.concat(toAdd), office.companyId, office.countryCode, office.city);
     existingKeys.add(dedupeKey);
-    toAdd.push({ id, ...office });
+    toAdd.push({ id, ...office, approved: true });
   }
 
   if (toAdd.length === 0) {

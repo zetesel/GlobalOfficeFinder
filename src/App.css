@@ -381,6 +381,22 @@
   opacity: .55;
   pointer-events: none;
 }
+.queue-section {
+  margin-bottom: 2rem;
+}
+.queue-section h2 {
+  margin-bottom: 0.35rem;
+  font-size: 1.15rem;
+}
+.held-back-catalog-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  color: #1f2937;
+}
+.queue-section-rejected {
+  border-left: 3px solid #fecaca;
+  padding-left: 1rem;
+}
 
 /* ── Error / 404 ─────────────────────────────────────────── */
 .page-error { text-align: center; padding: 4rem 1rem; }

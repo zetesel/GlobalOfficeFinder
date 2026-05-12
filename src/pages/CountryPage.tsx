@@ -4,9 +4,10 @@ import companies from "../../data/companies.json";
 import type { Company, Office } from "../types";
 import OfficeCard from "../components/OfficeCard";
 import { MapView } from "../components/MapView";
+import { filterPublishedOffices } from "../utils/officeVisibility";
 
-const allOffices = offices as Office[];
 const allCompanies = companies as Company[];
+const publishedOffices = filterPublishedOffices(offices as Office[]);
 
 function safeJsonLd(value: unknown): string {
   return JSON.stringify(value).replace(/</g, "\\u003c");
@@ -14,7 +15,7 @@ function safeJsonLd(value: unknown): string {
 
 export default function CountryPage() {
   const { code } = useParams<{ code: string }>();
-  const countryOffices = allOffices.filter((o) => o.countryCode === code);
+  const countryOffices = publishedOffices.filter((o) => o.countryCode === code);
 
   if (countryOffices.length === 0) {
     return (

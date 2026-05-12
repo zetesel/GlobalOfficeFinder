@@ -62,7 +62,7 @@ function main() {
     if (officeKeys.has(key)) continue;
     // ensure id
     if (!e.id) e.id = makeOfficeId(offices.concat(toAdd), e.companyId, e.countryCode, e.city);
-    toAdd.push(e);
+    toAdd.push({ ...e, approved: true });
     officeKeys.add(key);
   }
 
