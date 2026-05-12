@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -38,10 +40,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b scraper/staging-$(date +%s)
+          git fetch origin scraper/staging:refs/remotes/origin/scraper/staging || true
+          git checkout -B scraper/staging
           git add data/companies-staging.json data/offices-staging.json data/scraper/collected-pages.json data/scraper/proposed-accepts.json data/scraper/top-proposals.json || true
           git commit -m "scraper: staging run $(date -u +%Y-%m-%d)" || echo "no changes to commit"
-          git push --set-upstream origin HEAD
+          git push --force-with-lease --set-upstream origin scraper/staging
 
       - name: Create PR
         uses: peter-evans/create-pull-request@v5
@@ -52,4 +55,4 @@ jobs:
             Automated scraper staging run. Please review data/companies-staging.json and data/offices-staging.json before promoting.
             This run may include auto-accepted candidates; inspect confidence and provenance fields in data/scraper/collected-pages.json.
           base: main
-          branch: scraper/staging-*
+          branch: scraper/staging
