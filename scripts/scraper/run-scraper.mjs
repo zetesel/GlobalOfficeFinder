@@ -987,6 +987,8 @@ async function main() {
   // Stage 3+4+5: extract, normalize, geocode, dedupe, quality controls
   const acceptedCompanies = [];
   const acceptedOffices = [];
+  /** High-confidence discoveries held for humans in review-queue.json (not written to offices.json). */
+  let officesQueuedForManualReview = 0;
   const companyIdRemap = new Map();
 
   const mergedCompanies = [...existingCompanies];
@@ -1138,18 +1140,16 @@ async function main() {
 
       normalizedOffice.id = makeOfficeId(mergedOffices, normalizedOffice.companyId, normalizedOffice.countryCode, normalizedOffice.city);
       officeKeys.add(dedupeKey);
-      mergedOffices.push(normalizedOffice);
-      acceptedOffices.push({
-        ...normalizedOffice,
-        source: {
-          sourceId: source.id,
-          sourceUrl: source.sourceUrl,
-          scrapedAt: nowIso(),
-          confidence: confidence.level,
-          confidenceScore: confidence.score,
-          officialSourceMatch,
-          geocodeCertainty,
-        },
+      officesQueuedForManualReview += 1;
+      reviewQueue.push({
+        type: "office",
+        sourceId: source.id,
+        sourceUrl: source.sourceUrl,
+        office: normalizedOffice,
+        reason: "awaiting manual approval before publication",
+        confidence: confidence.level,
+        confidenceScore: confidence.score,
+        queuedAt: nowIso(),
       });
     }
   }
@@ -1167,6 +1167,7 @@ async function main() {
       collectedPages: collectedPageData.length,
       acceptedCompanies: acceptedCompanies.length,
       acceptedOffices: acceptedOffices.length,
+      officesQueuedForManualReview,
       reviewQueueItems: reviewQueue.length,
       skippedSources: skippedSources.length,
     },
@@ -1221,6 +1222,7 @@ async function main() {
         latitude: typeof raw.latitude === 'number' ? raw.latitude : undefined,
         longitude: typeof raw.longitude === 'number' ? raw.longitude : undefined,
         contactUrl: sanitizeUrl(raw.contactUrl) || sanitizeUrl(item.sourceUrl) || undefined,
+        approved: true,
       };
 
       // geocode if coords missing
@@ -1295,7 +1297,7 @@ async function main() {
 
   writeJson(RUN_REPORT_PATH, runReport);
 
-  console.log(`[scraper] discovered=${discovered.length} acceptedCompanies=${acceptedCompanies.length} acceptedOffices=${acceptedOffices.length} reviewQueue=${reviewQueue.length} dryRun=${DRY_RUN}`);
+  console.log(`[scraper] discovered=${discovered.length} acceptedCompanies=${acceptedCompanies.length} acceptedOffices=${acceptedOffices.length} officesQueuedForManualReview=${officesQueuedForManualReview} reviewQueue=${reviewQueue.length} dryRun=${DRY_RUN}`);
 }
 
 // Guard main execution to allow importing this module safely for tests

@@ -20,4 +20,6 @@ export interface Office {
   latitude?: number;
   longitude?: number;
   contactUrl?: string;
+  /** When false, the office is withheld from the public site until approved. */
+  approved?: boolean;
 }

@@ -6,9 +6,10 @@ import type { Company, Office } from "../types";
 import OfficeCard from "../components/OfficeCard";
 import { MapView } from "../components/MapView";
 import { sanitizeUrl } from "../utils/data";
+import { filterPublishedOffices } from "../utils/officeVisibility";
 
 const allCompanies = companies as Company[];
-const allOffices = offices as Office[];
+const publishedOffices = filterPublishedOffices(offices as Office[]);
 const DEFAULT_WORLD_CENTER: [number, number] = [20, 0]; // Leaflet [lat, lng] tuple: 20°N latitude, 0° longitude
 const SINGLE_OFFICE_ZOOM = 10;
 const MULTI_OFFICE_ZOOM = 3;
@@ -51,7 +52,7 @@ export default function CompanyPage() {
     );
   }
 
-  const companyOffices = allOffices.filter((o) => o.companyId === company.id);
+  const companyOffices = publishedOffices.filter((o) => o.companyId === company.id);
   const mapOffices = companyOffices.filter(
     (office): office is CoordinateOffice =>
       office.latitude !== undefined && office.longitude !== undefined
@@ -143,6 +144,12 @@ const mapCenter = getAverageCoordinates(mapOffices);
 
       <section className="offices-section">
         <h2>Office Locations</h2>
+        {companyOffices.length === 0 ? (
+          <p className="no-results">
+            No published office locations are listed for this company yet. Locations may still be
+            under editorial review.
+          </p>
+        ) : (
         <div className="company-offices-layout">
           <div className="company-offices-list">
             {[...grouped.entries()].sort().map(([region, byCountry]) => (
@@ -194,6 +201,7 @@ const mapCenter = getAverageCoordinates(mapOffices);
             )}
           </aside>
         </div>
+        )}
       </section>
 
       {/* JSON-LD structured data */}

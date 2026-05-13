@@ -7,15 +7,16 @@ import CompanyCard from "../components/CompanyCard";
 import { useCompanySearch } from "../hooks/useCompanySearch";
 import { MapView } from "../components/MapView";
 import { getFilteredHomeData } from "../utils/filters";
+import { filterPublishedOffices } from "../utils/officeVisibility";
 
 const allCompanies = companies as Company[];
-const allOffices = offices as Office[];
+const publishedOffices = filterPublishedOffices(offices as Office[]);
 
-const ALL_REGIONS = [...new Set(allOffices.map((o) => o.region))].sort();
+const ALL_REGIONS = [...new Set(publishedOffices.map((o) => o.region))].sort();
 const ALL_INDUSTRIES = [...new Set(allCompanies.map((c) => c.industry))].sort();
-const ALL_OFFICE_TYPES = [...new Set(allOffices.map((o) => o.officeType))].sort();
+const ALL_OFFICE_TYPES = [...new Set(publishedOffices.map((o) => o.officeType))].sort();
 const ALL_COUNTRIES = [
-  ...new Map(allOffices.map((o) => [o.countryCode, o.country])).entries(),
+  ...new Map(publishedOffices.map((o) => [o.countryCode, o.country])).entries(),
 ].sort((a, b) => a[1].localeCompare(b[1]));
 const ALL_COMPANY_NAMES_BY_ID = Object.fromEntries(
   allCompanies.map((company) => [company.id, company.name])
@@ -35,7 +36,7 @@ export default function HomePage() {
 
   const { filteredCompanies, filteredOfficesByCompany, mapOffices } = useMemo(
     () =>
-      getFilteredHomeData(searchResults, allOffices, {
+      getFilteredHomeData(searchResults, publishedOffices, {
         region,
         country,
         industry,
@@ -53,7 +54,7 @@ export default function HomePage() {
   const countryOptions = useMemo(() => {
     if (!region) return ALL_COUNTRIES;
     return ALL_COUNTRIES.filter(([code]) => {
-      const officeInRegion = allOffices.find(
+      const officeInRegion = publishedOffices.find(
         (o) => o.countryCode === code && o.region === region
       );
       return !!officeInRegion;
