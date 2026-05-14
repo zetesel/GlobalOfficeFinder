@@ -63,7 +63,7 @@ jobs:
         run: echo "Creating PR using available token..."
 
       - name: Create Pull Request with bot token
-        if: env.SCRAPER_BOT_TOKEN != ''
+        if: (github.event_name != 'workflow_dispatch' || inputs.dry_run != 'true') && env.SCRAPER_BOT_TOKEN != ''
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.SCRAPER_BOT_TOKEN }}
@@ -92,8 +92,28 @@ jobs:
             data/scraper/last-run.json
             data/scraper/review-queue.json
 
+      - name: Push discovery branch for manual PR fallback
+        id: fallback_push
+        if: (github.event_name != 'workflow_dispatch' || inputs.dry_run != 'true') && env.SCRAPER_BOT_TOKEN == ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin automation/scraper-discovery:refs/remotes/origin/automation/scraper-discovery || true
+          git checkout -B automation/scraper-discovery
+          git add data/companies.json data/offices.json data/scraper/last-run.json data/scraper/review-queue.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit; skipping branch push."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git commit -m "chore(data): update discovered companies and offices"
+          git push --force-with-lease --set-upstream origin automation/scraper-discovery
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
       - name: Create Issue to Request PR (fallback)
-        if: env.SCRAPER_BOT_TOKEN == ''
+        if: (github.event_name != 'workflow_dispatch' || inputs.dry_run != 'true') && env.SCRAPER_BOT_TOKEN == '' && steps.fallback_push.outputs.pushed == 'true'
         uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
