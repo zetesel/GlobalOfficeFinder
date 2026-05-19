@@ -52,7 +52,7 @@ export function filterPublishedOffices(offices: Office[]): Office[] {
         });
       }
     }
-  } catch (e) {
+  } catch {
     // ignore parsing errors or SSR environment issues
   }
 
