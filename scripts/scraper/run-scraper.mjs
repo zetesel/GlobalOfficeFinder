@@ -1061,6 +1061,7 @@ async function main() {
         .replace(/&gt;/g, '>')
         .replace(/&amp;/g, "&")
         .replace('Open in Google Maps', '')
+        .replace(/&amp;/g, "&")
         .trim();
 
       const isGarbageText = (str) => {
