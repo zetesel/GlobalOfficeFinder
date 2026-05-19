@@ -25,7 +25,8 @@
     "officeType": "Regional Office",
     "latitude": 53.3478,
     "longitude": -6.2439,
-    "contactUrl": "https://www.shopify.com/contact"
+    "contactUrl": "https://www.shopify.com/contact",
+    "approved": true
   },
   {
     "id": "shopify-sg-sin",
@@ -39,7 +40,8 @@
     "officeType": "Regional Office",
     "latitude": 1.2761,
     "longitude": 103.8458,
-    "contactUrl": "https://www.shopify.com/contact"
+    "contactUrl": "https://www.shopify.com/contact",
+    "approved": true
   },
   {
     "id": "abbott-us-abt",
@@ -613,7 +615,8 @@
     "officeType": "Regional Office",
     "latitude": 47.3686,
     "longitude": 8.5392,
-    "contactUrl": "https://about.google/contact/"
+    "contactUrl": "https://about.google/contact/",
+    "approved": true
   },
   {
     "id": "google-de-ham",
@@ -627,7 +630,8 @@
     "officeType": "Regional Office",
     "latitude": 53.5547,
     "longitude": 9.9939,
-    "contactUrl": "https://about.google/locations/"
+    "contactUrl": "https://about.google/locations/",
+    "approved": true
   },
   {
     "id": "google-gb-lon",
@@ -641,7 +645,8 @@
     "officeType": "Regional Office",
     "latitude": 51.5357,
     "longitude": -0.1245,
-    "contactUrl": "https://about.google/locations/"
+    "contactUrl": "https://about.google/locations/",
+    "approved": true
   },
   {
     "id": "google-gb-london",
@@ -655,7 +660,8 @@
     "officeType": "Regional Office",
     "latitude": 51.5154,
     "longitude": -0.131,
-    "contactUrl": "https://about.google/contact/"
+    "contactUrl": "https://about.google/contact/",
+    "approved": true
   },
   {
     "id": "google-jp-tokyo",
@@ -669,7 +675,8 @@
     "officeType": "Regional Office",
     "latitude": 35.6586,
     "longitude": 139.7454,
-    "contactUrl": "https://about.google/contact/"
+    "contactUrl": "https://about.google/contact/",
+    "approved": true
   },
   {
     "id": "google-sg-sin",
@@ -683,7 +690,8 @@
     "officeType": "Regional Office",
     "latitude": 1.2761,
     "longitude": 103.8048,
-    "contactUrl": "https://about.google/locations/"
+    "contactUrl": "https://about.google/locations/",
+    "approved": true
   },
   {
     "id": "google-us-mtv",
@@ -697,7 +705,8 @@
     "officeType": "Headquarters",
     "latitude": 37.422,
     "longitude": -122.0841,
-    "contactUrl": "https://about.google/locations/"
+    "contactUrl": "https://about.google/locations/",
+    "approved": true
   },
   {
     "id": "google-us-new-york",
@@ -711,7 +720,8 @@
     "officeType": "Regional Office",
     "latitude": 40.7484,
     "longitude": -74.006,
-    "contactUrl": "https://about.google/contact/"
+    "contactUrl": "https://about.google/contact/",
+    "approved": true
   },
   {
     "id": "google-us-nyc",
@@ -725,7 +735,8 @@
     "officeType": "Regional Office",
     "latitude": 40.7411,
     "longitude": -74,
-    "contactUrl": "https://about.google/locations/"
+    "contactUrl": "https://about.google/locations/",
+    "approved": true
   },
   {
     "id": "honda-jp-tok",
@@ -1523,7 +1534,8 @@
     "officeType": "Headquarters",
     "latitude": 45.4199879,
     "longitude": -75.6970497,
-    "contactUrl": "https://www.shopify.com/contact"
+    "contactUrl": "https://www.shopify.com/contact",
+    "approved": true
   },
   {
     "id": "siemens-cn-bei",

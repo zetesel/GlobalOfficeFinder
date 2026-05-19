@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 import offices from "../../data/offices.json";
 import companies from "../../data/companies.json";
@@ -7,7 +8,6 @@ import { MapView } from "../components/MapView";
 import { filterPublishedOffices } from "../utils/officeVisibility";
 
 const allCompanies = companies as Company[];
-const publishedOffices = filterPublishedOffices(offices as Office[]);
 
 function safeJsonLd(value: unknown): string {
   return JSON.stringify(value).replace(/</g, "\\u003c");
@@ -15,6 +15,7 @@ function safeJsonLd(value: unknown): string {
 
 export default function CountryPage() {
   const { code } = useParams<{ code: string }>();
+  const publishedOffices = React.useMemo(() => filterPublishedOffices(offices as Office[]), []);
   const countryOffices = publishedOffices.filter((o) => o.countryCode === code);
 
   if (countryOffices.length === 0) {
@@ -45,7 +46,7 @@ export default function CountryPage() {
   companiesHere.sort((a, b) => a.name.localeCompare(b.name));
 
   const mapOffices = countryOffices.filter(
-    (o) => o.latitude !== undefined && o.longitude !== undefined
+    (o) => typeof o.latitude === "number" && typeof o.longitude === "number"
   );
 
   return (

@@ -9,7 +9,6 @@ import { sanitizeUrl } from "../utils/data";
 import { filterPublishedOffices } from "../utils/officeVisibility";
 
 const allCompanies = companies as Company[];
-const publishedOffices = filterPublishedOffices(offices as Office[]);
 const DEFAULT_WORLD_CENTER: [number, number] = [20, 0]; // Leaflet [lat, lng] tuple: 20°N latitude, 0° longitude
 const SINGLE_OFFICE_ZOOM = 10;
 const MULTI_OFFICE_ZOOM = 3;
@@ -38,6 +37,8 @@ export default function CompanyPage() {
   const { id } = useParams<{ id: string }>();
   const company = allCompanies.find((c) => c.id === id);
 
+  const publishedOffices = React.useMemo(() => filterPublishedOffices(offices as Office[]), []);
+
   // Initialize hook early to satisfy React's hooks rules
   const [selectedOffice, setSelectedOffice] = React.useState<CoordinateOffice | null>(null);
   if (!company) {
@@ -55,7 +56,7 @@ export default function CompanyPage() {
   const companyOffices = publishedOffices.filter((o) => o.companyId === company.id);
   const mapOffices = companyOffices.filter(
     (office): office is CoordinateOffice =>
-      office.latitude !== undefined && office.longitude !== undefined
+      typeof office.latitude === "number" && typeof office.longitude === "number"
   );
   const countries = [...new Set(companyOffices.map((o) => o.country))].sort();
   const regions = [...new Set(companyOffices.map((o) => o.region))].sort();

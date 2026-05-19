@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import reviewQueue from "../../data/scraper/review-queue.json";
 import offices from "../../data/offices.json";
 import type { Office } from "../types";
+import { isPublishedOffice } from "../utils/officeVisibility";
 
 type Decision = "approved" | "rejected";
 
@@ -80,7 +81,7 @@ export default function ReviewQueuePage() {
   }, [decisions]);
 
   const heldBackCatalogOffices = useMemo(
-    () => allOffices.filter((o) => o.approved === false),
+    () => allOffices.filter((o) => !isPublishedOffice(o)),
     [],
   );
 
@@ -249,10 +250,9 @@ export default function ReviewQueuePage() {
         <section className="info-card" aria-label="Unpublished catalog offices">
           <h2>Unpublished in catalog</h2>
           <p className="muted">
-            These rows exist in <code>data/offices.json</code> with <code>&quot;approved&quot;: false</code>. They are{" "}
+            These rows exist in <code>data/offices.json</code> but are not approved. They are{" "}
             <strong>hidden from the public site</strong> and listed only here. Set <code>&quot;approved&quot;:
-            true</code>{" "}
-            (or remove the field) to publish.
+            true</code> to publish.
           </p>
           <ul className="held-back-catalog-list">
             {heldBackCatalogOffices.map((o) => (

@@ -107,7 +107,7 @@ export function MapView({
 
     const coordinateOffices = offices.filter(
       (office): office is Office & { latitude: number; longitude: number } =>
-        office.latitude !== undefined && office.longitude !== undefined
+        typeof office.latitude === "number" && typeof office.longitude === "number"
     );
 
     coordinateOffices.forEach((office) => {

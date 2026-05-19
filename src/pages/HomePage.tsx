@@ -10,14 +10,7 @@ import { getFilteredHomeData } from "../utils/filters";
 import { filterPublishedOffices } from "../utils/officeVisibility";
 
 const allCompanies = companies as Company[];
-const publishedOffices = filterPublishedOffices(offices as Office[]);
-
-const ALL_REGIONS = [...new Set(publishedOffices.map((o) => o.region))].sort();
 const ALL_INDUSTRIES = [...new Set(allCompanies.map((c) => c.industry))].sort();
-const ALL_OFFICE_TYPES = [...new Set(publishedOffices.map((o) => o.officeType))].sort();
-const ALL_COUNTRIES = [
-  ...new Map(publishedOffices.map((o) => [o.countryCode, o.country])).entries(),
-].sort((a, b) => a[1].localeCompare(b[1]));
 const ALL_COMPANY_NAMES_BY_ID = Object.fromEntries(
   allCompanies.map((company) => [company.id, company.name])
 );
@@ -34,6 +27,14 @@ export default function HomePage() {
 
   const { results: searchResults } = useCompanySearch(allCompanies, query);
 
+  const publishedOffices = useMemo(() => filterPublishedOffices(offices as Office[]), []);
+
+  const allRegions = useMemo(() => [...new Set(publishedOffices.map((o) => o.region))].sort(), [publishedOffices]);
+  const allOfficeTypes = useMemo(() => [...new Set(publishedOffices.map((o) => o.officeType))].sort(), [publishedOffices]);
+  const allCountries = useMemo(() => [
+    ...new Map(publishedOffices.map((o) => [o.countryCode, o.country])).entries(),
+  ].sort((a, b) => a[1].localeCompare(b[1])), [publishedOffices]);
+
   const { filteredCompanies, filteredOfficesByCompany, mapOffices } = useMemo(
     () =>
       getFilteredHomeData(searchResults, publishedOffices, {
@@ -44,7 +45,7 @@ export default function HomePage() {
         hasHq,
         hasContactUrl,
       }),
-    [searchResults, region, country, industry, officeType, hasHq, hasContactUrl],
+    [searchResults, publishedOffices, region, country, industry, officeType, hasHq, hasContactUrl],
   );
 
   function getOfficesForCompany(companyId: string) {
@@ -52,14 +53,14 @@ export default function HomePage() {
   }
 
   const countryOptions = useMemo(() => {
-    if (!region) return ALL_COUNTRIES;
-    return ALL_COUNTRIES.filter(([code]) => {
+    if (!region) return allCountries;
+    return allCountries.filter(([code]) => {
       const officeInRegion = publishedOffices.find(
         (o) => o.countryCode === code && o.region === region
       );
       return !!officeInRegion;
     });
-  }, [region]);
+  }, [region, allCountries, publishedOffices]);
 
   function setFilterParam(name: string, value: string | boolean) {
     const next = new URLSearchParams(searchParams);
@@ -111,7 +112,7 @@ export default function HomePage() {
               onChange={handleRegionChange}
             >
               <option value="">All regions</option>
-              {ALL_REGIONS.map((r) => (
+              {allRegions.map((r) => (
                 <option key={r} value={r}>
                   {r}
                 </option>
@@ -156,7 +157,7 @@ export default function HomePage() {
               onChange={(e) => setFilterParam("officeType", e.target.value)}
             >
               <option value="">All office types</option>
-              {ALL_OFFICE_TYPES.map((value) => (
+              {allOfficeTypes.map((value) => (
                 <option key={value} value={value}>
                   {value}
                 </option>
@@ -204,7 +205,7 @@ export default function HomePage() {
       <section aria-label="Countries quick-nav" className="country-chips">
         <p className="chips-label">Browse by country:</p>
         <div className="chips">
-          {ALL_COUNTRIES.slice(0, 12).map(([code, name]) => (
+          {allCountries.slice(0, 12).map(([code, name]) => (
             <Link key={code} to={`/country/${code}`} className="chip">
               {name}
             </Link>
