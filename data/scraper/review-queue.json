@@ -704,23 +704,6 @@
     {
       "type": "office",
       "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/in-hi/contact?country=in&amp;lang=hi",
-      "office": {
-        "country": "",
-        "city": "Shopify में",
-        "address": "Shopify Editions साल में दो बार",
-        "postalCode": "150+ अपडेट",
-        "contactUrl": "https://www.shopify.com/in-hi/contact?country=in&amp;lang=hi",
-        "sourceUrl": "https://www.shopify.com/in-hi/contact?country=in&amp;lang=hi"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-05-18T07:10:07.357Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
       "sourceUrl": "https://www.shopify.com/in/contact?country=in&amp;lang=en",
       "office": {
         "country": "",
@@ -3528,7 +3511,6 @@
       "sourceId": "phase-a-official-tech-sample",
       "sourceUrl": "https://www.atlassian.com/company/contact",
       "office": {
-        "id": "",
         "companyId": "atlassian",
         "country": "US",
         "countryCode": "US",
@@ -3536,7 +3518,6 @@
         "city": "San Francisco",
         "address": "350 Bush Street, Floor 13",
         "postalCode": "94104",
-        "officeType": "",
         "contactUrl": "https://www.atlassian.com/"
       },
       "reason": "missing latitude/longitude after geocoding",
@@ -3591,7 +3572,6 @@
       "sourceId": "phase-a-official-tech-sample",
       "sourceUrl": "https://www.atlassian.com/company/contact",
       "office": {
-        "id": "",
         "companyId": "atlassian",
         "country": "US",
         "countryCode": "US",
@@ -3599,7 +3579,6 @@
         "city": "San Francisco",
         "address": "350 Bush Street, Floor 13",
         "postalCode": "94104",
-        "officeType": "",
         "contactUrl": "https://www.atlassian.com/enterprise/contact?formType=product-features"
       },
       "reason": "missing latitude/longitude after geocoding",
