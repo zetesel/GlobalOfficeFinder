@@ -4,7 +4,7 @@ import reviewQueue from "../../data/scraper/review-queue.json";
 const QUEUE_DECISIONS_KEY = "goef-review-queue-decisions-v1";
 
 export function isPublishedOffice(office: Office): boolean {
-  return office.approved === true;
+  return office.approved !== false;
 }
 
 export function filterPublishedOffices(offices: Office[]): Office[] {
