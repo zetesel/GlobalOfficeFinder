@@ -1,14 +1,15 @@
 {
-  "startedAt": "2026-05-03T10:53:03.673Z",
-  "finishedAt": "2026-05-03T10:56:36.603Z",
-  "dryRun": true,
+  "startedAt": "2026-05-18T07:09:34.324Z",
+  "finishedAt": "2026-05-18T07:14:55.851Z",
+  "dryRun": false,
   "confidenceThreshold": "medium",
   "stages": {
     "discoveredCompanies": 7,
-    "collectedPages": 115,
+    "collectedPages": 111,
     "acceptedCompanies": 0,
     "acceptedOffices": 0,
-    "reviewQueueItems": 510,
+    "officesQueuedForManualReview": 0,
+    "reviewQueueItems": 416,
     "skippedSources": 0
   },
   "safeguards": {
