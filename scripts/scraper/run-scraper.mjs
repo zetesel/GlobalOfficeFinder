@@ -1037,11 +1037,180 @@ async function main() {
 
     const rawOffices = Array.isArray(company.offices) ? company.offices : [];
     for (const rawOffice of rawOffices) {
-      const country = safeText(rawOffice.country);
-      const countryCode = normalizeCountryCode(country, rawOffice.countryCode, countryCodeMap);
+      let city = safeText(rawOffice.city)
+        .replace(/&#x27;/g, "'")
+        .replace(/&#039;/g, "'")
+        .replace(/&quot;/g, '"')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&amp;/g, "&")
+        .trim();
+      let address = safeText(rawOffice.address)
+        .replace(/&#x27;/g, "'")
+        .replace(/&#039;/g, "'")
+        .replace(/&quot;/g, '"')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&amp;/g, "&")
+        .trim();
+      let postalCode = safeText(rawOffice.postalCode)
+        .replace(/&#x27;/g, "'")
+        .replace(/&#039;/g, "'")
+        .replace(/&quot;/g, '"')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&amp;/g, "&")
+        .replace('Open in Google Maps', '')
+        .replace(/&amp;/g, "&")
+        .trim();
+
+      const isGarbageText = (str) => {
+        if (!str) return false;
+        const lower = str.toLowerCase();
+        const garbageWords = [
+          'editions', '150+ updates', 'blueprint for', 'security', 'trust center', 
+          'ensure your', 'work together', 'teams work', 'candidati', 'carriera', 
+          'applica', 'opportunità', 'informatique', 'direction', 'produits', 
+          'toutes les apps', "d'équipe", 'checkout', 'convert better', 'twice a year',
+          'dos veces', 'twee keer', 'de două ori', 'deux fois', 'espace de travail', 
+          'gestion de projet', 'booster le travail', 'optimiser la stratégie',
+          'livrer plus rapidement', 'capturez et priorisez', 'knowledge base',
+          'customer service', 'planification', 'productivity', 'codice sorgente',
+          'carriere', 'risorse per', 'community di', 'business plan', 'start your business',
+          'thema', 'cookie', 'privacy policy', 'terms of service'
+        ];
+        return garbageWords.some(word => lower.includes(word));
+      };
+
+      if (isGarbageText(city) || isGarbageText(address)) {
+        continue;
+      }
+      if (city.length > 50 || address.length > 150) {
+        continue;
+      }
+      if (city.length <= 2 && city !== 'US' && city !== 'UK' && city !== 'SG') {
+        continue;
+      }
+
+      let country = safeText(rawOffice.country);
+      let countryCode = normalizeCountryCode(country, rawOffice.countryCode, countryCodeMap);
+
+      const usStateAbbreviations = [
+        'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
+        'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
+        'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
+        'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
+        'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
+      ];
+
+      const isUS = usStateAbbreviations.some(state => {
+        return city.endsWith(`, ${state}`) || city.includes(`, ${state} `) || address.includes(`, ${state} `);
+      });
+      
+      if (isUS && !countryCode) {
+        country = 'United States';
+        countryCode = 'US';
+      }
+
+      if (!countryCode) {
+        const cityLower = city.toLowerCase();
+        const addressLower = address.toLowerCase();
+
+        if (cityLower.includes('montréal') || cityLower.includes('toronto') || cityLower.includes('kitchener') || cityLower.includes('vancouver')) {
+          country = 'Canada';
+          countryCode = 'CA';
+        } else if (cityLower.includes('london') || cityLower.includes('manchester') || cityLower.includes('birmingham')) {
+          country = 'United Kingdom';
+          countryCode = 'GB';
+        } else if (cityLower.includes('dublin') || cityLower.includes('cork') || cityLower.includes('grand canal') || cityLower.includes('barrow st')) {
+          country = 'Ireland';
+          countryCode = 'IE';
+        } else if (cityLower.includes('paris') || cityLower.includes('lyon') || cityLower.includes('marseille')) {
+          country = 'France';
+          countryCode = 'FR';
+        } else if (cityLower.includes('berlin') || cityLower.includes('munich') || cityLower.includes('frankfurt') || cityLower.includes('hamburg')) {
+          country = 'Germany';
+          countryCode = 'DE';
+        } else if (cityLower.includes('tokyo') || cityLower.includes('osaka')) {
+          country = 'Japan';
+          countryCode = 'JP';
+        } else if (cityLower.includes('sydney') || cityLower.includes('melbourne') || cityLower.includes('brisbane')) {
+          country = 'Australia';
+          countryCode = 'AU';
+        } else if (cityLower.includes('shanghai') || cityLower.includes('shenzhen') || cityLower.includes('beijing')) {
+          country = 'China';
+          countryCode = 'CN';
+        } else if (cityLower.includes('singapore')) {
+          country = 'Singapore';
+          countryCode = 'SG';
+        } else if (cityLower.includes('warsaw') || cityLower.includes('kraków') || cityLower.includes('wrocław') || cityLower.includes('rzeszów') || cityLower.includes('gdańsk') || /^\d{2}-\d{3}$/.test(city) || cityLower.includes('rondo daszynskiego')) {
+          country = 'Poland';
+          countryCode = 'PL';
+        } else if (cityLower.includes('amsterdam') || cityLower.includes('rotterdam') || cityLower.includes('utrecht')) {
+          country = 'Netherlands';
+          countryCode = 'NL';
+        } else if (cityLower.includes('seoul') || addressLower.includes('gangnam finance centre')) {
+          country = 'South Korea';
+          countryCode = 'KR';
+        } else if (cityLower.includes('tel aviv') || cityLower.includes('haifa')) {
+          country = 'Israel';
+          countryCode = 'IL';
+        } else if (cityLower.includes('milan') || cityLower.includes('rome') || cityLower.includes('federico confalonieri')) {
+          country = 'Italy';
+          countryCode = 'IT';
+        } else if (cityLower.includes('madrid') || cityLower.includes('barcelona') || cityLower.includes('torre picasso')) {
+          country = 'Spain';
+          countryCode = 'ES';
+        } else if (cityLower.includes('athens') || cityLower.includes('athina')) {
+          country = 'Greece';
+          countryCode = 'GR';
+        } else if (cityLower.includes('bucurești') || cityLower.includes('bucharest')) {
+          country = 'Romania';
+          countryCode = 'RO';
+        } else if (cityLower.includes('auckland') || cityLower.includes('wellington')) {
+          country = 'New Zealand';
+          countryCode = 'NZ';
+        } else if (cityLower.includes('istanbul') || cityLower.includes('levent') || cityLower.includes('buyukdere')) {
+          country = 'Turkey';
+          countryCode = 'TR';
+        } else if (cityLower.includes('lagos') || cityLower.includes('ikoyi')) {
+          country = 'Nigeria';
+          countryCode = 'NG';
+        } else if (cityLower.includes('accra')) {
+          country = 'Ghana';
+          countryCode = 'GH';
+        } else if (cityLower.includes('buenos aires')) {
+          country = 'Argentina';
+          countryCode = 'AR';
+        } else if (cityLower.includes('bogota') || cityLower.includes('oxo center')) {
+          country = 'Colombia';
+          countryCode = 'CO';
+        } else if (cityLower.includes('santiago') || addressLower.includes('costanera sur')) {
+          country = 'Chile';
+          countryCode = 'CL';
+        } else if (cityLower.includes('copenhagen') || addressLower.includes('sankt petri passage')) {
+          country = 'Denmark';
+          countryCode = 'DK';
+        } else if (cityLower.includes('vilnius') || addressLower.includes('vilnius tech park')) {
+          country = 'Lithuania';
+          countryCode = 'LT';
+        }
+      }
+
+      if (!countryCode) {
+        continue;
+      }
+
       const region = rawOffice.region && safeText(rawOffice.region)
         ? safeText(rawOffice.region)
         : normalizeRegion(countryCode, regionMap);
+
+      if (countryCode === 'US') {
+        const stateZipMatch = city.match(/^(.*),\s*([A-Z]{2})(?:\s+\d+)?$/);
+        if (stateZipMatch) {
+          city = stateZipMatch[1].trim();
+        }
+      }
 
       const normalizedOffice = {
         id: "",
@@ -1049,9 +1218,9 @@ async function main() {
         country,
         countryCode,
         region,
-        city: safeText(rawOffice.city),
-        address: safeText(rawOffice.address),
-        postalCode: safeText(rawOffice.postalCode),
+        city,
+        address,
+        postalCode,
         officeType: safeText(rawOffice.officeType),
         latitude:
           typeof rawOffice.latitude === "number" ? rawOffice.latitude : undefined,

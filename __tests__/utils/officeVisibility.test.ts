@@ -29,8 +29,8 @@ describe("isPublishedOffice", () => {
 });
 
 describe("filterPublishedOffices", () => {
-  it("drops only offices explicitly marked not approved", () => {
-    const list: Office[] = [base, { ...base, id: "y", approved: false }];
-    expect(filterPublishedOffices(list)).toEqual([base]);
+  it("keeps offices that are not explicitly rejected", () => {
+    const list: Office[] = [base, { ...base, id: "y", approved: true }, { ...base, id: "z", approved: false }];
+    expect(filterPublishedOffices(list)).toEqual([base, { ...base, id: "y", approved: true }]);
   });
 });
