@@ -2,6 +2,37 @@ import type { Office } from "../types";
 import reviewQueue from "../../data/scraper/review-queue.json";
 
 const QUEUE_DECISIONS_KEY = "goef-review-queue-decisions-v1";
+type Decision = "approved" | "rejected";
+
+interface QueueOffice {
+  id?: string;
+  companyId?: string;
+  country?: string;
+  countryCode?: string;
+  region?: string;
+  city?: string;
+  address?: string;
+  postalCode?: string;
+  officeType?: string;
+  approved?: boolean;
+}
+
+interface QueueItem {
+  type: string;
+  sourceId: string;
+  queuedAt: string;
+  office: QueueOffice;
+}
+
+interface QueueFile {
+  items: QueueItem[];
+}
+
+const queue = reviewQueue as QueueFile;
+
+function isNonEmptyString(value: unknown): value is string {
+  return typeof value === "string" && value.trim().length > 0;
+}
 
 export function isPublishedOffice(office: Office): boolean {
   return office.approved !== false;
@@ -17,8 +48,9 @@ export function filterPublishedOffices(offices: Office[]): Office[] {
     const raw = typeof window !== "undefined" ? localStorage.getItem(QUEUE_DECISIONS_KEY) : null;
     if (raw) {
       const decisions = JSON.parse(raw);
-      if (decisions && typeof decisions === "object") {
-        const approvedItems = reviewQueue.items.filter((item: any) => {
+      if (decisions && typeof decisions === "object" && !Array.isArray(decisions)) {
+        const typedDecisions = decisions as Record<string, Decision | undefined>;
+        const approvedItems = queue.items.filter((item) => {
           if (item.type !== "office") return false;
           const o = item.office;
           // Generate same storage key as ReviewQueuePage
@@ -30,11 +62,23 @@ export function filterPublishedOffices(offices: Office[]): Office[] {
             String(o.city ?? ""),
             String(o.address ?? "").slice(0, 120),
           ].join("::");
-          return decisions[key] === "approved";
+          return typedDecisions[key] === "approved";
         });
 
-        extraOffices = approvedItems.map((item: any) => {
+        const queueOffices: Office[] = [];
+        for (const item of approvedItems) {
           const o = item.office;
+          if (
+            !isNonEmptyString(o.companyId) ||
+            !isNonEmptyString(o.country) ||
+            !isNonEmptyString(o.countryCode) ||
+            !isNonEmptyString(o.region) ||
+            !isNonEmptyString(o.city) ||
+            !isNonEmptyString(o.address) ||
+            !isNonEmptyString(o.postalCode)
+          ) {
+            continue;
+          }
           const addressSlug = String(o.address || "")
             .toLowerCase()
             .replace(/[^a-z0-9]+/g, "-")
@@ -43,13 +87,20 @@ export function filterPublishedOffices(offices: Office[]): Office[] {
             .toLowerCase()
             .replace(/[^a-z0-9]+/g, "-");
 
-          return {
-            officeType: "Office",
-            ...o,
-            approved: true,
+          queueOffices.push({
             id: o.id || generatedId,
-          };
-        });
+            companyId: o.companyId,
+            country: o.country,
+            countryCode: o.countryCode,
+            region: o.region,
+            city: o.city,
+            address: o.address,
+            postalCode: o.postalCode,
+            officeType: o.officeType || "Office",
+            approved: true,
+          });
+        }
+        extraOffices = queueOffices;
       }
     }
   } catch {
