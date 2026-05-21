@@ -15,8 +15,8 @@ const base: Office = {
 };
 
 describe("isPublishedOffice", () => {
-  it("treats missing approved as published", () => {
-    expect(isPublishedOffice(base)).toBe(true);
+  it("returns false for undefined approved", () => {
+    expect(isPublishedOffice(base)).toBe(false);
   });
 
   it("treats approved true as published", () => {
@@ -29,8 +29,8 @@ describe("isPublishedOffice", () => {
 });
 
 describe("filterPublishedOffices", () => {
-  it("keeps offices that are not explicitly rejected", () => {
+  it("keeps only explicitly approved offices", () => {
     const list: Office[] = [base, { ...base, id: "y", approved: true }, { ...base, id: "z", approved: false }];
-    expect(filterPublishedOffices(list)).toEqual([base, { ...base, id: "y", approved: true }]);
+    expect(filterPublishedOffices(list)).toEqual([{ ...base, id: "y", approved: true }]);
   });
 });

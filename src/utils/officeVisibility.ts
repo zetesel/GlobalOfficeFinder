@@ -35,7 +35,7 @@ function isNonEmptyString(value: unknown): value is string {
 }
 
 export function isPublishedOffice(office: Office): boolean {
-  return office.approved !== false;
+  return office.approved === true;
 }
 
 export function filterPublishedOffices(offices: Office[]): Office[] {
