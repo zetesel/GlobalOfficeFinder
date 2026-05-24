@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Company, Office } from "../types";
+import CompanyLogo from "./CompanyLogo";
 
 interface CompanyCardProps {
   company: Company;
@@ -11,18 +12,7 @@ export default function CompanyCard({ company, offices }: CompanyCardProps) {
   return (
     <article className="company-card">
       <div className="company-card-header">
-        {company.logo ? (
-          <img
-            src={company.logo}
-            alt={`${company.name} logo`}
-            className="company-logo"
-            loading="lazy"
-          />
-        ) : (
-          <div className="company-logo-placeholder" aria-hidden="true">
-            {company.name.charAt(0).toUpperCase()}
-          </div>
-        )}
+        <CompanyLogo companyId={company.id} companyName={company.name} />
         <div>
           <h2 className="company-name">
             <Link to={`/company/${company.id}`}>{company.name}</Link>

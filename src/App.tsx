@@ -9,6 +9,8 @@ const CompanyPage = lazy(() => import("./pages/CompanyPage"));
 const CountryPage = lazy(() => import("./pages/CountryPage"));
 const RecentChangesPage = lazy(() => import("./pages/RecentChangesPage"));
 const ReviewQueuePage = lazy(() => import("./pages/ReviewQueuePage"));
+const LegalPage = lazy(() => import("./pages/LegalPage"));
+const AttributionsPage = lazy(() => import("./pages/AttributionsPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
               <Route path="/country/:code" element={<CountryPage />} />
               <Route path="/recent-changes" element={<RecentChangesPage />} />
               <Route path="/review-queue" element={<ReviewQueuePage />} />
+              <Route path="/legal" element={<LegalPage />} />
+              <Route path="/attributions" element={<AttributionsPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>

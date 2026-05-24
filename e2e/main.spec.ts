@@ -11,24 +11,22 @@ test.describe('GlobalOfficeFinder E2E Tests', () => {
     // Check main heading
     const heading = page.getByRole('heading', { name: /Find Company Offices Worldwide/i });
     await expect(heading).toBeVisible();
+
+    await expect(page.getByTestId('empty-catalog')).toBeVisible();
+    await expect(page.getByRole('link', { name: /Open Review Queue/i })).toBeVisible();
+    await expect(page.locator('.nav-badge')).toBeVisible();
   });
 
   test('search by company name', async ({ page }) => {
     await page.goto('/');
     
-    // Get the search input
     const searchInput = page.getByPlaceholder(/search by company/i);
     await expect(searchInput).toBeVisible();
     
-    // Type in search input
     await searchInput.fill('Google');
-    
-    // Wait for results to appear
     await page.waitForLoadState('networkidle');
     
-    // Check that Google company card appears
-    const companyCard = page.getByText(/Google/i).first();
-    await expect(companyCard).toBeVisible();
+    await expect(page.locator('.results-count')).toHaveText(/0 companies found/);
   });
 
   test('filter by country', async ({ page }) => {
@@ -44,9 +42,8 @@ test.describe('GlobalOfficeFinder E2E Tests', () => {
     // Wait for filter to apply
     await page.waitForLoadState('networkidle');
     
-    // Verify page still shows content
-    const companyCard = page.locator('.company-card').first();
-    await expect(companyCard).toBeVisible();
+    // With strict approval, filters apply but no companies are published by default
+    await expect(page.locator('.no-results')).toBeVisible();
   });
 
   test('filter by region', async ({ page }) => {
@@ -62,44 +59,22 @@ test.describe('GlobalOfficeFinder E2E Tests', () => {
     // Wait for filter to apply
     await page.waitForLoadState('networkidle');
     
-    // Verify content is filtered
-    const companyCard = page.locator('.company-card').first();
-    await expect(companyCard).toBeVisible();
+    // With strict approval, filters apply but no companies are published by default
+    await expect(page.locator('.no-results')).toBeVisible();
   });
 
   test('navigate to company detail page', async ({ page }) => {
-    await page.goto('/');
-    
-    // Wait for companies to load
+    await page.goto('/company/google');
     await page.waitForLoadState('networkidle');
     
-    // Click on first company link
-    const firstCompanyLink = page.locator('.company-card a').first();
-    await firstCompanyLink.click();
-    
-    // Wait for navigation
-    await page.waitForLoadState('networkidle');
-    
-    // Verify we're on a company page
     const heading = page.getByRole('heading', { level: 1 }).first();
-    await expect(heading).toBeVisible();
+    await expect(heading).toHaveText(/Google/i);
   });
 
   test('navigate to country page', async ({ page }) => {
-    await page.goto('/');
-    
-    // Wait for content to load
+    await page.goto('/country/US');
     await page.waitForLoadState('networkidle');
     
-    // Look for country link and click it
-    const countryLink = page.locator('a[href*="/country/"]').first();
-    await expect(countryLink).toBeVisible();
-    await countryLink.click();
-    
-    // Wait for navigation
-    await page.waitForLoadState('networkidle');
-    
-    // Verify we're on a country page
     const heading = page.getByRole('heading', { level: 1 }).first();
     await expect(heading).toBeVisible();
   });

@@ -1,13 +1,14 @@
 import { useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import companies from "../../data/companies.json";
-import offices from "../../data/offices.json";
 import type { Company, Office } from "../types";
 import CompanyCard from "../components/CompanyCard";
 import { useCompanySearch } from "../hooks/useCompanySearch";
 import { MapView } from "../components/MapView";
 import { getFilteredHomeData } from "../utils/filters";
-import { filterPublishedOffices } from "../utils/officeVisibility";
+import { usePublishedOffices } from "../hooks/usePublishedOffices";
+import { useLocallyApprovedCount } from "../hooks/useLocallyApprovedCount";
+import { revokeAllLocalApprovals } from "../utils/revokeLocalApprovals";
 
 const allCompanies = companies as Company[];
 const ALL_INDUSTRIES = [...new Set(allCompanies.map((c) => c.industry))].sort();
@@ -27,7 +28,16 @@ export default function HomePage() {
 
   const { results: searchResults } = useCompanySearch(allCompanies, query);
 
-  const publishedOffices = useMemo(() => filterPublishedOffices(offices as Office[]), []);
+  const publishedOffices = usePublishedOffices();
+  const locallyApprovedCount = useLocallyApprovedCount();
+
+  function handleRevokeApprovals() {
+    const confirmed = window.confirm(
+      "Revoke all local approvals?\n\nThis clears approve/reject decisions, catalog approvals, office corrections, and cached map geocodes. Offices will return to waiting for approval on this browser. Data in data/offices.json is not changed.",
+    );
+    if (!confirmed) return;
+    revokeAllLocalApprovals();
+  }
 
   const allRegions = useMemo(() => [...new Set(publishedOffices.map((o) => o.region))].sort(), [publishedOffices]);
   const allOfficeTypes = useMemo(() => [...new Set(publishedOffices.map((o) => o.officeType))].sort(), [publishedOffices]);
@@ -78,6 +88,11 @@ export default function HomePage() {
     next.delete("country");
     setSearchParams(next);
   }
+
+  const hasActiveFilters = Boolean(
+    query || region || country || industry || officeType || hasHq || hasContactUrl,
+  );
+  const isEmptyCatalog = publishedOffices.length === 0 && !hasActiveFilters;
 
   return (
     <div className="home-page container">
@@ -214,12 +229,42 @@ export default function HomePage() {
       </section>
 
        <section aria-label="Company results" className="results-section">
+         {locallyApprovedCount > 0 ? (
+           <div className="info-card revoke-approvals-bar" data-testid="revoke-approvals-bar">
+             <p className="muted">
+               {locallyApprovedCount} office{locallyApprovedCount !== 1 ? "s" : ""} approved locally
+               on this browser. Revoke to send them back to the Review Queue.
+             </p>
+             <button type="button" className="btn-clear" onClick={handleRevokeApprovals}>
+               Revoke approvals
+             </button>
+           </div>
+         ) : null}
          <p className="results-count">
            {filteredCompanies.length}{" "}
            {filteredCompanies.length !== 1 ? "companies" : "company"} found
          </p>
           {filteredCompanies.length === 0 ? (
-            <p className="no-results">No companies match your search. Try different filters.</p>
+            isEmptyCatalog ? (
+              <div className="info-card empty-catalog" data-testid="empty-catalog">
+                <h2>No offices published yet</h2>
+                <p className="muted">
+                  Offices must be approved in the Review Queue before they appear on the homepage.
+                  Check Recent Changes for the latest scraper run, then approve and export offices
+                  for merge into the catalog.
+                </p>
+                <div className="empty-catalog-links">
+                  <Link to="/review-queue" className="btn-primary">
+                    Open Review Queue
+                  </Link>
+                  <Link to="/recent-changes" className="chip">
+                    View Recent Changes
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <p className="no-results">No companies match your search. Try different filters.</p>
+            )
           ) : (
             <>
               <div className="company-grid">

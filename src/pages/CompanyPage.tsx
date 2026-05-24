@@ -4,9 +4,10 @@ import companies from "../../data/companies.json";
 import offices from "../../data/offices.json";
 import type { Company, Office } from "../types";
 import OfficeCard from "../components/OfficeCard";
+import CompanyLogo from "../components/CompanyLogo";
 import { MapView } from "../components/MapView";
 import { sanitizeUrl } from "../utils/data";
-import { filterPublishedOffices } from "../utils/officeVisibility";
+import { usePublishedOffices } from "../hooks/usePublishedOffices";
 
 const allCompanies = companies as Company[];
 const DEFAULT_WORLD_CENTER: [number, number] = [20, 0]; // Leaflet [lat, lng] tuple: 20°N latitude, 0° longitude
@@ -37,7 +38,7 @@ export default function CompanyPage() {
   const { id } = useParams<{ id: string }>();
   const company = allCompanies.find((c) => c.id === id);
 
-  const publishedOffices = React.useMemo(() => filterPublishedOffices(offices as Office[]), []);
+  const publishedOffices = usePublishedOffices();
 
   // Initialize hook early to satisfy React's hooks rules
   const [selectedOffice, setSelectedOffice] = React.useState<CoordinateOffice | null>(null);
@@ -66,18 +67,9 @@ const mapCenter = getAverageCoordinates(mapOffices);
   // (closer-in view helps users see the immediate vicinity of the office)
   // Adjusted to 17 for an even closer zoom on the selected office area
   const OFFICE_FOCUS_ZOOM = 17;
-  const initialOfficeFocus = mapOffices.length > 0
-    ? {
-        lat: mapOffices[0].latitude,
-        lng: mapOffices[0].longitude,
-        zoom: OFFICE_FOCUS_ZOOM,
-      }
-    : undefined;
   const focus = selectedOffice
     ? { lat: selectedOffice.latitude, lng: selectedOffice.longitude, zoom: OFFICE_FOCUS_ZOOM }
-    : initialOfficeFocus;
-
-  // Removed automatic first-office focus to avoid race conditions
+    : undefined;
 
   const safeWebsite = sanitizeUrl(company.website);
 
@@ -97,17 +89,7 @@ const mapCenter = getAverageCoordinates(mapOffices);
       </nav>
 
       <header className="company-page-header">
-        {company.logo ? (
-          <img
-            src={company.logo}
-            alt={`${company.name} logo`}
-            className="company-logo-large"
-          />
-        ) : (
-          <div className="company-logo-large-placeholder" aria-hidden="true">
-            {company.name.charAt(0).toUpperCase()}
-          </div>
-        )}
+        <CompanyLogo companyId={company.id} companyName={company.name} size="large" />
         <div>
           <h1>{company.name}</h1>
           <p className="company-industry-tag">{company.industry}</p>
@@ -187,6 +169,7 @@ const mapCenter = getAverageCoordinates(mapOffices);
                 zoom={mapZoom}
                 height="520px"
                 autoFit={selectedOffice == null && mapOffices.length > 1}
+                overviewAutoFit={mapOffices.length > 1}
                 focus={focus}
                 companyName={company.name}
               />
@@ -194,11 +177,6 @@ const mapCenter = getAverageCoordinates(mapOffices);
               <p className="no-results">
                 Map unavailable: office coordinates are not yet available for this company.
               </p>
-            )}
-            {selectedOffice && (
-              <button className="btn-reset" onClick={() => setSelectedOffice(null)}>
-                Clear focus
-              </button>
             )}
           </aside>
         </div>
