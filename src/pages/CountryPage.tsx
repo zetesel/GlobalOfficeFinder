@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams, Link } from "react-router-dom";
 import companies from "../../data/companies.json";
 import type { Company, Office } from "../types";

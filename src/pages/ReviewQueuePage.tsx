@@ -51,7 +51,7 @@ export default function ReviewQueuePage() {
     reviewStateSnapshotKey(loadReviewStateSnapshot()),
   );
 
-  function applyReviewStateFromStorage(source: string, closeDrawer = true) {
+  function applyReviewStateFromStorage(_source: string, closeDrawer = true) {
     const next = loadReviewStateSnapshot();
     const nextKey = reviewStateSnapshotKey(next);
     if (nextKey === reviewStateKeyRef.current) return;
