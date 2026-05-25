@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import companies from "../../data/companies.json";
-import type { Company, Office } from "../types";
+import type { Company } from "../types";
 import CompanyCard from "../components/CompanyCard";
 import { useCompanySearch } from "../hooks/useCompanySearch";
 import { MapView } from "../components/MapView";

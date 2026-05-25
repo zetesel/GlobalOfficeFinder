@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import offices from "../../data/offices.json";
 import companies from "../../data/companies.json";
 import type { Company, Office } from "../types";
 import OfficeCard from "../components/OfficeCard";

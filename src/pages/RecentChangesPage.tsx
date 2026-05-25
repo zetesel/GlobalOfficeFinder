@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import lastRun from "../../data/scraper/last-run.json";
 import reviewQueue from "../../data/scraper/review-queue.json";
@@ -63,6 +62,19 @@ function formatStageLabel(key: string): string {
   return STAGE_LABELS[key] ?? key.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase());
 }
 
+const topCompaniesByQueue = (() => {
+  const counts = new Map<string, number>();
+  for (const item of queue.items) {
+    if (item.type !== "office") continue;
+    const companyId = item.office.companyId?.trim();
+    if (!companyId) continue;
+    counts.set(companyId, (counts.get(companyId) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, TOP_COMPANY_LIMIT);
+})();
+
 export default function RecentChangesPage() {
   const started = new Date(run.startedAt);
   const finished = new Date(run.finishedAt);
@@ -74,19 +86,6 @@ export default function RecentChangesPage() {
   const acceptedOfficeCount = run.acceptedOffices?.length ?? 0;
   const queueTotal = queue.items.length;
   const reviewQueueItemsFromRun = run.stages.reviewQueueItems ?? queueTotal;
-
-  const topCompaniesByQueue = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const item of queue.items) {
-      if (item.type !== "office") continue;
-      const companyId = item.office.companyId?.trim();
-      if (!companyId) continue;
-      counts.set(companyId, (counts.get(companyId) ?? 0) + 1);
-    }
-    return [...counts.entries()]
-      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-      .slice(0, TOP_COMPANY_LIMIT);
-  }, []);
 
   const sourceFailures = run.safeguards?.sourceFailures ?? {};
   const skippedSources = run.safeguards?.skippedSources ?? [];

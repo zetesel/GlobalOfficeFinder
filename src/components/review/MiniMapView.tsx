@@ -56,16 +56,7 @@ export default function MiniMapView({ office, companyName, enabled = true }: Min
     if (typeof office.latitude === "number" && typeof office.longitude === "number") return;
     if (catalogCoords) return;
 
-    const cached = readGeocodeCache(cacheKey);
-    if (cached) {
-      setGeocoded({ latitude: cached.latitude, longitude: cached.longitude });
-      setGeocodeFailed(false);
-      return;
-    }
-
     let cancelled = false;
-    setGeocodeFailed(false);
-    setGeocoded(null);
 
     geocodeAddress(office)
       .then((result) => {
@@ -86,18 +77,7 @@ export default function MiniMapView({ office, companyName, enabled = true }: Min
     return () => {
       cancelled = true;
     };
-  }, [
-    enabled,
-    cacheKey,
-    catalogCoords,
-    office.id,
-    office.companyId,
-    office.city,
-    office.address,
-    office.postalCode,
-    office.latitude,
-    office.longitude,
-  ]);
+  }, [enabled, cacheKey, catalogCoords, office]);
 
   if (!enabled) {
     return <div className="mini-map-placeholder muted">Map loading…</div>;
