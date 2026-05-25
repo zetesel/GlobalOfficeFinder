@@ -1,8 +1,11 @@
-import { test, expect } from '@playwright/test'
+import { test, expect } from '@playwright/test';
 
-test('Shopify is hidden on homepage until offices are approved', async ({ page }) => {
-  await page.goto('/')
-  await expect(page.locator('.company-card', { hasText: 'Shopify' })).toHaveCount(0)
-  await page.locator('#search-input').fill('Shopify')
-  await expect(page.locator('.results-count')).toHaveText(/0 companies found/)
-})
+test('Shopify offices are hidden on homepage without approval', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+
+  await expect(page.locator('.company-card').filter({ hasText: 'Shopify' })).toHaveCount(0);
+  await page.locator('#search-input').fill('Shopify');
+  await page.waitForLoadState('networkidle');
+  await expect(page.locator('.results-count')).toContainText('0 companies found');
+});
