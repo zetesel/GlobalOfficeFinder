@@ -86,7 +86,7 @@ export default function RecentChangesPage() {
     return [...counts.entries()]
       .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
       .slice(0, TOP_COMPANY_LIMIT);
-  }, [queue.items]);
+  }, []);
 
   const sourceFailures = run.safeguards?.sourceFailures ?? {};
   const skippedSources = run.safeguards?.skippedSources ?? [];
