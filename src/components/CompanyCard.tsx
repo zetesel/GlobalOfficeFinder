@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import type { Company, Office } from "../types";
 import CompanyLogo from "./CompanyLogo";
 
@@ -8,15 +8,33 @@ interface CompanyCardProps {
 }
 
 export default function CompanyCard({ company, offices }: CompanyCardProps) {
+  const navigate = useNavigate();
   const countries = [...new Set(offices.map((o) => o.country))].sort();
+
+  function handleClick() {
+    navigate(`/company/${company.id}`);
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      navigate(`/company/${company.id}`);
+    }
+  }
+
   return (
-    <article className="company-card">
+    <article
+      className="company-card"
+      onClick={handleClick}
+      role="link"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+      aria-label={`View ${company.name} offices`}
+    >
       <div className="company-card-header">
         <CompanyLogo companyId={company.id} companyName={company.name} />
         <div>
-          <h2 className="company-name">
-            <Link to={`/company/${company.id}`}>{company.name}</Link>
-          </h2>
+          <h2 className="company-name">{company.name}</h2>
           <p className="company-industry">{company.industry}</p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Company } from "../../types";
 import type {
   CompanyReviewSummary,
@@ -42,11 +42,27 @@ export default function CompanyReviewDrawer({
 }: CompanyReviewDrawerProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const [closing, setClosing] = useState(false);
+
+  function initiateClose() {
+    setClosing(true);
+    setTimeout(() => onClose(), 250);
+  }
+
+  function handleApproveAll() {
+    onApproveAllPending();
+    initiateClose();
+  }
+
+  function handleRejectAll() {
+    onRejectAllPending();
+    initiateClose();
+  }
 
   useEffect(() => {
     closeButtonRef.current?.focus();
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") initiateClose();
     }
     function syncHeaderOffset() {
       const header = document.querySelector(".site-header");
@@ -89,10 +105,10 @@ export default function CompanyReviewDrawer({
   );
 
   return (
-    <div className="review-drawer-overlay" onClick={onClose} role="presentation">
+    <div className={`review-drawer-overlay${closing ? " closing" : ""}`} onClick={initiateClose} role="presentation">
       <div
         ref={dialogRef}
-        className="review-drawer"
+        className={`review-drawer${closing ? " closing" : ""}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby="review-drawer-title"
@@ -110,7 +126,7 @@ export default function CompanyReviewDrawer({
             ref={closeButtonRef}
             type="button"
             className="review-drawer__close"
-            onClick={onClose}
+            onClick={initiateClose}
             aria-label="Close"
           >
             ×
@@ -118,10 +134,10 @@ export default function CompanyReviewDrawer({
         </header>
 
         <div className="review-drawer__bulk">
-          <button type="button" className="btn-approve" onClick={onApproveAllPending}>
+          <button type="button" className="btn-approve" onClick={handleApproveAll}>
             Approve all pending
           </button>
-          <button type="button" className="btn-reject" onClick={onRejectAllPending}>
+          <button type="button" className="btn-reject" onClick={handleRejectAll}>
             Reject all pending
           </button>
         </div>

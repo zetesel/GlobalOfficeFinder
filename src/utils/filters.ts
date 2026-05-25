@@ -5,18 +5,12 @@ export interface HomeFilters {
   country: string;
   industry: string;
   officeType: string;
-  hasHq: boolean;
-  hasContactUrl: boolean;
 }
 
 export interface FilteredHomeData {
   filteredCompanies: Company[];
   filteredOfficesByCompany: Map<string, Office[]>;
   mapOffices: Office[];
-}
-
-function isHeadquarters(officeType: string): boolean {
-  return officeType.toLowerCase().includes("headquarters");
 }
 
 export function getFilteredHomeData(
@@ -39,19 +33,12 @@ export function getFilteredHomeData(
     }
 
     const companyOffices = officesByCompany.get(company.id) ?? [];
-    if (
-      filters.hasHq &&
-      !companyOffices.some((office) => isHeadquarters(office.officeType))
-    ) {
-      continue;
-    }
 
     const matchingOffices = companyOffices.filter(
       (office) =>
         (!filters.region || office.region === filters.region) &&
         (!filters.country || office.countryCode === filters.country) &&
-        (!filters.officeType || office.officeType === filters.officeType) &&
-        (!filters.hasContactUrl || Boolean(office.contactUrl)),
+        (!filters.officeType || office.officeType === filters.officeType),
     );
 
     if (matchingOffices.length === 0) {
