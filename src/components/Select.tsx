@@ -13,9 +13,19 @@ interface SelectProps {
   id?: string;
 }
 
+function labelToId(label: string): string {
+  return label
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 export default function Select({ value, options, onChange, label, id }: SelectProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const selectId = id ?? labelToId(label);
+  const labelId = `${selectId}-label`;
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -41,16 +51,17 @@ export default function Select({ value, options, onChange, label, id }: SelectPr
 
   return (
     <div className={`custom-select${open ? " custom-select--open" : ""}`} ref={ref}>
-      <label className="custom-select__label" id={id ? `${id}-label` : undefined}>
+      <label className="custom-select__label" id={labelId} htmlFor={selectId}>
         {label}
       </label>
       <button
+        id={selectId}
         type="button"
         className="custom-select__trigger"
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-labelledby={id ? `${id}-label` : undefined}
+        aria-labelledby={labelId}
       >
         <span className="custom-select__value">{displayLabel}</span>
         <svg
