@@ -1,7 +1,6 @@
-import { test, expect } from '@playwright/test'
+import { test, expect } from '@playwright/test';
 
-test('Homepage map loads', async ({ page }) => {
-  await page.goto('/')
-  // Leaflet map container commonly rendered as .leaflet-container
-  await expect(page.locator('.leaflet-container')).toBeVisible({ timeout: 5000 })
-})
+test('Homepage map is hidden without published offices', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('.leaflet-container')).toHaveCount(0);
+});
