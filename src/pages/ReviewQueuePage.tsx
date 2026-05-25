@@ -64,7 +64,7 @@ export default function ReviewQueuePage() {
   }
 
   useEffect(() => {
-    applyReviewStateFromStorage("route-enter", false);
+    queueMicrotask(() => applyReviewStateFromStorage("route-enter", false));
   }, [location.pathname]);
 
   useEffect(() => {

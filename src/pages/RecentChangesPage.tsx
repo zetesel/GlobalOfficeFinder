@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import lastRun from "../../data/scraper/last-run.json";
 import reviewQueue from "../../data/scraper/review-queue.json";
@@ -75,7 +74,7 @@ export default function RecentChangesPage() {
   const queueTotal = queue.items.length;
   const reviewQueueItemsFromRun = run.stages.reviewQueueItems ?? queueTotal;
 
-  const topCompaniesByQueue = useMemo(() => {
+  const topCompaniesByQueue = (() => {
     const counts = new Map<string, number>();
     for (const item of queue.items) {
       if (item.type !== "office") continue;
@@ -86,7 +85,7 @@ export default function RecentChangesPage() {
     return [...counts.entries()]
       .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
       .slice(0, TOP_COMPANY_LIMIT);
-  }, []);
+  })();
 
   const sourceFailures = run.safeguards?.sourceFailures ?? {};
   const skippedSources = run.safeguards?.skippedSources ?? [];
