@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["logos"],
+  "additionalProperties": false,
+  "properties": {
+    "logos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "companyId",
+          "file",
+          "format",
+          "license",
+          "sourceUrl",
+          "status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^/logos/"
+          },
+          "format": {
+            "type": "string",
+            "enum": ["svg", "png", "webp", "jpg", "jpeg"]
+          },
+          "license": {
+            "type": "string",
+            "enum": [
+              "brand-guidelines",
+              "permission-granted",
+              "public-domain",
+              "cc0",
+              "cc-by-4.0",
+              "cc-by-sa-4.0"
+            ]
+          },
+          "sourceUrl": {
+            "type": "string",
+            "minLength": 1
+          },
+          "attribution": {
+            "type": ["string", "null"]
+          },
+          "usageNote": {
+            "type": ["string", "null"]
+          },
+          "status": {
+            "type": "string",
+            "enum": ["approved", "pending-review", "rejected"]
+          },
+          "verifiedAt": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

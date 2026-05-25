@@ -6,6 +6,10 @@ import OfficeCard from "../../src/components/OfficeCard";
 import Header from "../../src/components/Header";
 import Footer from "../../src/components/Footer";
 import type { Company, Office } from "../../src/types";
+import reviewQueue from "../../data/scraper/review-queue.json";
+import offices from "../../data/offices.json";
+import { countOfficesAwaitingApproval } from "../../src/utils/reviewQueue";
+import { isPublishedOffice } from "../../src/utils/officeVisibility";
 
 describe("CompanyCard Component", () => {
   const mockCompany: Company = {
@@ -59,16 +63,15 @@ describe("CompanyCard Component", () => {
     expect(screen.getByText("Technology")).toBeInTheDocument();
   });
 
-  it("renders company logo image when available", () => {
+  it("renders logo placeholder when no approved registry entry", () => {
     render(
       <BrowserRouter>
         <CompanyCard company={mockCompany} offices={mockOffices} />
       </BrowserRouter>
     );
 
-    const logo = screen.getByAltText("Google logo");
-    expect(logo).toBeInTheDocument();
-    expect(logo).toHaveAttribute("src", "https://example.com/google-logo.png");
+    expect(screen.queryByAltText("Google logo")).not.toBeInTheDocument();
+    expect(screen.getByText("G")).toBeInTheDocument();
   });
 
   it("renders logo placeholder when logo is not available", () => {
@@ -286,21 +289,44 @@ describe("Header Component", () => {
     );
 
     const recentChangesLink = screen.getByRole("link", { name: "Recent Changes" });
-    const reviewQueueLink = screen.getByRole("link", { name: "Review Queue" });
+    const reviewQueueLink = screen.getByRole("link", { name: /Review Queue/i });
     expect(recentChangesLink).toHaveAttribute("href", "/recent-changes");
     expect(reviewQueueLink).toHaveAttribute("href", "/review-queue");
+  });
+
+  it("shows awaiting approval count badge on review queue link", () => {
+    const heldBack = (offices as Office[]).filter((o) => !isPublishedOffice(o));
+    const expectedCount = countOfficesAwaitingApproval(reviewQueue.items, heldBack, {}, {});
+
+    render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>,
+    );
+
+    expect(expectedCount).toBeGreaterThan(0);
+    expect(screen.getByText(String(expectedCount))).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: new RegExp(`Review Queue, ${expectedCount}`) })).toBeInTheDocument();
   });
 });
 
 describe("Footer Component", () => {
   it("renders footer with main description", () => {
-    render(<Footer />);
+    render(
+      <BrowserRouter>
+        <Footer />
+      </BrowserRouter>,
+    );
 
     expect(screen.getByText(/GlobalOfficeFinder — open source directory/i)).toBeInTheDocument();
   });
 
   it("renders footer GitHub link", () => {
-    render(<Footer />);
+    render(
+      <BrowserRouter>
+        <Footer />
+      </BrowserRouter>,
+    );
 
     const githubLink = screen.getByRole("link", { name: "GitHub" });
     expect(githubLink).toHaveAttribute("href", "https://github.com/zetesel/GlobalOfficeFinder");
@@ -308,7 +334,11 @@ describe("Footer Component", () => {
   });
 
   it("renders footer with copyright symbol", () => {
-    render(<Footer />);
+    render(
+      <BrowserRouter>
+        <Footer />
+      </BrowserRouter>,
+    );
 
     const footer = screen.getByRole("contentinfo");
     expect(footer).toBeInTheDocument();

@@ -1,11 +1,9 @@
-import React from "react";
 import { useParams, Link } from "react-router-dom";
-import offices from "../../data/offices.json";
 import companies from "../../data/companies.json";
 import type { Company, Office } from "../types";
 import OfficeCard from "../components/OfficeCard";
 import { MapView } from "../components/MapView";
-import { filterPublishedOffices } from "../utils/officeVisibility";
+import { usePublishedOffices } from "../hooks/usePublishedOffices";
 
 const allCompanies = companies as Company[];
 
@@ -15,7 +13,7 @@ function safeJsonLd(value: unknown): string {
 
 export default function CountryPage() {
   const { code } = useParams<{ code: string }>();
-  const publishedOffices = React.useMemo(() => filterPublishedOffices(offices as Office[]), []);
+  const publishedOffices = usePublishedOffices();
   const countryOffices = publishedOffices.filter((o) => o.countryCode === code);
 
   if (countryOffices.length === 0) {

@@ -12,9 +12,10 @@ test('Country page smoke test from homepage after queue approval', async ({ page
   await expect(page.locator('.country-page')).toBeVisible({ timeout: 5000 });
 });
 
-test('Review queue lists unpublished catalog offices', async ({ page }) => {
+test('Review queue drawer shows pending offices', async ({ page }) => {
   await page.goto('/review-queue');
 
-  await expect(page.getByRole('heading', { name: /Unpublished in catalog/i })).toBeVisible();
-  await expect(page.locator('.held-back-catalog-list li').first()).toBeVisible();
+  await page.locator('.company-review-tile').first().click();
+  await expect(page.locator('.review-drawer')).toBeVisible();
+  await expect(page.locator('.office-review-row').first()).toBeVisible();
 });

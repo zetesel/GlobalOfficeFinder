@@ -1,0 +1,320 @@
+{
+  "generatedAt": "2026-05-24T19:00:08.530Z",
+  "entries": {
+    "350 bush street, floor 13|san francisco|94104|us|us": {
+      "latitude": 37.7910042,
+      "longitude": -122.4033437,
+      "query": "350 Bush Street, Floor 13, San Francisco, 94104, US"
+    },
+    "north america ann arbor 2300 traverwood dr|ann arbor|48105|united states|us": {
+      "latitude": 42.3081798,
+      "longitude": -83.7141049,
+      "query": "2300 Traverwood Dr, Ann Arbor, 48105, United States"
+    },
+    "1105 w peachtree st nw|atlanta|30309|united states|us": {
+      "latitude": 33.7851484,
+      "longitude": -84.3870307,
+      "query": "1105 W Peachtree St NW, Atlanta, 30309, United States"
+    },
+    "500 w 2nd st|austin|78701|united states|us": {
+      "latitude": 30.2667659,
+      "longitude": -97.7501864,
+      "query": "500 W 2nd St, Austin, 78701, United States"
+    },
+    "google boulder - pearl street 2930 pearl st|boulder|80301|united states|us": {
+      "latitude": 40.02185,
+      "longitude": -105.2539,
+      "query": "2930 Pearl St, Boulder, 80301, United States"
+    },
+    "google boulder - walnut street 3333 walnut st|boulder|80301|united states|us": {
+      "latitude": 40.0202631,
+      "longitude": -105.2491758,
+      "query": "3333 Walnut St, Boulder, 80301, United States"
+    },
+    "google chicago - carpenter st 210 n carpenter st|chicago|60607|united states|us": {
+      "latitude": 41.8858048,
+      "longitude": -87.6538996,
+      "query": "210 N Carpenter St, Chicago, 60607, United States"
+    },
+    "google chicago - fulton market 320 n morgan st suite 600|chicago|60607|united states|us": {
+      "latitude": 41.887251,
+      "longitude": -87.6524014,
+      "query": "320 N Morgan St Suite 600, Chicago, 60607, United States"
+    },
+    "15303 north dallas parkway suite 1100|addison|75001|united states|us": {
+      "latitude": 32.9699986,
+      "longitude": -96.8366859,
+      "query": "75001, Addison, United States"
+    },
+    "52 henry st|detroit|48201|united states|us": {
+      "latitude": 42.3404953,
+      "longitude": -83.0542126,
+      "query": "52 Henry St, Detroit, 48201, United States"
+    },
+    "200 morris st|durham|27701|united states|us": {
+      "latitude": 35.99924,
+      "longitude": -78.9033615,
+      "query": "200 Morris St, Durham, 27701, United States"
+    },
+    "3663 washington ave|houston|77007|united states|us": {
+      "latitude": 29.7686109,
+      "longitude": -95.3961924,
+      "query": "3663 Washington Ave, Houston, 77007, United States"
+    },
+    "19510 jamboree rd|irvine|92612|united states|us": {
+      "latitude": 33.6587955,
+      "longitude": -117.8594878,
+      "query": "19510 Jamboree Rd, Irvine, 92612, United States"
+    },
+    "google kirkland - 6th st campus 777 6th st south building a|kirkland|98033|united states|us": {
+      "latitude": 47.6695437,
+      "longitude": -122.1968885,
+      "query": "6th St Campus 777 6th St South Building A, Kirkland, 98033, United States"
+    },
+    "google kirkland - kirkland urban 425 urban plz|kirkland|98033|united states|us": {
+      "latitude": 47.6776839,
+      "longitude": -122.1991406,
+      "query": "425 Urban Plz, Kirkland, 98033, United States"
+    },
+    "51 breithaupt st|kitchener|canada|ca": {
+      "latitude": 43.4541906,
+      "longitude": -80.4995756,
+      "query": "51 Breithaupt St, Kitchener, Canada"
+    },
+    "340 main st|venice|90291|united states|us": {
+      "latitude": 33.995044,
+      "longitude": -118.4668875,
+      "query": "340 Main St, Venice, 90291, United States"
+    },
+    "811 e washington ave|madison|53703|united states|us": {
+      "latitude": 43.0809878,
+      "longitude": -89.3745785,
+      "query": "811 E Washington Ave, Madison, 53703, United States"
+    },
+    "1450 brickell ave suite 901|miami|33131|united states|us": {
+      "latitude": 25.7586738,
+      "longitude": -80.1931402,
+      "query": "1450 Brickell Ave Suite 901, Miami, 33131, United States"
+    },
+    "425 av. viger o|montréal|canada|ca": {
+      "latitude": 45.5031083,
+      "longitude": -73.5625339,
+      "query": "425 Av. Viger O, Montréal, Canada"
+    },
+    "google mountain view - bay view 100 bay view drive|mountain view|94043|united states|us": {
+      "latitude": 37.3994165,
+      "longitude": -122.0866663,
+      "query": "100 Bay View Drive, Mountain View, 94043, United States"
+    },
+    "google mountain view - googleplex 1600 amphitheatre pkwy|mountain view|94043|united states|us": {
+      "latitude": 37.4268616,
+      "longitude": -122.0806072,
+      "query": "1600 Amphitheatre Pkwy, Mountain View, 94043, United States"
+    },
+    "google nyc - 9th avenue 111 8th ave|new york|10011|united states|us": {
+      "latitude": 40.7395583,
+      "longitude": -74.0026353,
+      "query": "9th Avenue 111 8th Ave, New York, 10011, United States"
+    },
+    "google nyc - chelsea market 75 9th ave|new york|10011|united states|us": {
+      "latitude": 40.7420513,
+      "longitude": -74.0048973,
+      "query": "75 9th Ave, New York, 10011, United States"
+    },
+    "google nyc - pier 57 29 11th ave|pier 57, new york|10011|united states|us": {
+      "latitude": 40.7442244,
+      "longitude": -74.0085357,
+      "query": "57 29 11th Ave, New York, 10011, United States"
+    },
+    "google nyc - st. john's terminal 550 washington st|new york|10014|united states|us": {
+      "latitude": 40.7281919,
+      "longitude": -74.0100387,
+      "query": "550 Washington St, New York, 10014, United States"
+    },
+    "6425 penn ave|pittsburgh|15206|united states|us": {
+      "latitude": 40.4572122,
+      "longitude": -79.9158643,
+      "query": "6425 Penn Ave, Pittsburgh, 15206, United States"
+    },
+    "5865 campus center drive building 14|15, 16, playa vista|90094|united states|us": {
+      "latitude": 33.9760102,
+      "longitude": -118.4181654,
+      "query": "90094, Playa Vista, United States"
+    },
+    "555 sw morrison st ste 500 floors 4 &amp|5, portland|97204|united states|us": {
+      "latitude": 45.5226107,
+      "longitude": -122.6759928,
+      "query": "97204, Portland, United States"
+    },
+    "1900 reston metro plaza|reston|20190|united states|us": {
+      "latitude": 38.9483172,
+      "longitude": -77.3375795,
+      "query": "1900 Reston Metro Plaza, Reston, 20190, United States"
+    },
+    "901 cherry ave|san bruno|94066|united states|us": {
+      "latitude": 37.628146,
+      "longitude": -122.426427,
+      "query": "901 Cherry Ave, San Bruno, 94066, United States"
+    },
+    "6420 sequence dr|san diego|92121|united states|us": {
+      "latitude": 32.9096454,
+      "longitude": -117.1818689,
+      "query": "6420 Sequence Dr, San Diego, 92121, United States"
+    },
+    "google san francisco - 121 spear st 121 spear st|san francisco|94105|united states|us": {
+      "latitude": 37.7917785,
+      "longitude": -122.3925131,
+      "query": "121 Spear St, San Francisco, 94105, United States"
+    },
+    "google san francisco - 345 spear st 345 spear st|san francisco|94105|united states|us": {
+      "latitude": 37.7900765,
+      "longitude": -122.390521,
+      "query": "345 Spear St, San Francisco, 94105, United States"
+    },
+    "google san francisco - one market plaza the landmark building|1 market st, san francisco|94105|united states|us": {
+      "latitude": 37.79382,
+      "longitude": -122.3948144,
+      "query": "One Market Plaza The Landmark Building, San Francisco, 94105, United States"
+    },
+    "255 w tasman dr|san jose|95134|united states|us": {
+      "latitude": 37.4117764,
+      "longitude": -121.9539121,
+      "query": "255 W Tasman Dr, San Jose, 95134, United States"
+    },
+    "1021 valley st|seattle|98109|united states|us": {
+      "latitude": 47.621255,
+      "longitude": -122.349741,
+      "query": "1021 Valley St, Seattle, 98109, United States"
+    },
+    "google sunnyvale - 237 mpd 237 moffett park dr|sunnyvale|94089|united states|us": {
+      "latitude": 37.4056579,
+      "longitude": -122.0182651,
+      "query": "237 MPD 237 Moffett Park Dr, Sunnyvale, 94089, United States"
+    },
+    "google sunnyvale - humboldt 242 humboldt ct|sunnyvale|94089|united states|us": {
+      "latitude": 37.4080333,
+      "longitude": -122.0178404,
+      "query": "242 Humboldt Ct, Sunnyvale, 94089, United States"
+    },
+    "google sunnyvale - moffett place 1195 borregas ave|sunnyvale|94089|united states|us": {
+      "latitude": 37.4116461,
+      "longitude": -122.0179548,
+      "query": "1195 Borregas Ave, Sunnyvale, 94089, United States"
+    },
+    "12396 grant st|thornton|80241|united states|us": {
+      "latitude": 39.9151717,
+      "longitude": -104.9831654,
+      "query": "12396 Grant St, Thornton, 80241, United States"
+    },
+    "65 king st e|toronto|canada|ca": {
+      "latitude": 43.649587,
+      "longitude": -79.37549,
+      "query": "65 King St E, Toronto, Canada"
+    },
+    "av. alicia moreau de justo 350|c1107 cdad. autónoma de buenos aires|argentina|ar": {
+      "latitude": -34.609492,
+      "longitude": -58.3665366,
+      "query": "Av. Alicia Moreau de Justo 350, C1107 Cdad. Autónoma de Buenos Aires, Argentina"
+    },
+    "costanera sur 2730|torre b piso 15-16,|7550692 las condes, región metropolitana, chile|chile|cl": {
+      "latitude": -33.4135022,
+      "longitude": -70.6061741,
+      "query": "Costanera Sur 2730, 7550692 Las Condes, Región Metropolitana, Chile, Chile"
+    },
+    "fragkokklisias 6|athina|151 25, greece|greece|gr": {
+      "latitude": 38.0346156,
+      "longitude": 23.8020349,
+      "query": "Fragkokklisias 6, Athina, 151 25, Greece, Greece"
+    },
+    "bulevardul corneliu coposu 6-8|bucurești|030167, romania|romania|ro": {
+      "latitude": 44.4308965,
+      "longitude": 26.1093782,
+      "query": "Bulevardul Corneliu Coposu 6-8, București, 030167, Romania, Romania"
+    },
+    "google dublin - docks 4 barrow st|grand canal dock|ireland|ie": {
+      "latitude": 53.3398189,
+      "longitude": -6.2381879,
+      "query": "4 Barrow St, Grand Canal Dock, Ireland"
+    },
+    "google dublin - gordon house gordon house|4 barrow st|ireland|ie": {
+      "latitude": 53.3399558,
+      "longitude": -6.23586,
+      "query": "Gordon House, 4 Barrow St, Ireland"
+    },
+    "google london - central saint giles 1-13 st giles high st|london wc2h 8ag|united kingdom|gb": {
+      "latitude": 51.5158531,
+      "longitude": -0.1268676,
+      "query": "13 St Giles High St, London, United Kingdom"
+    },
+    "google london - pancras square 6 pancras sq|london n1c 4ag|united kingdom|gb": {
+      "latitude": 51.5329965,
+      "longitude": -0.1255123,
+      "query": "6 Pancras Sq, London, United Kingdom"
+    },
+    "isola building c|via federico confalonieri, 4,|20124 milano mi, italy|italy|it": {
+      "latitude": 45.4864754,
+      "longitude": 9.190556,
+      "query": "Isola Building C, Via Federico Confalonieri, 20124 Milano MI, Italy, Italy"
+    },
+    "vilnius tech park|antakalnis st. 17, 2nd building, lt-|10312, vilnius, lithuania|lithuania|lt": {
+      "latitude": 54.7219118,
+      "longitude": 25.3366162,
+      "query": "Vilnius Tech Park, LT-, 10312, Vilnius, Lithuania, Lithuania"
+    },
+    "10 madden street|wynyard central, auckland|1010, new zealand|new zealand|nz": {
+      "latitude": -36.8425248,
+      "longitude": 174.7568289,
+      "query": "10 Madden Street, Auckland, 1010, New Zealand, New Zealand"
+    },
+    "161 collins st|melbourne vic|3000, australia|australia|au": {
+      "latitude": -37.8151857,
+      "longitude": 144.968665,
+      "query": "161 Collins St, Melbourne VIC, 3000, Australia, Australia"
+    },
+    "gangnam finance centre|22nd floor,|152 teheran-ro, gangnam-gu, seoul, south korea|south korea|kr": {
+      "latitude": 37.5000191,
+      "longitude": 127.0365483,
+      "query": "Gangnam Finance Centre, 22nd Floor,, South Korea"
+    },
+    "l60|shanghai world financial center, no.|100 century avenue, pudong new area, shanghai, china, 200120|china|cn": {
+      "latitude": 38.4808124,
+      "longitude": 105.9951404,
+      "query": "L60, No., China"
+    },
+    "70 pasir panjang rd|#03-71 mapletree business city ii, singapore|117371|singapore|sg": {
+      "latitude": 1.2761626,
+      "longitude": 103.8000504,
+      "query": "70 Pasir Panjang Rd, Singapore, 117371, Singapore"
+    },
+    "shibuya stream|3 chome-21-3 shibuya, shibuya city, tokyo|150-0002, japan|japan|jp": {
+      "latitude": 35.6571546,
+      "longitude": 139.7032032,
+      "query": "Shibuya Stream, Tokyo, 150-0002, Japan, Japan"
+    },
+    "87 independence ave|accra|ghana|gh": {
+      "latitude": 5.5674454,
+      "longitude": -0.1937317,
+      "query": "87 Independence Ave, Accra, Ghana"
+    },
+    "andrei sakharov street 9|building 10.2 haifa,|3508409 israel|israel|il": {
+      "latitude": 32.7897925,
+      "longitude": 34.9593655,
+      "query": "Andrei Sakharov Street 9, 3508409 Israel, Israel"
+    },
+    "levent|eski buyukdere cad. no:|209, 9th floor 4, 34394 i̇stanbul, türkiye|turkey|tr": {
+      "latitude": 41.0901365,
+      "longitude": 29.0051335,
+      "query": "Levent, Eski Buyukdere Cad. No:, Turkey"
+    },
+    "21 lugard ave|ikoyi, lagos|101233, lagos, nigeria|nigeria|ng": {
+      "latitude": 6.4558457,
+      "longitude": 3.430759,
+      "query": "21 Lugard Ave, Lagos, 101233, Lagos, Nigeria, Nigeria"
+    },
+    "electra tower|yigal alon st 98, tel aviv-yafo,|6789141, israel|israel|il": {
+      "latitude": 32.0746395,
+      "longitude": 34.7832716,
+      "query": "Electra Tower, Tel Aviv-Yafo, 6789141, Israel, Israel"
+    }
+  }
+}
