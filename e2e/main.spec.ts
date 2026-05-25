@@ -21,7 +21,7 @@ test.describe('GlobalOfficeFinder E2E Tests', () => {
     await page.waitForLoadState('networkidle');
 
     await expect(page.locator('.results-count')).toContainText('0 companies found');
-    await expect(page.getByText(/No companies match your search/i)).toBeVisible();
+    await expect(page.getByTestId('empty-catalog')).toBeVisible();
     await expect(page.locator('.company-card')).toHaveCount(0);
     await expect(page.locator('.country-chips .chip')).toHaveCount(0);
   });
