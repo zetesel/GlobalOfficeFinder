@@ -1,8 +1,9 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import companies from "../../data/companies.json";
 import type { Company } from "../types";
 import CompanyCard from "../components/CompanyCard";
+import Select from "../components/Select";
 import { useCompanySearch } from "../hooks/useCompanySearch";
 import { MapView } from "../components/MapView";
 import { getFilteredHomeData } from "../utils/filters";
@@ -11,7 +12,6 @@ import { useLocallyApprovedCount } from "../hooks/useLocallyApprovedCount";
 import { revokeAllLocalApprovals } from "../utils/revokeLocalApprovals";
 
 const allCompanies = companies as Company[];
-const ALL_INDUSTRIES = [...new Set(allCompanies.map((c) => c.industry))].sort();
 const ALL_COMPANY_NAMES_BY_ID = Object.fromEntries(
   allCompanies.map((company) => [company.id, company.name])
 );
@@ -23,8 +23,7 @@ export default function HomePage() {
   const country = searchParams.get("country") ?? "";
   const industry = searchParams.get("industry") ?? "";
   const officeType = searchParams.get("officeType") ?? "";
-  const hasHq = searchParams.get("hasHq") === "1";
-  const hasContactUrl = searchParams.get("hasContactUrl") === "1";
+  const [revoking, setRevoking] = useState(false);
 
   const { results: searchResults } = useCompanySearch(allCompanies, query);
 
@@ -36,11 +35,16 @@ export default function HomePage() {
       "Revoke all local approvals?\n\nThis clears approve/reject decisions, catalog approvals, office corrections, and cached map geocodes. Offices will return to waiting for approval on this browser. Data in data/offices.json is not changed.",
     );
     if (!confirmed) return;
-    revokeAllLocalApprovals();
+    setRevoking(true);
+    setTimeout(() => revokeAllLocalApprovals(), 250);
   }
 
   const allRegions = useMemo(() => [...new Set(publishedOffices.map((o) => o.region))].sort(), [publishedOffices]);
   const allOfficeTypes = useMemo(() => [...new Set(publishedOffices.map((o) => o.officeType))].sort(), [publishedOffices]);
+  const allIndustries = useMemo(() => {
+    const companyIds = new Set(publishedOffices.map((o) => o.companyId));
+    return [...new Set(allCompanies.filter((c) => companyIds.has(c.id)).map((c) => c.industry))].sort();
+  }, [publishedOffices]);
   const allCountries = useMemo(() => [
     ...new Map(publishedOffices.map((o) => [o.countryCode, o.country])).entries(),
   ].sort((a, b) => a[1].localeCompare(b[1])), [publishedOffices]);
@@ -52,10 +56,8 @@ export default function HomePage() {
         country,
         industry,
         officeType,
-        hasHq,
-        hasContactUrl,
       }),
-    [searchResults, publishedOffices, region, country, industry, officeType, hasHq, hasContactUrl],
+    [searchResults, publishedOffices, region, country, industry, officeType],
   );
 
   function getOfficesForCompany(companyId: string) {
@@ -80,17 +82,8 @@ export default function HomePage() {
     setSearchParams(next);
   }
 
-  function handleRegionChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    const next = new URLSearchParams(searchParams);
-    const value = e.target.value;
-    if (value) next.set("region", value);
-    else next.delete("region");
-    next.delete("country");
-    setSearchParams(next);
-  }
-
   const hasActiveFilters = Boolean(
-    query || region || country || industry || officeType || hasHq || hasContactUrl,
+    query || region || country || industry || officeType,
   );
   const isEmptyCatalog = publishedOffices.length === 0 && !hasActiveFilters;
 
@@ -119,127 +112,100 @@ export default function HomePage() {
           />
         </div>
         <div className="filters">
-          <div className="filter-group">
-            <label htmlFor="region-filter">Region</label>
-            <select
-              id="region-filter"
-              value={region}
-              onChange={handleRegionChange}
-            >
-              <option value="">All regions</option>
-              {allRegions.map((r) => (
-                <option key={r} value={r}>
-                  {r}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="filter-group">
-            <label htmlFor="country-filter">Country</label>
-            <select
-                id="country-filter"
-                value={country}
-                onChange={(e) => setFilterParam("country", e.target.value)}
-              >
-                <option value="">All countries</option>
-                {countryOptions.map(([code, name]) => (
-                  <option key={code} value={code}>
-                    {name}
-                  </option>
-                ))}
-              </select>
+          <div className="filter-row">
+            <div className="filter-group">
+              <Select
+                label="Region"
+                value={region}
+                options={[
+                  { value: "", label: "All regions" },
+                  ...allRegions.map((r) => ({ value: r, label: r })),
+                ]}
+                onChange={(value) => {
+                  const next = new URLSearchParams(searchParams);
+                  if (value) next.set("region", value);
+                  else next.delete("region");
+                  next.delete("country");
+                  setSearchParams(next);
+                }}
+              />
             </div>
-          <div className="filter-group">
-            <label htmlFor="industry-filter">Industry</label>
-            <select
-              id="industry-filter"
-              value={industry}
-              onChange={(e) => setFilterParam("industry", e.target.value)}
-            >
-              <option value="">All industries</option>
-              {ALL_INDUSTRIES.map((value) => (
-                <option key={value} value={value}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="filter-group">
-            <label htmlFor="office-type-filter">Office type</label>
-            <select
-              id="office-type-filter"
-              value={officeType}
-              onChange={(e) => setFilterParam("officeType", e.target.value)}
-            >
-              <option value="">All office types</option>
-              {allOfficeTypes.map((value) => (
-                <option key={value} value={value}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          </div>
-          <fieldset className="filter-flags">
-            <legend>Advanced</legend>
-            <label className="checkbox-label">
-              <input
-                type="checkbox"
-                checked={hasHq}
-                onChange={(e) => setFilterParam("hasHq", e.target.checked)}
+            <div className="filter-group">
+              <Select
+                label="Country"
+                value={country}
+                options={[
+                  { value: "", label: "All countries" },
+                  ...countryOptions.map(([code, name]) => ({ value: code, label: name })),
+                ]}
+                onChange={(value) => setFilterParam("country", value)}
               />
-              Has headquarters
-            </label>
-            <label className="checkbox-label">
-              <input
-                type="checkbox"
-                checked={hasContactUrl}
-                onChange={(e) => setFilterParam("hasContactUrl", e.target.checked)}
+            </div>
+            <div className="filter-group">
+              <Select
+                label="Industry"
+                value={industry}
+                options={[
+                  { value: "", label: "All industries" },
+                  ...allIndustries.map((value) => ({ value, label: value })),
+                ]}
+                onChange={(value) => setFilterParam("industry", value)}
               />
-              Has contact URL
-            </label>
-          </fieldset>
-          {(query ||
-            region ||
-            country ||
-            industry ||
-            officeType ||
-            hasHq ||
-            hasContactUrl) && (
-            <button
-              className="btn-clear"
-              onClick={() => {
-                setSearchParams(new URLSearchParams());
-              }}
-            >
-              Clear filters
-            </button>
-          )}
+            </div>
+            <div className="filter-group">
+              <Select
+                label="Office type"
+                value={officeType}
+                options={[
+                  { value: "", label: "All office types" },
+                  ...allOfficeTypes.map((value) => ({ value, label: value })),
+                ]}
+                onChange={(value) => setFilterParam("officeType", value)}
+              />
+            </div>
+            {(query || region || country || industry || officeType) && (
+              <button
+                className="btn-clear-filter"
+                onClick={() => {
+                  setSearchParams(new URLSearchParams());
+                }}
+                title="Clear filters"
+              >
+                <span className="btn-clear-filter__icon">✕</span>
+                <span className="btn-clear-filter__label">
+                  <span className="btn-clear-filter__text">Clear filters</span>
+                </span>
+              </button>
+            )}
+          </div>
         </div>
       </section>
 
-      <section aria-label="Countries quick-nav" className="country-chips">
-        <p className="chips-label">Browse by country:</p>
-        <div className="chips">
-          {allCountries.slice(0, 12).map(([code, name]) => (
-            <Link key={code} to={`/country/${code}`} className="chip">
-              {name}
-            </Link>
-          ))}
-        </div>
-      </section>
+      {allCountries.length > 0 && (
+        <section aria-label="Countries quick-nav" className="country-chips">
+          <p className="chips-label">Browse by country:</p>
+          <div className="chips">
+            {allCountries.slice(0, 12).map(([code, name]) => (
+              <Link key={code} to={`/country/${code}`} className="chip">
+                {name}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
        <section aria-label="Company results" className="results-section">
-         {locallyApprovedCount > 0 ? (
-           <div className="info-card revoke-approvals-bar" data-testid="revoke-approvals-bar">
-             <p className="muted">
-               {locallyApprovedCount} office{locallyApprovedCount !== 1 ? "s" : ""} approved locally
-               on this browser. Revoke to send them back to the Review Queue.
-             </p>
-             <button type="button" className="btn-clear" onClick={handleRevokeApprovals}>
-               Revoke approvals
-             </button>
-           </div>
-         ) : null}
+          {locallyApprovedCount > 0 ? (
+            <div className={`info-card revoke-approvals-bar${revoking ? " exiting" : ""}`} data-testid="revoke-approvals-bar">
+              <p className="muted">
+                {locallyApprovedCount} office{locallyApprovedCount !== 1 ? "s" : ""} approved locally
+                on this browser. Revoke to send them back to the Review Queue.
+              </p>
+              <button type="button" className="btn-clear" onClick={handleRevokeApprovals}>
+                Revoke approvals
+              </button>
+            </div>
+          ) : null}
          <p className="results-count">
            {filteredCompanies.length}{" "}
            {filteredCompanies.length !== 1 ? "companies" : "company"} found

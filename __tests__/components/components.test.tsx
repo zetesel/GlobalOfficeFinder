@@ -125,8 +125,9 @@ describe("CompanyCard Component", () => {
       </BrowserRouter>
     );
 
-    const link = screen.getByRole("link", { name: "Google" });
-    expect(link).toHaveAttribute("href", "/company/google");
+    const link = screen.getByRole("link", { name: "View Google offices" });
+    expect(link).toHaveAttribute("aria-label", "View Google offices");
+    expect(link).toHaveClass("company-card");
   });
 
   it("renders company description", () => {

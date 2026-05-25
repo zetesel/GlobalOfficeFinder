@@ -237,7 +237,6 @@ export default function ReviewQueuePage() {
       }
       return next;
     });
-    setSelectedCompanyId(null);
   }
 
   function rejectAllPendingForCompany(companyId: string) {
@@ -259,7 +258,6 @@ export default function ReviewQueuePage() {
       }
       return next;
     });
-    setSelectedCompanyId(null);
   }
 
   return (

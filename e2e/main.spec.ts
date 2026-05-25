@@ -1,6 +1,11 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { approveFirstPendingQueueItem } from './helpers/approve-queue-item';
+import {
+  expectFilterOptionCount,
+  getFilterTrigger,
+  selectFilterOption,
+} from './helpers/custom-select';
 
 test.describe('GlobalOfficeFinder E2E Tests', () => {
   test('homepage loads successfully', async ({ page }) => {
@@ -41,19 +46,13 @@ test.describe('GlobalOfficeFinder E2E Tests', () => {
   test('filter controls stay available with an empty public catalog', async ({ page }) => {
     await page.goto('/');
 
-    const countrySelect = page.getByLabel(/country/i).first();
-    const regionSelect = page.getByLabel(/region/i).first();
-    const industrySelect = page.getByLabel(/industry/i).first();
+    await expect(getFilterTrigger(page, /country/i)).toBeVisible();
+    await expect(getFilterTrigger(page, /region/i)).toBeVisible();
+    await expect(getFilterTrigger(page, /industry/i)).toBeVisible();
 
-    await expect(countrySelect).toBeVisible();
-    await expect(regionSelect).toBeVisible();
-    await expect(industrySelect).toBeVisible();
-
-    await expect(countrySelect.locator('option')).toHaveCount(1);
-    await expect(regionSelect.locator('option')).toHaveCount(1);
-
-    await industrySelect.selectOption({ index: 1 });
-    await page.waitForLoadState('networkidle');
+    await expectFilterOptionCount(page, /country/i, 1);
+    await expectFilterOptionCount(page, /region/i, 1);
+    await expectFilterOptionCount(page, /industry/i, 1);
 
     await expect(page.locator('.results-count')).toContainText('0 companies found');
   });
@@ -143,13 +142,7 @@ test.describe('GlobalOfficeFinder E2E Tests after queue approval', () => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
-    const countrySelect = page.getByLabel(/country/i).first();
-    const firstCountry = countrySelect.locator('option').nth(1);
-    const countryCode = await firstCountry.getAttribute('value');
-    expect(countryCode).toBeTruthy();
-
-    await countrySelect.selectOption(countryCode!);
-    await page.waitForLoadState('networkidle');
+    await selectFilterOption(page, /country/i, 1);
 
     await expect(page.locator('.company-card').first()).toBeVisible();
   });
@@ -158,13 +151,7 @@ test.describe('GlobalOfficeFinder E2E Tests after queue approval', () => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
-    const regionSelect = page.getByLabel(/region/i).first();
-    const firstRegion = regionSelect.locator('option').nth(1);
-    const region = await firstRegion.getAttribute('value');
-    expect(region).toBeTruthy();
-
-    await regionSelect.selectOption(region!);
-    await page.waitForLoadState('networkidle');
+    await selectFilterOption(page, /region/i, 1);
 
     await expect(page.locator('.company-card').first()).toBeVisible();
   });
@@ -173,7 +160,7 @@ test.describe('GlobalOfficeFinder E2E Tests after queue approval', () => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
-    await page.locator('.company-card a').first().click();
+    await page.getByRole('link', { name: /view .+ offices/i }).first().click();
     await page.waitForLoadState('networkidle');
 
     await expect(page.getByRole('heading', { level: 1 }).first()).toBeVisible();

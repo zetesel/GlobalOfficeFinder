@@ -37,6 +37,7 @@ export default function OfficeReviewRow({
 }: OfficeReviewRowProps) {
   const [correcting, setCorrecting] = useState(false);
   const [draft, setDraft] = useState<OfficeCorrection>({});
+  const [flashing, setFlashing] = useState<"approve" | "reject" | null>(null);
 
   const isApproved = decision === "approved" || decision === true;
   const isRejected = decision === "rejected";
@@ -134,17 +135,25 @@ export default function OfficeReviewRow({
       <div className="office-review-row__actions">
         <button
           type="button"
-          className={`btn-approve ${isApproved ? "active" : ""}`}
+          className={`btn-approve ${isApproved ? "active" : ""} ${flashing === "approve" ? "flash" : ""}`}
           aria-pressed={isApproved}
-          onClick={onApprove}
+          onClick={() => {
+            setFlashing("approve");
+            setTimeout(() => setFlashing(null), 400);
+            onApprove();
+          }}
         >
           Approve
         </button>
         <button
           type="button"
-          className={`btn-reject ${isRejected ? "active" : ""}`}
+          className={`btn-reject ${isRejected ? "active" : ""} ${flashing === "reject" ? "flash" : ""}`}
           aria-pressed={isRejected}
-          onClick={onReject}
+          onClick={() => {
+            setFlashing("reject");
+            setTimeout(() => setFlashing(null), 400);
+            onReject();
+          }}
         >
           Reject
         </button>

@@ -40,8 +40,6 @@ describe("home listing respects office approval", () => {
       country: "",
       industry: "",
       officeType: "",
-      hasHq: false,
-      hasContactUrl: false,
     });
     expect(result.filteredCompanies).toHaveLength(0);
     expect(result.mapOffices).toHaveLength(0);

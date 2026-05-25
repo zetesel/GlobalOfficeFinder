@@ -66,14 +66,12 @@ const offices: Office[] = [
 ];
 
 describe("getFilteredHomeData", () => {
-  it("returns all search results when no advanced filters are set", () => {
+  it("returns all search results when no filters are set", () => {
     const result = getFilteredHomeData(companies, offices, {
       region: "",
       country: "",
       industry: "",
       officeType: "",
-      hasHq: false,
-      hasContactUrl: false,
     });
 
     expect(result.filteredCompanies.map((c) => c.id).sort()).toEqual(["alpha", "beta"]);
@@ -86,8 +84,6 @@ describe("getFilteredHomeData", () => {
       country: "",
       industry: "Technology",
       officeType: "",
-      hasHq: false,
-      hasContactUrl: false,
     });
 
     expect(result.filteredCompanies.map((c) => c.id)).toEqual(["alpha"]);
@@ -99,40 +95,10 @@ describe("getFilteredHomeData", () => {
       country: "",
       industry: "",
       officeType: "Regional Office",
-      hasHq: false,
-      hasContactUrl: false,
     });
 
     expect(result.filteredCompanies.map((c) => c.id).sort()).toEqual(["alpha", "beta"]);
     expect(result.mapOffices.every((office) => office.region === "Europe")).toBe(true);
   });
 
-  it("supports has headquarters company-level filter", () => {
-    const result = getFilteredHomeData(companies, offices, {
-      region: "",
-      country: "",
-      industry: "",
-      officeType: "",
-      hasHq: true,
-      hasContactUrl: false,
-    });
-
-    expect(result.filteredCompanies.map((c) => c.id)).toEqual(["alpha"]);
-  });
-
-  it("supports has contact URL office-level filter", () => {
-    const result = getFilteredHomeData(companies, offices, {
-      region: "",
-      country: "",
-      industry: "",
-      officeType: "",
-      hasHq: false,
-      hasContactUrl: true,
-    });
-
-    expect(result.mapOffices.map((office) => office.id).sort()).toEqual([
-      "alpha-us-hq",
-      "beta-de",
-    ]);
-  });
 });
