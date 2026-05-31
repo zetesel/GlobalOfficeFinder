@@ -1,135 +1,193 @@
-import { useParams, Link } from "react-router-dom";
-import companies from "../../data/companies.json";
-import type { Company, Office } from "../types";
-import OfficeCard from "../components/OfficeCard";
-import { MapView } from "../components/MapView";
-import { usePublishedOffices } from "../hooks/usePublishedOffices";
+import { useMemo, useState } from "react";
+import { Link, useNavigate, useNavigationType, useParams } from "react-router-dom";
+import { useData } from "../hooks/useData";
+import Photo from "../components/Photo";
+import Monogram from "../components/Monogram";
+import FlagChip from "../components/FlagChip";
+import MapView, { type MapFocus } from "../components/MapView";
+import { typeTag } from "../utils/typeTag";
 
-const allCompanies = companies as Company[];
-
-function safeJsonLd(value: unknown): string {
-  return JSON.stringify(value).replace(/</g, "\\u003c");
+interface StatProps {
+  n: number;
+  label: string;
+}
+function Stat({ n, label }: StatProps) {
+  return (
+    <div className="gof-stat">
+      <div className="gof-stat-n">{n}</div>
+      <div className="gof-stat-l">{label}</div>
+    </div>
+  );
 }
 
 export default function CountryPage() {
-  const { code } = useParams<{ code: string }>();
-  const publishedOffices = usePublishedOffices();
-  const countryOffices = publishedOffices.filter((o) => o.countryCode === code);
+  const { code = "" } = useParams<{ code: string }>();
+  const navigate = useNavigate();
+  const navType = useNavigationType();
+  const goBack = () => {
+    if (navType === "PUSH" && window.history.length > 1) navigate(-1);
+    else navigate("/");
+  };
+  const { offices: allOffices, companyById } = useData();
+  const [hoverId, setHoverId] = useState<string | null>(null);
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const [focus, setFocus] = useState<MapFocus>({ fit: true });
 
-  if (countryOffices.length === 0) {
+  const offices = useMemo(
+    () => allOffices.filter((o) => o.country === code),
+    [allOffices, code],
+  );
+
+  if (!offices.length) {
     return (
-      <div className="container page-error">
-        <h1>Country not found</h1>
-        <p>No offices found for country code "{code}".</p>
-        <Link to="/" className="btn-primary">
-          ← Back to search
+      <div className="gof-notfound">
+        No offices in this country.{" "}
+        <Link to="/" className="gof-link">
+          Back to directory
         </Link>
       </div>
     );
   }
 
-  const countryName = countryOffices[0].country;
-  const region = countryOffices[0].region;
+  const countryCode = offices[0].countryCode;
+  const region = offices[0].region;
+  const companies = [...new Set(offices.map((o) => o.companyId))];
+  const cities = new Set(offices.map((o) => o.city));
 
-  // Group offices by company
-  const byCompany = new Map<string, Office[]>();
-  for (const office of countryOffices) {
-    if (!byCompany.has(office.companyId)) byCompany.set(office.companyId, []);
-    byCompany.get(office.companyId)!.push(office);
+  function selectOffice(officeId: string) {
+    setActiveId(officeId);
+    setFocus({ id: officeId });
   }
 
-  const companiesHere = [...byCompany.keys()]
-    .map((id) => allCompanies.find((c) => c.id === id))
-    .filter(Boolean) as Company[];
-  companiesHere.sort((a, b) => a.name.localeCompare(b.name));
-
-  const mapOffices = countryOffices.filter(
-    (o) => typeof o.latitude === "number" && typeof o.longitude === "number"
-  );
-
   return (
-    <div className="country-page container">
-      <nav aria-label="Breadcrumb" className="breadcrumb">
-        <Link to="/">Home</Link> › <span>{countryName}</span>
-      </nav>
-
-      <header className="country-page-header">
-        <h1>{countryName}</h1>
-        <p className="country-region">{region}</p>
-      </header>
-
-      <section className="country-stats">
-        <div className="stat-box">
-          <span className="stat-number">{countryOffices.length}</span>
-          <span className="stat-label">Offices</span>
-        </div>
-        <div className="stat-box">
-          <span className="stat-number">{companiesHere.length}</span>
-          <span className="stat-label">Companies</span>
-        </div>
-      </section>
-
-      <div className="company-offices-layout">
-        <section className="country-companies">
-          <h2>Companies with offices in {countryName}</h2>
-          {companiesHere.map((company) => {
-            const cos = byCompany.get(company.id) ?? [];
-            return (
-              <div key={company.id} className="country-company-block">
-                <h3>
-                  <Link to={`/company/${company.id}`}>{company.name}</Link>
-                  <span className="company-industry-tag">{company.industry}</span>
-                </h3>
-                <div className="office-grid">
-                  {cos.map((office) => (
-                    <OfficeCard key={office.id} office={office} />
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </section>
-
-        <aside className="company-map-panel" aria-label={`${countryName} offices map`}>
-          <h3>Map</h3>
-          {mapOffices.length > 0 ? (
-            <MapView
-              offices={mapOffices}
-              center={[0, 0]}
-              zoom={5}
-              height="520px"
-              autoFit
+    <div className="gof-page">
+      <div className="gof-page-inner">
+        <button type="button" className="gof-back" onClick={goBack}>
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <path
+              d="M8.5 3L4.5 7L8.5 11"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
-          ) : (
-            <p className="no-results">
-              Map unavailable: office coordinates are not yet available for this country.
-            </p>
-          )}
-        </aside>
-      </div>
+          </svg>
+          Directory
+        </button>
 
-      {/* JSON-LD structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: safeJsonLd({
-            "@context": "https://schema.org",
-            "@type": "Country",
-            name: countryName,
-            containsPlace: countryOffices.map((o) => ({
-              "@type": "Place",
-              name: `${allCompanies.find((c) => c.id === o.companyId)?.name ?? o.companyId} — ${o.city}`,
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: o.address,
-                addressLocality: o.city,
-                postalCode: o.postalCode,
-                addressCountry: code,
-              },
-            })),
-          }),
-        }}
-      />
+        <Photo seed={"country-" + code} w={1400} h={520} className="gof-hero" subject={code}>
+          <div className="gof-hero-overlay">
+            <div
+              style={{
+                transform: "scale(1.5)",
+                transformOrigin: "left center",
+                marginRight: 16,
+              }}
+            >
+              <FlagChip code={countryCode} />
+            </div>
+            <div style={{ minWidth: 0 }}>
+              <h1 className="gof-hero-name">{code}</h1>
+              <div className="gof-hero-ind">{region}</div>
+            </div>
+          </div>
+        </Photo>
+
+        <div className="gof-page-grid">
+          <div className="gof-page-main">
+            <h2 className="gof-section-h">
+              Companies here <span>{companies.length}</span>
+            </h2>
+            {companies.map((cid) => {
+              const co = companyById[cid];
+              if (!co) return null;
+              const list = offices.filter((o) => o.companyId === cid);
+              return (
+                <div
+                  key={cid}
+                  className={
+                    "gof-crow" + (list.some((o) => o.id === activeId) ? " is-active" : "")
+                  }
+                >
+                  <Link
+                    to={`/company/${encodeURIComponent(cid)}`}
+                    className="gof-crow-head"
+                  >
+                    <Monogram name={co.name} size={42} square />
+                    <div style={{ minWidth: 0, flex: 1 }}>
+                      <div className="gof-crow-name">{co.name}</div>
+                      <div className="gof-crow-ind">{co.industry}</div>
+                    </div>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      style={{ opacity: 0.4 }}
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M5.5 3L9.5 7L5.5 11"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </Link>
+                  <div className="gof-crow-offices">
+                    {list.map((o) => {
+                      const tag = typeTag(o.officeType);
+                      const isActive = activeId === o.id;
+                      const isHover = hoverId === o.id;
+                      return (
+                        <button
+                          key={o.id}
+                          type="button"
+                          className={
+                            "gof-chip-office" +
+                            (isActive ? " is-active" : "") +
+                            (isHover ? " is-hover" : "")
+                          }
+                          onMouseEnter={() => setHoverId(o.id)}
+                          onMouseLeave={() => setHoverId(null)}
+                          onClick={() => selectOffice(o.id)}
+                        >
+                          {o.city} <span className={"gof-tag tag-" + tag.tone}>{tag.short}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <aside className="gof-page-side">
+            <div className="gof-statrow">
+              <Stat n={offices.length} label={offices.length === 1 ? "office" : "offices"} />
+              <Stat n={companies.length} label={companies.length === 1 ? "company" : "companies"} />
+              <Stat n={cities.size} label={cities.size === 1 ? "city" : "cities"} />
+            </div>
+            <div className="gof-locmap">
+              <div className="gof-locmap-head">Locations</div>
+              <div className="gof-locmap-canvas">
+                <MapView
+                  offices={offices}
+                  companyById={companyById}
+                  activeId={activeId}
+                  hoverId={hoverId}
+                  onHover={setHoverId}
+                  onSelect={(o) => selectOffice(o.id)}
+                  focus={focus}
+                  padding={[50, 50]}
+                />
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
     </div>
   );
 }

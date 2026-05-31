@@ -5,7 +5,15 @@
     "website": "https://www.3m.com",
     "industry": "Manufacturing / Technology",
     "description": "3M Company is an American multinational conglomerate corporation headquartered in Saint Paul, Minnesota, operating in the fields of industry, safety, health care, and consumer products.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/3-M_Building_Maplewood_MN1.jpg/1920px-3-M_Building_Maplewood_MN1.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:3-M_Building_Maplewood_MN1.jpg",
+      "author": "Acroterion",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "3-M Building Maplewood MN1"
+    }
   },
   {
     "id": "abbott",
@@ -21,7 +29,15 @@
     "website": "https://www.accenture.com",
     "industry": "Consulting / Technology Services",
     "description": "Accenture plc is an Irish-American professional services company based in Dublin, specializing in information technology services and consulting, with clients in more than 120 countries.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Grand_Canal_Square_-_panoramio.jpg/1920px-Grand_Canal_Square_-_panoramio.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grand_Canal_Square_-_panoramio.jpg",
+      "author": "William Murphy",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "Grand Canal Square - panoramio"
+    }
   },
   {
     "id": "adidas",
@@ -29,7 +45,15 @@
     "website": "https://www.adidas.com",
     "industry": "Retail / Sportswear",
     "description": "Adidas AG is a German athletic apparel and footwear corporation headquartered in Herzogenaurach, Bavaria, Germany, designing and manufacturing shoes, clothing, and accessories.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Herzogenaurach_-_Adidas_-_2016.jpg/1920px-Herzogenaurach_-_Adidas_-_2016.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Herzogenaurach_-_Adidas_-_2016.jpg",
+      "author": "Avda",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "Herzogenaurach - Adidas - 2016"
+    }
   },
   {
     "id": "adobe",
@@ -37,7 +61,15 @@
     "website": "https://www.adobe.com",
     "industry": "Technology / Creative Software",
     "description": "Adobe Inc. is an American multinational computer software company headquartered in San Jose, California, known for Photoshop, Acrobat, Creative Cloud, and digital marketing solutions.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Adobe_World_Headquarters.jpg/1920px-Adobe_World_Headquarters.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adobe_World_Headquarters.jpg",
+      "author": "Coolcaesar",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Adobe World Headquarters"
+    }
   },
   {
     "id": "airbnb",
@@ -45,7 +77,15 @@
     "website": "https://www.airbnb.com",
     "industry": "Technology / Hospitality",
     "description": "Airbnb, Inc. is an American San Francisco-based company operating an online marketplace for short-term homestays and experiences, connecting hosts with guests worldwide.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/888_Brannan%2C_San_Francisco%2C_2016.jpg/1920px-888_Brannan%2C_San_Francisco%2C_2016.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:888_Brannan,_San_Francisco,_2016.jpg",
+      "author": "Dllu",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "888 Brannan, San Francisco, 2016"
+    }
   },
   {
     "id": "airbus",
@@ -53,7 +93,15 @@
     "website": "https://www.airbus.com",
     "industry": "Aerospace / Defense",
     "description": "Airbus SE is a European multinational aerospace corporation incorporated in the Netherlands with its principal place of business in France, designing, manufacturing, and delivering aerospace products worldwide.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Airbus_Lagard%C3%A8re_-_A%C3%A9roconstellation.jpg/1920px-Airbus_Lagard%C3%A8re_-_A%C3%A9roconstellation.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Airbus_Lagard%C3%A8re_-_A%C3%A9roconstellation.jpg",
+      "author": "Duch",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Airbus Lagardère - Aéroconstellation"
+    }
   },
   {
     "id": "alibaba",
@@ -61,7 +109,15 @@
     "website": "https://www.alibabagroup.com",
     "industry": "E-Commerce / Technology",
     "description": "Alibaba Group Holding Limited is a Chinese multinational technology company headquartered in Hangzhou, Zhejiang, specializing in e-commerce, retail, internet, and technology.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Alibaba_Group_provisional_office_at_Xiong%27an_%2820180503164635%29.jpg/1920px-Alibaba_Group_provisional_office_at_Xiong%27an_%2820180503164635%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alibaba_Group_provisional_office_at_Xiong%27an_(20180503164635).jpg",
+      "author": "N509FZ",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Alibaba Group provisional office at Xiong'an (20180503164635)"
+    }
   },
   {
     "id": "amazon",
@@ -69,7 +125,15 @@
     "website": "https://www.aboutamazon.com",
     "industry": "E-Commerce / Cloud",
     "description": "Amazon.com, Inc. is an American multinational technology company focusing on e-commerce, cloud computing, online advertising, digital streaming, and artificial intelligence.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Amazon_Tower_I_topped_out%2C_June_2015.jpg/1920px-Amazon_Tower_I_topped_out%2C_June_2015.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amazon_Tower_I_topped_out,_June_2015.jpg",
+      "author": "SounderBruce",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "title": "Amazon Tower I topped out, June 2015"
+    }
   },
   {
     "id": "amd",
@@ -77,7 +141,15 @@
     "website": "https://www.amd.com",
     "industry": "Semiconductors",
     "description": "Advanced Micro Devices, Inc. (AMD) is an American multinational semiconductor company headquartered in Santa Clara, California, developing computer processors and related technologies.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/2485_Augustine_Drive_headquarters_in_Santa_Clara%2C_California.jpg/1920px-2485_Augustine_Drive_headquarters_in_Santa_Clara%2C_California.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2485_Augustine_Drive_headquarters_in_Santa_Clara,_California.jpg",
+      "author": "Coolcaesar",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "2485 Augustine Drive headquarters in Santa Clara, California"
+    }
   },
   {
     "id": "american-express",
@@ -85,7 +157,15 @@
     "website": "https://www.americanexpress.com",
     "industry": "Banking / Finance",
     "description": "American Express Company (Amex) is an American multinational financial services corporation headquartered in New York City, known for its credit card, charge card, and traveler's cheque businesses.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/American_Express_Company_Building_65_Broadway_entrance.jpg/1920px-American_Express_Company_Building_65_Broadway_entrance.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:American_Express_Company_Building_65_Broadway_entrance.jpg",
+      "author": "Beyond My Ken",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "American Express Company Building 65 Broadway entrance"
+    }
   },
   {
     "id": "apple",
@@ -93,7 +173,15 @@
     "website": "https://www.apple.com",
     "industry": "Technology / Consumer Electronics",
     "description": "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, that designs, develops, and sells consumer electronics, computer software, and online services.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Apple_park_cupertino_2019.jpg/1920px-Apple_park_cupertino_2019.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Apple_park_cupertino_2019.jpg",
+      "author": "Arne Müseler",
+      "license": "CC BY-SA 3.0 de",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "title": "Apple park cupertino 2019"
+    }
   },
   {
     "id": "astrazeneca",
@@ -101,7 +189,15 @@
     "website": "https://www.astrazeneca.com",
     "industry": "Pharmaceuticals / Biopharmaceuticals",
     "description": "AstraZeneca plc is a British-Swedish multinational pharmaceutical and biopharmaceutical company headquartered in Cambridge, England, focused on discovery, development, and commercialisation of prescription medicines.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/AstraZeneca_HQ_in_Cambridge_UK.jpg/1920px-AstraZeneca_HQ_in_Cambridge_UK.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:AstraZeneca_HQ_in_Cambridge_UK.jpg",
+      "author": "D Wells",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "AstraZeneca HQ in Cambridge UK"
+    }
   },
   {
     "id": "att",
@@ -109,7 +205,15 @@
     "website": "https://www.att.com",
     "industry": "Telecommunications",
     "description": "AT&T Inc. is an American multinational telecommunications holding company headquartered in Dallas, Texas, one of the world's largest telecommunications companies.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/AT%26THQDallas.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:AT%26THQDallas.jpg",
+      "author": "FoUTASportscaster",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "title": "AT&THQDallas"
+    }
   },
   {
     "id": "atlassian",
@@ -117,7 +221,15 @@
     "website": "https://www.atlassian.com/",
     "industry": "Enterprise Software",
     "description": "Atlassian develops collaboration and productivity software for software teams and enterprises.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/341_George_Street_Sydney_01.jpg/1280px-341_George_Street_Sydney_01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:341_George_Street_Sydney_01.jpg",
+      "author": "Collywolly",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "341 George Street Sydney 01"
+    }
   },
   {
     "id": "bank-of-america",
@@ -125,7 +237,15 @@
     "website": "https://www.bankofamerica.com",
     "industry": "Banking / Finance",
     "description": "Bank of America Corporation is an American multinational investment banking and financial services holding company headquartered in Charlotte, North Carolina, serving individuals, small businesses, and large corporations.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Bank_of_America_Corporate_Center_Charlotte%2C_North_Carolina.jpg/1920px-Bank_of_America_Corporate_Center_Charlotte%2C_North_Carolina.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bank_of_America_Corporate_Center_Charlotte,_North_Carolina.jpg",
+      "author": "Kiran891",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Bank of America Corporate Center Charlotte, North Carolina"
+    }
   },
   {
     "id": "bayer",
@@ -133,7 +253,15 @@
     "website": "https://www.bayer.com",
     "industry": "Pharmaceuticals / Life Sciences",
     "description": "Bayer AG is a German multinational pharmaceutical and biotechnology company headquartered in Leverkusen, North Rhine-Westphalia, Germany, with operations in human and veterinary pharmaceuticals and crop science.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Leverkusen%2C_straatzicht_Bayer_-_Science_for_a_better_life_foto2_2015-04-18_12.10.jpg/1920px-Leverkusen%2C_straatzicht_Bayer_-_Science_for_a_better_life_foto2_2015-04-18_12.10.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leverkusen,_straatzicht_Bayer_-_Science_for_a_better_life_foto2_2015-04-18_12.10.jpg",
+      "author": "Michielverbeek",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Leverkusen, straatzicht Bayer - Science for a better life foto2 2015-04-18 12.10"
+    }
   },
   {
     "id": "blackrock",
@@ -141,7 +269,15 @@
     "website": "https://www.blackrock.com",
     "industry": "Asset Management",
     "description": "BlackRock, Inc. is an American multinational investment management corporation based in New York City, the world's largest asset manager with over 10 trillion dollars in assets under management.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/50_Hudson_Yards.png/1920px-50_Hudson_Yards.png",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:50_Hudson_Yards.png",
+      "author": "Dazzling4",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "50 Hudson Yards"
+    }
   },
   {
     "id": "bmw",
@@ -149,7 +285,15 @@
     "website": "https://www.bmw.com",
     "industry": "Automotive",
     "description": "Bayerische Motoren Werke AG (BMW) is a German multinational manufacturer of luxury vehicles and motorcycles headquartered in Munich, Bavaria, Germany.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/2014_BMW.JPG/1920px-2014_BMW.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2014_BMW.JPG",
+      "author": "M(e)ister Eiskalt",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "2014 BMW"
+    }
   },
   {
     "id": "boeing",
@@ -165,7 +309,15 @@
     "website": "https://www.bosch.com",
     "industry": "Engineering / Technology",
     "description": "Robert Bosch GmbH is a German multinational engineering and technology company headquartered in Gerlingen, Germany, the world's largest automotive supplier, also operating in industrial technology, consumer goods, and energy.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/BoschRenningen-pjt.jpg/1920px-BoschRenningen-pjt.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:BoschRenningen-pjt.jpg",
+      "author": "Pjt56",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "BoschRenningen-pjt"
+    }
   },
   {
     "id": "bp",
@@ -173,7 +325,15 @@
     "website": "https://www.bp.com",
     "industry": "Energy / Oil & Gas",
     "description": "BP p.l.c. is a British multinational oil and gas company headquartered in London, England, one of the world's seven supermajor oil and gas companies, operating across more than 70 countries.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Stuckey%27s_in_Saline_County.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stuckey%27s_in_Saline_County.jpg",
+      "author": "Kelly Martin",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "title": "Stuckey's in Saline County"
+    }
   },
   {
     "id": "capgemini",
@@ -181,7 +341,15 @@
     "website": "https://www.capgemini.com",
     "industry": "Technology / Consulting",
     "description": "Capgemini SE is a French multinational information technology services and consulting company headquartered in Paris, France, providing technology and digital transformation services across multiple industries.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/11_rue_de_Tilsitt.jpg/1920px-11_rue_de_Tilsitt.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:11_rue_de_Tilsitt.jpg",
+      "author": "Thomon",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "11 rue de Tilsitt"
+    }
   },
   {
     "id": "chevron",
@@ -189,7 +357,15 @@
     "website": "https://www.chevron.com",
     "industry": "Energy / Oil & Gas",
     "description": "Chevron Corporation is an American multinational energy corporation headquartered in San Ramon, California, actively engaged in every aspect of the oil and gas industry globally.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Chevron_Headquarters_2022.jpg/1920px-Chevron_Headquarters_2022.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chevron_Headquarters_2022.jpg",
+      "author": "InvadingInvader",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Chevron Headquarters 2022"
+    }
   },
   {
     "id": "cisco",
@@ -197,7 +373,15 @@
     "website": "https://www.cisco.com",
     "industry": "Networking / Technology",
     "description": "Cisco Systems, Inc. is an American multinational digital communications technology conglomerate corporation headquartered in San Jose, California, known for networking hardware, software, and services.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Cisco_Systems_Headquarters_%28Building_10%29%2C_Cisco_San_Jose_Main_Campus.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cisco_Systems_Headquarters_(Building_10),_Cisco_San_Jose_Main_Campus.jpg",
+      "author": "Travis Wise",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "title": "Cisco Systems Headquarters (Building 10), Cisco San Jose Main Campus"
+    }
   },
   {
     "id": "citigroup",
@@ -205,7 +389,15 @@
     "website": "https://www.citigroup.com",
     "industry": "Banking / Finance",
     "description": "Citigroup Inc. or Citi is an American multinational investment banking and financial services company headquartered in New York City, serving over 200 million customer accounts in more than 160 countries.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/388_Greenwich_Street_from_Battery_Park_City_North_Esplanade.jpg/1920px-388_Greenwich_Street_from_Battery_Park_City_North_Esplanade.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:388_Greenwich_Street_from_Battery_Park_City_North_Esplanade.jpg",
+      "author": "Beyond My Ken",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "388 Greenwich Street from Battery Park City North Esplanade"
+    }
   },
   {
     "id": "coca-cola",
@@ -213,7 +405,15 @@
     "website": "https://www.coca-colacompany.com",
     "industry": "Food & Beverage",
     "description": "The Coca-Cola Company is an American multinational beverage corporation headquartered in Atlanta, Georgia, known for manufacturing, retailing, and marketing nonalcoholic beverage concentrates and syrups.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Coca-ColaHQ.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coca-ColaHQ.jpg",
+      "author": "The original uploader was Autiger at English Wikipedia.",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "title": "Coca-ColaHQ"
+    }
   },
   {
     "id": "comcast",
@@ -221,7 +421,15 @@
     "website": "https://www.comcast.com",
     "industry": "Media / Telecommunications",
     "description": "Comcast Corporation is an American multinational telecommunications and media conglomerate headquartered in Philadelphia, Pennsylvania, operating as one of the world's largest broadcasting and cable television companies.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Comcast_Philly.JPG/1920px-Comcast_Philly.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Comcast_Philly.JPG",
+      "author": "Smallbones",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "title": "Comcast Philly"
+    }
   },
   {
     "id": "dell",
@@ -229,7 +437,15 @@
     "website": "https://www.dell.com",
     "industry": "Technology / Hardware",
     "description": "Dell Technologies Inc. is an American multinational technology company headquartered in Round Rock, Texas, offering personal computers, servers, data storage devices, network switches, and software.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/RR1-_Dell_Campus.jpg/1920px-RR1-_Dell_Campus.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:RR1-_Dell_Campus.jpg",
+      "author": "Jjpwiki",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "RR1- Dell Campus"
+    }
   },
   {
     "id": "deloitte",
@@ -237,7 +453,15 @@
     "website": "https://www.deloitte.com",
     "industry": "Professional Services / Consulting",
     "description": "Deloitte Touche Tohmatsu Limited, commonly referred to as Deloitte, is a British multinational professional services network headquartered in London, England, one of the Big Four accounting organizations.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/NYC_Downtown_Manhattan_Skyline_seen_from_Paulus_Hook_2019-12-20_IMG_7347_FRD_%28cropped%29.jpg/1920px-NYC_Downtown_Manhattan_Skyline_seen_from_Paulus_Hook_2019-12-20_IMG_7347_FRD_%28cropped%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:NYC_Downtown_Manhattan_Skyline_seen_from_Paulus_Hook_2019-12-20_IMG_7347_FRD_(cropped).jpg",
+      "author": "Fred Hsu on en.wikipedia",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "NYC Downtown Manhattan Skyline seen from Paulus Hook 2019-12-20 IMG 7347 FRD (cropped)"
+    }
   },
   {
     "id": "deutsche-telekom",
@@ -245,7 +469,15 @@
     "website": "https://www.telekom.com",
     "industry": "Telecommunications",
     "description": "Deutsche Telekom AG is a German multinational telecommunications company headquartered in Bonn, Germany, one of the world's largest telecommunications companies by revenue.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Bonn_DTAG2.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bonn_DTAG2.jpg",
+      "author": "Qualle",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "title": "Bonn DTAG2"
+    }
   },
   {
     "id": "disney",
@@ -253,7 +485,15 @@
     "website": "https://www.thewaltdisneycompany.com",
     "industry": "Media / Entertainment",
     "description": "The Walt Disney Company, commonly known as Disney, is an American multinational mass media and entertainment conglomerate headquartered at the Walt Disney Studios complex in Burbank, California.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Walt_Disney_Studios_Alameda_Entrance.jpg/1920px-Walt_Disney_Studios_Alameda_Entrance.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Walt_Disney_Studios_Alameda_Entrance.jpg",
+      "author": "Coolcaesar",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Walt Disney Studios Alameda Entrance"
+    }
   },
   {
     "id": "exxonmobil",
@@ -261,7 +501,15 @@
     "website": "https://www.exxonmobil.com",
     "industry": "Energy / Oil & Gas",
     "description": "ExxonMobil Corporation is an American multinational oil and gas corporation headquartered in Spring, Texas, one of the largest publicly traded companies by revenue.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Exxon_Mobil_Building_-_Flickr_-_pinemikey.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Exxon_Mobil_Building_-_Flickr_-_pinemikey.jpg",
+      "author": "Michael Martin from Cypress, Texas",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "title": "Exxon Mobil Building - Flickr - pinemikey"
+    }
   },
   {
     "id": "ey",
@@ -269,7 +517,15 @@
     "website": "https://www.ey.com",
     "industry": "Professional Services / Consulting",
     "description": "Ernst and Young Global Limited (EY) is a British multinational professional services partnership headquartered in London, England, one of the largest professional services networks in the world.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Biurowiec_Rondo_1_w_Warszawie_2022a.jpg/1920px-Biurowiec_Rondo_1_w_Warszawie_2022a.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Biurowiec_Rondo_1_w_Warszawie_2022a.jpg",
+      "author": "Adrian Grycuk",
+      "license": "CC BY-SA 3.0 pl",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/pl/deed.en",
+      "title": "Biurowiec Rondo 1 w Warszawie 2022a"
+    }
   },
   {
     "id": "fedex",
@@ -277,7 +533,15 @@
     "website": "https://www.fedex.com",
     "industry": "Logistics / Shipping",
     "description": "FedEx Corporation is an American multinational conglomerate holding company headquartered in Memphis, Tennessee, providing transportation, e-commerce, and business services worldwide.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/FedEx_Super_Hub_~%60_27_-_panoramio.jpg/1920px-FedEx_Super_Hub_~%60_27_-_panoramio.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FedEx_Super_Hub_~%60_27_-_panoramio.jpg",
+      "author": "BigBear_in_IN",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "FedEx Super Hub ~` 27 - panoramio"
+    }
   },
   {
     "id": "ford",
@@ -285,7 +549,15 @@
     "website": "https://www.ford.com",
     "industry": "Automotive",
     "description": "Ford Motor Company is an American multinational automobile manufacturer headquartered in Dearborn, Michigan, known for producing and selling automobiles and commercial vehicles under the Ford brand.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/FordGlassHouse.jpg/1920px-FordGlassHouse.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FordGlassHouse.jpg",
+      "author": "Dave Parker",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "title": "FordGlassHouse"
+    }
   },
   {
     "id": "general-motors",
@@ -293,7 +565,15 @@
     "website": "https://www.gm.com",
     "industry": "Automotive",
     "description": "General Motors Company (GM) is an American multinational automotive manufacturing company headquartered in Detroit, Michigan, operating under Chevrolet, Buick, Cadillac, and GMC brands.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/GM_Renaissance_Center_-_H%C3%B4tel_le_plus_haut_en_Am%C3%A9rique_du_Nord_-_panoramio.jpg/1920px-GM_Renaissance_Center_-_H%C3%B4tel_le_plus_haut_en_Am%C3%A9rique_du_Nord_-_panoramio.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GM_Renaissance_Center_-_H%C3%B4tel_le_plus_haut_en_Am%C3%A9rique_du_Nord_-_panoramio.jpg",
+      "author": "Bohao Zhao",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "title": "GM Renaissance Center - Hôtel le plus haut en Amérique du Nord - panoramio"
+    }
   },
   {
     "id": "goldman-sachs",
@@ -301,7 +581,15 @@
     "website": "https://www.goldmansachs.com",
     "industry": "Banking / Finance",
     "description": "The Goldman Sachs Group, Inc. is an American multinational investment banking and financial services company headquartered in New York City, offering investment banking, securities, and asset management.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/GoldmanSachsHeadquarters.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GoldmanSachsHeadquarters.JPG",
+      "author": "Quantumquark",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "GoldmanSachsHeadquarters"
+    }
   },
   {
     "id": "google",
@@ -309,7 +597,15 @@
     "website": "https://about.google",
     "industry": "Technology",
     "description": "Google LLC is an American multinational technology company focusing on search engine technology, online advertising, cloud computing, computer software, quantum computing, e-commerce, and artificial intelligence.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Googleplex_HQ_%28cropped%29.jpg/1920px-Googleplex_HQ_%28cropped%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Googleplex_HQ_(cropped).jpg",
+      "author": "The Pancake of Heaven!",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Googleplex HQ (cropped)"
+    }
   },
   {
     "id": "honda",
@@ -317,7 +613,15 @@
     "website": "https://global.honda",
     "industry": "Automotive",
     "description": "Honda Motor Co., Ltd. is a Japanese public multinational conglomerate manufacturer of automobiles, motorcycles, and power equipment, headquartered in Minato, Tokyo, Japan.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Toranomon_Alcea_Tower.jpg/1920px-Toranomon_Alcea_Tower.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toranomon_Alcea_Tower.jpg",
+      "author": "Akonnchiroll",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Toranomon Alcea Tower"
+    }
   },
   {
     "id": "honeywell",
@@ -325,7 +629,15 @@
     "website": "https://www.honeywell.com",
     "industry": "Manufacturing / Technology",
     "description": "Honeywell International Inc. is an American publicly traded multinational conglomerate corporation headquartered in Charlotte, North Carolina, operating in aerospace, building technologies, safety, and performance materials.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/HON_HQ_photo.jpg/1920px-HON_HQ_photo.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:HON_HQ_photo.jpg",
+      "author": "David Joseph Photography",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "HON HQ photo"
+    }
   },
   {
     "id": "hp",
@@ -333,7 +645,15 @@
     "website": "https://www.hp.com",
     "industry": "Technology / Hardware",
     "description": "HP Inc. is an American multinational information technology company headquartered in Palo Alto, California, that develops personal computers, printers, and related supplies.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/HP_Headquarters_Palo_Alto.jpg/1920px-HP_Headquarters_Palo_Alto.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:HP_Headquarters_Palo_Alto.jpg",
+      "author": "LPS.1",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "title": "HP Headquarters Palo Alto"
+    }
   },
   {
     "id": "hsbc",
@@ -341,7 +661,15 @@
     "website": "https://www.hsbc.com",
     "industry": "Banking / Finance",
     "description": "HSBC Holdings plc is a British universal bank and financial services holding company headquartered in London.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/8-Canada-Square_%28cropped%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:8-Canada-Square_(cropped).jpg",
+      "author": "Imcdc",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "8-Canada-Square (cropped)"
+    }
   },
   {
     "id": "ibm",
@@ -349,7 +677,15 @@
     "website": "https://www.ibm.com",
     "industry": "Technology / Consulting",
     "description": "International Business Machines Corporation is an American multinational technology company headquartered in Armonk, New York.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/22/IBM_Watson.PNG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:IBM_Watson.PNG",
+      "author": "Clockready",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "IBM Watson"
+    }
   },
   {
     "id": "ikea",
@@ -357,7 +693,15 @@
     "website": "https://www.ikea.com",
     "industry": "Retail / Furniture",
     "description": "IKEA is a Swedish-founded, Dutch-headquartered multinational conglomerate that designs and sells ready-to-assemble furniture, kitchen appliances, and home accessories, among other useful goods.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Ikea_almhult.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ikea_almhult.jpg",
+      "author": "Panoramafotos.net",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "title": "Ikea almhult"
+    }
   },
   {
     "id": "inditex",
@@ -365,7 +709,15 @@
     "website": "https://www.inditex.com",
     "industry": "Retail / Fashion",
     "description": "Industria de Diseno Textil, S.A. (Inditex) is a Spanish multinational clothing company headquartered in Arteixo, Galicia, Spain, known for its flagship brand Zara, one of the world's largest fashion retailers.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Sede_de_inditex_arteixo.jpg/1920px-Sede_de_inditex_arteixo.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sede_de_inditex_arteixo.jpg",
+      "author": "Nemigo",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "title": "Sede de inditex arteixo"
+    }
   },
   {
     "id": "infosys",
@@ -373,7 +725,15 @@
     "website": "https://www.infosys.com",
     "industry": "Technology / IT Services",
     "description": "Infosys Limited is an Indian multinational information technology company headquartered in Bengaluru, Karnataka, providing business consulting, information technology, and outsourcing services.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Infosys_%284911287704%29.jpg/1920px-Infosys_%284911287704%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Infosys_(4911287704).jpg",
+      "author": "Ashwin Kumar from Bangalore, India",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "title": "Infosys (4911287704)"
+    }
   },
   {
     "id": "intel",
@@ -381,7 +741,15 @@
     "website": "https://www.intel.com",
     "industry": "Semiconductors",
     "description": "Intel Corporation is an American multinational corporation and technology company headquartered in Santa Clara, California, the world's largest semiconductor chip manufacturer by revenue.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/2200_Mission_College_Boulevard.jpg/1920px-2200_Mission_College_Boulevard.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2200_Mission_College_Boulevard.jpg",
+      "author": "Coolcaesar",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "2200 Mission College Boulevard"
+    }
   },
   {
     "id": "johnson-johnson",
@@ -389,7 +757,15 @@
     "website": "https://www.jnj.com",
     "industry": "Healthcare / Pharmaceuticals",
     "description": "Johnson and Johnson is an American multinational pharmaceutical, medical devices, and consumer packaged goods manufacturing corporation headquartered in New Brunswick, New Jersey.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Johnson_%26_Johnson_HQ_-_IMG_2615.JPG/1920px-Johnson_%26_Johnson_HQ_-_IMG_2615.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Johnson_%26_Johnson_HQ_-_IMG_2615.JPG",
+      "author": "Daderot",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "title": "Johnson & Johnson HQ - IMG 2615"
+    }
   },
   {
     "id": "jpmorgan-chase",
@@ -397,7 +773,15 @@
     "website": "https://www.jpmorganchase.com",
     "industry": "Banking / Finance",
     "description": "JPMorgan Chase and Co. is an American multinational investment bank and financial services holding company headquartered in New York City, the largest bank in the United States.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/383_Madison_Ave_New_York.jpg/1920px-383_Madison_Ave_New_York.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:383_Madison_Ave_New_York.jpg",
+      "author": "Percival Kestreltail",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "383 Madison Ave New York"
+    }
   },
   {
     "id": "kpmg",
@@ -405,7 +789,15 @@
     "website": "https://kpmg.com",
     "industry": "Professional Services / Consulting",
     "description": "KPMG International Limited is a multinational professional services network headquartered in Amstelveen, Netherlands, one of the Big Four accounting organizations providing audit, tax, and advisory services.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/KPMG_HQ_Amstelveen_Netherlands.jpg/1920px-KPMG_HQ_Amstelveen_Netherlands.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:KPMG_HQ_Amstelveen_Netherlands.jpg",
+      "author": "DennisM",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "title": "KPMG HQ Amstelveen Netherlands"
+    }
   },
   {
     "id": "linkedin",
@@ -413,7 +805,15 @@
     "website": "https://www.linkedin.com",
     "industry": "Technology / Professional Networking",
     "description": "LinkedIn is an American business and employment-focused social media platform owned by Microsoft, with headquarters in Sunnyvale, California, serving over 900 million professionals worldwide.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Linkedin_screenshot.png",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Linkedin_screenshot.png",
+      "author": "LinkedIn",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "title": "Linkedin screenshot"
+    }
   },
   {
     "id": "lockheed-martin",
@@ -421,7 +821,15 @@
     "website": "https://www.lockheedmartin.com",
     "industry": "Aerospace / Defense",
     "description": "Lockheed Martin Corporation is an American multinational aerospace, defense, weapons, security, and advanced technologies company headquartered in Bethesda, Maryland.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Lockheed_Martin_headquarters.jpg/1920px-Lockheed_Martin_headquarters.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lockheed_Martin_headquarters.jpg",
+      "author": "Coolcaesar at en.wikipedia",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "Lockheed Martin headquarters"
+    }
   },
   {
     "id": "lvmh",
@@ -429,7 +837,15 @@
     "website": "https://www.lvmh.com",
     "industry": "Luxury Goods",
     "description": "LVMH Moet Hennessy Louis Vuitton SE is a French multinational luxury goods conglomerate headquartered in Paris, France, whose subsidiaries include prestigious brands across fashion, wines, cosmetics, jewelry, and hospitality.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/1920px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg",
+      "author": "Yann Caradec from Paris, France",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "title": "La Tour Eiffel vue de la Tour Saint-Jacques, Paris août 2014 (2)"
+    }
   },
   {
     "id": "mastercard",
@@ -437,7 +853,15 @@
     "website": "https://www.mastercard.com",
     "industry": "Financial Technology",
     "description": "Mastercard Incorporated is an American multinational financial services corporation headquartered in Purchase, New York, providing transaction processing and other payment-related products and services.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/2000PurchaseSt-USGS.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2000PurchaseSt-USGS.jpg",
+      "author": "United States Geological Survey (USGS)",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "title": "2000PurchaseSt-USGS"
+    }
   },
   {
     "id": "mcdonalds",
@@ -445,7 +869,15 @@
     "website": "https://corporate.mcdonalds.com",
     "industry": "Food & Beverage / Fast Food",
     "description": "McDonald's Corporation is an American multinational fast food corporation headquartered in Chicago, Illinois, operating the world's largest chain of fast-food restaurants with over 40,000 locations worldwide.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/25/New-McDonald-HU-lg_%2843261171540%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:New-McDonald-HU-lg_(43261171540).jpg",
+      "author": "Dirk Tussing from Chicago IL, United States",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "title": "New-McDonald-HU-lg (43261171540)"
+    }
   },
   {
     "id": "mckinsey",
@@ -453,7 +885,15 @@
     "website": "https://www.mckinsey.com",
     "industry": "Management Consulting",
     "description": "McKinsey and Company is an American multinational strategy and management consulting firm founded in 1926, offering professional services to the world's leading businesses, governments, and organizations.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/3_World_Trade_Center_002.jpg/1920px-3_World_Trade_Center_002.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:3_World_Trade_Center_002.jpg",
+      "author": "Kidfly182",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "3 World Trade Center 002"
+    }
   },
   {
     "id": "mercedes-benz",
@@ -461,7 +901,15 @@
     "website": "https://www.mercedes-benz.com",
     "industry": "Automotive",
     "description": "Mercedes-Benz Group AG is a German multinational automotive corporation headquartered in Stuttgart, Baden-Wurttemberg, Germany, known for luxury vehicles, buses, coaches, and trucks.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Mercedes-Benz_W463_G_350_BlueTEC_05_Mercedes-Benz_Museum.jpg/1920px-Mercedes-Benz_W463_G_350_BlueTEC_05_Mercedes-Benz_Museum.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_W463_G_350_BlueTEC_05_Mercedes-Benz_Museum.jpg",
+      "author": "Julian Herzog (Website)",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "title": "Mercedes-Benz W463 G 350 BlueTEC 05 Mercedes-Benz Museum"
+    }
   },
   {
     "id": "merck",
@@ -469,7 +917,15 @@
     "website": "https://www.merck.com",
     "industry": "Pharmaceuticals",
     "description": "Merck and Co., Inc. is an American multinational pharmaceutical company headquartered in Rahway, New Jersey, one of the largest pharmaceutical companies in the world, known for vaccines and biologic therapies.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Merck_office_Upper_Gwynedd_Township_Montgomery_County.jpg/1920px-Merck_office_Upper_Gwynedd_Township_Montgomery_County.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Merck_office_Upper_Gwynedd_Township_Montgomery_County.jpg",
+      "author": "Montgomery County Planning Commission",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "title": "Merck office Upper Gwynedd Township Montgomery County"
+    }
   },
   {
     "id": "meta",
@@ -477,7 +933,15 @@
     "website": "https://about.meta.com",
     "industry": "Technology / Social Media",
     "description": "Meta Platforms, Inc. is an American multinational technology conglomerate that owns and operates Facebook, Instagram, Threads, and WhatsApp.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Meta_HQ_2023.png/1920px-Meta_HQ_2023.png",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meta_HQ_2023.png",
+      "author": "InvadingInvader",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Meta HQ 2023"
+    }
   },
   {
     "id": "microsoft",
@@ -485,7 +949,15 @@
     "website": "https://www.microsoft.com",
     "industry": "Technology",
     "description": "Microsoft Corporation is an American multinational technology corporation which produces computer software, consumer electronics, personal computers, and related services.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Aerial_Microsoft_West_Campus_August_2009.jpg/1920px-Aerial_Microsoft_West_Campus_August_2009.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_Microsoft_West_Campus_August_2009.jpg",
+      "author": "Jelson25",
+      "license": "Public domain",
+      "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+      "title": "Aerial Microsoft West Campus August 2009"
+    }
   },
   {
     "id": "morgan-stanley",
@@ -493,7 +965,15 @@
     "website": "https://www.morganstanley.com",
     "industry": "Banking / Finance",
     "description": "Morgan Stanley is an American multinational investment management and financial services company headquartered in New York City, providing investment banking, securities, wealth management, and investment management services.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Morgan_Stanley_Times_Square.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Morgan_Stanley_Times_Square.jpg",
+      "author": "PLBechly",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Morgan Stanley Times Square"
+    }
   },
   {
     "id": "nestle",
@@ -501,7 +981,15 @@
     "website": "https://www.nestle.com",
     "industry": "Food & Beverage",
     "description": "Nestle S.A. is a Swiss multinational food and drink processing conglomerate corporation headquartered in Vevey, Vaud, Switzerland, the largest food company in the world measured by revenues.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/NestleHQ.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:NestleHQ.jpg",
+      "author": "Nestlé",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "title": "NestleHQ"
+    }
   },
   {
     "id": "netflix",
@@ -509,7 +997,15 @@
     "website": "https://www.netflix.com",
     "industry": "Media / Streaming",
     "description": "Netflix, Inc. is an American subscription video on-demand over-the-top streaming service and production company headquartered in Los Gatos, California.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Netflix_headquarters.jpg/1920px-Netflix_headquarters.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Netflix_headquarters.jpg",
+      "author": "Coolcaesar at English Wikipedia",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "title": "Netflix headquarters"
+    }
   },
   {
     "id": "nike",
@@ -517,7 +1013,15 @@
     "website": "https://www.nike.com",
     "industry": "Retail / Sportswear",
     "description": "Nike, Inc. is an American multinational corporation headquartered near Beaverton, Oregon, engaged in the design, development, manufacturing, and worldwide marketing and sales of footwear, apparel, and equipment.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Nikeworldheadquarters.jpg/1920px-Nikeworldheadquarters.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nikeworldheadquarters.jpg",
+      "author": "Coolcaesar",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Nikeworldheadquarters"
+    }
   },
   {
     "id": "novartis",
@@ -525,7 +1029,15 @@
     "website": "https://www.novartis.com",
     "industry": "Pharmaceuticals",
     "description": "Novartis AG is a Swiss multinational pharmaceutical corporation headquartered in Basel, Switzerland, one of the largest pharmaceutical companies in the world by market capitalization.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Novartis_Campus_-_Novartis_Pavillon_%2853992600334%29.jpg/1920px-Novartis_Campus_-_Novartis_Pavillon_%2853992600334%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Novartis_Campus_-_Novartis_Pavillon_(53992600334).jpg",
+      "author": "Alexandre Prevot from Nancy, France",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "title": "Novartis Campus - Novartis Pavillon (53992600334)"
+    }
   },
   {
     "id": "nvidia",
@@ -533,7 +1045,15 @@
     "website": "https://www.nvidia.com",
     "industry": "Semiconductors / AI",
     "description": "NVIDIA Corporation is an American multinational technology company incorporated in Delaware and based in Santa Clara, California, designing graphics processing units and system on chips.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/NVIDIA_Headquarters.jpg/1920px-NVIDIA_Headquarters.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:NVIDIA_Headquarters.jpg",
+      "author": "Coolcaesar",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "NVIDIA Headquarters"
+    }
   },
   {
     "id": "oracle",
@@ -541,7 +1061,15 @@
     "website": "https://www.oracle.com",
     "industry": "Technology / Cloud",
     "description": "Oracle Corporation is an American multinational computer technology company headquartered in Austin, Texas, offering cloud computing, database software, and enterprise software products.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/209_Redwood_Shores_Parkway%2C_RC_1.JPG/1920px-209_Redwood_Shores_Parkway%2C_RC_1.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:209_Redwood_Shores_Parkway,_RC_1.JPG",
+      "author": "BrokenSphere",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "209 Redwood Shores Parkway, RC 1"
+    }
   },
   {
     "id": "paypal",
@@ -557,7 +1085,15 @@
     "website": "https://www.pepsico.com",
     "industry": "Food & Beverage",
     "description": "PepsiCo, Inc. is an American multinational food, snack, and beverage corporation headquartered in Purchase, New York, with products sold in over 200 countries and territories worldwide.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/PepsiCoHQPurchaseNY.jpg/1920px-PepsiCoHQPurchaseNY.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:PepsiCoHQPurchaseNY.jpg",
+      "author": "Peter Bond from Philadelphia, USA",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "title": "PepsiCoHQPurchaseNY"
+    }
   },
   {
     "id": "pfizer",
@@ -565,7 +1101,15 @@
     "website": "https://www.pfizer.com",
     "industry": "Pharmaceuticals",
     "description": "Pfizer Inc. is an American multinational pharmaceutical and biotechnology corporation headquartered in New York City, one of the world's largest pharmaceutical companies.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Pfizer_World_Headquarters_Entrance.jpg/1920px-Pfizer_World_Headquarters_Entrance.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pfizer_World_Headquarters_Entrance.jpg",
+      "author": "Coolcaesar",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Pfizer World Headquarters Entrance"
+    }
   },
   {
     "id": "procter-gamble",
@@ -573,7 +1117,15 @@
     "website": "https://www.pg.com",
     "industry": "Consumer Goods",
     "description": "The Procter and Gamble Company (P&G) is an American multinational consumer goods corporation headquartered in Cincinnati, Ohio, specializing in personal health, consumer health, and personal care products.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Cincinnati-procter-and-gamble-headquarters.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cincinnati-procter-and-gamble-headquarters.jpg",
+      "author": "Tysto",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "title": "Cincinnati-procter-and-gamble-headquarters"
+    }
   },
   {
     "id": "pwc",
@@ -581,7 +1133,15 @@
     "website": "https://www.pwc.com",
     "industry": "Professional Services / Consulting",
     "description": "PricewaterhouseCoopers International Limited (PwC) is a British multinational professional services brand of firms headquartered in London, United Kingdom, one of the Big Four accounting firms.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Madrid_-_CTBA%2C_Torre_PwC_y_Torre_de_Cristal_1.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Madrid_-_CTBA,_Torre_PwC_y_Torre_de_Cristal_1.JPG",
+      "author": "Zarateman",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Madrid - CTBA, Torre PwC y Torre de Cristal 1"
+    }
   },
   {
     "id": "qualcomm",
@@ -589,7 +1149,15 @@
     "website": "https://www.qualcomm.com",
     "industry": "Semiconductors / Wireless",
     "description": "Qualcomm Incorporated is an American multinational corporation headquartered in San Diego, California, that creates semiconductors, software, and services related to wireless technology.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Qualcomm_headquarters.jpg/1920px-Qualcomm_headquarters.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Qualcomm_headquarters.jpg",
+      "author": "Coolcaesar at en.wikipedia",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "Qualcomm headquarters"
+    }
   },
   {
     "id": "roche",
@@ -597,7 +1165,15 @@
     "website": "https://www.roche.com",
     "industry": "Pharmaceuticals / Diagnostics",
     "description": "Roche Holding AG is a Swiss multinational healthcare company headquartered in Basel, Switzerland, operating worldwide in pharmaceuticals and diagnostics.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Basel%2C_de_Roche_Turm_Bau_1%2B2_IMG_1617_2022-05-15_14.19.jpg/1920px-Basel%2C_de_Roche_Turm_Bau_1%2B2_IMG_1617_2022-05-15_14.19.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Basel,_de_Roche_Turm_Bau_1%2B2_IMG_1617_2022-05-15_14.19.jpg",
+      "author": "Michielverbeek",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Basel, de Roche Turm Bau 1+2 IMG 1617 2022-05-15 14.19"
+    }
   },
   {
     "id": "salesforce",
@@ -605,7 +1181,15 @@
     "website": "https://www.salesforce.com",
     "industry": "Enterprise Software",
     "description": "Salesforce, Inc. is an American cloud-based software company headquartered in San Francisco, California, providing customer relationship management software and applications.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Salesforce_Tower_SF_2017_%28cropped%29.jpg/1920px-Salesforce_Tower_SF_2017_%28cropped%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salesforce_Tower_SF_2017_(cropped).jpg",
+      "author": "homebucket",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "title": "Salesforce Tower SF 2017 (cropped)"
+    }
   },
   {
     "id": "samsung",
@@ -613,7 +1197,15 @@
     "website": "https://www.samsung.com",
     "industry": "Technology / Consumer Electronics",
     "description": "Samsung Electronics Co., Ltd. is a South Korean multinational semiconductor and electronics corporation headquartered in Suwon, Gyeonggi-do, South Korea, one of the world's largest technology companies.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Samsung_headquarters.jpg/1920px-Samsung_headquarters.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samsung_headquarters.jpg",
+      "author": "Oskar Alexanderson",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "title": "Samsung headquarters"
+    }
   },
   {
     "id": "sanofi",
@@ -621,7 +1213,15 @@
     "website": "https://www.sanofi.com",
     "industry": "Pharmaceuticals",
     "description": "Sanofi S.A. is a French multinational pharmaceutical and healthcare company headquartered in Paris, France, one of the world's largest pharmaceutical companies by prescription sales.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Sanofi-Aventis_Barcelona.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanofi-Aventis_Barcelona.jpg",
+      "author": "Galifardeu",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "Sanofi-Aventis Barcelona"
+    }
   },
   {
     "id": "sap",
@@ -629,7 +1229,15 @@
     "website": "https://www.sap.com",
     "industry": "Enterprise Software",
     "description": "SAP SE is a German multinational software corporation headquartered in Walldorf, Baden-Wurttemberg, Germany that makes enterprise software to manage business operations and customer relations.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Sap-wdf.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sap-wdf.jpg",
+      "author": "MichaelBr90",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "Sap-wdf"
+    }
   },
   {
     "id": "servicenow",
@@ -637,7 +1245,15 @@
     "website": "https://www.servicenow.com",
     "industry": "Enterprise Software / Cloud",
     "description": "ServiceNow, Inc. is an American software company headquartered in Santa Clara, California, providing a cloud-based platform and solutions that help companies digitize and unify their operations.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/ServiceNowGlobalHQ.jpg/1920px-ServiceNowGlobalHQ.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:ServiceNowGlobalHQ.jpg",
+      "author": "Donny Gonzo",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "title": "ServiceNowGlobalHQ"
+    }
   },
   {
     "id": "shell",
@@ -645,7 +1261,15 @@
     "website": "https://www.shell.com",
     "industry": "Energy / Oil & Gas",
     "description": "Shell plc is a British multinational oil and gas company headquartered in London, England, one of the largest companies in the world by revenue, operating across upstream, downstream, and integrated gas segments.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/The_Shell_Centre_%288709496019%29.jpg/1920px-The_Shell_Centre_%288709496019%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Shell_Centre_(8709496019).jpg",
+      "author": "Reading Tom from Reading, UK",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "title": "The Shell Centre (8709496019)"
+    }
   },
   {
     "id": "shopify",
@@ -653,7 +1277,15 @@
     "website": "https://www.shopify.com/",
     "industry": "E-Commerce Platform",
     "description": "Shopify provides commerce infrastructure for merchants to start, run, and grow online businesses.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Ottawa_Montage_2020.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ottawa_Montage_2020.jpg",
+      "author": "Allice Hunter",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Ottawa Montage 2020"
+    }
   },
   {
     "id": "siemens",
@@ -661,7 +1293,15 @@
     "website": "https://www.siemens.com",
     "industry": "Industrial / Technology",
     "description": "Siemens AG is a German multinational conglomerate corporation and the largest industrial manufacturing company in Europe.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/The_Wings%2C_Siemens_HQ_Munich%2C_April_2017.jpg/1920px-The_Wings%2C_Siemens_HQ_Munich%2C_April_2017.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Wings,_Siemens_HQ_Munich,_April_2017.jpg",
+      "author": "Martin Falbisoner",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "The Wings, Siemens HQ Munich, April 2017"
+    }
   },
   {
     "id": "sony",
@@ -669,7 +1309,15 @@
     "website": "https://www.sony.com",
     "industry": "Technology / Entertainment",
     "description": "Sony Group Corporation is a Japanese multinational conglomerate corporation headquartered in Minato, Tokyo, Japan, operating in electronics, gaming, music, movies, and financial services.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Sony_headquaters_1.jpg/1920px-Sony_headquaters_1.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sony_headquaters_1.jpg",
+      "author": "Akonnchiroll",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Sony headquaters 1"
+    }
   },
   {
     "id": "spotify",
@@ -677,7 +1325,15 @@
     "website": "https://www.spotify.com",
     "industry": "Media / Music Streaming",
     "description": "Spotify Technology S.A. is a Swedish audio streaming and media services provider founded in 2006, offering music, podcasts, and audiobooks to users worldwide.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Spotify_HK_Stockholm.jpg/1920px-Spotify_HK_Stockholm.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotify_HK_Stockholm.jpg",
+      "author": "Goombah",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "title": "Spotify HK Stockholm"
+    }
   },
   {
     "id": "tata-consultancy",
@@ -685,7 +1341,15 @@
     "website": "https://www.tcs.com",
     "industry": "Technology / IT Services",
     "description": "Tata Consultancy Services Limited (TCS) is an Indian multinational information technology services and consulting company headquartered in Mumbai, Maharashtra, a subsidiary of the Tata Group.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/TCS_SIPCOT_Building.jpg/1920px-TCS_SIPCOT_Building.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:TCS_SIPCOT_Building.jpg",
+      "author": "Naveen.kumar.kotta",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "TCS SIPCOT Building"
+    }
   },
   {
     "id": "tencent",
@@ -693,7 +1357,15 @@
     "website": "https://www.tencent.com",
     "industry": "Technology / Internet",
     "description": "Tencent Holdings Limited is a Chinese multinational technology and entertainment conglomerate and holding company headquartered in Shenzhen, Guangdong, operating in internet services, AI, and entertainment.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Tencent_binghai_building202012.jpg/1920px-Tencent_binghai_building202012.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tencent_binghai_building202012.jpg",
+      "author": "Charlie fong",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Tencent binghai building202012"
+    }
   },
   {
     "id": "tesla",
@@ -701,7 +1373,15 @@
     "website": "https://www.tesla.com",
     "industry": "Automotive / Clean Energy",
     "description": "Tesla, Inc. is an American multinational automotive and clean energy company headquartered in Austin, Texas, designing and manufacturing electric vehicles, battery energy storage, and solar products.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Tesla_Visit_3_%289267529364%29.jpg/1920px-Tesla_Visit_3_%289267529364%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tesla_Visit_3_(9267529364).jpg",
+      "author": "Windell Oskay from Sunnyvale, CA, USA",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "title": "Tesla Visit 3 (9267529364)"
+    }
   },
   {
     "id": "totalenergies",
@@ -709,7 +1389,15 @@
     "website": "https://www.totalenergies.com",
     "industry": "Energy / Oil & Gas",
     "description": "TotalEnergies SE is a French multinational integrated energy company headquartered in Courbevoie, France, producing and marketing energies including oil, natural gas, and low-carbon electricity.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Courbevoie_-_Quais_de_Seine_-_panoramique_01.jpg/1920px-Courbevoie_-_Quais_de_Seine_-_panoramique_01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Courbevoie_-_Quais_de_Seine_-_panoramique_01.jpg",
+      "author": "Clicsouris",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "title": "Courbevoie - Quais de Seine - panoramique 01"
+    }
   },
   {
     "id": "toyota",
@@ -717,7 +1405,15 @@
     "website": "https://global.toyota",
     "industry": "Automotive",
     "description": "Toyota Motor Corporation is a Japanese multinational automotive manufacturer headquartered in Toyota City, Aichi, Japan.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Headquarter_of_Toyota_Motor_Corporation_3.JPG",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Headquarter_of_Toyota_Motor_Corporation_3.JPG",
+      "author": "Tokumeigakarinoaoshima",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "title": "Headquarter of Toyota Motor Corporation 3"
+    }
   },
   {
     "id": "uber",
@@ -725,7 +1421,15 @@
     "website": "https://www.uber.com",
     "industry": "Technology / Mobility",
     "description": "Uber Technologies, Inc. is an American multinational transportation company headquartered in San Francisco, California, offering ride-hailing, food delivery, and freight services globally.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Self_driving_Uber_prototype_in_San_Francisco.jpg/1920px-Self_driving_Uber_prototype_in_San_Francisco.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Self_driving_Uber_prototype_in_San_Francisco.jpg",
+      "author": "Dllu",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Self driving Uber prototype in San Francisco"
+    }
   },
   {
     "id": "unilever",
@@ -733,7 +1437,15 @@
     "website": "https://www.unilever.com",
     "industry": "Consumer Goods",
     "description": "Unilever plc is a British multinational consumer goods company headquartered in London, England.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Unilever_House_Mars_2014_01.jpg/1920px-Unilever_House_Mars_2014_01.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Unilever_House_Mars_2014_01.jpg",
+      "author": "Arild Vågen",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "Unilever House Mars 2014 01"
+    }
   },
   {
     "id": "ups",
@@ -741,7 +1453,15 @@
     "website": "https://www.ups.com",
     "industry": "Logistics / Shipping",
     "description": "United Parcel Service, Inc. (UPS) is an American multinational shipping and receiving and supply chain management company headquartered in Sandy Springs, Georgia.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/UPS_Airlines_B767-300F_%28N328UP%29_landing_at_San_Jose_International_Airport.jpg/1920px-UPS_Airlines_B767-300F_%28N328UP%29_landing_at_San_Jose_International_Airport.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:UPS_Airlines_B767-300F_(N328UP)_landing_at_San_Jose_International_Airport.jpg",
+      "author": "Dylan Ashe",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "title": "UPS Airlines B767-300F (N328UP) landing at San Jose International Airport"
+    }
   },
   {
     "id": "verizon",
@@ -749,7 +1469,15 @@
     "website": "https://www.verizon.com",
     "industry": "Telecommunications",
     "description": "Verizon Communications Inc. is an American multinational telecommunications conglomerate headquartered in New York City, providing communications, technology, information, and entertainment products and services.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Verizon_Building_%288156005279%29.jpg/1920px-Verizon_Building_%288156005279%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Verizon_Building_(8156005279).jpg",
+      "author": "Eden, Janine and Jim from New York City",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "title": "Verizon Building (8156005279)"
+    }
   },
   {
     "id": "visa",
@@ -757,7 +1485,15 @@
     "website": "https://www.visa.com",
     "industry": "Financial Technology",
     "description": "Visa Inc. is an American multinational payment card services corporation headquartered in San Francisco, California, facilitating electronic funds transfers throughout the world.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Visa_headquarters_-_August_2025_-_Sarah_Stierch.jpg/1920px-Visa_headquarters_-_August_2025_-_Sarah_Stierch.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Visa_headquarters_-_August_2025_-_Sarah_Stierch.jpg",
+      "author": "Missvain",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "title": "Visa headquarters - August 2025 - Sarah Stierch"
+    }
   },
   {
     "id": "vodafone",
@@ -765,7 +1501,15 @@
     "website": "https://www.vodafone.com",
     "industry": "Telecommunications",
     "description": "Vodafone Group plc is a British multinational telecommunications company headquartered in Paddington, London, operating networks in Europe, Asia-Pacific, Africa, and the Americas.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Newbury%2C_New_Vodafone_Headquarters_-_geograph.org.uk_-_5590.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Newbury,_New_Vodafone_Headquarters_-_geograph.org.uk_-_5590.jpg",
+      "author": "Pam Brophy",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "title": "Newbury, New Vodafone Headquarters - geograph.org.uk - 5590"
+    }
   },
   {
     "id": "volkswagen",
@@ -773,7 +1517,15 @@
     "website": "https://www.volkswagen-group.com",
     "industry": "Automotive",
     "description": "Volkswagen AG is a German multinational automotive manufacturer headquartered in Wolfsburg, Germany, one of the world's largest automakers by sales, owning brands such as VW, Audi, Porsche, and Lamborghini.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/VW_Werk_Altes_Heizkraftwerk_WB_edit.jpg/1920px-VW_Werk_Altes_Heizkraftwerk_WB_edit.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:VW_Werk_Altes_Heizkraftwerk_WB_edit.jpg",
+      "author": "VW_Werk_Altes_Heizkraftwerk.jpg: Richard Bartz derivative work: Diliff",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "VW Werk Altes Heizkraftwerk WB edit"
+    }
   },
   {
     "id": "walmart",
@@ -781,7 +1533,15 @@
     "website": "https://www.walmart.com",
     "industry": "Retail",
     "description": "Walmart Inc. is an American multinational retail corporation headquartered in Bentonville, Arkansas, operating a chain of hypermarkets, discount department stores, and grocery stores.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Walmart_7.jpg/1920px-Walmart_7.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Walmart_7.jpg",
+      "author": "Wikideas1",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "title": "Walmart 7"
+    }
   },
   {
     "id": "wipro",
@@ -789,7 +1549,15 @@
     "website": "https://www.wipro.com",
     "industry": "Technology / IT Services",
     "description": "Wipro Limited is an Indian multinational corporation headquartered in Bangalore, Karnataka, India, offering information technology, consulting, and business process services.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/S3_and_S4_Building_SJP2_Wipro_Sarjapur_office_Photo_182805.jpg/1920px-S3_and_S4_Building_SJP2_Wipro_Sarjapur_office_Photo_182805.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:S3_and_S4_Building_SJP2_Wipro_Sarjapur_office_Photo_182805.jpg",
+      "author": "Rameshng",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "title": "S3 and S4 Building SJP2 Wipro Sarjapur office Photo 182805"
+    }
   },
   {
     "id": "workday",
@@ -797,6 +1565,14 @@
     "website": "https://www.workday.com",
     "industry": "Enterprise Software / Cloud",
     "description": "Workday, Inc. is an American on-demand financial management and human capital management software vendor headquartered in Pleasanton, California.",
-    "logo": ""
+    "logo": "",
+    "photo": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Workday_Headquarters.jpg/1920px-Workday_Headquarters.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Workday_Headquarters.jpg",
+      "author": "Coolcaesar",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "title": "Workday Headquarters"
+    }
   }
 ]

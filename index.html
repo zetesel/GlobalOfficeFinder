@@ -6,35 +6,39 @@
     <link rel="manifest" href="/manifest.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
-    <!-- Content Security Policy: Restrict resource loading to self; allow inline styles required by the app and Leaflet -->
-    <!-- This is the meta-tag version for static hosting (GitHub Pages doesn't support custom headers) -->
+
+    <!-- Content Security Policy: locked down to known hosts -->
     <meta http-equiv="Content-Security-Policy" content="
       default-src 'self';
       script-src 'self';
-      style-src 'self' 'unsafe-inline';
-      img-src 'self' data: https:;
-      font-src 'self' data:;
-      connect-src 'self' https://tile.openstreetmap.org https://nominatim.openstreetmap.org https://photon.komoot.io ws://localhost:* ws://127.0.0.1:* http://localhost:* http://127.0.0.1:*;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      img-src 'self' data: https://*.basemaps.cartocdn.com https://images.pexels.com https://upload.wikimedia.org;
+      font-src 'self' data: https://fonts.gstatic.com;
+      connect-src 'self' https://*.basemaps.cartocdn.com ws://localhost:* ws://127.0.0.1:* http://localhost:* http://127.0.0.1:*;
       frame-ancestors 'none';
       object-src 'none';
       base-uri 'self';
       form-action 'self'
     " />
-    
-    <!-- Additional security headers (via meta tags where meta tags are supported) -->
+
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()" />
-    
+
     <title>GlobalOfficeFinder — Discover Company Offices Worldwide</title>
-    <meta name="description" content="Search for company offices worldwide. Filter by country, region, and industry to find where your company of interest operates globally." />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Browse company offices around the world. Search by company, city, country, region, industry, or office type." />
+    <meta name="theme-color" content="#2f45ff" />
     <meta name="color-scheme" content="light" />
-    
-    <link rel="preconnect" href="https://tile.openstreetmap.org" />
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://a.basemaps.cartocdn.com" crossorigin />
+
     <script src="/spa-redirect.js"></script>
   </head>
   <body>
