@@ -70,10 +70,22 @@ async function fetchJson(url) {
 
 function stripHtml(s) {
   if (!s) return "";
-  return String(s)
-    .replace(/<[^>]+>/g, "")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
+  // Strip both well-formed (<tag …>) and malformed (<tag …, with no closing >)
+  // HTML iteratively until the string is stable, then drop any residual
+  // angle brackets so no element-like substring can survive. We deliberately
+  // do NOT decode &lt;/&gt; entities back into angle brackets — that would
+  // re-introduce the very characters we just stripped (the issue Copilot /
+  // CodeQL flag as "double escaping or unescaping").
+  let out = String(s);
+  let prev;
+  do {
+    prev = out;
+    out = out.replace(/<[^<>]*>?/g, "");
+  } while (out !== prev);
+  return out
+    .replace(/[<>]/g, "")
+    .replace(/&lt;/g, "")
+    .replace(/&gt;/g, "")
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/&amp;/g, "&")

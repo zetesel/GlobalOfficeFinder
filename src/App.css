@@ -1228,7 +1228,12 @@ a {
   .gof-page-side {
     position: static;
   }
-  .gof-header-meta {
+  /* On mobile, hide the dense stats counters but keep the About-photos link
+     and its surrounding container so it stays reachable. */
+  .gof-header-meta > span {
     display: none;
+  }
+  .gof-header-meta {
+    gap: 0;
   }
 }
