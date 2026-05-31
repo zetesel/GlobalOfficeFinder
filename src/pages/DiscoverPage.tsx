@@ -40,15 +40,16 @@ export default function DiscoverPage() {
   const [showEnd, setShowEnd] = useState(false);
   const startedRef = useRef(false);
 
-  // Kick off discovery once. StrictMode double-mount guarded by startedRef.
+  // Kick off discovery once. StrictMode double-mount guarded by startedRef —
+  // no `cancelled` flag because the first mount's cleanup would otherwise
+  // suppress the in-flight fetch's state update (the second mount returns
+  // early via the ref, leaving no second closure to take over).
   useEffect(() => {
     if (startedRef.current) return;
     startedRef.current = true;
-    let cancelled = false;
     (async () => {
       try {
         const data = await fetchDiscovery(rawQuery);
-        if (cancelled) return;
         if (data.notFound) {
           setStatus("notfound");
         } else {
@@ -57,12 +58,9 @@ export default function DiscoverPage() {
           setFocus({ fit: true });
         }
       } catch {
-        if (!cancelled) setStatus("error");
+        setStatus("error");
       }
     })();
-    return () => {
-      cancelled = true;
-    };
   }, [rawQuery]);
 
   // Advance the loading-stage labels on a timer (cosmetic progress).
