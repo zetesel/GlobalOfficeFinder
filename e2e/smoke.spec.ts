@@ -12,6 +12,54 @@ test("search filters company list", async ({ page }) => {
   await expect(page.getByTestId("empty-state")).toBeVisible();
 });
 
+test("no-match search offers live discovery and navigates to /discover", async ({
+  page,
+}) => {
+  // Mock the serverless endpoint so the test never calls OpenRouter.
+  await page.route("**/api/discover", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        company: {
+          name: "NoSuchCompanyXYZ",
+          description: "A fictional company used for testing discovery.",
+          website: "https://example.com",
+          wikidataId: "Q1",
+        },
+        offices: [
+          {
+            country: "United States",
+            countryCode: "US",
+            region: "Americas",
+            city: "San Francisco",
+            officeType: "hq",
+            latitude: 37.7749,
+            longitude: -122.4194,
+          },
+        ],
+      }),
+    });
+  });
+
+  await page.goto("/");
+  await page.getByPlaceholder(/search companies/i).fill("NoSuchCompanyXYZ");
+  // Modal appears after the debounce (~700ms).
+  const discoverBtn = page.getByRole("button", { name: /discover offices/i });
+  await expect(discoverBtn).toBeVisible({ timeout: 3000 });
+  await discoverBtn.click();
+
+  await expect(page).toHaveURL(/\/discover\/nosuchcompanyxyz/);
+  // The discovery map + its bar title render once results resolve.
+  await expect(page.locator(".leaflet-container").first()).toBeVisible();
+  await expect(page.getByText("NoSuchCompanyXYZ").first()).toBeVisible();
+
+  // Ending the search confirms and returns home.
+  await page.getByRole("button", { name: /end search/i }).click();
+  await page.getByRole("button", { name: /yes, end search/i }).click();
+  await expect(page).toHaveURL(/\/$/);
+});
+
 test("navigates to a company page via direct URL", async ({ page }) => {
   await page.goto("/");
   const firstCard = page.locator(".gof-card").first();
