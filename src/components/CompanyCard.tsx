@@ -1,6 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import type { Company, Office } from "../types";
-import CompanyLogo from "./CompanyLogo";
+import Photo from "./Photo";
+import Monogram from "./Monogram";
+import FlagChip from "./FlagChip";
 
 interface CompanyCardProps {
   company: Company;
@@ -8,44 +10,49 @@ interface CompanyCardProps {
 }
 
 export default function CompanyCard({ company, offices }: CompanyCardProps) {
-  const navigate = useNavigate();
-  const countries = [...new Set(offices.map((o) => o.country))].sort();
-
-  function handleClick() {
-    navigate(`/company/${company.id}`);
-  }
-
-  function handleKeyDown(e: React.KeyboardEvent) {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      navigate(`/company/${company.id}`);
-    }
-  }
-
+  const codes = [...new Set(offices.map((o) => o.countryCode))];
+  const countries = new Set(offices.map((o) => o.country));
+  const hq = offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
   return (
-    <article
-      className="company-card"
-      onClick={handleClick}
-      role="link"
-      tabIndex={0}
-      onKeyDown={handleKeyDown}
+    <Link
+      to={`/company/${encodeURIComponent(company.id)}`}
+      className="gof-card"
       aria-label={`View ${company.name} offices`}
     >
-      <div className="company-card-header">
-        <CompanyLogo companyId={company.id} companyName={company.name} />
-        <div>
-          <h2 className="company-name">{company.name}</h2>
-          <p className="company-industry">{company.industry}</p>
+      <Photo
+        seed={company.id}
+        w={640}
+        h={360}
+        className="gof-card-photo"
+        photo={company.photo}
+        subject={company.name}
+      >
+        <span className="gof-card-flags">
+          {codes.slice(0, 3).map((c) => (
+            <FlagChip key={c} code={c} />
+          ))}
+          {codes.length > 3 && <span className="gof-card-flagmore">+{codes.length - 3}</span>}
+        </span>
+        {hq && <span className="gof-card-hq">{hq.city}</span>}
+      </Photo>
+      <div className="gof-card-body">
+        <div className="gof-card-top">
+          <Monogram name={company.name} size={40} square />
+          <div style={{ minWidth: 0, flex: 1 }}>
+            <div className="gof-card-name">{company.name}</div>
+            <div className="gof-card-ind">{company.industry}</div>
+          </div>
+        </div>
+        <div className="gof-card-meta">
+          <span>
+            <b>{offices.length}</b> {offices.length === 1 ? "office" : "offices"}
+          </span>
+          <span className="gof-dot">·</span>
+          <span>
+            <b>{countries.size}</b> {countries.size === 1 ? "country" : "countries"}
+          </span>
         </div>
       </div>
-      <p className="company-description">{company.description}</p>
-      <div className="company-meta">
-        <span className="meta-pill">{offices.length} office{offices.length !== 1 ? "s" : ""}</span>
-        <span className="meta-pill">{countries.length} countr{countries.length !== 1 ? "ies" : "y"}</span>
-      </div>
-      {countries.length > 0 && (
-        <p className="company-countries">{countries.join(" · ")}</p>
-      )}
-    </article>
+    </Link>
   );
 }

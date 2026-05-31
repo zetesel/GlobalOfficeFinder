@@ -1,10 +1,26 @@
+export interface CompanyPhoto {
+  /** Direct image URL (e.g. an upload.wikimedia.org thumbnail). */
+  url: string;
+  /** Canonical source page for the photo (e.g. the Commons File: page). */
+  sourceUrl: string;
+  /** Author / photographer / uploader credit string. */
+  author: string;
+  /** Short license code, e.g. "CC0", "PD", "CC-BY-4.0", "CC-BY-SA-3.0". */
+  license: string;
+  /** Canonical license deed URL. */
+  licenseUrl: string;
+  /** Original file title from the source, when known. */
+  title?: string;
+}
+
 export interface Company {
   id: string;
   name: string;
   website: string;
   industry: string;
   description: string;
-  logo: string;
+  logo?: string;
+  photo?: CompanyPhoto;
 }
 
 export interface Office {
@@ -20,6 +36,4 @@ export interface Office {
   latitude?: number;
   longitude?: number;
   contactUrl?: string;
-  /** When false, the office is withheld from the public site until approved. */
-  approved?: boolean;
 }

@@ -1,259 +1,365 @@
 import { useMemo, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import companies from "../../data/companies.json";
-import type { Company } from "../types";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import Dropdown from "../components/Dropdown";
 import CompanyCard from "../components/CompanyCard";
-import Select from "../components/Select";
-import { useCompanySearch } from "../hooks/useCompanySearch";
-import { MapView } from "../components/MapView";
-import { getFilteredHomeData } from "../utils/filters";
-import { usePublishedOffices } from "../hooks/usePublishedOffices";
-import { useLocallyApprovedCount } from "../hooks/useLocallyApprovedCount";
-import { revokeAllLocalApprovals } from "../utils/revokeLocalApprovals";
+import MapView, { type MapFocus } from "../components/MapView";
+import Monogram from "../components/Monogram";
+import FlagChip from "../components/FlagChip";
+import Photo from "../components/Photo";
+import { REGION_ORDER, truncate, typeTag } from "../utils/typeTag";
+import { useData } from "../hooks/useData";
 
-const allCompanies = companies as Company[];
-const ALL_COMPANY_NAMES_BY_ID = Object.fromEntries(
-  allCompanies.map((company) => [company.id, company.name])
-);
+type View = "grid" | "map";
+
+interface Filters {
+  q: string;
+  region: string;
+  industry: string;
+  otype: string;
+}
+
+const INITIAL_FILTERS: Filters = { q: "", region: "", industry: "", otype: "" };
 
 export default function HomePage() {
+  const { offices, companyById, companies } = useData();
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get("q") ?? "";
-  const region = searchParams.get("region") ?? "";
-  const country = searchParams.get("country") ?? "";
-  const industry = searchParams.get("industry") ?? "";
-  const officeType = searchParams.get("officeType") ?? "";
-  const [revoking, setRevoking] = useState(false);
 
-  const { results: searchResults } = useCompanySearch(allCompanies, query);
+  const view: View = searchParams.get("view") === "map" ? "map" : "grid";
+  const activeId = searchParams.get("office");
 
-  const publishedOffices = usePublishedOffices();
-  const locallyApprovedCount = useLocallyApprovedCount();
+  const [filters, setFilters] = useState<Filters>(INITIAL_FILTERS);
+  const [hoverId, setHoverId] = useState<string | null>(null);
+  const [focus, setFocus] = useState<MapFocus>(() =>
+    activeId ? { id: activeId } : { fit: true },
+  );
 
-  function handleRevokeApprovals() {
-    const confirmed = window.confirm(
-      "Revoke all local approvals?\n\nThis clears approve/reject decisions, catalog approvals, office corrections, and cached map geocodes. Offices will return to waiting for approval on this browser. Data in data/offices.json is not changed.",
+  // Detect external activeId changes (e.g., browser back from CompanyPage)
+  // and re-issue a focus signal. Closing the tile (activeId → null) is
+  // intentionally left alone so the map stays put.
+  const [lastActiveId, setLastActiveId] = useState<string | null>(activeId);
+  if (lastActiveId !== activeId) {
+    setLastActiveId(activeId);
+    if (activeId) setFocus({ id: activeId });
+  }
+
+  const setFilter = <K extends keyof Filters>(k: K, v: Filters[K]) =>
+    setFilters((f) => ({ ...f, [k]: v }));
+
+  function updateParams(patch: { view?: View | null; office?: string | null }) {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        if ("view" in patch) {
+          if (patch.view && patch.view !== "grid") next.set("view", patch.view);
+          else next.delete("view");
+        }
+        if ("office" in patch) {
+          if (patch.office) next.set("office", patch.office);
+          else next.delete("office");
+        }
+        return next;
+      },
+      { replace: true },
     );
-    if (!confirmed) return;
-    setRevoking(true);
-    setTimeout(() => revokeAllLocalApprovals(), 250);
   }
 
-  const allRegions = useMemo(() => [...new Set(publishedOffices.map((o) => o.region))].sort(), [publishedOffices]);
-  const allOfficeTypes = useMemo(() => [...new Set(publishedOffices.map((o) => o.officeType))].sort(), [publishedOffices]);
-  const allIndustries = useMemo(() => {
-    const companyIds = new Set(publishedOffices.map((o) => o.companyId));
-    return [...new Set(allCompanies.filter((c) => companyIds.has(c.id)).map((c) => c.industry))].sort();
-  }, [publishedOffices]);
-  const allCountries = useMemo(() => [
-    ...new Map(publishedOffices.map((o) => [o.countryCode, o.country])).entries(),
-  ].sort((a, b) => a[1].localeCompare(b[1])), [publishedOffices]);
-
-  const { filteredCompanies, filteredOfficesByCompany, mapOffices } = useMemo(
-    () =>
-      getFilteredHomeData(searchResults, publishedOffices, {
-        region,
-        country,
-        industry,
-        officeType,
-      }),
-    [searchResults, publishedOffices, region, country, industry, officeType],
-  );
-
-  function getOfficesForCompany(companyId: string) {
-    return filteredOfficesByCompany.get(companyId) ?? [];
-  }
-
-  const countryOptions = useMemo(() => {
-    if (!region) return allCountries;
-    return allCountries.filter(([code]) => {
-      const officeInRegion = publishedOffices.find(
-        (o) => o.countryCode === code && o.region === region
-      );
-      return !!officeInRegion;
+  const industries = useMemo(() => {
+    const m: Record<string, number> = {};
+    companies.forEach((c) => {
+      m[c.industry] = (m[c.industry] || 0) + 1;
     });
-  }, [region, allCountries, publishedOffices]);
+    return Object.keys(m)
+      .sort()
+      .map((k) => ({ value: k, label: k, count: m[k] }));
+  }, [companies]);
 
-  function setFilterParam(name: string, value: string | boolean) {
-    const next = new URLSearchParams(searchParams);
-    const normalizedValue = typeof value === "boolean" ? (value ? "1" : "") : value;
-    if (normalizedValue) next.set(name, normalizedValue);
-    else next.delete(name);
-    setSearchParams(next);
+  const { q, region, industry, otype } = filters;
+
+  const matchOffices = useMemo(() => {
+    const needle = q.trim().toLowerCase();
+    return offices.filter((o) => {
+      const co = companyById[o.companyId];
+      if (!co) return false;
+      if (region && o.region !== region) return false;
+      if (otype && typeTag(o.officeType).tone !== otype) return false;
+      if (industry && co.industry !== industry) return false;
+      if (needle) {
+        const s = (
+          co.name +
+          " " +
+          co.industry +
+          " " +
+          o.city +
+          " " +
+          o.country
+        ).toLowerCase();
+        if (!s.includes(needle)) return false;
+      }
+      return true;
+    });
+  }, [offices, companyById, q, region, industry, otype]);
+
+  const companyList = useMemo(() => {
+    const byCo: Record<string, typeof matchOffices> = {};
+    matchOffices.forEach((o) => {
+      (byCo[o.companyId] = byCo[o.companyId] || []).push(o);
+    });
+    return Object.keys(byCo)
+      .map((id) => ({ company: companyById[id], offices: byCo[id] }))
+      .filter((x) => x.company)
+      .sort((a, b) => a.company.name.localeCompare(b.company.name));
+  }, [matchOffices, companyById]);
+
+  const stats = {
+    companies: companyList.length,
+    offices: matchOffices.length,
+    countries: new Set(matchOffices.map((o) => o.country)).size,
+  };
+  const filtered = Boolean(region || industry || otype || q);
+
+  const resetFilters = () => setFilters(INITIAL_FILTERS);
+
+  function handleResetView() {
+    updateParams({ office: null });
+    // Force a new focus identity so the effect refits even if the previous
+    // focus was already { fit: true }.
+    setFocus({ fit: true });
   }
 
-  const hasActiveFilters = Boolean(
-    query || region || country || industry || officeType,
-  );
-  const isEmptyCatalog = publishedOffices.length === 0 && !hasActiveFilters;
+  function handleBackgroundClick() {
+    if (activeId) updateParams({ office: null });
+  }
+
+  const activeOffice = activeId ? matchOffices.find((x) => x.id === activeId) ?? null : null;
+  const activeCompany = activeOffice ? companyById[activeOffice.companyId] : null;
 
   return (
-    <div className="home-page container">
-      <section className="hero-section">
-        <h1>Find Company Offices Worldwide</h1>
-        <p className="hero-subtitle">
-          Search for companies and discover where they operate across the globe.
-        </p>
-      </section>
-
-      <section className="search-section" aria-label="Search and filter">
-        <div className="search-bar">
-          <label htmlFor="search-input" className="sr-only">
-            Search companies
-          </label>
-          <input
-            id="search-input"
-            type="search"
-            placeholder="Search by company name or industry…"
-            value={query}
-            onChange={(e) => setFilterParam("q", e.target.value)}
-            className="search-input"
-            autoComplete="off"
-          />
-        </div>
-        <div className="filters">
-          <div className="filter-row">
-            <div className="filter-group">
-              <Select
-                label="Region"
-                value={region}
-                options={[
-                  { value: "", label: "All regions" },
-                  ...allRegions.map((r) => ({ value: r, label: r })),
-                ]}
-                onChange={(value) => {
-                  const next = new URLSearchParams(searchParams);
-                  if (value) next.set("region", value);
-                  else next.delete("region");
-                  next.delete("country");
-                  setSearchParams(next);
-                }}
+    <div className="gof-browse">
+      <div className="gof-toolbar">
+        <div className="gof-toolbar-row">
+          <div className="gof-searchwrap">
+            <svg width="18" height="18" viewBox="0 0 18 18" className="gof-searchic" aria-hidden="true">
+              <circle cx="8" cy="8" r="5.5" stroke="currentColor" strokeWidth="1.6" fill="none" />
+              <path
+                d="M12.5 12.5L16 16"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
               />
-            </div>
-            <div className="filter-group">
-              <Select
-                label="Country"
-                value={country}
-                options={[
-                  { value: "", label: "All countries" },
-                  ...countryOptions.map(([code, name]) => ({ value: code, label: name })),
-                ]}
-                onChange={(value) => setFilterParam("country", value)}
-              />
-            </div>
-            <div className="filter-group">
-              <Select
-                label="Industry"
-                value={industry}
-                options={[
-                  { value: "", label: "All industries" },
-                  ...allIndustries.map((value) => ({ value, label: value })),
-                ]}
-                onChange={(value) => setFilterParam("industry", value)}
-              />
-            </div>
-            <div className="filter-group">
-              <Select
-                label="Office type"
-                value={officeType}
-                options={[
-                  { value: "", label: "All office types" },
-                  ...allOfficeTypes.map((value) => ({ value, label: value })),
-                ]}
-                onChange={(value) => setFilterParam("officeType", value)}
-              />
-            </div>
-            {(query || region || country || industry || officeType) && (
+            </svg>
+            <input
+              type="search"
+              className="gof-search"
+              aria-label="Search companies, cities, countries"
+              placeholder="Search companies, cities, countries…"
+              value={q}
+              onChange={(e) => setFilter("q", e.target.value)}
+            />
+            {q && (
               <button
-                className="btn-clear-filter"
-                onClick={() => {
-                  setSearchParams(new URLSearchParams());
-                }}
-                title="Clear filters"
+                type="button"
+                className="gof-clear"
+                aria-label="Clear search"
+                onClick={() => setFilter("q", "")}
               >
-                <span className="btn-clear-filter__icon">✕</span>
-                <span className="btn-clear-filter__label">
-                  <span className="btn-clear-filter__text">Clear filters</span>
-                </span>
+                ✕
               </button>
             )}
           </div>
-        </div>
-      </section>
-
-      {allCountries.length > 0 && (
-        <section aria-label="Countries quick-nav" className="country-chips">
-          <p className="chips-label">Browse by country:</p>
-          <div className="chips">
-            {allCountries.slice(0, 12).map(([code, name]) => (
-              <Link key={code} to={`/country/${code}`} className="chip">
-                {name}
-              </Link>
-            ))}
+          <div className="gof-viewtoggle" role="tablist" aria-label="View toggle">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={view !== "map"}
+              className={view !== "map" ? "is-active" : ""}
+              onClick={() => updateParams({ view: "grid", office: null })}
+            >
+              <svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true">
+                <rect x="1" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
+                <rect x="8.5" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
+                <rect x="1" y="8.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
+                <rect x="8.5" y="8.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
+              </svg>
+              Directory
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={view === "map"}
+              className={view === "map" ? "is-active" : ""}
+              onClick={() => updateParams({ view: "map" })}
+            >
+              <svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true">
+                <path
+                  d="M1 4L5.5 2L9.5 4L14 2V11L9.5 13L5.5 11L1 13V4Z"
+                  stroke="currentColor"
+                  strokeWidth="1.3"
+                  fill="none"
+                  strokeLinejoin="round"
+                />
+                <path d="M5.5 2V11M9.5 4V13" stroke="currentColor" strokeWidth="1.3" />
+              </svg>
+              Map
+            </button>
           </div>
-        </section>
-      )}
+        </div>
+        <div className="gof-toolbar-row">
+          <div className="gof-filters">
+            <Dropdown
+              label="Region"
+              value={region}
+              width={130}
+              options={[
+                { value: "", label: "All regions" },
+                ...REGION_ORDER.map((r) => ({ value: r, label: r })),
+              ]}
+              onChange={(v) => setFilter("region", v)}
+            />
+            <Dropdown
+              label="Industry"
+              value={industry}
+              width={150}
+              options={[{ value: "", label: "All industries" }, ...industries]}
+              onChange={(v) => setFilter("industry", v)}
+            />
+            <Dropdown
+              label="Type"
+              value={otype}
+              width={120}
+              options={[
+                { value: "", label: "All types" },
+                { value: "hq", label: "Headquarters" },
+                { value: "reg", label: "Regional" },
+                { value: "rnd", label: "R&D" },
+              ]}
+              onChange={(v) => setFilter("otype", v)}
+            />
+            {filtered && (
+              <button type="button" className="gof-reset" onClick={resetFilters}>
+                Clear all
+              </button>
+            )}
+          </div>
+          <div className="gof-count" aria-live="polite">
+            <b>{stats.companies}</b> companies<span className="gof-dot">·</span>
+            <b>{stats.offices}</b> offices<span className="gof-dot">·</span>
+            <b>{stats.countries}</b> countries
+          </div>
+        </div>
+      </div>
 
-       <section aria-label="Company results" className="results-section">
-          {locallyApprovedCount > 0 ? (
-            <div className={`info-card revoke-approvals-bar${revoking ? " exiting" : ""}`} data-testid="revoke-approvals-bar">
-              <p className="muted">
-                {locallyApprovedCount} office{locallyApprovedCount !== 1 ? "s" : ""} approved locally
-                on this browser. Revoke to send them back to the Review Queue.
-              </p>
-              <button type="button" className="btn-clear" onClick={handleRevokeApprovals}>
-                Revoke approvals
+      {view === "map" ? (
+        <div className="gof-mapwrap">
+          <MapView
+            offices={matchOffices}
+            companyById={companyById}
+            activeId={activeId}
+            hoverId={hoverId}
+            onHover={setHoverId}
+            onSelect={(o) => {
+              updateParams({ office: o.id });
+              setFocus({ id: o.id });
+            }}
+            onResetView={handleResetView}
+            onBackgroundClick={handleBackgroundClick}
+            focus={focus}
+            padding={[70, 70]}
+          />
+          {activeOffice && activeCompany && (
+            <OfficeTile
+              office={activeOffice}
+              company={activeCompany}
+              onClose={() => updateParams({ office: null })}
+              onReadMore={() =>
+                navigate(
+                  `/company/${encodeURIComponent(activeCompany.id)}?office=${encodeURIComponent(activeOffice.id)}`,
+                )
+              }
+            />
+          )}
+        </div>
+      ) : (
+        <div className="gof-grid-scroll">
+          {companyList.length === 0 ? (
+            <div className="gof-empty" data-testid="empty-state">
+              <div className="gof-empty-ic" aria-hidden="true">
+                ⊘
+              </div>
+              No companies match these filters.
+              <button type="button" className="gof-link" onClick={resetFilters}>
+                Reset filters
               </button>
             </div>
-          ) : null}
-         <p className="results-count">
-           {filteredCompanies.length}{" "}
-           {filteredCompanies.length !== 1 ? "companies" : "company"} found
-         </p>
-          {filteredCompanies.length === 0 ? (
-            isEmptyCatalog ? (
-              <div className="info-card empty-catalog" data-testid="empty-catalog">
-                <h2>No offices published yet</h2>
-                <p className="muted">
-                  Offices must be approved in the Review Queue before they appear on the homepage.
-                  Check Recent Changes for the latest scraper run, then approve and export offices
-                  for merge into the catalog.
-                </p>
-                <div className="empty-catalog-links">
-                  <Link to="/review-queue" className="btn-primary">
-                    Open Review Queue
-                  </Link>
-                  <Link to="/recent-changes" className="chip">
-                    View Recent Changes
-                  </Link>
-                </div>
-              </div>
-            ) : (
-              <p className="no-results">No companies match your search. Try different filters.</p>
-            )
           ) : (
-            <>
-              <div className="company-grid">
-               {filteredCompanies.map((company) => (
-                 <CompanyCard
-                   key={company.id}
-                   company={company}
-                   offices={getOfficesForCompany(company.id)}
-                 />
-               ))}
-             </div>
-             <div className="map-section">
-               <h2>Office Locations Map</h2>
-                <MapView
-                  offices={mapOffices}
-                  center={[20, 0]}
-                  zoom={2}
-                  companyNamesById={ALL_COMPANY_NAMES_BY_ID}
-                />
-              </div>
-            </>
+            <div className="gof-grid">
+              {companyList.map(({ company, offices }) => (
+                <CompanyCard key={company.id} company={company} offices={offices} />
+              ))}
+            </div>
           )}
-       </section>
+        </div>
+      )}
+    </div>
+  );
+}
+
+interface OfficeTileProps {
+  office: import("../types").Office;
+  company: import("../types").Company;
+  onClose: () => void;
+  onReadMore: () => void;
+}
+
+function OfficeTile({ office, company, onClose, onReadMore }: OfficeTileProps) {
+  const tag = typeTag(office.officeType);
+  const summary = truncate(company.description, 160);
+  return (
+    <div className="gof-mapcard" role="dialog" aria-label={`${company.name} — ${office.city}`}>
+      <Photo
+        seed={office.id}
+        w={560}
+        h={200}
+        className="gof-mapcard-photo"
+        photo={company.photo}
+        subject={company.name}
+      >
+        <span className={"gof-tag tag-" + tag.tone + " gof-mapcard-tag"}>{tag.short}</span>
+        <button
+          type="button"
+          className="gof-mapcard-close"
+          aria-label="Close office details"
+          onClick={onClose}
+        >
+          ✕
+        </button>
+      </Photo>
+      <div className="gof-mapcard-body">
+        <div className="gof-mapcard-head">
+          <Monogram name={company.name} size={42} square />
+          <div style={{ minWidth: 0, flex: 1 }}>
+            <div className="gof-mapcard-name">{company.name}</div>
+            <div className="gof-mapcard-loc">
+              <FlagChip code={office.countryCode} />
+              <span>
+                {office.city}, {office.country}
+              </span>
+            </div>
+          </div>
+        </div>
+        {summary && <p className="gof-mapcard-desc">{summary}</p>}
+        <div className="gof-mapcard-actions">
+          <button type="button" className="gof-btn" onClick={onReadMore}>
+            Read more
+          </button>
+          <Link
+            to={`/country/${encodeURIComponent(office.country)}`}
+            className="gof-mapcard-country"
+          >
+            View country
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

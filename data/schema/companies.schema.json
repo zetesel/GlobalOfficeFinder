@@ -34,6 +34,20 @@
       "logo": {
         "type": "string",
         "description": "URL or relative path to logo image (can be empty)"
+      },
+      "photo": {
+        "type": "object",
+        "description": "Real building photo from a permissive-license source (e.g. Wikimedia Commons). Omitted when no curated source is available.",
+        "required": ["url", "sourceUrl", "author", "license", "licenseUrl"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "pattern": "^https?://" },
+          "sourceUrl": { "type": "string", "pattern": "^https?://" },
+          "author": { "type": "string", "minLength": 1, "maxLength": 500 },
+          "license": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "licenseUrl": { "type": "string", "pattern": "^https?://" },
+          "title": { "type": "string", "maxLength": 500 }
+        }
       }
     }
   }

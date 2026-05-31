@@ -1,259 +1,203 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import "leaflet.markercluster";
-import "leaflet.markercluster/dist/MarkerCluster.css";
-import "leaflet.markercluster/dist/MarkerCluster.Default.css";
-import type { Office } from "../types";
-import { sanitizeUrl } from "../utils/data";
+import type { Company, Office } from "../types";
 
-// Fix for default marker icon issues with Vite/Leaflet
-import icon from "leaflet/dist/images/marker-icon.png";
-import iconShadow from "leaflet/dist/images/marker-shadow.png";
-
-const DefaultIcon = L.icon({
-  iconUrl: icon,
-  shadowUrl: iconShadow,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
-
-const AUTO_FIT_MAX_ZOOM = 12;
-const AUTO_FIT_PADDING: L.PointExpression = [24, 24];
-
-type CoordinateOffice = Office & { latitude: number; longitude: number };
-
-type DefaultMapView =
-  | { type: "center"; center: [number, number]; zoom: number }
-  | { type: "bounds"; bounds: L.LatLngBounds; maxZoom: number };
+export interface MapFocus {
+  id?: string;
+  fit?: boolean;
+}
 
 interface MapViewProps {
   offices: Office[];
-  center: [number, number];
-  zoom?: number;
-  height?: string;
-  autoFit?: boolean;
-  companyName?: string;
-  companyNamesById?: Record<string, string>;
-  focus?: { lat: number; lng: number; zoom: number };
-  onReset?: () => void;
-  showResetButton?: boolean;
-  overviewAutoFit?: boolean;
+  companyById: Record<string, Company>;
+  activeId?: string | null;
+  hoverId?: string | null;
+  onHover?: (id: string | null) => void;
+  onSelect?: (office: Office) => void;
+  onResetView?: () => void;
+  onBackgroundClick?: () => void;
+  focus?: MapFocus;
+  padding?: [number, number];
 }
 
-function buildDefaultView(
-  coordinateOffices: CoordinateOffice[],
-  center: [number, number],
-  zoom: number,
-  autoFit: boolean,
-): DefaultMapView {
-  if (autoFit && coordinateOffices.length > 0) {
-    if (coordinateOffices.length === 1) {
-      const office = coordinateOffices[0];
-      return {
-        type: "center",
-        center: [office.latitude, office.longitude],
-        zoom,
-      };
-    }
-    const bounds = L.latLngBounds(
-      coordinateOffices.map((office) => [office.latitude, office.longitude] as [number, number]),
-    );
-    return {
-      type: "bounds",
-      bounds,
-      maxZoom: Math.min(zoom, AUTO_FIT_MAX_ZOOM),
-    };
-  }
-  return { type: "center", center, zoom };
+function hasCoords(o: Office): o is Office & { latitude: number; longitude: number } {
+  return typeof o.latitude === "number" && typeof o.longitude === "number";
 }
 
-function applyDefaultView(map: L.Map, view: DefaultMapView): void {
-  if (view.type === "bounds") {
-    map.fitBounds(view.bounds, {
-      padding: AUTO_FIT_PADDING,
-      maxZoom: view.maxZoom,
-    });
-    return;
-  }
-  map.setView(view.center as L.LatLngExpression, view.zoom);
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
-export function MapView({
+export default function MapView({
   offices,
-  center,
-  zoom = 2,
-  height = "400px",
-  autoFit = false,
-  companyName,
-  companyNamesById = {},
+  companyById,
+  activeId,
+  hoverId,
+  onHover,
+  onSelect,
+  onResetView,
+  onBackgroundClick,
   focus,
-  onReset,
-  showResetButton = true,
-  overviewAutoFit,
+  padding,
 }: MapViewProps) {
+  const elRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<L.Map | null>(null);
-  const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const defaultViewRef = useRef<DefaultMapView>(
-    buildDefaultView([], center, zoom, autoFit),
-  );
-  const overviewViewRef = useRef<DefaultMapView>(
-    buildDefaultView([], center, zoom, autoFit),
-  );
+  const markersRef = useRef<Record<string, L.Marker>>({});
+  const onBackgroundClickRef = useRef<typeof onBackgroundClick>(onBackgroundClick);
+  useLayoutEffect(() => {
+    onBackgroundClickRef.current = onBackgroundClick;
+  }, [onBackgroundClick]);
 
-  const handleReset = useCallback(() => {
-    const map = mapRef.current;
-    if (!map) return;
-
-    if (focus) {
-      const focusedView: DefaultMapView = {
-        type: "center",
-        center: [focus.lat, focus.lng],
-        zoom: focus.zoom,
-      };
-      defaultViewRef.current = focusedView;
-      applyDefaultView(map, focusedView);
-      return;
-    }
-
-    onReset?.();
-    defaultViewRef.current = overviewViewRef.current;
-    applyDefaultView(map, overviewViewRef.current);
-  }, [focus, onReset]);
-
-  // Initialize map and tile layer once on mount
   useEffect(() => {
-    if (!containerRef.current) return;
-
-    const map = L.map(containerRef.current, {
-      center: center as L.LatLngExpression,
-      zoom,
+    if (!elRef.current) return;
+    const map = L.map(elRef.current, {
+      zoomControl: false,
+      scrollWheelZoom: true,
+      attributionControl: true,
+      worldCopyJump: true,
+      minZoom: 2,
     });
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map);
-
-    const cluster = L.markerClusterGroup();
-    map.addLayer(cluster);
-
+    L.control.zoom({ position: "bottomright" }).addTo(map);
+    L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+      {
+        maxZoom: 19,
+        subdomains: "abcd",
+        attribution: "&copy; OpenStreetMap &copy; CARTO",
+        // Larger buffer keeps neighbouring tiles painted during pan/zoom,
+        // and updateWhenZooming smooths the in-flight scale transition.
+        keepBuffer: 4,
+        updateWhenZooming: true,
+      },
+    ).addTo(map);
+    map.setView([28, 8], 2);
+    map.on("click", () => onBackgroundClickRef.current?.());
     mapRef.current = map;
-    clusterRef.current = cluster;
-
+    const tid = window.setTimeout(() => map.invalidateSize(), 60);
     return () => {
+      window.clearTimeout(tid);
       map.remove();
       mapRef.current = null;
-      clusterRef.current = null;
     };
-  // center and zoom are intentionally read only at mount; a separate effect handles updates
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
-  // Update map view when center or zoom change; respect focus when provided
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    if (focus) {
-      defaultViewRef.current = {
-        type: "center",
-        center: [focus.lat, focus.lng],
-        zoom: focus.zoom,
-      };
-      map.setView([focus.lat, focus.lng], focus.zoom);
-      return;
-    }
-    defaultViewRef.current = overviewViewRef.current;
-    if (autoFit) return;
-    map.setView(center as L.LatLngExpression, zoom);
-  }, [center, zoom, autoFit, focus]);
-
-  // Update markers when offices change
-  useEffect(() => {
-    const cluster = clusterRef.current;
-    const map = mapRef.current;
-    if (!cluster) return;
-
-    cluster.clearLayers();
-
-    const coordinateOffices = offices.filter(
-      (office): office is CoordinateOffice =>
-        typeof office.latitude === "number" && typeof office.longitude === "number",
-    );
-
-    overviewViewRef.current = buildDefaultView(
-      coordinateOffices,
-      center,
-      zoom,
-      overviewAutoFit ?? autoFit,
-    );
-    if (!focus) {
-      defaultViewRef.current = overviewViewRef.current;
-    }
-
-    coordinateOffices.forEach((office) => {
-      const container = document.createElement("div");
-
-      const title = document.createElement("h4");
-      title.textContent = companyName || companyNamesById[office.companyId] || office.companyId;
-      title.style.margin = "0 0 5px 0";
-      container.appendChild(title);
-
-      const location = document.createElement("p");
-      const strong = document.createElement("strong");
-      strong.textContent = `${office.city}, ${office.country}`;
-      location.appendChild(strong);
-      container.appendChild(location);
-
-      const addressEl = document.createElement("p");
-      addressEl.textContent = office.address;
-      container.appendChild(addressEl);
-
-      const safeContactUrl = sanitizeUrl(office.contactUrl);
-      if (safeContactUrl) {
-        const link = document.createElement("a");
-        link.href = safeContactUrl;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.textContent = "Visit website";
-        container.appendChild(link);
-        container.appendChild(document.createElement("br"));
-      }
-
-      const detailsLink = document.createElement("a");
-      detailsLink.href = `${import.meta.env.BASE_URL}company/${encodeURIComponent(office.companyId)}`;
-      detailsLink.textContent = "View company details";
-      container.appendChild(detailsLink);
-
-      L.marker([office.latitude, office.longitude])
-        .bindPopup(container)
-        .addTo(cluster);
+    Object.values(markersRef.current).forEach((m) => m.remove());
+    markersRef.current = {};
+    const positioned = offices.filter(hasCoords);
+    positioned.forEach((o) => {
+      const co = companyById[o.companyId];
+      const icon = L.divIcon({
+        className: "gof-pin-wrap",
+        html: `<div class="gof-pin" data-id="${escapeHtml(o.id)}"><span class="gof-pin-dot"></span></div>`,
+        iconSize: [26, 26],
+        iconAnchor: [13, 13],
+      });
+      const m = L.marker([o.latitude, o.longitude], { icon, riseOnHover: true }).addTo(map);
+      m.on("mouseover", () => onHover?.(o.id));
+      m.on("mouseout", () => onHover?.(null));
+      m.on("click", () => onSelect?.(o));
+      m.bindTooltip(
+        `<strong>${escapeHtml(co ? co.name : "")}</strong><br>${escapeHtml(o.city)}, ${escapeHtml(o.country)}`,
+        { direction: "top", offset: [0, -12], className: "gof-tip" },
+      );
+      markersRef.current[o.id] = m;
     });
-
-    if (focus) return;
-
-    if (autoFit && map && coordinateOffices.length > 0) {
-      applyDefaultView(map, defaultViewRef.current);
+    if (positioned.length) {
+      const b = L.latLngBounds(positioned.map((o) => [o.latitude, o.longitude] as [number, number]));
+      map.fitBounds(b, { padding: padding || [60, 60], maxZoom: 11, animate: true });
     }
-  }, [offices, autoFit, overviewAutoFit, zoom, center, companyName, companyNamesById, focus]);
+    // hover/select handlers are stable refs from parent
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [offices, companyById]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    if (focus?.id && markersRef.current[focus.id]) {
+      const o = offices.find((x) => x.id === focus.id);
+      if (o && hasCoords(o)) {
+        const target = L.latLng(o.latitude, o.longitude);
+        const targetZoom = Math.max(map.getZoom(), 10);
+        const center = map.getCenter();
+        const close = center.distanceTo(target) < 50 && Math.abs(map.getZoom() - targetZoom) < 0.25;
+        const marker = markersRef.current[o.id];
+        if (!close) {
+          // Slightly longer duration + gentle easing gives the tile pyramid
+          // time to fetch and crossfade, eliminating the mid-flight label
+          // stretching that's visible with a steeper curve.
+          map.flyTo(target, targetZoom, { duration: 1.0, easeLinearity: 0.25 });
+          // Defer the tooltip until the animation settles so it doesn't
+          // float over still-loading tiles.
+          map.once("moveend", () => marker.openTooltip());
+        } else {
+          marker.openTooltip();
+        }
+      }
+    } else if (focus?.fit) {
+      const positioned = offices.filter(hasCoords);
+      if (positioned.length) {
+        const b = L.latLngBounds(
+          positioned.map((o) => [o.latitude, o.longitude] as [number, number]),
+        );
+        map.fitBounds(b, { padding: padding || [60, 60], maxZoom: 11, animate: true });
+      } else {
+        map.setView([28, 8], 2, { animate: true });
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focus]);
+
+  useEffect(() => {
+    Object.entries(markersRef.current).forEach(([id, m]) => {
+      const el = m.getElement();
+      if (!el) return;
+      const pin = el.querySelector(".gof-pin");
+      if (!pin) return;
+      pin.classList.toggle("is-active", id === activeId);
+      pin.classList.toggle("is-hover", id === hoverId);
+      if (id === activeId || id === hoverId) m.setZIndexOffset(1000);
+      else m.setZIndexOffset(0);
+    });
+  }, [activeId, hoverId, offices]);
 
   return (
-    <div className="map-view" style={{ height, width: "100%" }}>
-      {showResetButton ? (
+    <>
+      <div ref={elRef} className="gof-map" role="region" aria-label="Map of offices" />
+      {onResetView && (
         <button
           type="button"
-          className="map-view-reset"
-          aria-label="Reset map to default view"
-          title="Reset map view"
-          onClick={handleReset}
+          className="gof-resetview"
+          aria-label="Reset map view"
+          title="Reset view"
+          onClick={onResetView}
         >
-          Reset view
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M3.5 8a4.5 4.5 0 1 1 1.32 3.18"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <path
+              d="M3 4v3.2h3.2"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </button>
-      ) : null}
-      <div ref={containerRef} className="map-view-canvas" />
-    </div>
+      )}
+    </>
   );
 }

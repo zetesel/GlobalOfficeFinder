@@ -1,211 +1,241 @@
-import React from "react";
-import { useParams, Link } from "react-router-dom";
-import companies from "../../data/companies.json";
-import type { Company, Office } from "../types";
-import OfficeCard from "../components/OfficeCard";
-import CompanyLogo from "../components/CompanyLogo";
-import { MapView } from "../components/MapView";
-import { sanitizeUrl } from "../utils/data";
-import { usePublishedOffices } from "../hooks/usePublishedOffices";
+import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  Link,
+  useNavigate,
+  useNavigationType,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
+import { useData } from "../hooks/useData";
+import Photo from "../components/Photo";
+import Monogram from "../components/Monogram";
+import FlagChip from "../components/FlagChip";
+import MapView, { type MapFocus } from "../components/MapView";
+import { typeTag } from "../utils/typeTag";
+import { sanitizeUrl } from "../utils/sanitizeUrl";
 
-const allCompanies = companies as Company[];
-const DEFAULT_WORLD_CENTER: [number, number] = [20, 0]; // Leaflet [lat, lng] tuple: 20°N latitude, 0° longitude
-const SINGLE_OFFICE_ZOOM = 10;
-const MULTI_OFFICE_ZOOM = 3;
-type CoordinateOffice = Office & { latitude: number; longitude: number };
-
-function safeJsonLd(value: unknown): string {
-  return JSON.stringify(value).replace(/</g, "\\u003c");
+interface StatProps {
+  n: number;
+  label: string;
 }
-
-function getAverageCoordinates(offices: CoordinateOffice[]): [number, number] {
-  if (offices.length === 0) return DEFAULT_WORLD_CENTER;
-
-  const { latSum, lonSum } = offices.reduce(
-    (acc, office) => {
-      acc.latSum += office.latitude;
-      acc.lonSum += office.longitude;
-      return acc;
-    },
-    { latSum: 0, lonSum: 0 }
+function Stat({ n, label }: StatProps) {
+  return (
+    <div className="gof-stat">
+      <div className="gof-stat-n">{n}</div>
+      <div className="gof-stat-l">{label}</div>
+    </div>
   );
-
-  return [latSum / offices.length, lonSum / offices.length];
 }
 
 export default function CompanyPage() {
-  const { id } = useParams<{ id: string }>();
-  const company = allCompanies.find((c) => c.id === id);
+  const { id = "" } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const navType = useNavigationType();
+  const goBack = () => {
+    if (navType === "PUSH" && window.history.length > 1) navigate(-1);
+    else navigate("/");
+  };
+  const [searchParams] = useSearchParams();
+  const initialOfficeId = searchParams.get("office");
+  const { offices: allOffices, companyById } = useData();
+  const [hoverId, setHoverId] = useState<string | null>(null);
+  const [activeId, setActiveId] = useState<string | null>(initialOfficeId);
+  const [focus, setFocus] = useState<MapFocus>(
+    initialOfficeId ? { id: initialOfficeId } : { fit: true },
+  );
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
-  const publishedOffices = usePublishedOffices();
+  const company = companyById[id];
 
-  // Initialize hook early to satisfy React's hooks rules
-  const [selectedOffice, setSelectedOffice] = React.useState<CoordinateOffice | null>(null);
+  const offices = useMemo(
+    () => allOffices.filter((o) => o.companyId === id),
+    [allOffices, id],
+  );
+
+  // Scroll the targeted office card into view when arriving with ?office=…
+  useEffect(() => {
+    if (!initialOfficeId) return;
+    const el = cardRefs.current[initialOfficeId];
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [initialOfficeId]);
+
   if (!company) {
     return (
-      <div className="container page-error">
-        <h1>Company not found</h1>
-        <p>No company with the identifier "{id}" exists in our database.</p>
-        <Link to="/" className="btn-primary">
-          ← Back to search
+      <div className="gof-notfound">
+        Company not found.{" "}
+        <Link to="/" className="gof-link">
+          Back to directory
         </Link>
       </div>
     );
   }
 
-  const companyOffices = publishedOffices.filter((o) => o.companyId === company.id);
-  const mapOffices = companyOffices.filter(
-    (office): office is CoordinateOffice =>
-      typeof office.latitude === "number" && typeof office.longitude === "number"
-  );
-  const countries = [...new Set(companyOffices.map((o) => o.country))].sort();
-  const regions = [...new Set(companyOffices.map((o) => o.region))].sort();
-const mapCenter = getAverageCoordinates(mapOffices);
-  const mapZoom = mapOffices.length === 1 ? SINGLE_OFFICE_ZOOM : MULTI_OFFICE_ZOOM;
-  // Increase focus zoom to show only the nearest roads around the selected office
-  // (closer-in view helps users see the immediate vicinity of the office)
-  // Adjusted to 17 for an even closer zoom on the selected office area
-  const OFFICE_FOCUS_ZOOM = 17;
-  const focus = selectedOffice
-    ? { lat: selectedOffice.latitude, lng: selectedOffice.longitude, zoom: OFFICE_FOCUS_ZOOM }
-    : undefined;
+  const countries = new Set(offices.map((o) => o.country));
+  const regions = new Set(offices.map((o) => o.region));
+  const hq = offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
+  const website = sanitizeUrl(company.website);
 
-  const safeWebsite = sanitizeUrl(company.website);
-
-  // Group offices by region then country for display
-  const grouped = new Map<string, Map<string, Office[]>>();
-  for (const office of companyOffices) {
-    if (!grouped.has(office.region)) grouped.set(office.region, new Map());
-    const byCountry = grouped.get(office.region)!;
-    if (!byCountry.has(office.country)) byCountry.set(office.country, []);
-    byCountry.get(office.country)!.push(office);
+  function selectOffice(officeId: string) {
+    setActiveId(officeId);
+    setFocus({ id: officeId });
   }
 
   return (
-    <div className="company-page container">
-      <nav aria-label="Breadcrumb" className="breadcrumb">
-        <Link to="/">Home</Link> › <span>{company.name}</span>
-      </nav>
+    <div className="gof-page">
+      <div className="gof-page-inner">
+        <button type="button" className="gof-back" onClick={goBack}>
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <path
+              d="M8.5 3L4.5 7L8.5 11"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          Directory
+        </button>
 
-      <header className="company-page-header">
-        <CompanyLogo companyId={company.id} companyName={company.name} size="large" />
-        <div>
-          <h1>{company.name}</h1>
-          <p className="company-industry-tag">{company.industry}</p>
-          {safeWebsite && (
-            <a
-              href={safeWebsite}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="company-website-link"
-            >
-              {safeWebsite} ↗
-            </a>
-          )}
-        </div>
-      </header>
-
-      <section className="company-description-section">
-        <p>{company.description}</p>
-      </section>
-
-      <section className="company-stats">
-        <div className="stat-box">
-          <span className="stat-number">{companyOffices.length}</span>
-          <span className="stat-label">Offices</span>
-        </div>
-        <div className="stat-box">
-          <span className="stat-number">{countries.length}</span>
-          <span className="stat-label">Countries</span>
-        </div>
-        <div className="stat-box">
-          <span className="stat-number">{regions.length}</span>
-          <span className="stat-label">Regions</span>
-        </div>
-      </section>
-
-      <section className="offices-section">
-        <h2>Office Locations</h2>
-        {companyOffices.length === 0 ? (
-          <p className="no-results">
-            No published office locations are listed for this company yet. Locations may still be
-            under editorial review.
-          </p>
-        ) : (
-        <div className="company-offices-layout">
-          <div className="company-offices-list">
-            {[...grouped.entries()].sort().map(([region, byCountry]) => (
-              <div key={region} className="region-group">
-                <h3 className="region-heading">{region}</h3>
-                {[...byCountry.entries()].sort().map(([country, countryOffices]) => {
-                  const countryCode = countryOffices[0].countryCode;
-                  return (
-                    <div key={country} className="country-group">
-                      <h4 className="country-heading">
-                        <Link to={`/country/${countryCode}`}>{country}</Link>
-                      </h4>
-                      <div className="office-grid">
-                        {countryOffices.map((office) => (
-                          <OfficeCard
-                            key={office.id}
-                            office={office}
-                            onClick={() => setSelectedOffice(office as CoordinateOffice)}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })}
+        <Photo
+          seed={company.id}
+          w={1400}
+          h={620}
+          className="gof-hero"
+          photo={company.photo}
+          subject={company.name}
+        >
+          <div className="gof-hero-overlay">
+            <Monogram name={company.name} size={62} square />
+            <div style={{ minWidth: 0 }}>
+              <h1 className="gof-hero-name">{company.name}</h1>
+              <div className="gof-hero-ind">
+                {company.industry}
+                {hq ? ` · HQ in ${hq.city}` : ""}
               </div>
-            ))}
+            </div>
           </div>
-          <aside className="company-map-panel" aria-label="Company offices map">
-            <h3>Map</h3>
-            {mapOffices.length > 0 ? (
-              <MapView
-                offices={mapOffices}
-                center={mapCenter}
-                zoom={mapZoom}
-                height="520px"
-                autoFit={selectedOffice == null && mapOffices.length > 1}
-                overviewAutoFit={mapOffices.length > 1}
-                focus={focus}
-                companyName={company.name}
-              />
-            ) : (
-              <p className="no-results">
-                Map unavailable: office coordinates are not yet available for this company.
-              </p>
+        </Photo>
+
+        <div className="gof-page-grid">
+          <div className="gof-page-main">
+            {company.description && <p className="gof-co-desc">{company.description}</p>}
+            {website && (
+              <a
+                className="gof-co-link"
+                href={website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit website
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 13 13"
+                  style={{ marginLeft: 6 }}
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 9L9 4M9 4H5M9 4V8"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
             )}
+
+            <h2 className="gof-section-h">
+              Offices <span>{offices.length}</span>
+            </h2>
+            <div className="gof-office-grid">
+              {offices.map((o) => {
+                const tag = typeTag(o.officeType);
+                const isActive = activeId === o.id;
+                const isHover = hoverId === o.id;
+                return (
+                  <div
+                    key={o.id}
+                    ref={(el) => {
+                      cardRefs.current[o.id] = el;
+                    }}
+                    className={
+                      "gof-officecard" +
+                      (isActive ? " is-active" : "") +
+                      (isHover ? " is-hover" : "")
+                    }
+                    onMouseEnter={() => setHoverId(o.id)}
+                    onMouseLeave={() => setHoverId(null)}
+                    onClick={() => selectOffice(o.id)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        selectOffice(o.id);
+                      }
+                    }}
+                  >
+                    <Photo
+                      seed={o.id}
+                      w={520}
+                      h={300}
+                      className="gof-officecard-photo"
+                      photo={tag.tone === "hq" ? company.photo : undefined}
+                      subject={company.name}
+                    >
+                      <span
+                        className={"gof-tag tag-" + tag.tone + " gof-officecard-tag"}
+                      >
+                        {tag.short}
+                      </span>
+                    </Photo>
+                    <div className="gof-officecard-body">
+                      <div className="gof-officecard-city">{o.city}</div>
+                      <div className="gof-officecard-addr">
+                        {o.address}
+                        {o.postalCode ? ` · ${o.postalCode}` : ""}
+                      </div>
+                      <Link
+                        to={`/country/${encodeURIComponent(o.country)}`}
+                        className="gof-officecard-country"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <FlagChip code={o.countryCode} /> {o.country}
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <aside className="gof-page-side">
+            <div className="gof-statrow">
+              <Stat n={offices.length} label={offices.length === 1 ? "office" : "offices"} />
+              <Stat n={countries.size} label={countries.size === 1 ? "country" : "countries"} />
+              <Stat n={regions.size} label={regions.size === 1 ? "region" : "regions"} />
+            </div>
+            <div className="gof-locmap">
+              <div className="gof-locmap-head">Locations</div>
+              <div className="gof-locmap-canvas">
+                <MapView
+                  offices={offices}
+                  companyById={companyById}
+                  activeId={activeId}
+                  hoverId={hoverId}
+                  onHover={setHoverId}
+                  onSelect={(o) => selectOffice(o.id)}
+                  focus={focus}
+                  padding={[50, 50]}
+                />
+              </div>
+            </div>
           </aside>
         </div>
-        )}
-      </section>
-
-      {/* JSON-LD structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: safeJsonLd({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: company.name,
-            url: safeWebsite ?? undefined,
-            description: company.description,
-            location: companyOffices.map((o) => ({
-              "@type": "Place",
-              name: `${company.name} — ${o.city}`,
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: o.address,
-                addressLocality: o.city,
-                postalCode: o.postalCode,
-                addressCountry: o.countryCode,
-              },
-            })),
-          }),
-        }}
-      />
+      </div>
     </div>
   );
 }

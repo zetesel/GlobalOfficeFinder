@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "description": "Traceability manifest for the decorative photo pool used by src/components/Photo.tsx. Photos are sourced from Pexels (https://www.pexels.com/license/), which permits free commercial use, modification, and embedding with no attribution required. We still publish this manifest so that anyone forking the project can verify each image's source and current license status. The CDN URL pattern is https://images.pexels.com/photos/<id>/pexels-photo-<id>.jpeg — the source page lives at https://www.pexels.com/photo/<id>/.",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercialUseAllowed": true,
+    "modificationsAllowed": true,
+    "restrictions": [
+      "Don't sell unaltered copies of a photo (e.g. as a print).",
+      "Don't redistribute the photos on other stock platforms.",
+      "Don't imply endorsement of a product by people or brands in the imagery.",
+      "Identifiable people may not appear in a bad light or in an offensive way."
+    ]
+  },
+  "perCompanyOverride": {
+    "note": "When a company record in data/companies.json has a `photo` object populated (see data/schema/companies.schema.json), the Photo component uses that image instead of the decorative pool. The schema mirrors the Pexels traceability shape but with full TASL attribution.",
+    "shape": {
+      "url": "Direct image URL (Wikimedia Commons thumbnail).",
+      "sourceUrl": "Canonical Commons File: page.",
+      "author": "Author / uploader credit string.",
+      "license": "Short license code (e.g. CC0, PD, CC-BY-4.0, CC-BY-SA-3.0).",
+      "licenseUrl": "Canonical license deed URL.",
+      "title": "Original file title."
+    }
+  },
+  "wikimedia": {
+    "description": "Per-company HQ photos are enriched from Wikidata (P18 image or P159 HQ location → P18) and the Wikimedia Commons API. The enrichment script lives at scripts/enrich-company-photos.mjs and runs via `npm run enrich:photos`.",
+    "license": {
+      "url": "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+      "attributionRequired": true,
+      "displayedAt": "Hover/focus the bottom-right `i` badge on any real photo to see the author and license. The /about/photos page lists every credited photo."
+    },
+    "acceptedLicenses": [
+      "CC0",
+      "Public Domain",
+      "CC-BY (all versions)",
+      "CC-BY-SA (all versions)"
+    ],
+    "rejectedLicenses": [
+      "CC-BY-ND (no derivatives)",
+      "CC-BY-NC (non-commercial)",
+      "Fair Use",
+      "All Rights Reserved",
+      "Any license without a public deed URL or unresolved short name"
+    ]
+  },
+  "addedAt": "2026-05-31",
+  "pool": [
+    { "id": 273209,  "sourceUrl": "https://www.pexels.com/photo/273209/",  "theme": "office interior" },
+    { "id": 380769,  "sourceUrl": "https://www.pexels.com/photo/380769/",  "theme": "skyscraper" },
+    { "id": 258083,  "sourceUrl": "https://www.pexels.com/photo/258083/",  "theme": "workspace" },
+    { "id": 416405,  "sourceUrl": "https://www.pexels.com/photo/416405/",  "theme": "skyline" },
+    { "id": 380330,  "sourceUrl": "https://www.pexels.com/photo/380330/",  "theme": "glass facade" },
+    { "id": 2467287, "sourceUrl": "https://www.pexels.com/photo/2467287/", "theme": "modern architecture" },
+    { "id": 220639,  "sourceUrl": "https://www.pexels.com/photo/220639/",  "theme": "office desk" },
+    { "id": 1170412, "sourceUrl": "https://www.pexels.com/photo/1170412/", "theme": "interior" },
+    { "id": 1112048, "sourceUrl": "https://www.pexels.com/photo/1112048/", "theme": "skyscraper" },
+    { "id": 374870,  "sourceUrl": "https://www.pexels.com/photo/374870/",  "theme": "city lights" },
+    { "id": 256490,  "sourceUrl": "https://www.pexels.com/photo/256490/",  "theme": "office chairs" },
+    { "id": 269077,  "sourceUrl": "https://www.pexels.com/photo/269077/",  "theme": "financial district" },
+    { "id": 327540,  "sourceUrl": "https://www.pexels.com/photo/327540/",  "theme": "ceiling architecture" },
+    { "id": 280221,  "sourceUrl": "https://www.pexels.com/photo/280221/",  "theme": "bridge architecture" },
+    { "id": 1098460, "sourceUrl": "https://www.pexels.com/photo/1098460/", "theme": "modern building" },
+    { "id": 2096700, "sourceUrl": "https://www.pexels.com/photo/2096700/", "theme": "coworking interior" },
+    { "id": 416430,  "sourceUrl": "https://www.pexels.com/photo/416430/",  "theme": "city panorama" },
+    { "id": 372326,  "sourceUrl": "https://www.pexels.com/photo/372326/",  "theme": "office lobby" },
+    { "id": 1648392, "sourceUrl": "https://www.pexels.com/photo/1648392/", "theme": "workspace" },
+    { "id": 1325751, "sourceUrl": "https://www.pexels.com/photo/1325751/", "theme": "architecture" }
+  ]
+}
