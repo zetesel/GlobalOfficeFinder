@@ -46,12 +46,26 @@ const REGION_BY_COUNTRY_CODE: Record<string, string> = {
 };
 
 // ─── In-memory state (best-effort; reset on cold start) ──────────────────────
+// Maps are bounded so a long-lived warm instance can't accumulate unbounded
+// state on high-cardinality input — when full, the oldest insertion is evicted
+// (Map iteration order is insertion order).
+const MAX_CACHE_ENTRIES = 500;
+const MAX_RATE_ENTRIES = 5000;
+
 interface CacheEntry {
   at: number;
   body: DiscoverResponse;
 }
 const cache = new Map<string, CacheEntry>();
 const rate = new Map<string, { count: number; windowStart: number }>();
+
+function evictOldest<K, V>(map: Map<K, V>, max: number): void {
+  while (map.size > max) {
+    const oldest = map.keys().next().value;
+    if (oldest === undefined) break;
+    map.delete(oldest);
+  }
+}
 
 function clientIp(req: VercelRequest): string {
   const fwd = req.headers["x-forwarded-for"];
@@ -60,15 +74,29 @@ function clientIp(req: VercelRequest): string {
   return req.socket?.remoteAddress ?? "unknown";
 }
 
-function rateLimited(ip: string): boolean {
+/**
+ * Token-bucket-ish per-IP limiter. Returns `{ limited, retryAfterSec }` so the
+ * caller can surface a Retry-After header. Once over the limit we stop
+ * incrementing `count` (otherwise a burst would extend the cooldown well past
+ * RATE_WINDOW_MS). The caller is expected to skip this for cache hits.
+ */
+function rateLimited(ip: string): { limited: boolean; retryAfterSec: number } {
   const now = Date.now();
   const entry = rate.get(ip);
   if (!entry || now - entry.windowStart > RATE_WINDOW_MS) {
     rate.set(ip, { count: 1, windowStart: now });
-    return false;
+    evictOldest(rate, MAX_RATE_ENTRIES);
+    return { limited: false, retryAfterSec: 0 };
+  }
+  if (entry.count >= RATE_MAX) {
+    const retryAfterSec = Math.max(
+      1,
+      Math.ceil((entry.windowStart + RATE_WINDOW_MS - now) / 1000),
+    );
+    return { limited: true, retryAfterSec };
   }
   entry.count += 1;
-  return entry.count > RATE_MAX;
+  return { limited: false, retryAfterSec: 0 };
 }
 
 function fillRegion(o: DiscoveredOffice): DiscoveredOffice {
@@ -86,12 +114,6 @@ export default async function handler(
     return;
   }
 
-  const ip = clientIp(req);
-  if (rateLimited(ip)) {
-    res.status(429).json({ error: "rate_limited" });
-    return;
-  }
-
   // ── Validate input ──
   const body = (typeof req.body === "string" ? safeParse(req.body) : req.body) ?? {};
   const rawName = typeof body.companyName === "string" ? body.companyName : "";
@@ -101,11 +123,20 @@ export default async function handler(
     return;
   }
 
-  // ── Cache ──
+  // ── Cache (checked before rate-limit so cache hits don't consume a token) ──
   const cacheKey = companyName.toLowerCase();
   const hit = cache.get(cacheKey);
   if (hit && Date.now() - hit.at < CACHE_TTL_MS) {
     res.status(200).json(hit.body);
+    return;
+  }
+
+  // ── Rate-limit only requests that will actually do upstream work ──
+  const ip = clientIp(req);
+  const limit = rateLimited(ip);
+  if (limit.limited) {
+    res.setHeader("Retry-After", String(limit.retryAfterSec));
+    res.status(429).json({ error: "rate_limited" });
     return;
   }
 
@@ -173,6 +204,7 @@ function notFound(name: string): DiscoverResponse {
 function finish(res: VercelResponse, key: string, body: DiscoverResponse): void {
   // Cache soft results (incl. NOT_FOUND) so refreshes don't re-hit the LLM.
   cache.set(key, { at: Date.now(), body });
+  evictOldest(cache, MAX_CACHE_ENTRIES);
   res.status(200).json(body);
 }
 

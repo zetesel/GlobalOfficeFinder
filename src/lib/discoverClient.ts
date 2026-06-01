@@ -21,6 +21,8 @@ export interface DiscoveryResult {
   notFound: boolean;
   /** True when the company matched but no usable offices were found. */
   noOffices: boolean;
+  /** True when the LLM structuring step failed — distinct from "no offices". */
+  llmInvalid: boolean;
 }
 
 interface ApiOffice {
@@ -77,15 +79,20 @@ export async function fetchDiscovery(companyName: string): Promise<DiscoveryResu
     city: o.city,
     address: o.address ?? "",
     postalCode: "",
-    officeType: OFFICE_TYPE_LABEL[o.officeType] ?? "Office",
+    officeType: OFFICE_TYPE_LABEL[o.officeType],
     latitude: o.latitude,
     longitude: o.longitude,
   }));
 
+  const notFound = data.error === "NOT_FOUND";
+  const llmInvalid = data.error === "LLM_INVALID";
   return {
     company,
     offices,
-    notFound: data.error === "NOT_FOUND",
-    noOffices: data.error === "NO_OFFICES" || (data.error !== "NOT_FOUND" && offices.length === 0),
+    notFound,
+    llmInvalid,
+    noOffices:
+      data.error === "NO_OFFICES" ||
+      (!notFound && !llmInvalid && offices.length === 0),
   };
 }

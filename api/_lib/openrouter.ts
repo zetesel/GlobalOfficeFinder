@@ -92,6 +92,12 @@ export async function selectEntity(
 }
 
 const OFFICE_TYPES = new Set(["hq", "regional", "branch"]);
+const ALLOWED_REGIONS = new Set([
+  "Americas",
+  "Europe",
+  "Asia-Pacific",
+  "Middle East & Africa",
+]);
 
 /**
  * Turn raw SPARQL location rows into a clean, de-duplicated list of offices
@@ -159,7 +165,10 @@ export function sanitizeOffices(arr: unknown[]): DiscoveredOffice[] {
       typeof o.countryCode === "string" && /^[A-Za-z]{2}$/.test(o.countryCode)
         ? o.countryCode.toUpperCase()
         : "";
-    const region = typeof o.region === "string" ? o.region.trim() : "";
+    // Drop off-list values (e.g. "EMEA", "APAC") so fillRegion() in the
+    // handler can derive a canonical region from the country code instead.
+    const rawRegion = typeof o.region === "string" ? o.region.trim() : "";
+    const region = ALLOWED_REGIONS.has(rawRegion) ? rawRegion : "";
     const officeType =
       typeof o.officeType === "string" && OFFICE_TYPES.has(o.officeType)
         ? (o.officeType as DiscoveredOffice["officeType"])

@@ -52,6 +52,8 @@ export default function DiscoverPage() {
         const data = await fetchDiscovery(rawQuery);
         if (data.notFound) {
           setStatus("notfound");
+        } else if (data.llmInvalid) {
+          setStatus("error");
         } else {
           setResult(data);
           setStatus("success");
