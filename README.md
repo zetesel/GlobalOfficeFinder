@@ -109,6 +109,60 @@ The discovery pipeline (`scripts/scraper/run-scraper.mjs`) can be configured via
 
 ---
 
+## 🔎 Live "Discover company offices" (optional backend)
+
+When a search returns no local matches, the app can offer to discover a
+company's offices live from public sources. This is powered by a small
+serverless function (`api/discover.ts`) that combines Wikidata (entity +
+SPARQL locations), Wikimedia Commons (a permissively-licensed photo), and an
+LLM via [OpenRouter](https://openrouter.ai/) for entity selection and result
+structuring. Results live only in the browser session at `/discover/:slug` and
+are never persisted. The OpenRouter API key lives **only** in server-side env
+and never reaches the client bundle.
+
+### Run locally
+
+```bash
+# 1. Install the backend-only dependencies (kept out of the default install so
+#    the static front-end build stays lean). One time:
+npm install openai
+npm install -D @vercel/node vercel
+
+# 2. Provide credentials
+cp .env.example .env        # then set OPENROUTER_API_KEY
+
+# 3. Start Vite + the /api functions together
+npm run dev:api             # vercel dev (serves the SPA and api/discover.ts)
+```
+
+> These three packages back `api/discover.ts` only. They're intentionally not in
+> `package.json`'s default dependency set, so the front-end CI (`npm ci` → build
+> / Vitest / Playwright) never needs them. Add them as above before running the
+> serverless function locally or deploying.
+
+Then open the app, search for a company that isn't in the catalogue (e.g.
+"Stripe"), and accept the discovery prompt. API smoke test:
+
+```bash
+curl -X POST localhost:3000/api/discover \
+  -H 'content-type: application/json' \
+  -d '{"companyName":"Stripe"}'
+```
+
+| Env var | Default | Purpose |
+|:---|:---|:---|
+| `OPENROUTER_API_KEY` | — | OpenRouter key (required; server-side only). |
+| `OPENROUTER_MODEL` | `anthropic/claude-3.5-sonnet` | Model for the two LLM calls. |
+| `OPENROUTER_REFERRER` | `https://globalofficefinder.local` | Sent as HTTP-Referer. |
+| `DISCOVER_MAX_OFFICES` | `100` | Cap on offices returned per company. |
+
+> The Wikidata/Wikimedia primitives are shared 1:1 with the build-time photo
+> enrichment CLI via `scripts/lib/wikidata.mjs` and `scripts/lib/wikimedia.mjs`.
+> The static GitHub Pages deployment has no backend, so discovery is only
+> available when hosted with serverless functions (e.g. Vercel).
+
+---
+
 ## 🛡️ Security & Quality
 
 - **CSP**: Strict Content Security Policy enforced via Meta tags.

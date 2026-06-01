@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Dropdown from "../components/Dropdown";
 import CompanyCard from "../components/CompanyCard";
@@ -6,7 +6,9 @@ import MapView, { type MapFocus } from "../components/MapView";
 import Monogram from "../components/Monogram";
 import FlagChip from "../components/FlagChip";
 import Photo from "../components/Photo";
+import NotFoundDiscoverModal from "../components/NotFoundDiscoverModal";
 import { REGION_ORDER, truncate, typeTag } from "../utils/typeTag";
+import { slugify } from "../lib/slug";
 import { useData } from "../hooks/useData";
 
 type View = "grid" | "map";
@@ -30,6 +32,10 @@ export default function HomePage() {
 
   const [filters, setFilters] = useState<Filters>(INITIAL_FILTERS);
   const [hoverId, setHoverId] = useState<string | null>(null);
+  // Debounced search term + the last query the user dismissed the discover
+  // prompt for, so the modal appears at most once per query (not per keystroke).
+  const [debouncedQ, setDebouncedQ] = useState("");
+  const [dismissedQuery, setDismissedQuery] = useState<string | null>(null);
   const [focus, setFocus] = useState<MapFocus>(() =>
     activeId ? { id: activeId } : { fit: true },
   );
@@ -76,6 +82,12 @@ export default function HomePage() {
 
   const { q, region, industry, otype } = filters;
 
+  // Debounce the search term (~700ms) before considering the discover prompt.
+  useEffect(() => {
+    const t = window.setTimeout(() => setDebouncedQ(q.trim()), 700);
+    return () => window.clearTimeout(t);
+  }, [q]);
+
   const matchOffices = useMemo(() => {
     const needle = q.trim().toLowerCase();
     return offices.filter((o) => {
@@ -117,6 +129,18 @@ export default function HomePage() {
     countries: new Set(matchOffices.map((o) => o.country)).size,
   };
   const filtered = Boolean(region || industry || otype || q);
+
+  // Offer live discovery when a meaningful search returns nothing locally.
+  const showDiscover =
+    debouncedQ.length >= 2 &&
+    debouncedQ === q.trim() &&
+    companyList.length === 0 &&
+    debouncedQ !== dismissedQuery;
+
+  function startDiscovery() {
+    const term = q.trim();
+    navigate(`/discover/${slugify(term)}`, { state: { rawQuery: term } });
+  }
 
   const resetFilters = () => setFilters(INITIAL_FILTERS);
 
@@ -299,6 +323,14 @@ export default function HomePage() {
             </div>
           )}
         </div>
+      )}
+
+      {showDiscover && (
+        <NotFoundDiscoverModal
+          companyName={q.trim()}
+          onConfirm={startDiscovery}
+          onDismiss={() => setDismissedQuery(debouncedQ)}
+        />
       )}
     </div>
   );

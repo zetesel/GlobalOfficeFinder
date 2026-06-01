@@ -1237,3 +1237,201 @@ a {
     gap: 0;
   }
 }
+
+/* ── Buttons: ghost variant ───────────────────────────────────────────────── */
+.gof-btn-ghost {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+}
+.gof-btn-ghost:hover {
+  background: var(--bg);
+}
+
+/* ── Modal (discover prompt + end-search confirm) ────────────────────────── */
+.gof-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(11, 16, 32, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: gof-fade 0.14s ease;
+}
+.gof-modal {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 48px rgba(15, 20, 50, 0.24);
+  max-width: 440px;
+  width: 100%;
+  padding: 22px 22px 18px;
+  animation: gof-pop 0.16s ease;
+}
+.gof-modal-title {
+  font-family: var(--font-head);
+  font-weight: var(--head-weight);
+  letter-spacing: var(--head-tracking);
+  font-size: 18px;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+.gof-modal-body {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 18px;
+}
+.gof-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@keyframes gof-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes gof-pop {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ── Discovery view (/discover/:slug) ────────────────────────────────────── */
+.gof-discover {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  z-index: 1000;
+}
+.gof-discover-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: var(--hd);
+  padding: 0 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  flex: 0 0 auto;
+}
+.gof-discover-end {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink);
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  white-space: nowrap;
+}
+.gof-discover-end:hover {
+  background: var(--bg);
+}
+.gof-discover-bar-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-head);
+  font-weight: var(--head-weight);
+  letter-spacing: var(--head-tracking);
+  font-size: 15px;
+  color: var(--ink);
+  min-width: 0;
+  flex: 1;
+}
+.gof-discover-bar-title span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.gof-discover-badge {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 600;
+  color: #8a5a00;
+  background: #fff4dd;
+  border: 1px solid #ffe3ad;
+  padding: 4px 9px;
+  border-radius: 999px;
+}
+.gof-discover-stage {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+}
+.gof-discover-mapwrap,
+.gof-discover-mapwrap > .gof-map {
+  position: absolute;
+  inset: 0;
+}
+.gof-discover-mapwrap {
+  display: block;
+}
+
+/* Loading + empty states are centred within the stage. */
+.gof-discover-loading,
+.gof-discover-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 24px;
+}
+.gof-discover-loading-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 4px 0 0;
+}
+.gof-discover-loading-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+  max-width: 360px;
+}
+.gof-discover-empty-title {
+  font-family: var(--font-head);
+  font-weight: var(--head-weight);
+  font-size: 18px;
+  margin: 4px 0 0;
+  color: var(--ink);
+}
+.gof-discover-empty-body {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 8px;
+  max-width: 420px;
+  line-height: 1.5;
+}
+.gof-spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-soft);
+  border-top-color: var(--accent);
+  animation: gof-spin 0.8s linear infinite;
+}
+@keyframes gof-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Banner inside the discover tile. */
+.gof-discover-banner {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #8a5a00;
+  background: #fff4dd;
+  border: 1px solid #ffe3ad;
+  border-radius: 8px;
+  padding: 6px 9px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
