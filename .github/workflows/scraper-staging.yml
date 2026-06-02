@@ -38,6 +38,7 @@ jobs:
 
       - name: Commit staging files
         run: |
+          echo "SCRAPER_DATE=$(date -u +%Y-%m-%d)" >> "$GITHUB_ENV"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin scraper/staging:refs/remotes/origin/scraper/staging || true
@@ -50,7 +51,7 @@ jobs:
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: "Scraper staging run: $(date -u +%Y-%m-%d)"
+          title: "Scraper staging run: ${{ env.SCRAPER_DATE }}"
           body: |
             Automated scraper staging run. Please review the staging data before promoting:
             - `data/companies-staging.json`
