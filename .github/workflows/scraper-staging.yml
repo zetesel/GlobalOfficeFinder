@@ -7,10 +7,7 @@ on:
 
 permissions:
   contents: write
-  # Issues (not PRs) — repo policy blocks the "Allow GitHub Actions to create
-  # and approve pull requests" toggle, so we file a tracking issue instead and
-  # link to the staging branch + compare URL for one-click manual PR opening.
-  issues: write
+  pull-requests: write
 
 jobs:
   run-scraper:
@@ -49,44 +46,19 @@ jobs:
           git commit -m "scraper: staging run $(date -u +%Y-%m-%d)" || echo "no changes to commit"
           git push --force-with-lease --set-upstream origin scraper/staging
 
-      - name: Open tracking issue
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          set -euo pipefail
-          DATE=$(date -u +%Y-%m-%d)
-          BRANCH=scraper/staging
-          BASE=main
-          COMPARE_URL="${{ github.server_url }}/${{ github.repository }}/compare/${BASE}...${BRANCH}?expand=1"
-          BRANCH_URL="${{ github.server_url }}/${{ github.repository }}/tree/${BRANCH}"
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "Scraper staging run: $(date -u +%Y-%m-%d)"
+          body: |
+            Automated scraper staging run. Please review the staging data before promoting:
+            - `data/companies-staging.json`
+            - `data/offices-staging.json`
+            - `data/scraper/collected-pages.json` (confidence + provenance)
+            - `data/scraper/proposed-accepts.json`
+            - `data/scraper/top-proposals.json`
 
-          # Best-effort: ensure the label exists so the issue stays findable.
-          gh label create scraper-staging --color BFD4F2 --description "Weekly scraper staging run awaiting review" --force >/dev/null 2>&1 || true
-
-          BODY=$(cat <<EOF
-          Automated scraper staging run completed on **${DATE}**.
-
-          Review the staging data before promoting:
-          - \`data/companies-staging.json\`
-          - \`data/offices-staging.json\`
-          - \`data/scraper/collected-pages.json\` (confidence + provenance)
-          - \`data/scraper/proposed-accepts.json\`
-          - \`data/scraper/top-proposals.json\`
-
-          This run may include auto-accepted candidates.
-
-          **Branch:** [\`${BRANCH}\`](${BRANCH_URL})
-          **Open PR:** [Compare \`${BASE}\` ← \`${BRANCH}\`](${COMPARE_URL})
-          **Workflow run:** [#${{ github.run_number }}](${RUN_URL})
-
-          > Issue opened because the repo policy blocks GitHub Actions from creating PRs directly. Use the compare link above to open the review PR manually.
-          EOF
-          )
-
-          gh issue create \
-            --repo "$REPO" \
-            --title "Scraper staging run: ${DATE}" \
-            --label scraper-staging \
-            --body "$BODY"
+            This run may include auto-accepted candidates.
+          base: main
+          branch: scraper/staging
