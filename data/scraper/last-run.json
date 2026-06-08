@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-05-18T07:09:34.324Z",
-  "finishedAt": "2026-05-18T07:14:55.851Z",
+  "startedAt": "2026-06-08T08:27:09.581Z",
+  "finishedAt": "2026-06-08T08:29:33.323Z",
   "dryRun": false,
   "confidenceThreshold": "medium",
   "stages": {
@@ -9,7 +9,7 @@
     "acceptedCompanies": 0,
     "acceptedOffices": 0,
     "officesQueuedForManualReview": 0,
-    "reviewQueueItems": 416,
+    "reviewQueueItems": 270,
     "skippedSources": 0
   },
   "safeguards": {

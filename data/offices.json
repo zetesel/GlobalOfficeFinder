@@ -14,34 +14,6 @@
     "contactUrl": "https://www.3m.com"
   },
   {
-    "id": "shopify-ie-dub",
-    "companyId": "shopify",
-    "country": "Ireland",
-    "countryCode": "IE",
-    "region": "Europe",
-    "city": "Dublin",
-    "address": "2 Grand Canal Square",
-    "postalCode": "D02",
-    "officeType": "Regional Office",
-    "latitude": 53.3478,
-    "longitude": -6.2439,
-    "contactUrl": "https://www.shopify.com/contact"
-  },
-  {
-    "id": "shopify-sg-sin",
-    "companyId": "shopify",
-    "country": "Singapore",
-    "countryCode": "SG",
-    "region": "Asia-Pacific",
-    "city": "Singapore",
-    "address": "100 Peck Seah Street",
-    "postalCode": "079333",
-    "officeType": "Regional Office",
-    "latitude": 1.2761,
-    "longitude": 103.8458,
-    "contactUrl": "https://www.shopify.com/contact"
-  },
-  {
     "id": "abbott-us-abt",
     "companyId": "abbott",
     "country": "United States",
@@ -1526,6 +1498,34 @@
     "contactUrl": "https://www.shopify.com/contact"
   },
   {
+    "id": "shopify-ie-dub",
+    "companyId": "shopify",
+    "country": "Ireland",
+    "countryCode": "IE",
+    "region": "Europe",
+    "city": "Dublin",
+    "address": "2 Grand Canal Square",
+    "postalCode": "D02",
+    "officeType": "Regional Office",
+    "latitude": 53.3478,
+    "longitude": -6.2439,
+    "contactUrl": "https://www.shopify.com/contact"
+  },
+  {
+    "id": "shopify-sg-sin",
+    "companyId": "shopify",
+    "country": "Singapore",
+    "countryCode": "SG",
+    "region": "Asia-Pacific",
+    "city": "Singapore",
+    "address": "100 Peck Seah Street",
+    "postalCode": "079333",
+    "officeType": "Regional Office",
+    "latitude": 1.2761,
+    "longitude": 103.8458,
+    "contactUrl": "https://www.shopify.com/contact"
+  },
+  {
     "id": "siemens-cn-bei",
     "companyId": "siemens",
     "country": "China",
@@ -1546,7 +1546,7 @@
     "countryCode": "DE",
     "region": "Europe",
     "city": "Munich",
-    "address": "Werner-von-Siemens-Stra\u00dfe 1",
+    "address": "Werner-von-Siemens-Straße 1",
     "postalCode": "80333",
     "officeType": "Headquarters",
     "latitude": 48.1351,
