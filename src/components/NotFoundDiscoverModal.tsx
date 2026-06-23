@@ -31,10 +31,19 @@ export default function NotFoundDiscoverModal({
           Commons) and assemble a temporary map.
         </p>
         <div className="gof-modal-actions">
-          <button type="button" className="gof-btn gof-btn-ghost" onClick={onDismiss}>
+          <button
+            type="button"
+            className="gof-btn gof-btn-ghost"
+            onClick={onDismiss}
+          >
             Not now
           </button>
-          <button type="button" className="gof-btn" onClick={onConfirm} autoFocus>
+          <button
+            type="button"
+            className="gof-btn"
+            onClick={onConfirm}
+            autoFocus
+          >
             Discover offices
           </button>
         </div>

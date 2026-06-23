@@ -7,7 +7,12 @@ interface MonogramProps {
 export default function Monogram({ name, size = 44, square }: MonogramProps) {
   const words = name.split(/[\s\-/&]+/).filter(Boolean);
   const initials = (
-    words.length === 1 ? words[0].slice(0, 2) : words.slice(0, 2).map((w) => w[0]).join("")
+    words.length === 1
+      ? words[0].slice(0, 2)
+      : words
+          .slice(0, 2)
+          .map((w) => w[0])
+          .join("")
   ).toUpperCase();
   const hue = [...name].reduce((a, c) => a + c.charCodeAt(0), 0) % 360;
   const bg = `hsl(${hue} 62% 95%)`;

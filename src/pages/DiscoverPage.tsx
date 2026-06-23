@@ -77,7 +77,7 @@ export default function DiscoverPage() {
   const goHome = () => navigate("/");
 
   const activeOffice = activeId
-    ? result?.offices.find((o) => o.id === activeId) ?? null
+    ? (result?.offices.find((o) => o.id === activeId) ?? null)
     : null;
 
   return (
@@ -100,14 +100,21 @@ export default function DiscoverPage() {
             <span>Discovering “{rawQuery}”…</span>
           )}
         </div>
-        <span className="gof-discover-badge" aria-label="Live, unverified results">
+        <span
+          className="gof-discover-badge"
+          aria-label="Live, unverified results"
+        >
           Live · unverified
         </span>
       </header>
 
       <div className="gof-discover-stage">
         {status === "loading" && (
-          <div className="gof-discover-loading" role="status" aria-live="polite">
+          <div
+            className="gof-discover-loading"
+            role="status"
+            aria-live="polite"
+          >
             <div className="gof-spinner" aria-hidden="true" />
             <p className="gof-discover-loading-text">{STAGES[stageIdx]}</p>
             <p className="gof-discover-loading-sub">

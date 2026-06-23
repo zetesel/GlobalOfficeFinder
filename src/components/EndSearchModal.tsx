@@ -4,7 +4,10 @@ interface EndSearchModalProps {
   onCancel: () => void;
 }
 
-export default function EndSearchModal({ onConfirm, onCancel }: EndSearchModalProps) {
+export default function EndSearchModal({
+  onConfirm,
+  onCancel,
+}: EndSearchModalProps) {
   return (
     <div className="gof-modal-backdrop" role="presentation" onClick={onCancel}>
       <div
@@ -22,10 +25,19 @@ export default function EndSearchModal({ onConfirm, onCancel }: EndSearchModalPr
           discard them. Continue?
         </p>
         <div className="gof-modal-actions">
-          <button type="button" className="gof-btn gof-btn-ghost" onClick={onCancel}>
+          <button
+            type="button"
+            className="gof-btn gof-btn-ghost"
+            onClick={onCancel}
+          >
             Cancel
           </button>
-          <button type="button" className="gof-btn" onClick={onConfirm} autoFocus>
+          <button
+            type="button"
+            className="gof-btn"
+            onClick={onConfirm}
+            autoFocus
+          >
             Yes, end search
           </button>
         </div>
