@@ -40,14 +40,31 @@ function Breadcrumb() {
 
 export default function Header() {
   const { companies, offices } = useData();
-  const countries = new Set(offices.map((o) => o.country)).size;
+  const countrySet = new Set<string>();
+  offices.forEach((o) => countrySet.add(o.country));
+  const countries = countrySet.size;
   return (
     <header className="gof-header">
       <Link to="/" className="gof-brand" aria-label="GlobalOfficeFinder home">
         <span className="gof-brand-mark" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 22 22">
-            <circle cx="11" cy="11" r="9" stroke="currentColor" strokeWidth="1.5" fill="none" />
-            <ellipse cx="11" cy="11" rx="4" ry="9" stroke="currentColor" strokeWidth="1.5" fill="none" />
+            <circle
+              cx="11"
+              cy="11"
+              r="9"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              fill="none"
+            />
+            <ellipse
+              cx="11"
+              cy="11"
+              rx="4"
+              ry="9"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              fill="none"
+            />
             <path
               d="M2 11H20M3.5 6.5H18.5M3.5 15.5H18.5"
               stroke="currentColor"

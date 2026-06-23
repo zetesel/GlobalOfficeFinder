@@ -70,9 +70,15 @@ export default function CompanyPage() {
     );
   }
 
-  const countries = new Set(offices.map((o) => o.country));
-  const regions = new Set(offices.map((o) => o.region));
-  const hq = offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
+  const countrySet = new Set<string>();
+  const regionSet = new Set<string>();
+  offices.forEach((o) => {
+    countrySet.add(o.country);
+    regionSet.add(o.region);
+  });
+
+  const hq =
+    offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
   const website = sanitizeUrl(company.website);
 
   function selectOffice(officeId: string) {
@@ -119,7 +125,9 @@ export default function CompanyPage() {
 
         <div className="gof-page-grid">
           <div className="gof-page-main">
-            {company.description && <p className="gof-co-desc">{company.description}</p>}
+            {company.description && (
+              <p className="gof-co-desc">{company.description}</p>
+            )}
             {website && (
               <a
                 className="gof-co-link"
@@ -187,7 +195,9 @@ export default function CompanyPage() {
                       subject={company.name}
                     >
                       <span
-                        className={"gof-tag tag-" + tag.tone + " gof-officecard-tag"}
+                        className={
+                          "gof-tag tag-" + tag.tone + " gof-officecard-tag"
+                        }
                       >
                         {tag.short}
                       </span>
@@ -214,9 +224,18 @@ export default function CompanyPage() {
 
           <aside className="gof-page-side">
             <div className="gof-statrow">
-              <Stat n={offices.length} label={offices.length === 1 ? "office" : "offices"} />
-              <Stat n={countries.size} label={countries.size === 1 ? "country" : "countries"} />
-              <Stat n={regions.size} label={regions.size === 1 ? "region" : "regions"} />
+              <Stat
+                n={offices.length}
+                label={offices.length === 1 ? "office" : "offices"}
+              />
+              <Stat
+                n={countrySet.size}
+                label={countrySet.size === 1 ? "country" : "countries"}
+              />
+              <Stat
+                n={regionSet.size}
+                label={regionSet.size === 1 ? "region" : "regions"}
+              />
             </div>
             <div className="gof-locmap">
               <div className="gof-locmap-head">Locations</div>

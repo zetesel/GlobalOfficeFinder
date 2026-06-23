@@ -20,7 +20,9 @@ interface MapViewProps {
   padding?: [number, number];
 }
 
-function hasCoords(o: Office): o is Office & { latitude: number; longitude: number } {
+function hasCoords(
+  o: Office,
+): o is Office & { latitude: number; longitude: number } {
   return typeof o.latitude === "number" && typeof o.longitude === "number";
 }
 
@@ -48,7 +50,8 @@ export default function MapView({
   const elRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<L.Map | null>(null);
   const markersRef = useRef<Record<string, L.Marker>>({});
-  const onBackgroundClickRef = useRef<typeof onBackgroundClick>(onBackgroundClick);
+  const onBackgroundClickRef =
+    useRef<typeof onBackgroundClick>(onBackgroundClick);
   useLayoutEffect(() => {
     onBackgroundClickRef.current = onBackgroundClick;
   }, [onBackgroundClick]);
@@ -100,7 +103,10 @@ export default function MapView({
         iconSize: [26, 26],
         iconAnchor: [13, 13],
       });
-      const m = L.marker([o.latitude, o.longitude], { icon, riseOnHover: true }).addTo(map);
+      const m = L.marker([o.latitude, o.longitude], {
+        icon,
+        riseOnHover: true,
+      }).addTo(map);
       m.on("mouseover", () => onHover?.(o.id));
       m.on("mouseout", () => onHover?.(null));
       m.on("click", () => onSelect?.(o));
@@ -111,8 +117,14 @@ export default function MapView({
       markersRef.current[o.id] = m;
     });
     if (positioned.length) {
-      const b = L.latLngBounds(positioned.map((o) => [o.latitude, o.longitude] as [number, number]));
-      map.fitBounds(b, { padding: padding || [60, 60], maxZoom: 11, animate: true });
+      const b = L.latLngBounds(
+        positioned.map((o) => [o.latitude, o.longitude] as [number, number]),
+      );
+      map.fitBounds(b, {
+        padding: padding || [60, 60],
+        maxZoom: 11,
+        animate: true,
+      });
     }
     // hover/select handlers are stable refs from parent
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -127,7 +139,9 @@ export default function MapView({
         const target = L.latLng(o.latitude, o.longitude);
         const targetZoom = Math.max(map.getZoom(), 10);
         const center = map.getCenter();
-        const close = center.distanceTo(target) < 50 && Math.abs(map.getZoom() - targetZoom) < 0.25;
+        const close =
+          center.distanceTo(target) < 50 &&
+          Math.abs(map.getZoom() - targetZoom) < 0.25;
         const marker = markersRef.current[o.id];
         if (!close) {
           // Slightly longer duration + gentle easing gives the tile pyramid
@@ -147,7 +161,11 @@ export default function MapView({
         const b = L.latLngBounds(
           positioned.map((o) => [o.latitude, o.longitude] as [number, number]),
         );
-        map.fitBounds(b, { padding: padding || [60, 60], maxZoom: 11, animate: true });
+        map.fitBounds(b, {
+          padding: padding || [60, 60],
+          maxZoom: 11,
+          animate: true,
+        });
       } else {
         map.setView([28, 8], 2, { animate: true });
       }
@@ -170,7 +188,12 @@ export default function MapView({
 
   return (
     <>
-      <div ref={elRef} className="gof-map" role="region" aria-label="Map of offices" />
+      <div
+        ref={elRef}
+        className="gof-map"
+        role="region"
+        aria-label="Map of offices"
+      />
       {onResetView && (
         <button
           type="button"

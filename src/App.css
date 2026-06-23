@@ -10,8 +10,12 @@
   --surface: #ffffff;
   --line: #e3e7f0;
   --line-strong: #d2d8e6;
-  --font-head: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-head:
+    "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --font-body:
+    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   --head-weight: 600;
   --head-tracking: -0.02em;
   --radius: 12px;
@@ -138,7 +142,9 @@ a {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: opacity 0.4s, transform 0.4s;
+  transition:
+    opacity 0.4s,
+    transform 0.4s;
 }
 .gof-photo-grad {
   position: absolute;
@@ -200,7 +206,9 @@ a {
   border: 1px solid var(--line);
   border-radius: calc(var(--radius) - 2px);
   outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
 }
 .gof-search:focus {
   border-color: var(--accent);
@@ -369,7 +377,10 @@ a {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform 0.16s, box-shadow 0.16s, border-color 0.16s;
+  transition:
+    transform 0.16s,
+    box-shadow 0.16s,
+    border-color 0.16s;
   color: inherit;
 }
 .gof-card:hover {
@@ -598,7 +609,10 @@ a {
   border-radius: var(--radius);
   overflow: hidden;
   cursor: pointer;
-  transition: box-shadow 0.14s, border-color 0.14s, transform 0.14s;
+  transition:
+    box-shadow 0.14s,
+    border-color 0.14s,
+    transform 0.14s;
 }
 .gof-officecard:hover,
 .gof-officecard.is-hover {
@@ -607,7 +621,9 @@ a {
 }
 .gof-officecard.is-active {
   border-color: var(--accent);
-  box-shadow: 0 0 0 1.5px var(--accent), 0 8px 22px rgba(15, 20, 50, 0.14);
+  box-shadow:
+    0 0 0 1.5px var(--accent),
+    0 8px 22px rgba(15, 20, 50, 0.14);
 }
 .gof-officecard:focus-visible {
   outline: 3px solid var(--accent-soft);
@@ -816,7 +832,11 @@ a {
   background: var(--accent);
   border: 3px solid #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  transition: width 0.14s, height 0.14s, box-shadow 0.14s, transform 0.14s;
+  transition:
+    width 0.14s,
+    height 0.14s,
+    box-shadow 0.14s,
+    transform 0.14s;
   display: block;
 }
 .gof-pin.is-hover .gof-pin-dot {
@@ -826,7 +846,9 @@ a {
   width: 21px;
   height: 21px;
   border-width: 4px;
-  box-shadow: 0 0 0 6px var(--accent-soft), 0 3px 10px rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 0 0 6px var(--accent-soft),
+    0 3px 10px rgba(0, 0, 0, 0.35);
 }
 .gof-tip {
   font-family: var(--font-body);
@@ -1020,7 +1042,9 @@ a {
   opacity: 0;
   transform: translateY(4px);
   pointer-events: none;
-  transition: opacity 0.14s, transform 0.14s;
+  transition:
+    opacity 0.14s,
+    transform 0.14s;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -1160,7 +1184,10 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.14s, color 0.14s, transform 0.14s;
+  transition:
+    background 0.14s,
+    color 0.14s,
+    transform 0.14s;
 }
 .gof-resetview:hover {
   color: var(--accent);
@@ -1291,12 +1318,22 @@ a {
 }
 
 @keyframes gof-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes gof-pop {
-  from { opacity: 0; transform: translateY(6px) scale(0.98); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ── Discovery view (/discover/:slug) ────────────────────────────────────── */
@@ -1420,7 +1457,9 @@ a {
   animation: gof-spin 0.8s linear infinite;
 }
 @keyframes gof-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Banner inside the discover tile. */
