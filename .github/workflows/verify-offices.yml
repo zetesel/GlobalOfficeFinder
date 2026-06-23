@@ -1,0 +1,54 @@
+name: Verify Offices
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * 1" # Every Monday at 04:00 UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  verify-and-pr:
+    name: Batch-verify offices and open PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run office verification
+        run: npm run verify:offices -- --limit 200
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: automation/verify-offices
+          delete-branch: true
+          title: "chore(data): AI batch verification of offices"
+          commit-message: "chore(data): update office verification verdicts"
+          body: |
+            ## Summary
+            - Ran batch AI verification (`npm run verify:offices -- --limit 200`) via OpenRouter.
+            - Updated `verification` fields in `data/offices.json` with verdict, reason, confidence and checkedAt.
+            - Offices with verdict `rejected` are hidden from the public catalogue automatically.
+
+            ## Review checklist
+            - [ ] Spot-check a sample of `approved` verdicts for plausibility.
+            - [ ] Check `rejected` entries — if an office is wrongly rejected, correct the office data and resubmit.
+            - [ ] Merge only when satisfied with the verdicts.
+          labels: |
+            data
+            automation
+          add-paths: |
+            data/offices.json

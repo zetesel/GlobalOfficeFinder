@@ -37,3 +37,7 @@ tags = ["api", "key"]
 [[allowlists]]
 description = "Ignore generated reports and tooling artifacts"
 paths = ["gitleaks-report.json"]
+
+[[allowlists]]
+description = "Env templates and test fixtures (placeholders only)"
+paths = [".env.example", "__tests__/.*", "e2e/.*"]

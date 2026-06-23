@@ -1,4 +1,4 @@
-# 🌐 GlobalOfficeFinder
+# GlobalOfficeFinder
 
 Global Office Finder is a high-performance, searchable web application designed to centralize and visualize company office locations worldwide. It solves the fragmentation of corporate "contact us" pages by providing a single, unified interface for geographic discovery.
 
@@ -6,45 +6,46 @@ Live Site: [https://zetesel.github.io/GlobalOfficeFinder/](https://zetesel.githu
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-- **🔍 Advanced Search & Filtering**: Real-time filtering by company name, industry, geographic region, and office type.
-- **🗺️ Interactive Map Interface**: Global and local views utilizing Leaflet with high-performance marker clustering.
-- **📊 Detailed Profiles**: Dedicated pages for companies and countries, providing deep insights into regional footprints.
-- **⚡ Performance First**: Near-instant search results using [Fuse.js](https://fusejs.io/) and optimized static data loading.
-- **🤖 Automated Data Pipeline**: Integrated scraper for data discovery, with a built-in review queue for data quality assurance.
-- **📱 Fully Responsive**: Seamless experience across mobile, tablet, and desktop viewports.
-- **🌐 SEO Optimized**: Full JSON-LD structured data support for automated search engine ingestion.
+- **Advanced Search & Filtering**: Explicit Search button with local filtering by company name, industry, geographic region, and office type.
+- **Interactive Map Interface**: Global and local views utilizing Leaflet with high-performance marker clustering.
+- **Detailed Profiles**: Dedicated pages for companies and countries, providing deep insights into regional footprints.
+- **Performance First**: Near-instant search results using optimized static data loading.
+- **Automated Data Pipeline**: Integrated scraper for data discovery and a CI batch verification job that flags suspect offices for human review.
+- **Static Review Page** (`/review`): Lists offices flagged as rejected by the CI verification job; provides editable fields and a copy-to-clipboard JSON snippet for opening a correction PR.
+- **Fully Responsive**: Seamless experience across mobile, tablet, and desktop viewports.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Core**: React 19, TypeScript, Vite
 - **Routing**: React Router 7
 - **Mapping**: Leaflet, Leaflet.markercluster
-- **Search**: Fuse.js
-- **Testing**: Vitest (Unit), Playwright (E2E), Lighthouse CI (Performance)
+- **Testing**: Vitest (Unit), Playwright (E2E)
 - **CI/CD**: GitHub Actions
-- **Infrastructure**: GitHub Pages (Static Hosting)
+- **Hosting**: GitHub Pages (100% static — no server, no Vercel)
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 ├── data/
 │   ├── companies.json          # Core company records
-│   ├── offices.json            # Office location records
+│   ├── offices.json            # Office location records (may contain `verification` field)
 │   ├── schema/                 # JSON Schemas for data validation
 │   └── scraper/                # Scraper metadata and review queue
 ├── scripts/
 │   ├── scraper/                # Automated discovery and enrichment scripts
+│   │   └── verify-offices.mjs  # CI batch verifier (calls OpenRouter, writes verdicts)
+│   ├── lib/                    # Shared helpers (wikidata, wikimedia, verify-prompt)
 │   └── validate-data.mjs       # Data integrity validation tool
 ├── src/
 │   ├── components/             # Reusable UI components (Map, Cards, etc.)
-│   ├── pages/                  # Route-level components (Home, Company, Country)
-│   ├── utils/                  # Shared business logic and filters
+│   ├── pages/                  # Route-level components (Home, Company, Country, Review)
+│   ├── hooks/useData.ts        # Data hook — exposes `offices` (all) and `publicOffices` (non-rejected)
 │   └── types/                  # TypeScript definitions
 ├── e2e/                        # Playwright E2E test suites
 └── __tests__/                  # Vitest unit and integration tests
@@ -52,7 +53,7 @@ Live Site: [https://zetesel.github.io/GlobalOfficeFinder/](https://zetesel.githu
 
 ---
 
-## 🚀 Development
+## Development
 
 ### Prerequisites
 - Node.js 20+
@@ -63,7 +64,7 @@ Live Site: [https://zetesel.github.io/GlobalOfficeFinder/](https://zetesel.githu
 # Install dependencies
 npm ci
 
-# Start development server
+# Start development server (static SPA only)
 npm run dev
 
 # Run data validation
@@ -72,7 +73,7 @@ npm run validate-data
 # Execute unit tests
 npm run test
 
-# Run E2E tests
+# Run E2E tests (requires a running dev server)
 npm run test:e2e
 ```
 
@@ -84,10 +85,11 @@ npm run test:e2e
 | `npm run format` | Auto-formats code and data files via Prettier. |
 | `npm run scrape:companies` | Runs the data discovery scraper. |
 | `npm run validate-data` | Verifies JSON data against official schemas. |
+| `npm run verify:offices` | Runs the CI batch verifier (requires `OPENROUTER_API_KEY` in env). |
 
 ---
 
-## 🔄 Data Operations
+## Data Operations
 
 ### Manual Contributions
 1. Fork the repository.
@@ -101,86 +103,51 @@ The discovery pipeline (`scripts/scraper/run-scraper.mjs`) can be configured via
 - `SCRAPER_CHECK_ROBOTS=0`: Disable robots.txt compliance checks (use with caution).
 - `SCRAPER_MIN_SOURCE_TRUST`: Set minimum trust level (`high`, `medium`, `low`).
 
-## Scraper Performance Hint
-- For CI speedups, you can limit the number of sources the scraper processes by setting SCRAPER_MAX_SOURCES to a positive integer.
-- Example: SCRAPER_MAX_SOURCES=1 SCRAPER_FETCH_PAGES=0 node scripts/scraper/run-scraper.mjs
-- If SCRAPER_MAX_SOURCES is not set or <= 0, the scraper processes all sources as before.
-- This change preserves data integrity since only the subset of sources is processed; the rest of the pipeline remains unchanged.
+### Scraper Performance
+For CI speedups, limit the number of sources processed with `SCRAPER_MAX_SOURCES`:
+```bash
+SCRAPER_MAX_SOURCES=1 SCRAPER_FETCH_PAGES=0 node scripts/scraper/run-scraper.mjs
+```
 
 ---
 
-## 🔎 Live "Discover company offices" (optional backend)
+## CI Batch Verification (`verify:offices`)
 
-When a search returns no local matches, the app can offer to discover a
-company's offices live from public sources. This is powered by a small
-serverless function (`api/discover.ts`) that combines Wikidata (entity +
-SPARQL locations), Wikimedia Commons (a permissively-licensed photo), and an
-LLM via [OpenRouter](https://openrouter.ai/) for entity selection and result
-structuring. Results live only in the browser session at `/discover/:slug` and
-are never persisted. The OpenRouter API key lives **only** in server-side env
-and never reaches the client bundle.
+The `verify-offices.yml` workflow runs on a schedule (and on demand). It:
 
-### Run locally
+1. Reads `data/offices.json` and `data/companies.json`.
+2. For each office missing a `verification` verdict (or with `verdict === "unverified"`), calls OpenRouter to verify whether the office plausibly belongs to the company.
+3. Writes verdicts back into `data/offices.json` and opens a PR via `peter-evans/create-pull-request`.
 
-```bash
-# 1. Install the backend-only dependencies (kept out of the default install so
-#    the static front-end build stays lean). One time:
-npm install openai
-npm install -D @vercel/node vercel
+Offices with `verdict === "rejected"` are hidden from the public catalogue (filtered in `useData.publicOffices`) and surfaced on the `/review` page for human correction before promoting via a PR.
 
-# 2. Provide credentials
-cp .env.example .env        # then set OPENROUTER_API_KEY
+### Secrets
 
-# 3. Start Vite + the /api functions together
-npm run dev:api             # vercel dev (serves the SPA and api/discover.ts)
-```
-
-> These three packages back `api/discover.ts` only. They're intentionally not in
-> `package.json`'s default dependency set, so the front-end CI (`npm ci` → build
-> / Vitest / Playwright) never needs them. Add them as above before running the
-> serverless function locally or deploying.
-
-Then open the app, search for a company that isn't in the catalogue (e.g.
-"Stripe"), and accept the discovery prompt. API smoke test:
-
-```bash
-curl -X POST localhost:3000/api/discover \
-  -H 'content-type: application/json' \
-  -d '{"companyName":"Stripe"}'
-```
-
-| Env var | Default | Purpose |
+| Secret / Variable | Where it lives | Purpose |
 |:---|:---|:---|
-| `OPENROUTER_API_KEY` | — | OpenRouter key (required; server-side only). |
-| `OPENROUTER_MODEL` | `anthropic/claude-3.5-sonnet` | Model for the two LLM calls. |
-| `OPENROUTER_REFERRER` | `https://globalofficefinder.local` | Sent as HTTP-Referer. |
-| `DISCOVER_MAX_OFFICES` | `100` | Cap on offices returned per company. |
+| `OPENROUTER_API_KEY` | GitHub repository secret (`Settings → Secrets → Actions`) | OpenRouter key for the `verify:offices` CI batch job. Server-side only — never bundled. |
+| `OPENROUTER_MODEL` | GitHub repository secret (optional) | Model for verification. Defaults to `anthropic/claude-3.5-sonnet`. |
 
-> The Wikidata/Wikimedia primitives are shared 1:1 with the build-time photo
-> enrichment CLI via `scripts/lib/wikidata.mjs` and `scripts/lib/wikimedia.mjs`.
-> The static GitHub Pages deployment has no backend, so discovery is only
-> available when hosted with serverless functions (e.g. Vercel).
+> There is no runtime backend. The GitHub Pages deployment is 100% static.
+> `OPENROUTER_API_KEY` is used exclusively in GitHub Actions (the batch verify workflow).
 
 ---
 
-## 🛡️ Security & Quality
+## Security & Quality
 
-- **CSP**: Strict Content Security Policy enforced via Meta tags.
-- **Validation**: Every PR undergoes rigorous automated schema validation and secret scanning.
-- **Testing**: 100% logic coverage with Vitest and full critical-path coverage with Playwright.
-- **Monitoring**: Performance baselines tracked via Lighthouse CI in every deployment.
+- **Validation**: Every PR undergoes rigorous automated schema validation and secret scanning (gitleaks).
+- **Testing**: Logic coverage with Vitest and full critical-path coverage with Playwright.
 
 ---
 
-## 📄 Documentation
+## Documentation
 
 - [CONTRIBUTING.md](CONTRIBUTING.md) - Guidelines for code and data contributions.
-- [RUNBOOK.md](RUNBOOK.md) - Operational procedures and troubleshooting for maintainers.
 - [SECURITY.md](SECURITY.md) - Security policy and vulnerability reporting.
 - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) - Community standards.
 
 ---
 
-## 📜 License
+## License
 
 Licensed under the [MIT License](LICENSE).

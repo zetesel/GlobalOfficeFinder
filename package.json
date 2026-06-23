@@ -9,7 +9,6 @@
   },
   "scripts": {
     "dev": "vite",
-    "dev:api": "vercel dev",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -22,6 +21,7 @@
     "scrape:companies": "node scripts/scraper/run-scraper.mjs",
     "scrape:companies:dry": "SCRAPER_DRY_RUN=1 node scripts/scraper/run-scraper.mjs",
     "scrape:discover": "node scripts/discover-top-companies.mjs && node scripts/scraper/run-scraper.mjs",
+    "verify:offices": "node scripts/scraper/verify-offices.mjs",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"data/**/*.json\"",
     "test": "vitest",
     "test:ci:unit": "vitest run --reporter dot",
