@@ -11,7 +11,6 @@ import Photo from "../components/Photo";
 import Monogram from "../components/Monogram";
 import FlagChip from "../components/FlagChip";
 import MapView, { type MapFocus } from "../components/MapView";
-import { typeTag } from "../utils/typeTag";
 import { sanitizeUrl } from "../utils/sanitizeUrl";
 
 interface StatProps {
@@ -72,7 +71,7 @@ export default function CompanyPage() {
 
   const countries = new Set(offices.map((o) => o.country));
   const regions = new Set(offices.map((o) => o.region));
-  const hq = offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
+  const hq = offices.find((o) => o.tone === "hq") || offices[0];
   const website = sanitizeUrl(company.website);
 
   function selectOffice(officeId: string) {
@@ -152,7 +151,7 @@ export default function CompanyPage() {
             </h2>
             <div className="gof-office-grid">
               {offices.map((o) => {
-                const tag = typeTag(o.officeType);
+                const tag = o.tag;
                 const isActive = activeId === o.id;
                 const isHover = hoverId === o.id;
                 return (

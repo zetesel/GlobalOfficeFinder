@@ -7,7 +7,7 @@ import type { Company, Office } from "../types";
 import Photo from "./Photo";
 import Monogram from "./Monogram";
 import FlagChip from "./FlagChip";
-import { truncate, typeTag } from "../utils/typeTag";
+import { truncate } from "../utils/typeTag";
 
 interface DiscoverTileProps {
   office: Office;
@@ -16,7 +16,7 @@ interface DiscoverTileProps {
 }
 
 export default function DiscoverTile({ office, company, onClose }: DiscoverTileProps) {
-  const tag = typeTag(office.officeType);
+  const tag = office.tag;
   const summary = truncate(company.description, 160);
   return (
     <div className="gof-mapcard" role="dialog" aria-label={`${company.name} — ${office.city}`}>

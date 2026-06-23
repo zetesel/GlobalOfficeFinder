@@ -4,6 +4,7 @@
  * never collide with the curated catalogue and vanish on navigation away.
  */
 import type { Company, Office, CompanyPhoto } from "../types";
+import { typeTag } from "../utils/typeTag";
 import { slugify } from "./slug";
 
 export type DiscoveryStage =
@@ -70,19 +71,25 @@ export async function fetchDiscovery(companyName: string): Promise<DiscoveryResu
     photo: data.photo,
   };
 
-  const offices: Office[] = (data.offices ?? []).map((o, i) => ({
-    id: `${companyId}-${slugify(o.city) || "loc"}-${i}`,
-    companyId,
-    country: o.country,
-    countryCode: o.countryCode,
-    region: o.region,
-    city: o.city,
-    address: o.address ?? "",
-    postalCode: "",
-    officeType: OFFICE_TYPE_LABEL[o.officeType],
-    latitude: o.latitude,
-    longitude: o.longitude,
-  }));
+  const offices: Office[] = (data.offices ?? []).map((o, i) => {
+    const officeType = OFFICE_TYPE_LABEL[o.officeType];
+    const tag = typeTag(officeType);
+    return {
+      id: `${companyId}-${slugify(o.city) || "loc"}-${i}`,
+      companyId,
+      country: o.country,
+      countryCode: o.countryCode,
+      region: o.region,
+      city: o.city,
+      address: o.address ?? "",
+      postalCode: "",
+      officeType,
+      latitude: o.latitude,
+      longitude: o.longitude,
+      tag,
+      tone: tag.tone,
+    };
+  });
 
   const notFound = data.error === "NOT_FOUND";
   const llmInvalid = data.error === "LLM_INVALID";
