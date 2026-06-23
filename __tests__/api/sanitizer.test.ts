@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { sanitizeOffices } from "../../api/_lib/openrouter";
+import { sanitizeOffices } from "../../api/_lib/sanitizer";
 
 describe("sanitizeOffices", () => {
   it("sanitizes a valid office array", () => {
