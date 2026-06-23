@@ -104,7 +104,7 @@ describe("sanitizeOffices", () => {
       123,
       [],
     ];
-    const output = sanitizeOffices(input as any);
+    const output = sanitizeOffices(input as unknown[]);
     expect(output).toHaveLength(1);
     expect(output[0].city).toBe("SF");
   });
@@ -128,7 +128,7 @@ describe("sanitizeOffices", () => {
       { country: "USA", city: "SF", latitude: 37, longitude: -122 },
       { country: "USA", city: "NY", latitude: "invalid", longitude: null },
     ];
-    const output = sanitizeOffices(input as any);
+    const output = sanitizeOffices(input as unknown[]);
     expect(output[0].latitude).toBe(37);
     expect(output[0].longitude).toBe(-122);
     expect(output[1].latitude).toBeUndefined();
