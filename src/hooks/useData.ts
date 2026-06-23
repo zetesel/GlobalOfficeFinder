@@ -6,6 +6,19 @@ import { typeTag } from "../utils/typeTag";
 
 const COMPANIES = companiesJson as Company[];
 
+type RawOffice = Omit<Office, "tone" | "tag">;
+const OFFICES = (officesJson as unknown as RawOffice[]).map((o) => {
+  const tag = typeTag(o.officeType);
+  return {
+    ...o,
+    tag,
+    tone: tag.tone,
+  } as Office;
+});
+
+const COMPANY_BY_ID: Record<string, Company> = {};
+for (const c of COMPANIES) COMPANY_BY_ID[c.id] = c;
+
 export interface CatalogData {
   companies: Company[];
   offices: Office[];
@@ -13,19 +26,12 @@ export interface CatalogData {
 }
 
 export function useData(): CatalogData {
-  return useMemo<CatalogData>(() => {
-    const companyById: Record<string, Company> = {};
-    for (const c of COMPANIES) companyById[c.id] = c;
-
-    const offices = (officesJson as any[]).map((o) => {
-      const tag = typeTag(o.officeType);
-      return {
-        ...o,
-        tag,
-        tone: tag.tone,
-      } as Office;
-    });
-
-    return { companies: COMPANIES, offices, companyById };
-  }, []);
+  return useMemo<CatalogData>(
+    () => ({
+      companies: COMPANIES,
+      offices: OFFICES,
+      companyById: COMPANY_BY_ID,
+    }),
+    [],
+  );
 }
