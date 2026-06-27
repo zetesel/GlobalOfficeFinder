@@ -23,6 +23,15 @@ export interface Company {
   photo?: CompanyPhoto;
 }
 
+export interface OfficeVerification {
+  verdict: "approved" | "rejected" | "unverified";
+  reason?: string;
+  confidence?: number;
+  grounded?: boolean;
+  checkedAt?: string;
+  model?: string;
+}
+
 export interface Office {
   id: string;
   companyId: string;
@@ -36,4 +45,5 @@ export interface Office {
   latitude?: number;
   longitude?: number;
   contactUrl?: string;
+  verification?: OfficeVerification;
 }

@@ -42,7 +42,10 @@ jobs:
 
       - name: Run scraper
         if: github.event_name != 'workflow_dispatch' || inputs.dry_run != 'true'
-        run: npm run scrape:companies
+        run: npm run scrape:discover
+        env:
+          SCRAPER_AUTO_ACCEPT: '1'
+          SCRAPER_MIN_CONFIDENCE: 'medium'
 
       - name: Validate JSON data
         run: npm run validate-data

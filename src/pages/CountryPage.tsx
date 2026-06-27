@@ -28,7 +28,7 @@ export default function CountryPage() {
     if (navType === "PUSH" && window.history.length > 1) navigate(-1);
     else navigate("/");
   };
-  const { offices: allOffices, companyById } = useData();
+  const { publicOffices: allOffices, companyById } = useData();
   const [hoverId, setHoverId] = useState<string | null>(null);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [focus, setFocus] = useState<MapFocus>({ fit: true });

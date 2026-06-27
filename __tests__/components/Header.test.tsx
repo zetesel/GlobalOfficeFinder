@@ -66,6 +66,7 @@ const mockOffices: Office[] = [
 const mockData: CatalogData = {
   companies: mockCompanies,
   offices: mockOffices,
+  publicOffices: mockOffices,
   companyById: {
     acme: mockCompanies[0],
     globex: mockCompanies[1],

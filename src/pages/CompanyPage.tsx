@@ -37,7 +37,7 @@ export default function CompanyPage() {
   };
   const [searchParams] = useSearchParams();
   const initialOfficeId = searchParams.get("office");
-  const { offices: allOffices, companyById } = useData();
+  const { publicOffices: allOffices, companyById } = useData();
   const [hoverId, setHoverId] = useState<string | null>(null);
   const [activeId, setActiveId] = useState<string | null>(initialOfficeId);
   const [focus, setFocus] = useState<MapFocus>(
