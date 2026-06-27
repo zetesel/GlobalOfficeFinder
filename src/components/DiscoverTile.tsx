@@ -15,11 +15,19 @@ interface DiscoverTileProps {
   onClose: () => void;
 }
 
-export default function DiscoverTile({ office, company, onClose }: DiscoverTileProps) {
+export default function DiscoverTile({
+  office,
+  company,
+  onClose,
+}: DiscoverTileProps) {
   const tag = typeTag(office.officeType);
   const summary = truncate(company.description, 160);
   return (
-    <div className="gof-mapcard" role="dialog" aria-label={`${company.name} — ${office.city}`}>
+    <div
+      className="gof-mapcard"
+      role="dialog"
+      aria-label={`${company.name} — ${office.city}`}
+    >
       <Photo
         seed={office.id}
         w={560}
@@ -28,7 +36,9 @@ export default function DiscoverTile({ office, company, onClose }: DiscoverTileP
         photo={company.photo}
         subject={company.name}
       >
-        <span className={"gof-tag tag-" + tag.tone + " gof-mapcard-tag"}>{tag.short}</span>
+        <span className={"gof-tag tag-" + tag.tone + " gof-mapcard-tag"}>
+          {tag.short}
+        </span>
         <button
           type="button"
           className="gof-mapcard-close"

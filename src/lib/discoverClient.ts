@@ -37,7 +37,12 @@ interface ApiOffice {
 }
 
 interface ApiResponse {
-  company: { name: string; description: string; website?: string; wikidataId?: string };
+  company: {
+    name: string;
+    description: string;
+    website?: string;
+    wikidataId?: string;
+  };
   offices: ApiOffice[];
   photo?: CompanyPhoto;
   error?: "NOT_FOUND" | "LLM_INVALID" | "NO_OFFICES";
@@ -49,7 +54,9 @@ const OFFICE_TYPE_LABEL: Record<ApiOffice["officeType"], string> = {
   branch: "Branch Office",
 };
 
-export async function fetchDiscovery(companyName: string): Promise<DiscoveryResult> {
+export async function fetchDiscovery(
+  companyName: string,
+): Promise<DiscoveryResult> {
   const res = await fetch("/api/discover", {
     method: "POST",
     headers: { "content-type": "application/json" },

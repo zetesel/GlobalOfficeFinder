@@ -8,9 +8,9 @@ import { sanitizeUrl } from "../utils/sanitizeUrl";
 // License: Pexels License — free commercial use, no attribution required.
 // See docs/photo-credits.json for the full traceability manifest.
 const PHOTO_POOL = [
-  273209, 380769, 258083, 416405, 380330, 2467287, 220639, 1170412,
-  1112048, 374870, 256490, 269077, 327540, 280221, 1098460, 2096700,
-  416430, 372326, 1648392, 1325751,
+  273209, 380769, 258083, 416405, 380330, 2467287, 220639, 1170412, 1112048,
+  374870, 256490, 269077, 327540, 280221, 1098460, 2096700, 416430, 372326,
+  1648392, 1325751,
 ];
 
 function hashStr(s: string): number {
@@ -98,7 +98,9 @@ function RealBadge({ photo }: { photo: CompanyPhoto }) {
       onClick={stop}
       aria-label={`Photo credit: ${photo.author}, ${photo.license}.`}
     >
-      <span className="gof-photo-badge-ic" aria-hidden="true">i</span>
+      <span className="gof-photo-badge-ic" aria-hidden="true">
+        i
+      </span>
       <span className="gof-photo-badge-panel">
         <span className="gof-photo-badge-line">
           Photo: {photo.author} · {photo.license}
@@ -135,12 +137,12 @@ function SampleBadge({ subject }: { subject?: string }) {
       role="group"
       onClick={stop}
       aria-label={
-        subject
-          ? `Sample image — does not depict ${subject}.`
-          : "Sample image."
+        subject ? `Sample image — does not depict ${subject}.` : "Sample image."
       }
     >
-      <span className="gof-photo-badge-ic" aria-hidden="true">Sample</span>
+      <span className="gof-photo-badge-ic" aria-hidden="true">
+        Sample
+      </span>
       <span className="gof-photo-badge-panel">
         <span className="gof-photo-badge-line">
           Sample image{subject ? ` — does not depict ${subject}` : ""}.

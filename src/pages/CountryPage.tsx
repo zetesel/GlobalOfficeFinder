@@ -1,5 +1,10 @@
 import { useMemo, useState } from "react";
-import { Link, useNavigate, useNavigationType, useParams } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useNavigationType,
+  useParams,
+} from "react-router-dom";
 import { useData } from "../hooks/useData";
 import Photo from "../components/Photo";
 import Monogram from "../components/Monogram";
@@ -76,7 +81,13 @@ export default function CountryPage() {
           Directory
         </button>
 
-        <Photo seed={"country-" + code} w={1400} h={520} className="gof-hero" subject={code}>
+        <Photo
+          seed={"country-" + code}
+          w={1400}
+          h={520}
+          className="gof-hero"
+          subject={code}
+        >
           <div className="gof-hero-overlay">
             <div
               style={{
@@ -107,7 +118,8 @@ export default function CountryPage() {
                 <div
                   key={cid}
                   className={
-                    "gof-crow" + (list.some((o) => o.id === activeId) ? " is-active" : "")
+                    "gof-crow" +
+                    (list.some((o) => o.id === activeId) ? " is-active" : "")
                   }
                 >
                   <Link
@@ -154,7 +166,10 @@ export default function CountryPage() {
                           onMouseLeave={() => setHoverId(null)}
                           onClick={() => selectOffice(o.id)}
                         >
-                          {o.city} <span className={"gof-tag tag-" + tag.tone}>{tag.short}</span>
+                          {o.city}{" "}
+                          <span className={"gof-tag tag-" + tag.tone}>
+                            {tag.short}
+                          </span>
                         </button>
                       );
                     })}
@@ -166,9 +181,18 @@ export default function CountryPage() {
 
           <aside className="gof-page-side">
             <div className="gof-statrow">
-              <Stat n={offices.length} label={offices.length === 1 ? "office" : "offices"} />
-              <Stat n={companies.length} label={companies.length === 1 ? "company" : "companies"} />
-              <Stat n={cities.size} label={cities.size === 1 ? "city" : "cities"} />
+              <Stat
+                n={offices.length}
+                label={offices.length === 1 ? "office" : "offices"}
+              />
+              <Stat
+                n={companies.length}
+                label={companies.length === 1 ? "company" : "companies"}
+              />
+              <Stat
+                n={cities.size}
+                label={cities.size === 1 ? "city" : "cities"}
+              />
             </div>
             <div className="gof-locmap">
               <div className="gof-locmap-head">Locations</div>
