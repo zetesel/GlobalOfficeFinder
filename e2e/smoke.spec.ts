@@ -6,57 +6,36 @@ test("homepage shows companies in directory grid", async ({ page }) => {
   await expect(page.locator(".gof-card").first()).toBeVisible();
 });
 
-test("search filters company list", async ({ page }) => {
+test("search filters company list with a partial name match", async ({ page }) => {
   await page.goto("/");
-  await page.getByPlaceholder(/search companies/i).fill("zzz-no-match");
-  await expect(page.getByTestId("empty-state")).toBeVisible();
+  // "Shopify" is in data/companies.json; typing a prefix should match it locally.
+  await page.getByPlaceholder(/search companies/i).fill("Shopify");
+  // Commit the search with the explicit Search button.
+  await page.getByRole("button", { name: /^search$/i }).click();
+  // At least one card should remain (Shopify matches locally).
+  await expect(page.locator(".gof-card").first()).toBeVisible();
 });
 
-test("no-match search offers live discovery and navigates to /discover", async ({
-  page,
-}) => {
-  // Mock the serverless endpoint so the test never calls OpenRouter.
-  await page.route("**/api/discover", async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        company: {
-          name: "NoSuchCompanyXYZ",
-          description: "A fictional company used for testing discovery.",
-          website: "https://example.com",
-          wikidataId: "Q1",
-        },
-        offices: [
-          {
-            country: "United States",
-            countryCode: "US",
-            region: "Americas",
-            city: "San Francisco",
-            officeType: "hq",
-            latitude: 37.7749,
-            longitude: -122.4194,
-          },
-        ],
-      }),
-    });
-  });
-
+test("no-match search shows empty state without navigating away", async ({ page }) => {
   await page.goto("/");
-  await page.getByPlaceholder(/search companies/i).fill("NoSuchCompanyXYZ");
-  // Modal appears after the debounce (~700ms).
-  const discoverBtn = page.getByRole("button", { name: /discover offices/i });
-  await expect(discoverBtn).toBeVisible({ timeout: 3000 });
-  await discoverBtn.click();
+  await page.getByPlaceholder(/search companies/i).fill("NoSuchCompanyXYZ99999");
+  await page.getByRole("button", { name: /^search$/i }).click();
 
-  await expect(page).toHaveURL(/\/discover\/nosuchcompanyxyz/);
-  // The discovery map + its bar title render once results resolve.
-  await expect(page.locator(".leaflet-container").first()).toBeVisible();
-  await expect(page.getByText("NoSuchCompanyXYZ").first()).toBeVisible();
+  // URL must stay at "/" — no navigation to /discover.
+  await expect(page).toHaveURL(/\/$/);
+  // Empty-state element should be visible.
+  await expect(page.locator("[data-testid='empty-state']")).toBeVisible();
+});
 
-  // Ending the search confirms and returns home.
-  await page.getByRole("button", { name: /end search/i }).click();
-  await page.getByRole("button", { name: /yes, end search/i }).click();
+test("local match filters in place", async ({ page }) => {
+  await page.goto("/");
+  // "3M" is the first company in data/companies.json and is always in the local dataset.
+  await page.getByPlaceholder(/search companies/i).fill("3M");
+  await page.getByRole("button", { name: /^search$/i }).click();
+
+  // The grid should show at least one card for 3M.
+  await expect(page.locator(".gof-card").first()).toBeVisible();
+  // URL stays at home — no discovery navigation.
   await expect(page).toHaveURL(/\/$/);
 });
 

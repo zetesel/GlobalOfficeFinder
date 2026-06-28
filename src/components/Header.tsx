@@ -20,8 +20,8 @@ function CompanyBreadcrumb() {
 
 function CountryBreadcrumb() {
   const { code = "" } = useParams<{ code: string }>();
-  const { offices } = useData();
-  const sample = offices.find((o) => o.country === code);
+  const { publicOffices } = useData();
+  const sample = publicOffices.find((o) => o.country === code);
   return (
     <>
       <Link to="/">Offices</Link>
@@ -31,16 +31,27 @@ function CountryBreadcrumb() {
   );
 }
 
+function ReviewBreadcrumb() {
+  return (
+    <>
+      <Link to="/">Offices</Link>
+      <span>/</span>
+      <b>Review</b>
+    </>
+  );
+}
+
 function Breadcrumb() {
   const { pathname } = useLocation();
   if (pathname.startsWith("/company/")) return <CompanyBreadcrumb />;
   if (pathname.startsWith("/country/")) return <CountryBreadcrumb />;
+  if (pathname.startsWith("/review")) return <ReviewBreadcrumb />;
   return <HomeBreadcrumb />;
 }
 
 export default function Header() {
-  const { companies, offices } = useData();
-  const countries = new Set(offices.map((o) => o.country)).size;
+  const { companies, publicOffices } = useData();
+  const countries = new Set(publicOffices.map((o) => o.country)).size;
   return (
     <header className="gof-header">
       <Link to="/" className="gof-brand" aria-label="GlobalOfficeFinder home">
@@ -70,7 +81,7 @@ export default function Header() {
         </span>
         <span className="gof-dot">·</span>
         <span>
-          <b>{offices.length}</b> offices
+          <b>{publicOffices.length}</b> offices
         </span>
         <span className="gof-dot">·</span>
         <span>
@@ -79,6 +90,10 @@ export default function Header() {
         <span className="gof-dot">·</span>
         <Link to="/about/photos" className="gof-header-link">
           About photos
+        </Link>
+        <span className="gof-dot">·</span>
+        <Link to="/review" className="gof-header-link">
+          Review
         </Link>
       </div>
     </header>

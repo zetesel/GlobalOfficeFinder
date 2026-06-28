@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Dropdown from "../components/Dropdown";
 import CompanyCard from "../components/CompanyCard";
@@ -6,9 +6,7 @@ import MapView, { type MapFocus } from "../components/MapView";
 import Monogram from "../components/Monogram";
 import FlagChip from "../components/FlagChip";
 import Photo from "../components/Photo";
-import NotFoundDiscoverModal from "../components/NotFoundDiscoverModal";
 import { REGION_ORDER, truncate, typeTag } from "../utils/typeTag";
-import { slugify } from "../lib/slug";
 import { useData } from "../hooks/useData";
 
 type View = "grid" | "map";
@@ -23,7 +21,7 @@ interface Filters {
 const INITIAL_FILTERS: Filters = { q: "", region: "", industry: "", otype: "" };
 
 export default function HomePage() {
-  const { offices, companyById, companies } = useData();
+  const { publicOffices: offices, companyById, companies } = useData();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -32,10 +30,8 @@ export default function HomePage() {
 
   const [filters, setFilters] = useState<Filters>(INITIAL_FILTERS);
   const [hoverId, setHoverId] = useState<string | null>(null);
-  // Debounced search term + the last query the user dismissed the discover
-  // prompt for, so the modal appears at most once per query (not per keystroke).
-  const [debouncedQ, setDebouncedQ] = useState("");
-  const [dismissedQuery, setDismissedQuery] = useState<string | null>(null);
+  // committedQ drives matchOffices; updated only when the user presses Search or Enter.
+  const [committedQ, setCommittedQ] = useState("");
   const [focus, setFocus] = useState<MapFocus>(() =>
     activeId ? { id: activeId } : { fit: true },
   );
@@ -82,14 +78,8 @@ export default function HomePage() {
 
   const { q, region, industry, otype } = filters;
 
-  // Debounce the search term (~700ms) before considering the discover prompt.
-  useEffect(() => {
-    const t = window.setTimeout(() => setDebouncedQ(q.trim()), 700);
-    return () => window.clearTimeout(t);
-  }, [q]);
-
   const matchOffices = useMemo(() => {
-    const needle = q.trim().toLowerCase();
+    const needle = committedQ.toLowerCase();
     return offices.filter((o) => {
       const co = companyById[o.companyId];
       if (!co) return false;
@@ -110,7 +100,7 @@ export default function HomePage() {
       }
       return true;
     });
-  }, [offices, companyById, q, region, industry, otype]);
+  }, [offices, companyById, committedQ, region, industry, otype]);
 
   const companyList = useMemo(() => {
     const byCo: Record<string, typeof matchOffices> = {};
@@ -128,21 +118,19 @@ export default function HomePage() {
     offices: matchOffices.length,
     countries: new Set(matchOffices.map((o) => o.country)).size,
   };
-  const filtered = Boolean(region || industry || otype || q);
+  const filtered = Boolean(region || industry || otype || committedQ);
 
-  // Offer live discovery when a meaningful search returns nothing locally.
-  const showDiscover =
-    debouncedQ.length >= 2 &&
-    debouncedQ === q.trim() &&
-    companyList.length === 0 &&
-    debouncedQ !== dismissedQuery;
-
-  function startDiscovery() {
+  function runSearch() {
     const term = q.trim();
-    navigate(`/discover/${slugify(term)}`, { state: { rawQuery: term } });
+    setCommittedQ(term);
+    // Local filtering via committedQ — matchOffices re-renders automatically.
+    // When there is no local match the empty-state UI is shown; no navigation.
   }
 
-  const resetFilters = () => setFilters(INITIAL_FILTERS);
+  const resetFilters = () => {
+    setFilters(INITIAL_FILTERS);
+    setCommittedQ("");
+  };
 
   function handleResetView() {
     updateParams({ office: null });
@@ -179,18 +167,22 @@ export default function HomePage() {
               placeholder="Search companies, cities, countries…"
               value={q}
               onChange={(e) => setFilter("q", e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") runSearch(); }}
             />
             {q && (
               <button
                 type="button"
                 className="gof-clear"
                 aria-label="Clear search"
-                onClick={() => setFilter("q", "")}
+                onClick={() => { setFilter("q", ""); setCommittedQ(""); }}
               >
                 ✕
               </button>
             )}
           </div>
+          <button type="button" className="gof-btn gof-search-go" onClick={runSearch}>
+            Search
+          </button>
           <div className="gof-viewtoggle" role="tablist" aria-label="View toggle">
             <button
               type="button"
@@ -325,13 +317,6 @@ export default function HomePage() {
         </div>
       )}
 
-      {showDiscover && (
-        <NotFoundDiscoverModal
-          companyName={q.trim()}
-          onConfirm={startDiscovery}
-          onDismiss={() => setDismissedQuery(debouncedQ)}
-        />
-      )}
     </div>
   );
 }

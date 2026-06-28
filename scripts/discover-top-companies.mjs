@@ -29,6 +29,7 @@
 import { writeFileSync, mkdirSync, existsSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import { fetchEntityOffices } from "./lib/wikidata.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
@@ -773,31 +774,64 @@ async function buildCompanyEntry(wikiTitle, index, total) {
         industry = await resolveIndustry(industryQid);
       }
 
-      // P159 = headquarters location
-      const hqQid = claimQidValue(entity.claims, "P159");
-      if (hqQid) {
-        const location = await resolveHQLocation(hqQid);
-        if (location && location.countryCode && REGION_BY_CODE[location.countryCode]) {
-          offices.push({
-            country: location.countryName ?? location.countryCode,
-            countryCode: location.countryCode,
-            city: location.cityName,
-            // Use city name as a fallback address; will be enriched by geocoding or human review
-            address: location.cityName,
-            officeType: "Headquarters",
-            ...(location.lat !== null && location.lon !== null
-              ? { latitude: location.lat, longitude: location.lon }
-              : {}),
-            contactUrl: website ?? `https://en.wikipedia.org/wiki/${encodeURIComponent(wikiTitle.replace(/ /g, "_"))}`,
-            // sourceUrl drives the officialSourceMatch signal in the scraper.
-            // Use the Wikipedia URL as a stable fallback when the official website
-            // isn't known yet (it will be filled in by the DDG search below or
-            // kept as a Wikipedia reference that callers can distinguish).
-            sourceUrl: website ?? `https://en.wikipedia.org/wiki/${encodeURIComponent(wikiTitle.replace(/ /g, "_"))}`,
-          });
-        } else {
-          console.warn(`[discover]   Could not resolve HQ location for "${name}" (hq: ${hqQid})`);
+      // Multi-location lookup: HQ (P159) + locations (P276) + subsidiary HQs (P355→P159)
+      const wikiUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(wikiTitle.replace(/ /g, "_"))}`;
+      const officeTypeMap = { hq: "Headquarters", location: "Regional Office", subsidiary: "Branch Office" };
+      const seenOfficeKeys = new Set();
+      let sparqlRows = [];
+      try {
+        sparqlRows = await fetchEntityOffices(qid, { limit: 60 });
+      } catch (err) {
+        console.warn(`[discover]   SPARQL failed for "${name}": ${err.message}`);
+      }
+
+      // Fallback: if SPARQL returned nothing, try the old P159 single-HQ path
+      if (sparqlRows.length === 0) {
+        const hqQid = claimQidValue(entity.claims, "P159");
+        if (hqQid) {
+          const location = await resolveHQLocation(hqQid);
+          if (location && location.countryCode && REGION_BY_CODE[location.countryCode]) {
+            offices.push({
+              country: location.countryName ?? location.countryCode,
+              countryCode: location.countryCode,
+              city: location.cityName,
+              address: location.cityName,
+              officeType: "Headquarters",
+              ...(location.lat !== null && location.lon !== null
+                ? { latitude: location.lat, longitude: location.lon }
+                : {}),
+              contactUrl: website ?? wikiUrl,
+              sourceUrl: website ?? wikiUrl,
+            });
+          } else {
+            console.warn(`[discover]   Could not resolve HQ location for "${name}" (hq: ${hqQid})`);
+          }
         }
+      } else {
+        for (const row of sparqlRows) {
+          const countryCode = row.countryCode;
+          if (!countryCode || !REGION_BY_CODE[countryCode]) continue;
+          const city = row.cityLabel || row.placeLabel;
+          if (!city) continue;
+          const dedupeKey = `${countryCode}|${city.toLowerCase()}`;
+          if (seenOfficeKeys.has(dedupeKey)) continue;
+          seenOfficeKeys.add(dedupeKey);
+          const officeType = officeTypeMap[row.relation] ?? "Regional Office";
+          offices.push({
+            country: row.countryLabel || countryCode,
+            countryCode,
+            city,
+            address: row.placeLabel || city,
+            officeType,
+            ...(typeof row.latitude === "number" && typeof row.longitude === "number"
+              ? { latitude: row.latitude, longitude: row.longitude }
+              : {}),
+            contactUrl: website ?? wikiUrl,
+            sourceUrl: website ?? wikiUrl,
+          });
+        }
+        // Cap to keep source files bounded
+        offices.splice(40);
       }
     }
   }
