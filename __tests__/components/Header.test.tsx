@@ -174,4 +174,57 @@ describe("Header", () => {
     // Thus it renders code ("US").
     expect(within(breadcrumbNav).getByText("US")).toBeInTheDocument();
   });
+
+  it("renders country name if matching office is found", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/country/United States"]}>
+        <Routes>
+          <Route path="/country/:code" element={<Header />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(within(breadcrumbNav).getByText("United States")).toBeInTheDocument();
+  });
+
+  it("renders review breadcrumb on review route", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/review"]}>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(within(breadcrumbNav).getByText("Offices")).toHaveAttribute("href", "/");
+    expect(within(breadcrumbNav).getByText("Review")).toBeInTheDocument();
+  });
+
+  it("renders review link in meta section", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const reviewLink = screen.getByRole("link", { name: /^Review$/ });
+    expect(reviewLink).toHaveAttribute("href", "/review");
+  });
+
+  it("renders company ID as fallback if company not found", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/company/unknown"]}>
+        <Routes>
+          <Route path="/company/:id" element={<Header />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(within(breadcrumbNav).getByText("unknown")).toBeInTheDocument();
+  });
 });
