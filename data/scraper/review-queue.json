@@ -1,7 +1,92 @@
 {
-  "generatedAt": "2026-06-22T09:42:56.805Z",
-  "minPublishConfidence": "low",
+  "generatedAt": "2026-06-29T08:41:53.357Z",
+  "minPublishConfidence": "medium",
   "items": [
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://www.walmart.com/",
+      "office": {
+        "country": "",
+        "city": "Foundation Brush - 2-in-1 Contour &amp",
+        "address": "Charlotte Tilbury Hollywood Complexion &amp",
+        "postalCode": "",
+        "contactUrl": "https://www.walmart.com/",
+        "sourceUrl": "https://www.walmart.com/"
+      },
+      "reason": "extracted from page HTML",
+      "confidence": "low",
+      "confidenceScore": 0,
+      "queuedAt": "2026-06-29T08:34:21.115Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://www.walmart.com/",
+      "office": {
+        "country": "",
+        "city": "Purple $29.99 Add $ 29 99 current price $29.99 Bed Head Ceramic Wave Artist Deep Waver for Beachy Waves Generation II",
+        "address": "Bed Head Ceramic Wave Artist Deep Waver for Beachy Waves Generation II",
+        "postalCode": "",
+        "contactUrl": "https://www.walmart.com/",
+        "sourceUrl": "https://www.walmart.com/"
+      },
+      "reason": "extracted from page HTML",
+      "confidence": "low",
+      "confidenceScore": 0,
+      "queuedAt": "2026-06-29T08:34:21.116Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://www.walmart.com/",
+      "office": {
+        "country": "",
+        "city": "M85 Urban Fuchsia $15.99 Add $ 15 99 current price $15.99 Got2b Metallics Permanent Hair Color",
+        "address": "Got2b Metallics Permanent Hair Color",
+        "postalCode": "",
+        "contactUrl": "https://www.walmart.com/",
+        "sourceUrl": "https://www.walmart.com/"
+      },
+      "reason": "extracted from page HTML",
+      "confidence": "low",
+      "confidenceScore": 0,
+      "queuedAt": "2026-06-29T08:34:21.117Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://www.walmart.com/",
+      "office": {
+        "country": "",
+        "city": "Was $43.30 $43.30 Oribe Maximista Thickening Spray 6.8 oz.",
+        "address": "Oribe Maximista Thickening Spray 6.8 oz. $31.95 Was $43.30 Add Now $ 31 95 current price Now $31.95",
+        "postalCode": "",
+        "contactUrl": "https://www.walmart.com/",
+        "sourceUrl": "https://www.walmart.com/"
+      },
+      "reason": "extracted from page HTML",
+      "confidence": "low",
+      "confidenceScore": 0,
+      "queuedAt": "2026-06-29T08:34:21.117Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://www.walmart.com/",
+      "office": {
+        "country": "",
+        "city": "8.0 Fl Oz/ 236ml $17.00 Options $ 17 00 current price $17.00 ASCENT Charming Rose Body Mist | Light Misting Spray Fragrance for Women",
+        "address": "ASCENT Charming Rose Body Mist | Light Misting Spray Fragrance for Women",
+        "postalCode": "",
+        "contactUrl": "https://www.walmart.com/",
+        "sourceUrl": "https://www.walmart.com/"
+      },
+      "reason": "extracted from page HTML",
+      "confidence": "low",
+      "confidenceScore": 0,
+      "queuedAt": "2026-06-29T08:34:21.118Z"
+    },
     {
       "type": "office",
       "sourceId": "phase-a-official-tech-sample",
@@ -18,7 +103,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.706Z"
+      "queuedAt": "2026-06-29T08:34:21.119Z"
     },
     {
       "type": "office",
@@ -35,7 +120,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.707Z"
+      "queuedAt": "2026-06-29T08:34:21.119Z"
     },
     {
       "type": "office",
@@ -52,7 +137,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.707Z"
+      "queuedAt": "2026-06-29T08:34:21.120Z"
     },
     {
       "type": "office",
@@ -69,7 +154,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.708Z"
+      "queuedAt": "2026-06-29T08:34:21.120Z"
     },
     {
       "type": "office",
@@ -86,7 +171,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.708Z"
+      "queuedAt": "2026-06-29T08:34:21.121Z"
     },
     {
       "type": "office",
@@ -103,7 +188,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.709Z"
+      "queuedAt": "2026-06-29T08:34:21.121Z"
     },
     {
       "type": "office",
@@ -120,7 +205,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.709Z"
+      "queuedAt": "2026-06-29T08:34:21.121Z"
     },
     {
       "type": "office",
@@ -137,7 +222,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.709Z"
+      "queuedAt": "2026-06-29T08:34:21.122Z"
     },
     {
       "type": "office",
@@ -154,7 +239,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.710Z"
+      "queuedAt": "2026-06-29T08:34:21.122Z"
     },
     {
       "type": "office",
@@ -171,7 +256,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.711Z"
+      "queuedAt": "2026-06-29T08:34:21.122Z"
     },
     {
       "type": "office",
@@ -188,7 +273,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.711Z"
+      "queuedAt": "2026-06-29T08:34:21.122Z"
     },
     {
       "type": "office",
@@ -205,7 +290,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.712Z"
+      "queuedAt": "2026-06-29T08:34:21.123Z"
     },
     {
       "type": "office",
@@ -222,7 +307,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.712Z"
+      "queuedAt": "2026-06-29T08:34:21.123Z"
     },
     {
       "type": "office",
@@ -239,7 +324,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.712Z"
+      "queuedAt": "2026-06-29T08:34:21.123Z"
     },
     {
       "type": "office",
@@ -256,7 +341,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.712Z"
+      "queuedAt": "2026-06-29T08:34:21.123Z"
     },
     {
       "type": "office",
@@ -273,7 +358,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.713Z"
+      "queuedAt": "2026-06-29T08:34:21.123Z"
     },
     {
       "type": "office",
@@ -290,7 +375,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.713Z"
+      "queuedAt": "2026-06-29T08:34:21.123Z"
     },
     {
       "type": "office",
@@ -307,7 +392,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.713Z"
+      "queuedAt": "2026-06-29T08:34:21.124Z"
     },
     {
       "type": "office",
@@ -324,7 +409,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.713Z"
+      "queuedAt": "2026-06-29T08:34:21.124Z"
     },
     {
       "type": "office",
@@ -341,7 +426,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.714Z"
+      "queuedAt": "2026-06-29T08:34:21.124Z"
     },
     {
       "type": "office",
@@ -358,7 +443,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.714Z"
+      "queuedAt": "2026-06-29T08:34:21.124Z"
     },
     {
       "type": "office",
@@ -375,7 +460,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.715Z"
+      "queuedAt": "2026-06-29T08:34:21.125Z"
     },
     {
       "type": "office",
@@ -392,7 +477,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.715Z"
+      "queuedAt": "2026-06-29T08:34:21.125Z"
     },
     {
       "type": "office",
@@ -409,7 +494,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.715Z"
+      "queuedAt": "2026-06-29T08:34:21.125Z"
     },
     {
       "type": "office",
@@ -426,7 +511,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.716Z"
+      "queuedAt": "2026-06-29T08:34:21.125Z"
     },
     {
       "type": "office",
@@ -443,7 +528,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.716Z"
+      "queuedAt": "2026-06-29T08:34:21.125Z"
     },
     {
       "type": "office",
@@ -460,7 +545,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.717Z"
+      "queuedAt": "2026-06-29T08:34:21.125Z"
     },
     {
       "type": "office",
@@ -477,7 +562,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.717Z"
+      "queuedAt": "2026-06-29T08:34:21.125Z"
     },
     {
       "type": "office",
@@ -494,7 +579,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.717Z"
+      "queuedAt": "2026-06-29T08:34:21.126Z"
     },
     {
       "type": "office",
@@ -511,7 +596,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.718Z"
+      "queuedAt": "2026-06-29T08:34:21.126Z"
     },
     {
       "type": "office",
@@ -528,7 +613,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.718Z"
+      "queuedAt": "2026-06-29T08:34:21.126Z"
     },
     {
       "type": "office",
@@ -545,7 +630,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.718Z"
+      "queuedAt": "2026-06-29T08:34:21.126Z"
     },
     {
       "type": "office",
@@ -562,7 +647,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.719Z"
+      "queuedAt": "2026-06-29T08:34:21.126Z"
     },
     {
       "type": "office",
@@ -579,7 +664,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.719Z"
+      "queuedAt": "2026-06-29T08:34:21.126Z"
     },
     {
       "type": "office",
@@ -596,7 +681,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.720Z"
+      "queuedAt": "2026-06-29T08:34:21.126Z"
     },
     {
       "type": "office",
@@ -613,7 +698,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.720Z"
+      "queuedAt": "2026-06-29T08:34:21.127Z"
     },
     {
       "type": "office",
@@ -630,7 +715,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.720Z"
+      "queuedAt": "2026-06-29T08:34:21.127Z"
     },
     {
       "type": "office",
@@ -647,7 +732,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.721Z"
+      "queuedAt": "2026-06-29T08:34:21.127Z"
     },
     {
       "type": "office",
@@ -664,7 +749,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.721Z"
+      "queuedAt": "2026-06-29T08:34:21.127Z"
     },
     {
       "type": "office",
@@ -681,7 +766,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.721Z"
+      "queuedAt": "2026-06-29T08:34:21.127Z"
     },
     {
       "type": "office",
@@ -698,7 +783,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.721Z"
+      "queuedAt": "2026-06-29T08:34:21.127Z"
     },
     {
       "type": "office",
@@ -715,7 +800,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.721Z"
+      "queuedAt": "2026-06-29T08:34:21.127Z"
     },
     {
       "type": "office",
@@ -732,7 +817,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.722Z"
+      "queuedAt": "2026-06-29T08:34:21.127Z"
     },
     {
       "type": "office",
@@ -749,7 +834,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.722Z"
+      "queuedAt": "2026-06-29T08:34:21.127Z"
     },
     {
       "type": "office",
@@ -766,7 +851,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.722Z"
+      "queuedAt": "2026-06-29T08:34:21.128Z"
     },
     {
       "type": "office",
@@ -783,7 +868,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.722Z"
+      "queuedAt": "2026-06-29T08:34:21.128Z"
     },
     {
       "type": "office",
@@ -800,7 +885,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.722Z"
+      "queuedAt": "2026-06-29T08:34:21.128Z"
     },
     {
       "type": "office",
@@ -817,7 +902,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.723Z"
+      "queuedAt": "2026-06-29T08:34:21.128Z"
     },
     {
       "type": "office",
@@ -834,7 +919,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.723Z"
+      "queuedAt": "2026-06-29T08:34:21.128Z"
     },
     {
       "type": "office",
@@ -851,7 +936,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.723Z"
+      "queuedAt": "2026-06-29T08:34:21.128Z"
     },
     {
       "type": "office",
@@ -868,7 +953,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.723Z"
+      "queuedAt": "2026-06-29T08:34:21.128Z"
     },
     {
       "type": "office",
@@ -885,7 +970,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.723Z"
+      "queuedAt": "2026-06-29T08:34:21.128Z"
     },
     {
       "type": "office",
@@ -902,7 +987,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.724Z"
+      "queuedAt": "2026-06-29T08:34:21.129Z"
     },
     {
       "type": "office",
@@ -919,7 +1004,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.724Z"
+      "queuedAt": "2026-06-29T08:34:21.129Z"
     },
     {
       "type": "office",
@@ -936,7 +1021,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.724Z"
+      "queuedAt": "2026-06-29T08:34:21.129Z"
     },
     {
       "type": "office",
@@ -953,7 +1038,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.725Z"
+      "queuedAt": "2026-06-29T08:34:21.129Z"
     },
     {
       "type": "office",
@@ -970,7 +1055,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.725Z"
+      "queuedAt": "2026-06-29T08:34:21.129Z"
     },
     {
       "type": "office",
@@ -987,7 +1072,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.725Z"
+      "queuedAt": "2026-06-29T08:34:21.129Z"
     },
     {
       "type": "office",
@@ -1004,7 +1089,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.725Z"
+      "queuedAt": "2026-06-29T08:34:21.129Z"
     },
     {
       "type": "office",
@@ -1021,7 +1106,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.726Z"
+      "queuedAt": "2026-06-29T08:34:21.130Z"
     },
     {
       "type": "office",
@@ -1038,7 +1123,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.726Z"
+      "queuedAt": "2026-06-29T08:34:21.130Z"
     },
     {
       "type": "office",
@@ -1055,7 +1140,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.726Z"
+      "queuedAt": "2026-06-29T08:34:21.130Z"
     },
     {
       "type": "office",
@@ -1072,7 +1157,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.726Z"
+      "queuedAt": "2026-06-29T08:34:21.130Z"
     },
     {
       "type": "office",
@@ -1089,7 +1174,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.726Z"
+      "queuedAt": "2026-06-29T08:34:21.130Z"
     },
     {
       "type": "office",
@@ -1106,7 +1191,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.727Z"
+      "queuedAt": "2026-06-29T08:34:21.130Z"
     },
     {
       "type": "office",
@@ -1123,7 +1208,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.727Z"
+      "queuedAt": "2026-06-29T08:34:21.130Z"
     },
     {
       "type": "office",
@@ -1140,7 +1225,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.727Z"
+      "queuedAt": "2026-06-29T08:34:21.130Z"
     },
     {
       "type": "office",
@@ -1157,7 +1242,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.727Z"
+      "queuedAt": "2026-06-29T08:34:21.130Z"
     },
     {
       "type": "office",
@@ -1174,7 +1259,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.727Z"
+      "queuedAt": "2026-06-29T08:34:21.130Z"
     },
     {
       "type": "office",
@@ -1191,7 +1276,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.727Z"
+      "queuedAt": "2026-06-29T08:34:21.131Z"
     },
     {
       "type": "office",
@@ -1208,7 +1293,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.728Z"
+      "queuedAt": "2026-06-29T08:34:21.131Z"
     },
     {
       "type": "office",
@@ -1225,7 +1310,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.728Z"
+      "queuedAt": "2026-06-29T08:34:21.131Z"
     },
     {
       "type": "office",
@@ -1242,7 +1327,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.728Z"
+      "queuedAt": "2026-06-29T08:34:21.131Z"
     },
     {
       "type": "office",
@@ -1259,7 +1344,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.728Z"
+      "queuedAt": "2026-06-29T08:34:21.131Z"
     },
     {
       "type": "office",
@@ -1276,7 +1361,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.728Z"
+      "queuedAt": "2026-06-29T08:34:21.131Z"
     },
     {
       "type": "office",
@@ -1293,7 +1378,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.729Z"
+      "queuedAt": "2026-06-29T08:34:21.131Z"
     },
     {
       "type": "office",
@@ -1310,7 +1395,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.729Z"
+      "queuedAt": "2026-06-29T08:34:21.131Z"
     },
     {
       "type": "office",
@@ -1327,7 +1412,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.729Z"
+      "queuedAt": "2026-06-29T08:34:21.131Z"
     },
     {
       "type": "office",
@@ -1344,7 +1429,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.729Z"
+      "queuedAt": "2026-06-29T08:34:21.131Z"
     },
     {
       "type": "office",
@@ -1361,7 +1446,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.729Z"
+      "queuedAt": "2026-06-29T08:34:21.132Z"
     },
     {
       "type": "office",
@@ -1378,7 +1463,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.729Z"
+      "queuedAt": "2026-06-29T08:34:21.132Z"
     },
     {
       "type": "office",
@@ -1395,7 +1480,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.730Z"
+      "queuedAt": "2026-06-29T08:34:21.132Z"
     },
     {
       "type": "office",
@@ -1412,7 +1497,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.730Z"
+      "queuedAt": "2026-06-29T08:34:21.132Z"
     },
     {
       "type": "office",
@@ -1429,7 +1514,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.730Z"
+      "queuedAt": "2026-06-29T08:34:21.132Z"
     },
     {
       "type": "office",
@@ -1446,7 +1531,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.730Z"
+      "queuedAt": "2026-06-29T08:34:21.132Z"
     },
     {
       "type": "office",
@@ -1463,7 +1548,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.730Z"
+      "queuedAt": "2026-06-29T08:34:21.132Z"
     },
     {
       "type": "office",
@@ -1480,7 +1565,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.730Z"
+      "queuedAt": "2026-06-29T08:34:21.132Z"
     },
     {
       "type": "office",
@@ -1497,7 +1582,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.731Z"
+      "queuedAt": "2026-06-29T08:34:21.133Z"
     },
     {
       "type": "office",
@@ -1514,7 +1599,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.731Z"
+      "queuedAt": "2026-06-29T08:34:21.133Z"
     },
     {
       "type": "office",
@@ -1531,7 +1616,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.731Z"
+      "queuedAt": "2026-06-29T08:34:21.133Z"
     },
     {
       "type": "office",
@@ -1548,7 +1633,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.731Z"
+      "queuedAt": "2026-06-29T08:34:21.133Z"
     },
     {
       "type": "office",
@@ -1565,7 +1650,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.732Z"
+      "queuedAt": "2026-06-29T08:34:21.133Z"
     },
     {
       "type": "office",
@@ -1582,7 +1667,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.732Z"
+      "queuedAt": "2026-06-29T08:34:21.133Z"
     },
     {
       "type": "office",
@@ -1599,7 +1684,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.732Z"
+      "queuedAt": "2026-06-29T08:34:21.133Z"
     },
     {
       "type": "office",
@@ -1616,7 +1701,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.732Z"
+      "queuedAt": "2026-06-29T08:34:21.133Z"
     },
     {
       "type": "office",
@@ -1633,7 +1718,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.732Z"
+      "queuedAt": "2026-06-29T08:34:21.133Z"
     },
     {
       "type": "office",
@@ -1650,7 +1735,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.732Z"
+      "queuedAt": "2026-06-29T08:34:21.133Z"
     },
     {
       "type": "office",
@@ -1667,7 +1752,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.733Z"
+      "queuedAt": "2026-06-29T08:34:21.134Z"
     },
     {
       "type": "office",
@@ -1684,7 +1769,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.733Z"
+      "queuedAt": "2026-06-29T08:34:21.134Z"
     },
     {
       "type": "office",
@@ -1701,7 +1786,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.733Z"
+      "queuedAt": "2026-06-29T08:34:21.134Z"
     },
     {
       "type": "office",
@@ -1718,7 +1803,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.733Z"
+      "queuedAt": "2026-06-29T08:34:21.134Z"
     },
     {
       "type": "office",
@@ -1735,7 +1820,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.733Z"
+      "queuedAt": "2026-06-29T08:34:21.134Z"
     },
     {
       "type": "office",
@@ -1752,7 +1837,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.733Z"
+      "queuedAt": "2026-06-29T08:34:21.134Z"
     },
     {
       "type": "office",
@@ -1769,7 +1854,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.734Z"
+      "queuedAt": "2026-06-29T08:34:21.134Z"
     },
     {
       "type": "office",
@@ -1786,7 +1871,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.734Z"
+      "queuedAt": "2026-06-29T08:34:21.134Z"
     },
     {
       "type": "office",
@@ -1803,7 +1888,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.734Z"
+      "queuedAt": "2026-06-29T08:34:21.134Z"
     },
     {
       "type": "office",
@@ -1820,7 +1905,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.734Z"
+      "queuedAt": "2026-06-29T08:34:21.134Z"
     },
     {
       "type": "office",
@@ -1837,7 +1922,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.734Z"
+      "queuedAt": "2026-06-29T08:34:21.135Z"
     },
     {
       "type": "office",
@@ -1854,7 +1939,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.735Z"
+      "queuedAt": "2026-06-29T08:34:21.135Z"
     },
     {
       "type": "office",
@@ -1871,7 +1956,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.735Z"
+      "queuedAt": "2026-06-29T08:34:21.135Z"
     },
     {
       "type": "office",
@@ -1888,7 +1973,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.735Z"
+      "queuedAt": "2026-06-29T08:34:21.135Z"
     },
     {
       "type": "office",
@@ -1905,7 +1990,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.735Z"
+      "queuedAt": "2026-06-29T08:34:21.135Z"
     },
     {
       "type": "office",
@@ -1922,7 +2007,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.735Z"
+      "queuedAt": "2026-06-29T08:34:21.135Z"
     },
     {
       "type": "office",
@@ -1939,7 +2024,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.735Z"
+      "queuedAt": "2026-06-29T08:34:21.135Z"
     },
     {
       "type": "office",
@@ -1956,7 +2041,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.736Z"
+      "queuedAt": "2026-06-29T08:34:21.135Z"
     },
     {
       "type": "office",
@@ -1973,7 +2058,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.736Z"
+      "queuedAt": "2026-06-29T08:34:21.135Z"
     },
     {
       "type": "office",
@@ -1990,7 +2075,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.736Z"
+      "queuedAt": "2026-06-29T08:34:21.136Z"
     },
     {
       "type": "office",
@@ -2007,7 +2092,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.736Z"
+      "queuedAt": "2026-06-29T08:34:21.136Z"
     },
     {
       "type": "office",
@@ -2024,7 +2109,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.737Z"
+      "queuedAt": "2026-06-29T08:34:21.136Z"
     },
     {
       "type": "office",
@@ -2041,7 +2126,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.737Z"
+      "queuedAt": "2026-06-29T08:34:21.136Z"
     },
     {
       "type": "office",
@@ -2058,7 +2143,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.737Z"
+      "queuedAt": "2026-06-29T08:34:21.136Z"
     },
     {
       "type": "office",
@@ -2075,7 +2160,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.737Z"
+      "queuedAt": "2026-06-29T08:34:21.136Z"
     },
     {
       "type": "office",
@@ -2092,7 +2177,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.737Z"
+      "queuedAt": "2026-06-29T08:34:21.136Z"
     },
     {
       "type": "office",
@@ -2109,7 +2194,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.737Z"
+      "queuedAt": "2026-06-29T08:34:21.136Z"
     },
     {
       "type": "office",
@@ -2126,7 +2211,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.737Z"
+      "queuedAt": "2026-06-29T08:34:21.136Z"
     },
     {
       "type": "office",
@@ -2143,7 +2228,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.738Z"
+      "queuedAt": "2026-06-29T08:34:21.136Z"
     },
     {
       "type": "office",
@@ -2160,7 +2245,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.738Z"
+      "queuedAt": "2026-06-29T08:34:21.137Z"
     },
     {
       "type": "office",
@@ -2177,7 +2262,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.738Z"
+      "queuedAt": "2026-06-29T08:34:21.137Z"
     },
     {
       "type": "office",
@@ -2194,7 +2279,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.738Z"
+      "queuedAt": "2026-06-29T08:34:21.137Z"
     },
     {
       "type": "office",
@@ -2211,7 +2296,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.738Z"
+      "queuedAt": "2026-06-29T08:34:21.137Z"
     },
     {
       "type": "office",
@@ -2228,7 +2313,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.738Z"
+      "queuedAt": "2026-06-29T08:34:21.137Z"
     },
     {
       "type": "office",
@@ -2245,7 +2330,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.739Z"
+      "queuedAt": "2026-06-29T08:34:21.137Z"
     },
     {
       "type": "office",
@@ -2262,7 +2347,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.739Z"
+      "queuedAt": "2026-06-29T08:34:21.137Z"
     },
     {
       "type": "office",
@@ -2279,7 +2364,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.739Z"
+      "queuedAt": "2026-06-29T08:34:21.137Z"
     },
     {
       "type": "office",
@@ -2296,7 +2381,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.739Z"
+      "queuedAt": "2026-06-29T08:34:21.137Z"
     },
     {
       "type": "office",
@@ -2313,7 +2398,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.740Z"
+      "queuedAt": "2026-06-29T08:34:21.137Z"
     },
     {
       "type": "office",
@@ -2330,7 +2415,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.740Z"
+      "queuedAt": "2026-06-29T08:34:21.138Z"
     },
     {
       "type": "office",
@@ -2347,7 +2432,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.740Z"
+      "queuedAt": "2026-06-29T08:34:21.138Z"
     },
     {
       "type": "office",
@@ -2364,7 +2449,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.740Z"
+      "queuedAt": "2026-06-29T08:34:21.138Z"
     },
     {
       "type": "office",
@@ -2381,7 +2466,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.740Z"
+      "queuedAt": "2026-06-29T08:34:21.138Z"
     },
     {
       "type": "office",
@@ -2398,7 +2483,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.740Z"
+      "queuedAt": "2026-06-29T08:34:21.138Z"
     },
     {
       "type": "office",
@@ -2415,7 +2500,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.741Z"
+      "queuedAt": "2026-06-29T08:34:21.138Z"
     },
     {
       "type": "office",
@@ -2432,7 +2517,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.741Z"
+      "queuedAt": "2026-06-29T08:34:21.138Z"
     },
     {
       "type": "office",
@@ -2449,7 +2534,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.741Z"
+      "queuedAt": "2026-06-29T08:34:21.138Z"
     },
     {
       "type": "office",
@@ -2466,7 +2551,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.741Z"
+      "queuedAt": "2026-06-29T08:34:21.138Z"
     },
     {
       "type": "office",
@@ -2483,7 +2568,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.741Z"
+      "queuedAt": "2026-06-29T08:34:21.139Z"
     },
     {
       "type": "office",
@@ -2500,7 +2585,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.742Z"
+      "queuedAt": "2026-06-29T08:34:21.139Z"
     },
     {
       "type": "office",
@@ -2517,7 +2602,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.742Z"
+      "queuedAt": "2026-06-29T08:34:21.139Z"
     },
     {
       "type": "office",
@@ -2534,7 +2619,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.742Z"
+      "queuedAt": "2026-06-29T08:34:21.139Z"
     },
     {
       "type": "office",
@@ -2551,7 +2636,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.742Z"
+      "queuedAt": "2026-06-29T08:34:21.139Z"
     },
     {
       "type": "office",
@@ -2568,7 +2653,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.742Z"
+      "queuedAt": "2026-06-29T08:34:21.139Z"
     },
     {
       "type": "office",
@@ -2585,7 +2670,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.742Z"
+      "queuedAt": "2026-06-29T08:34:21.139Z"
     },
     {
       "type": "office",
@@ -2602,7 +2687,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.743Z"
+      "queuedAt": "2026-06-29T08:34:21.139Z"
     },
     {
       "type": "office",
@@ -2619,7 +2704,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.743Z"
+      "queuedAt": "2026-06-29T08:34:21.139Z"
     },
     {
       "type": "office",
@@ -2636,7 +2721,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.743Z"
+      "queuedAt": "2026-06-29T08:34:21.139Z"
     },
     {
       "type": "office",
@@ -2653,7 +2738,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.743Z"
+      "queuedAt": "2026-06-29T08:34:21.139Z"
     },
     {
       "type": "office",
@@ -2670,7 +2755,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.743Z"
+      "queuedAt": "2026-06-29T08:34:21.140Z"
     },
     {
       "type": "office",
@@ -2687,7 +2772,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.743Z"
+      "queuedAt": "2026-06-29T08:34:21.140Z"
     },
     {
       "type": "office",
@@ -2704,7 +2789,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.744Z"
+      "queuedAt": "2026-06-29T08:34:21.140Z"
     },
     {
       "type": "office",
@@ -2721,7 +2806,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.744Z"
+      "queuedAt": "2026-06-29T08:34:21.140Z"
     },
     {
       "type": "office",
@@ -2738,7 +2823,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.744Z"
+      "queuedAt": "2026-06-29T08:34:21.140Z"
     },
     {
       "type": "office",
@@ -2755,7 +2840,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.744Z"
+      "queuedAt": "2026-06-29T08:34:21.140Z"
     },
     {
       "type": "office",
@@ -2772,7 +2857,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.744Z"
+      "queuedAt": "2026-06-29T08:34:21.140Z"
     },
     {
       "type": "office",
@@ -2789,7 +2874,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.745Z"
+      "queuedAt": "2026-06-29T08:34:21.140Z"
     },
     {
       "type": "office",
@@ -2806,7 +2891,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.745Z"
+      "queuedAt": "2026-06-29T08:34:21.140Z"
     },
     {
       "type": "office",
@@ -2823,7 +2908,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.745Z"
+      "queuedAt": "2026-06-29T08:34:21.140Z"
     },
     {
       "type": "office",
@@ -2840,7 +2925,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.745Z"
+      "queuedAt": "2026-06-29T08:34:21.141Z"
     },
     {
       "type": "office",
@@ -2857,7 +2942,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.745Z"
+      "queuedAt": "2026-06-29T08:34:21.141Z"
     },
     {
       "type": "office",
@@ -2874,7 +2959,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.745Z"
+      "queuedAt": "2026-06-29T08:34:21.141Z"
     },
     {
       "type": "office",
@@ -2891,7 +2976,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.746Z"
+      "queuedAt": "2026-06-29T08:34:21.141Z"
     },
     {
       "type": "office",
@@ -2908,7 +2993,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.746Z"
+      "queuedAt": "2026-06-29T08:34:21.141Z"
     },
     {
       "type": "office",
@@ -2925,7 +3010,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.746Z"
+      "queuedAt": "2026-06-29T08:34:21.141Z"
     },
     {
       "type": "office",
@@ -2942,7 +3027,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.746Z"
+      "queuedAt": "2026-06-29T08:34:21.141Z"
     },
     {
       "type": "office",
@@ -2959,7 +3044,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.746Z"
+      "queuedAt": "2026-06-29T08:34:21.141Z"
     },
     {
       "type": "office",
@@ -2976,7 +3061,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.747Z"
+      "queuedAt": "2026-06-29T08:34:21.141Z"
     },
     {
       "type": "office",
@@ -2993,7 +3078,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.747Z"
+      "queuedAt": "2026-06-29T08:34:21.142Z"
     },
     {
       "type": "office",
@@ -3010,7 +3095,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.747Z"
+      "queuedAt": "2026-06-29T08:34:21.142Z"
     },
     {
       "type": "office",
@@ -3027,7 +3112,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.747Z"
+      "queuedAt": "2026-06-29T08:34:21.142Z"
     },
     {
       "type": "office",
@@ -3044,7 +3129,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.747Z"
+      "queuedAt": "2026-06-29T08:34:21.142Z"
     },
     {
       "type": "office",
@@ -3061,7 +3146,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.747Z"
+      "queuedAt": "2026-06-29T08:34:21.142Z"
     },
     {
       "type": "office",
@@ -3078,7 +3163,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.747Z"
+      "queuedAt": "2026-06-29T08:34:21.142Z"
     },
     {
       "type": "office",
@@ -3095,7 +3180,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.747Z"
+      "queuedAt": "2026-06-29T08:34:21.142Z"
     },
     {
       "type": "office",
@@ -3112,7 +3197,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.748Z"
+      "queuedAt": "2026-06-29T08:34:21.142Z"
     },
     {
       "type": "office",
@@ -3129,7 +3214,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.748Z"
+      "queuedAt": "2026-06-29T08:34:21.142Z"
     },
     {
       "type": "office",
@@ -3146,7 +3231,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.748Z"
+      "queuedAt": "2026-06-29T08:34:21.142Z"
     },
     {
       "type": "office",
@@ -3163,7 +3248,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.748Z"
+      "queuedAt": "2026-06-29T08:34:21.143Z"
     },
     {
       "type": "office",
@@ -3180,7 +3265,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.748Z"
+      "queuedAt": "2026-06-29T08:34:21.143Z"
     },
     {
       "type": "office",
@@ -3197,7 +3282,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.748Z"
+      "queuedAt": "2026-06-29T08:34:21.143Z"
     },
     {
       "type": "office",
@@ -3214,7 +3299,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.748Z"
+      "queuedAt": "2026-06-29T08:34:21.143Z"
     },
     {
       "type": "office",
@@ -3231,7 +3316,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.749Z"
+      "queuedAt": "2026-06-29T08:34:21.143Z"
     },
     {
       "type": "office",
@@ -3248,7 +3333,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.749Z"
+      "queuedAt": "2026-06-29T08:34:21.143Z"
     },
     {
       "type": "office",
@@ -3265,7 +3350,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.749Z"
+      "queuedAt": "2026-06-29T08:34:21.143Z"
     },
     {
       "type": "office",
@@ -3282,7 +3367,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.749Z"
+      "queuedAt": "2026-06-29T08:34:21.143Z"
     },
     {
       "type": "office",
@@ -3299,7 +3384,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.749Z"
+      "queuedAt": "2026-06-29T08:34:21.143Z"
     },
     {
       "type": "office",
@@ -3316,7 +3401,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.749Z"
+      "queuedAt": "2026-06-29T08:34:21.143Z"
     },
     {
       "type": "office",
@@ -3333,7 +3418,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.749Z"
+      "queuedAt": "2026-06-29T08:34:21.144Z"
     },
     {
       "type": "office",
@@ -3350,7 +3435,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.749Z"
+      "queuedAt": "2026-06-29T08:34:21.144Z"
     },
     {
       "type": "office",
@@ -3367,7 +3452,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.750Z"
+      "queuedAt": "2026-06-29T08:34:21.144Z"
     },
     {
       "type": "office",
@@ -3384,7 +3469,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.750Z"
+      "queuedAt": "2026-06-29T08:34:21.144Z"
     },
     {
       "type": "office",
@@ -3401,7 +3486,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.750Z"
+      "queuedAt": "2026-06-29T08:34:21.144Z"
     },
     {
       "type": "office",
@@ -3418,7 +3503,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.750Z"
+      "queuedAt": "2026-06-29T08:34:21.144Z"
     },
     {
       "type": "office",
@@ -3435,7 +3520,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.750Z"
+      "queuedAt": "2026-06-29T08:34:21.144Z"
     },
     {
       "type": "office",
@@ -3452,7 +3537,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.750Z"
+      "queuedAt": "2026-06-29T08:34:21.144Z"
     },
     {
       "type": "office",
@@ -3469,7 +3554,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.750Z"
+      "queuedAt": "2026-06-29T08:34:21.144Z"
     },
     {
       "type": "office",
@@ -3486,7 +3571,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.751Z"
+      "queuedAt": "2026-06-29T08:34:21.145Z"
     },
     {
       "type": "office",
@@ -3503,7 +3588,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.751Z"
+      "queuedAt": "2026-06-29T08:34:21.145Z"
     },
     {
       "type": "office",
@@ -3520,7 +3605,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.751Z"
+      "queuedAt": "2026-06-29T08:34:21.145Z"
     },
     {
       "type": "office",
@@ -3537,7 +3622,465 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-06-22T09:33:32.751Z"
+      "queuedAt": "2026-06-29T08:34:21.145Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "apple",
+        "country": "Israel",
+        "countryCode": "IL",
+        "region": "",
+        "city": "Tel Aviv District",
+        "address": "Herzliya",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 32.155555555,
+        "longitude": 34.842222222,
+        "contactUrl": "https://apple.com/at/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.151Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "apple",
+        "country": "Israel",
+        "countryCode": "IL",
+        "region": "",
+        "city": "Herzliya",
+        "address": "Herzliya Pituah",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 32.1742,
+        "longitude": 34.8028,
+        "contactUrl": "https://apple.com/at/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.151Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "nestle",
+        "country": "Israel",
+        "countryCode": "IL",
+        "region": "",
+        "city": "Ramla sub-district",
+        "address": "Shoham",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 31.996666666,
+        "longitude": 34.942777777,
+        "contactUrl": "https://www.nestle.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.162Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "procter-gamble",
+        "country": "Belgium",
+        "countryCode": "BE",
+        "region": "",
+        "city": "Arrondissement of Halle-Vilvoorde",
+        "address": "Grimbergen",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 50.933333333,
+        "longitude": 4.383333333,
+        "contactUrl": "http://www.pg.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.166Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "volkswagen",
+        "country": "Russia",
+        "countryCode": "RU",
+        "region": "",
+        "city": "Russia",
+        "address": "Moscow",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 55.750555555,
+        "longitude": 37.6175,
+        "contactUrl": "https://www.volkswagenag.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.170Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "volkswagen",
+        "country": "Romania",
+        "countryCode": "RO",
+        "region": "",
+        "city": "Romania",
+        "address": "Bucharest",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 44.413361111,
+        "longitude": 26.097777777,
+        "contactUrl": "https://www.volkswagenag.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.171Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "volkswagen",
+        "country": "Austria",
+        "countryCode": "AT",
+        "region": "",
+        "city": "Salzburg",
+        "address": "Salzburg",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 47.8,
+        "longitude": 13.045,
+        "contactUrl": "https://www.volkswagenag.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.171Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "shell",
+        "country": "Russia",
+        "countryCode": "RU",
+        "region": "",
+        "city": "Russia",
+        "address": "Moscow",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 55.750555555,
+        "longitude": 37.6175,
+        "contactUrl": "https://www.shell.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.175Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "chicago",
+        "country": "United States",
+        "countryCode": "US",
+        "region": "Americas",
+        "city": "United States",
+        "address": "Chicagoland",
+        "postalCode": "",
+        "officeType": "Regional Office",
+        "contactUrl": "https://www.chicago.gov/"
+      },
+      "reason": "missing latitude/longitude after geocoding",
+      "confidence": "low",
+      "confidenceScore": 63,
+      "queuedAt": "2026-06-29T08:34:21.546Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "toyota",
+        "country": "Belgium",
+        "countryCode": "BE",
+        "region": "",
+        "city": "Arrondissement of Brussels-Capital",
+        "address": "Brussels",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 50.846666666,
+        "longitude": 4.351666666,
+        "contactUrl": "https://global.toyota/en/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.550Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "toyota",
+        "country": "Taiwan",
+        "countryCode": "TW",
+        "region": "",
+        "city": "Taiwan",
+        "address": "Taipei",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 25.0375,
+        "longitude": 121.5625,
+        "contactUrl": "https://global.toyota/en/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.550Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "toyota",
+        "country": "Thailand",
+        "countryCode": "TH",
+        "region": "",
+        "city": "Samut Prakan",
+        "address": "Phra Pradaeng",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 13.658333,
+        "longitude": 100.533889,
+        "contactUrl": "https://global.toyota/en/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.550Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "shell",
+        "country": "Russia",
+        "countryCode": "RU",
+        "region": "",
+        "city": "Russia",
+        "address": "Moscow",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 55.750555555,
+        "longitude": 37.6175,
+        "contactUrl": "https://www.shell.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.551Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "siemens",
+        "country": "Austria",
+        "countryCode": "AT",
+        "region": "",
+        "city": "Austria",
+        "address": "Vienna",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 48.208333333,
+        "longitude": 16.3725,
+        "contactUrl": "https://www.siemens.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.554Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "siemens",
+        "country": "Romania",
+        "countryCode": "RO",
+        "region": "",
+        "city": "Romania",
+        "address": "Bucharest",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 44.413361111,
+        "longitude": 26.097777777,
+        "contactUrl": "https://www.siemens.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.554Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "siemens",
+        "country": "Belgium",
+        "countryCode": "BE",
+        "region": "",
+        "city": "Arrondissement of Halle-Vilvoorde",
+        "address": "Beersel",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 50.7631,
+        "longitude": 4.3086,
+        "contactUrl": "https://www.siemens.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.554Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "siemens",
+        "country": "Denmark",
+        "countryCode": "DK",
+        "region": "",
+        "city": "Ikast-Brande Municipality",
+        "address": "Brande",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 55.9439,
+        "longitude": 9.1236,
+        "contactUrl": "https://www.siemens.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.554Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "dupont",
+        "country": "Denmark",
+        "countryCode": "DK",
+        "region": "",
+        "city": "Capital Region of Denmark",
+        "address": "Copenhagen",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 55.676111111,
+        "longitude": 12.568888888,
+        "contactUrl": "https://www.dupont.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.556Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "general-electric",
+        "country": "Austria",
+        "countryCode": "AT",
+        "region": "",
+        "city": "Austria",
+        "address": "Vienna",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 48.208333333,
+        "longitude": 16.3725,
+        "contactUrl": "https://www.ge.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.557Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "auto-top-100",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "office": {
+        "id": "",
+        "companyId": "general-electric",
+        "country": "Israel",
+        "countryCode": "IL",
+        "region": "",
+        "city": "Tel Aviv District",
+        "address": "Tel Aviv",
+        "postalCode": "",
+        "officeType": "Branch Office",
+        "latitude": 32.08,
+        "longitude": 34.78,
+        "contactUrl": "https://www.ge.com/"
+      },
+      "reason": "missing required office fields",
+      "confidence": "low",
+      "confidenceScore": 84,
+      "queuedAt": "2026-06-29T08:34:21.558Z"
     },
     {
       "type": "office",
@@ -3558,7 +4101,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:33:35.445Z"
+      "queuedAt": "2026-06-29T08:34:25.585Z"
     },
     {
       "type": "office",
@@ -3579,7 +4122,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:33:39.070Z"
+      "queuedAt": "2026-06-29T08:34:29.240Z"
     },
     {
       "type": "office",
@@ -3600,7 +4143,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:33:45.539Z"
+      "queuedAt": "2026-06-29T08:34:36.356Z"
     },
     {
       "type": "office",
@@ -3621,7 +4164,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:33:47.037Z"
+      "queuedAt": "2026-06-29T08:34:37.671Z"
     },
     {
       "type": "office",
@@ -3642,7 +4185,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:33:48.995Z"
+      "queuedAt": "2026-06-29T08:34:39.402Z"
     },
     {
       "type": "office",
@@ -3663,7 +4206,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:33:50.832Z"
+      "queuedAt": "2026-06-29T08:34:40.989Z"
     },
     {
       "type": "office",
@@ -3684,7 +4227,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:33:59.498Z"
+      "queuedAt": "2026-06-29T08:34:48.970Z"
     },
     {
       "type": "office",
@@ -3705,7 +4248,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:00.950Z"
+      "queuedAt": "2026-06-29T08:34:50.701Z"
     },
     {
       "type": "office",
@@ -3726,7 +4269,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:07.849Z"
+      "queuedAt": "2026-06-29T08:34:57.303Z"
     },
     {
       "type": "office",
@@ -3747,7 +4290,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:09.584Z"
+      "queuedAt": "2026-06-29T08:34:58.701Z"
     },
     {
       "type": "office",
@@ -3768,7 +4311,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:11.425Z"
+      "queuedAt": "2026-06-29T08:35:00.327Z"
     },
     {
       "type": "office",
@@ -3789,7 +4332,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:12.831Z"
+      "queuedAt": "2026-06-29T08:35:01.961Z"
     },
     {
       "type": "office",
@@ -3810,7 +4353,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:14.317Z"
+      "queuedAt": "2026-06-29T08:35:03.681Z"
     },
     {
       "type": "office",
@@ -3831,7 +4374,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:16.153Z"
+      "queuedAt": "2026-06-29T08:35:05.252Z"
     },
     {
       "type": "office",
@@ -3852,7 +4395,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:17.992Z"
+      "queuedAt": "2026-06-29T08:35:06.974Z"
     },
     {
       "type": "office",
@@ -3873,7 +4416,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:19.534Z"
+      "queuedAt": "2026-06-29T08:35:09.006Z"
     },
     {
       "type": "office",
@@ -3894,7 +4437,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:22.331Z"
+      "queuedAt": "2026-06-29T08:35:12.323Z"
     },
     {
       "type": "office",
@@ -3915,7 +4458,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:23.746Z"
+      "queuedAt": "2026-06-29T08:35:13.738Z"
     },
     {
       "type": "office",
@@ -3936,7 +4479,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:30.799Z"
+      "queuedAt": "2026-06-29T08:35:19.810Z"
     },
     {
       "type": "office",
@@ -3957,7 +4500,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:32.373Z"
+      "queuedAt": "2026-06-29T08:35:21.633Z"
     },
     {
       "type": "office",
@@ -3978,7 +4521,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:34.315Z"
+      "queuedAt": "2026-06-29T08:35:23.097Z"
     },
     {
       "type": "office",
@@ -3999,7 +4542,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:39.464Z"
+      "queuedAt": "2026-06-29T08:35:27.753Z"
     },
     {
       "type": "office",
@@ -4020,7 +4563,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:40.996Z"
+      "queuedAt": "2026-06-29T08:35:30.088Z"
     },
     {
       "type": "office",
@@ -4041,7 +4584,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:42.749Z"
+      "queuedAt": "2026-06-29T08:35:31.425Z"
     },
     {
       "type": "office",
@@ -4062,7 +4605,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:47.912Z"
+      "queuedAt": "2026-06-29T08:35:36.074Z"
     },
     {
       "type": "office",
@@ -4083,7 +4626,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:49.756Z"
+      "queuedAt": "2026-06-29T08:35:37.477Z"
     },
     {
       "type": "office",
@@ -4104,7 +4647,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-06-22T09:34:51.122Z"
+      "queuedAt": "2026-06-29T08:35:39.205Z"
     },
     {
       "type": "office",
@@ -4125,7 +4668,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-06-22T09:34:52.489Z"
+      "queuedAt": "2026-06-29T08:35:42.132Z"
     },
     {
       "type": "office",
@@ -4146,7 +4689,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:53.939Z"
+      "queuedAt": "2026-06-29T08:35:43.550Z"
     },
     {
       "type": "office",
@@ -4167,7 +4710,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:55.898Z"
+      "queuedAt": "2026-06-29T08:35:45.112Z"
     },
     {
       "type": "office",
@@ -4188,7 +4731,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:34:57.289Z"
+      "queuedAt": "2026-06-29T08:35:46.523Z"
     },
     {
       "type": "office",
@@ -4209,7 +4752,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:00.404Z"
+      "queuedAt": "2026-06-29T08:35:49.720Z"
     },
     {
       "type": "office",
@@ -4230,7 +4773,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-06-22T09:35:01.793Z"
+      "queuedAt": "2026-06-29T08:35:51.298Z"
     },
     {
       "type": "office",
@@ -4251,7 +4794,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:03.349Z"
+      "queuedAt": "2026-06-29T08:35:53.028Z"
     },
     {
       "type": "office",
@@ -4272,7 +4815,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:04.651Z"
+      "queuedAt": "2026-06-29T08:35:55.357Z"
     },
     {
       "type": "office",
@@ -4293,7 +4836,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:06.595Z"
+      "queuedAt": "2026-06-29T08:35:57.088Z"
     },
     {
       "type": "office",
@@ -4314,7 +4857,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:08.440Z"
+      "queuedAt": "2026-06-29T08:35:59.424Z"
     },
     {
       "type": "office",
@@ -4335,7 +4878,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:10.287Z"
+      "queuedAt": "2026-06-29T08:36:01.256Z"
     },
     {
       "type": "office",
@@ -4358,7 +4901,7 @@
       "reason": "missing required office fields",
       "confidence": "low",
       "confidenceScore": 65,
-      "queuedAt": "2026-06-22T09:35:11.661Z"
+      "queuedAt": "2026-06-29T08:36:02.741Z"
     },
     {
       "type": "office",
@@ -4379,7 +4922,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-06-22T09:35:13.045Z"
+      "queuedAt": "2026-06-29T08:36:04.182Z"
     },
     {
       "type": "office",
@@ -4400,7 +4943,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-06-22T09:35:14.355Z"
+      "queuedAt": "2026-06-29T08:36:05.617Z"
     },
     {
       "type": "office",
@@ -4421,7 +4964,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:15.788Z"
+      "queuedAt": "2026-06-29T08:36:06.975Z"
     },
     {
       "type": "office",
@@ -4442,912 +4985,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-06-22T09:35:17.053Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "atlassian",
-        "country": "US",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "San Francisco",
-        "address": "350 Bush Street, Floor 13",
-        "postalCode": "94104",
-        "officeType": "",
-        "contactUrl": "https://www.atlassian.com/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:18.157Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Ann Arbor",
-        "address": "North America Ann Arbor 2300 Traverwood Dr",
-        "postalCode": "48105",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:19.263Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Boulder",
-        "address": "Google Boulder - Walnut Street 3333 Walnut St",
-        "postalCode": "80301",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:23.679Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Chicago",
-        "address": "Google Chicago - Carpenter St 210 N Carpenter St",
-        "postalCode": "60607",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:24.784Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Chicago",
-        "address": "Google Chicago - Fulton Market 320 N Morgan St Suite 600",
-        "postalCode": "60607",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:25.888Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Addison",
-        "address": "15303 North Dallas Parkway Suite 1100",
-        "postalCode": "75001",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:26.993Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Kirkland",
-        "address": "Google Kirkland - 6th St Campus 777 6th St South Building A",
-        "postalCode": "98033",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:32.512Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Kirkland",
-        "address": "Google Kirkland - Kirkland Urban 425 Urban Plz",
-        "postalCode": "98033",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:33.616Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Miami",
-        "address": "1450 Brickell Ave Suite 901",
-        "postalCode": "33131",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:38.031Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Canada",
-        "countryCode": "CA",
-        "region": "Americas",
-        "city": "Montréal",
-        "address": "425 Av. Viger O",
-        "postalCode": "",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:39.133Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Mountain View",
-        "address": "Google Mountain View - Bay View 100 Bay View Drive",
-        "postalCode": "94043",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:40.236Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Mountain View",
-        "address": "Google Mountain View - Googleplex 1600 Amphitheatre Pkwy",
-        "postalCode": "94043",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:41.341Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "New York",
-        "address": "Google NYC - 9th Avenue 111 8th Ave",
-        "postalCode": "10011",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:42.446Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "New York",
-        "address": "Google NYC - Chelsea Market 75 9th Ave",
-        "postalCode": "10011",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:43.548Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Pier 57, New York",
-        "address": "Google NYC - Pier 57 29 11th Ave",
-        "postalCode": "10011",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:44.652Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "New York",
-        "address": "Google NYC - St. John's Terminal 550 Washington St",
-        "postalCode": "10014",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:45.754Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "15, 16, Playa Vista",
-        "address": "5865 Campus Center Drive Building 14",
-        "postalCode": "90094",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:47.960Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "5, Portland",
-        "address": "555 SW Morrison St Ste 500 Floors 4 &amp",
-        "postalCode": "97204",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:49.065Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "San Francisco",
-        "address": "Google San Francisco - 121 Spear St 121 Spear St",
-        "postalCode": "94105",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:53.481Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "San Francisco",
-        "address": "Google San Francisco - 345 Spear St 345 Spear St",
-        "postalCode": "94105",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:54.583Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "1 Market St, San Francisco",
-        "address": "Google San Francisco - One Market Plaza The Landmark Building",
-        "postalCode": "94105",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:55.687Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Sunnyvale",
-        "address": "Google Sunnyvale - 237 MPD 237 Moffett Park Dr",
-        "postalCode": "94089",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:35:58.997Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Sunnyvale",
-        "address": "Google Sunnyvale - Humboldt 242 Humboldt Ct",
-        "postalCode": "94089",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:00.099Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United States",
-        "countryCode": "US",
-        "region": "Americas",
-        "city": "Sunnyvale",
-        "address": "Google Sunnyvale - Moffett Place 1195 Borregas Ave",
-        "postalCode": "94089",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:01.201Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Argentina",
-        "countryCode": "AR",
-        "region": "Americas",
-        "city": "C1107 Cdad. Autónoma de Buenos Aires",
-        "address": "Av. Alicia Moreau de Justo 350",
-        "postalCode": "",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:04.510Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Chile",
-        "countryCode": "CL",
-        "region": "Americas",
-        "city": "Torre B Piso 15-16,",
-        "address": "Costanera Sur 2730",
-        "postalCode": "7550692 Las Condes, Región Metropolitana, Chile",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:05.612Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Greece",
-        "countryCode": "GR",
-        "region": "",
-        "city": "Athina",
-        "address": "Fragkokklisias 6",
-        "postalCode": "151 25, Greece",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 60,
-      "queuedAt": "2026-06-22T09:36:06.715Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Romania",
-        "countryCode": "RO",
-        "region": "",
-        "city": "București",
-        "address": "Bulevardul Corneliu Coposu 6-8",
-        "postalCode": "030167, Romania",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 60,
-      "queuedAt": "2026-06-22T09:36:07.819Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Ireland",
-        "countryCode": "IE",
-        "region": "Europe",
-        "city": "Grand Canal Dock",
-        "address": "Google Dublin - Docks 4 Barrow St",
-        "postalCode": "",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:08.921Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Ireland",
-        "countryCode": "IE",
-        "region": "Europe",
-        "city": "4 Barrow St",
-        "address": "Google Dublin - Gordon House Gordon House",
-        "postalCode": "",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:10.026Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "United Kingdom",
-        "countryCode": "GB",
-        "region": "Europe",
-        "city": "London WC2H 8AG",
-        "address": "Google London - Central Saint Giles 1-13 St Giles High St",
-        "postalCode": "",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:11.131Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Italy",
-        "countryCode": "IT",
-        "region": "Europe",
-        "city": "Via Federico Confalonieri, 4,",
-        "address": "Isola Building C",
-        "postalCode": "20124 Milano MI, Italy",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:13.338Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Lithuania",
-        "countryCode": "LT",
-        "region": "",
-        "city": "Antakalnis st. 17, 2nd building, LT-",
-        "address": "Vilnius Tech Park",
-        "postalCode": "10312, Vilnius, Lithuania",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 60,
-      "queuedAt": "2026-06-22T09:36:14.442Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "New Zealand",
-        "countryCode": "NZ",
-        "region": "Asia-Pacific",
-        "city": "Wynyard Central, Auckland",
-        "address": "10 Madden Street",
-        "postalCode": "1010, New Zealand",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:15.544Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "South Korea",
-        "countryCode": "KR",
-        "region": "Asia-Pacific",
-        "city": "22nd Floor,",
-        "address": "Gangnam Finance Centre",
-        "postalCode": "152 Teheran-ro, Gangnam-gu, Seoul, South Korea",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:16.647Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "China",
-        "countryCode": "CN",
-        "region": "Asia-Pacific",
-        "city": "Shanghai World Financial Center, No.",
-        "address": "L60",
-        "postalCode": "100 Century Avenue, Pudong New Area, Shanghai, China, 200120",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:17.751Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Singapore",
-        "countryCode": "SG",
-        "region": "Asia-Pacific",
-        "city": "#03-71 Mapletree Business City II, Singapore",
-        "address": "70 Pasir Panjang Rd",
-        "postalCode": "117371",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:18.853Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Japan",
-        "countryCode": "JP",
-        "region": "Asia-Pacific",
-        "city": "3 Chome-21-3 Shibuya, Shibuya City, Tokyo",
-        "address": "Shibuya Stream",
-        "postalCode": "150-0002, Japan",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:19.959Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Ghana",
-        "countryCode": "GH",
-        "region": "",
-        "city": "Accra",
-        "address": "87 Independence Ave",
-        "postalCode": "",
-        "officeType": "",
-        "latitude": 5.5534519,
-        "longitude": -0.2017024,
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing required office fields",
-      "confidence": "low",
-      "confidenceScore": 65,
-      "queuedAt": "2026-06-22T09:36:21.063Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Israel",
-        "countryCode": "IL",
-        "region": "",
-        "city": "Building 10.2 Haifa,",
-        "address": "Andrei Sakharov Street 9",
-        "postalCode": "3508409 Israel",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 60,
-      "queuedAt": "2026-06-22T09:36:22.166Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Turkey",
-        "countryCode": "TR",
-        "region": "",
-        "city": "Eski Buyukdere Cad. No:",
-        "address": "Levent",
-        "postalCode": "209, 9th Floor 4, 34394 İstanbul, Türkiye",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 60,
-      "queuedAt": "2026-06-22T09:36:23.270Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Nigeria",
-        "countryCode": "NG",
-        "region": "Middle East & Africa",
-        "city": "Ikoyi, Lagos",
-        "address": "21 Lugard Ave",
-        "postalCode": "101233, Lagos, Nigeria",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 66,
-      "queuedAt": "2026-06-22T09:36:24.375Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "auto-discover",
-      "sourceUrl": "https://auto-discover.local",
-      "office": {
-        "id": "",
-        "companyId": "google",
-        "country": "Israel",
-        "countryCode": "IL",
-        "region": "",
-        "city": "Yigal Alon St 98, Tel Aviv-Yafo,",
-        "address": "Electra Tower",
-        "postalCode": "6789141, Israel",
-        "officeType": "",
-        "contactUrl": "https://about.google/company-info/locations/"
-      },
-      "reason": "missing latitude/longitude after geocoding",
-      "confidence": "low",
-      "confidenceScore": 60,
-      "queuedAt": "2026-06-22T09:36:25.478Z"
+      "queuedAt": "2026-06-29T08:36:08.230Z"
     }
   ]
 }
