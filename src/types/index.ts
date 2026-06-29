@@ -1,3 +1,5 @@
+import type { OfficeTag } from "../utils/typeTag";
+
 export interface CompanyPhoto {
   /** Direct image URL (e.g. an upload.wikimedia.org thumbnail). */
   url: string;
@@ -42,6 +44,7 @@ export interface Office {
   address: string;
   postalCode: string;
   officeType: string;
+  tag: OfficeTag;
   latitude?: number;
   longitude?: number;
   contactUrl?: string;

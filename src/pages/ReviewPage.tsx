@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useData } from "../hooks/useData";
 import type { Office, Company } from "../types";
-import { typeTag } from "../utils/typeTag";
 import FlagChip from "../components/FlagChip";
 
 interface ReviewRowProps {
@@ -13,12 +12,14 @@ interface ReviewRowProps {
 function ReviewRow({ office: initialOffice, company }: ReviewRowProps) {
   const [office, setOffice] = useState({ ...initialOffice });
 
-  const tag = typeTag(office.officeType);
+  const tag = office.tag;
 
   const promoteSnippet = JSON.stringify(
     {
       ...office,
-      verification: office.verification ? { ...office.verification } : undefined,
+      verification: office.verification
+        ? { ...office.verification }
+        : undefined,
     },
     null,
     2,
@@ -46,7 +47,9 @@ function ReviewRow({ office: initialOffice, company }: ReviewRowProps) {
             </span>
           )}
           {office.verification.reason && (
-            <div className="gof-review-reason">{office.verification.reason}</div>
+            <div className="gof-review-reason">
+              {office.verification.reason}
+            </div>
           )}
         </div>
       )}
@@ -65,7 +68,9 @@ function ReviewRow({ office: initialOffice, company }: ReviewRowProps) {
           <input
             className="gof-review-input"
             value={office.country}
-            onChange={(e) => setOffice((o) => ({ ...o, country: e.target.value }))}
+            onChange={(e) =>
+              setOffice((o) => ({ ...o, country: e.target.value }))
+            }
           />
         </label>
         <label className="gof-review-label">
@@ -73,7 +78,9 @@ function ReviewRow({ office: initialOffice, company }: ReviewRowProps) {
           <input
             className="gof-review-input"
             value={office.address}
-            onChange={(e) => setOffice((o) => ({ ...o, address: e.target.value }))}
+            onChange={(e) =>
+              setOffice((o) => ({ ...o, address: e.target.value }))
+            }
           />
         </label>
         <label className="gof-review-label">
@@ -81,7 +88,9 @@ function ReviewRow({ office: initialOffice, company }: ReviewRowProps) {
           <input
             className="gof-review-input"
             value={office.officeType}
-            onChange={(e) => setOffice((o) => ({ ...o, officeType: e.target.value }))}
+            onChange={(e) =>
+              setOffice((o) => ({ ...o, officeType: e.target.value }))
+            }
           />
         </label>
       </div>
@@ -117,8 +126,8 @@ export default function ReviewPage() {
         <div className="gof-review-header">
           <h1 className="gof-review-title">Office Review</h1>
           <p className="gof-muted">
-            Offices flagged by the CI verification job as likely incorrect. Correct the details
-            and copy the JSON snippet to paste into a PR.
+            Offices flagged by the CI verification job as likely incorrect.
+            Correct the details and copy the JSON snippet to paste into a PR.
           </p>
           <Link to="/" className="gof-link">
             ← Back to directory
@@ -127,7 +136,8 @@ export default function ReviewPage() {
 
         {rejectedOffices.length === 0 ? (
           <div className="gof-empty" data-testid="review-empty">
-            No rejected offices found. All offices passed verification or have not been checked yet.
+            No rejected offices found. All offices passed verification or have
+            not been checked yet.
           </div>
         ) : (
           <div className="gof-review-list">
