@@ -25,9 +25,15 @@ jobs:
         run: npm ci
 
       - name: Run office verification
+        if: ${{ secrets.OPENROUTER_API_KEY != '' }}
         run: npm run verify:offices -- --limit 200
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+
+      - name: Skip office verification (secret missing)
+        if: ${{ secrets.OPENROUTER_API_KEY == '' }}
+        run: |
+          echo "::warning::OPENROUTER_API_KEY secret is not set in repository secrets. Skipping office verification."
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
