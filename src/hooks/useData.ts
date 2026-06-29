@@ -2,9 +2,15 @@ import { useMemo } from "react";
 import companiesJson from "../../data/companies.json";
 import officesJson from "../../data/offices.json";
 import type { Company, Office } from "../types";
+import { typeTag } from "../utils/typeTag";
 
 const COMPANIES = companiesJson as Company[];
-const OFFICES = officesJson as Office[];
+const OFFICES_RAW = officesJson as unknown as Office[];
+
+const OFFICES = OFFICES_RAW.map((o) => {
+  const tag = typeTag(o.officeType);
+  return { ...o, tag, tone: tag.tone };
+});
 
 export interface CatalogData {
   companies: Company[];
@@ -22,6 +28,11 @@ export function useData(): CatalogData {
     const publicOffices = OFFICES.filter(
       (o) => o.verification?.verdict !== "rejected",
     );
-    return { companies: COMPANIES, offices: OFFICES, publicOffices, companyById };
+    return {
+      companies: COMPANIES,
+      offices: OFFICES,
+      publicOffices,
+      companyById,
+    };
   }, []);
 }
