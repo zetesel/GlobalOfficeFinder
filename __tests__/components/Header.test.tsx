@@ -111,6 +111,10 @@ describe("Header", () => {
       // 2 countries (United States and Canada)
       expect(within(metaSection).getByText("2", { selector: "span:nth-child(5) b" })).toBeInTheDocument();
       expect(within(metaSection).getByText(/countries/i)).toBeInTheDocument();
+
+      // Review link in meta section
+      const reviewLink = within(metaSection).getByRole("link", { name: /Review/i });
+      expect(reviewLink).toHaveAttribute("href", "/review");
     }
   });
 
@@ -173,5 +177,46 @@ describe("Header", () => {
     // Since o.country === code is used for matching, and code is "US", it matches nothing if o.country is "United States".
     // Thus it renders code ("US").
     expect(within(breadcrumbNav).getByText("US")).toBeInTheDocument();
+  });
+
+  it("renders review breadcrumb on review route", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/review"]}>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(within(breadcrumbNav).getByText("Offices")).toHaveAttribute("href", "/");
+    expect(within(breadcrumbNav).getByText("Review")).toBeInTheDocument();
+  });
+
+  it("handles non-existent company ID in breadcrumb", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/company/non-existent"]}>
+        <Routes>
+          <Route path="/company/:id" element={<Header />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(within(breadcrumbNav).getByText("non-existent")).toBeInTheDocument();
+  });
+
+  it("handles non-existent country code in breadcrumb", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/country/XX"]}>
+        <Routes>
+          <Route path="/country/:code" element={<Header />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(within(breadcrumbNav).getByText("XX")).toBeInTheDocument();
   });
 });
