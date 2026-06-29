@@ -18,17 +18,56 @@ describe("Monogram", () => {
     expect(getByText("FS")).toBeInTheDocument();
   });
 
-  it("generates a consistent background color (basic check)", () => {
+  it("handles names with extra whitespace and special characters", () => {
+    const { getByText } = render(<Monogram name="  Jane   Doe  " />);
+    expect(getByText("JD")).toBeInTheDocument();
+  });
+
+  it("generates consistent styles for the same name", () => {
     const { container: container1 } = render(<Monogram name="Test" />);
     const { container: container2 } = render(<Monogram name="Test" />);
 
     const div1 = container1.firstChild as HTMLElement;
     const div2 = container2.firstChild as HTMLElement;
 
-    const style1 = div1.getAttribute('style');
-    const style2 = div2.getAttribute('style');
+    expect(div1.getAttribute("style")).toBe(div2.getAttribute("style"));
+    expect(div1).toHaveStyle({ width: "44px" });
+  });
 
-    expect(style1).toBe(style2);
-    expect(style1).toContain("width: 44px");
+  it("renders with custom size", () => {
+    const size = 100;
+    const { container } = render(<Monogram name="Test" size={size} />);
+    const div = container.firstChild as HTMLElement;
+
+    expect(div).toHaveStyle({
+      width: `${size}px`,
+      height: `${size}px`,
+      fontSize: `${size * 0.36}px`,
+    });
+  });
+
+  it("renders as a square when square prop is true", () => {
+    const size = 44;
+    const { container } = render(<Monogram name="Test" size={size} square />);
+    const div = container.firstChild as HTMLElement;
+
+    expect(div).toHaveStyle({
+      borderRadius: `${Math.round(size * 0.26)}px`,
+    });
+  });
+
+  it("renders as a circle by default", () => {
+    const { container } = render(<Monogram name="Test" />);
+    const div = container.firstChild as HTMLElement;
+
+    expect(div).toHaveStyle({
+      borderRadius: "50%",
+    });
+  });
+
+  it("has aria-hidden='true'", () => {
+    const { container } = render(<Monogram name="Test" />);
+    const div = container.firstChild as HTMLElement;
+    expect(div).toHaveAttribute("aria-hidden", "true");
   });
 });
