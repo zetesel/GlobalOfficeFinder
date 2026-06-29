@@ -8,7 +8,7 @@ describe("sanitizeOffices", () => {
 
   it("skips non-object elements", () => {
     const input = [null, undefined, 123, "string", []];
-    expect(sanitizeOffices(input as any)).toEqual([]);
+    expect(sanitizeOffices(input as unknown as unknown[])).toEqual([]);
   });
 
   it("skips elements missing city or country", () => {
@@ -19,19 +19,19 @@ describe("sanitizeOffices", () => {
       { city: "Berlin", country: "" },
       { city: "  ", country: "Germany" },
     ];
-    expect(sanitizeOffices(input as any)).toEqual([]);
+    expect(sanitizeOffices(input as unknown as unknown[])).toEqual([]);
   });
 
   it("trims city and country names", () => {
     const input = [{ city: "  Berlin  ", country: "  Germany  " }];
-    const result = sanitizeOffices(input as any);
+    const result = sanitizeOffices(input as unknown as unknown[]);
     expect(result[0].city).toBe("Berlin");
     expect(result[0].country).toBe("Germany");
   });
 
   it("normalizes countryCode to uppercase", () => {
     const input = [{ city: "Berlin", country: "Germany", countryCode: "de" }];
-    const result = sanitizeOffices(input as any);
+    const result = sanitizeOffices(input as unknown as unknown[]);
     expect(result[0].countryCode).toBe("DE");
   });
 
@@ -40,7 +40,7 @@ describe("sanitizeOffices", () => {
       { city: "Berlin", country: "Germany", countryCode: "GER" },
       { city: "Paris", country: "France", countryCode: "1" },
     ];
-    const result = sanitizeOffices(input as any);
+    const result = sanitizeOffices(input as unknown as unknown[]);
     expect(result[0].countryCode).toBe("");
     expect(result[1].countryCode).toBe("");
   });
@@ -51,7 +51,7 @@ describe("sanitizeOffices", () => {
       { city: "New York", country: "USA", region: "Mars" },
       { city: "Tokyo", country: "Japan", region: "Asia-Pacific" },
     ];
-    const result = sanitizeOffices(input as any);
+    const result = sanitizeOffices(input as unknown as unknown[]);
     expect(result[0].region).toBe("Europe");
     expect(result[1].region).toBe("");
     expect(result[2].region).toBe("Asia-Pacific");
@@ -65,7 +65,7 @@ describe("sanitizeOffices", () => {
       { city: "Dublin", country: "Ireland", officeType: "coffee-shop" },
       { city: "Sydney", country: "Australia" },
     ];
-    const result = sanitizeOffices(input as any);
+    const result = sanitizeOffices(input as unknown as unknown[]);
     expect(result[0].officeType).toBe("hq");
     expect(result[1].officeType).toBe("regional");
     expect(result[2].officeType).toBe("branch");
@@ -83,7 +83,7 @@ describe("sanitizeOffices", () => {
         longitude: 13.405,
       },
     ];
-    const result = sanitizeOffices(input as any);
+    const result = sanitizeOffices(input as unknown as unknown[]);
     expect(result[0]).toEqual({
       city: "Berlin",
       country: "Germany",
@@ -98,7 +98,7 @@ describe("sanitizeOffices", () => {
 
   it("trims address if present", () => {
     const input = [{ city: "Berlin", country: "Germany", address: "  Street 1  " }];
-    const result = sanitizeOffices(input as any);
+    const result = sanitizeOffices(input as unknown as unknown[]);
     expect(result[0].address).toBe("Street 1");
   });
 
@@ -111,7 +111,7 @@ describe("sanitizeOffices", () => {
         longitude: [13.405],
       },
     ];
-    const result = sanitizeOffices(input as any);
+    const result = sanitizeOffices(input as unknown as unknown[]);
     expect(result[0].latitude).toBeUndefined();
     expect(result[0].longitude).toBeUndefined();
   });
@@ -124,7 +124,7 @@ describe("sanitizeOffices", () => {
       { city: "Paris", country: "France" },
       { city: "PARIS", country: "France", countryCode: "FR" },
     ];
-    const result = sanitizeOffices(input as any);
+    const result = sanitizeOffices(input as unknown as unknown[]);
     // Logic: key = `${city.toLowerCase()}|${countryCode || country.toLowerCase()}`;
     // 1st: "berlin|germany"
     // 2nd: "berlin|germany" (seen)
