@@ -91,8 +91,8 @@ function ReviewRow({ office: initialOffice, company }: ReviewRowProps) {
             value={office.officeType}
             onChange={(e) => {
               const officeType = e.target.value;
-              const { tag, tone } = typeTag(officeType);
-              setOffice((o) => ({ ...o, officeType, tag, tone }));
+              const tag = typeTag(officeType);
+              setOffice((o) => ({ ...o, officeType, tag, tone: tag.tone }));
             }}
           />
         </label>

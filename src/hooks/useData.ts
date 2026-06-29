@@ -7,9 +7,11 @@ import { typeTag } from "../utils/typeTag";
 const COMPANIES = companiesJson as Company[];
 const OFFICES = (officesJson as unknown as unknown[]).map((o) => {
   const office = o as Office;
+  const tag = typeTag(office.officeType);
   return {
     ...office,
-    ...typeTag(office.officeType),
+    tag,
+    tone: tag.tone,
   };
 }) as Office[];
 
