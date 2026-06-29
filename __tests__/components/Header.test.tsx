@@ -174,4 +174,69 @@ describe("Header", () => {
     // Thus it renders code ("US").
     expect(within(breadcrumbNav).getByText("US")).toBeInTheDocument();
   });
+
+  it("renders Review link", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const reviewLink = screen.getByRole("link", { name: /^Review$/i });
+    expect(reviewLink).toHaveAttribute("href", "/review");
+  });
+
+  it("renders review breadcrumb on review route", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/review"]}>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(within(breadcrumbNav).getByText("Offices")).toHaveAttribute("href", "/");
+    expect(within(breadcrumbNav).getByText("Review")).toBeInTheDocument();
+  });
+
+  it("renders company ID as fallback if company not found", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/company/nonexistent"]}>
+        <Routes>
+          <Route path="/company/:id" element={<Header />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(within(breadcrumbNav).getByText("nonexistent")).toBeInTheDocument();
+  });
+
+  it("renders country name if match found in CountryBreadcrumb", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/country/United States"]}>
+        <Routes>
+          <Route path="/country/:code" element={<Header />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(within(breadcrumbNav).getByText("United States")).toBeInTheDocument();
+  });
+
+  it("renders no breadcrumbs on about photos route", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/about/photos"]}>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(breadcrumbNav).toBeEmptyDOMElement();
+  });
 });
