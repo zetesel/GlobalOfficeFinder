@@ -22,9 +22,7 @@
     },
     "skippedSources": []
   },
-  "sourceFiles": [
-    "phase-a-curated.json"
-  ],
+  "sourceFiles": ["phase-a-curated.json"],
   "sources": [
     {
       "id": "phase-a-official-tech-sample",

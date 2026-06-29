@@ -11,7 +11,6 @@ import Photo from "../components/Photo";
 import Monogram from "../components/Monogram";
 import FlagChip from "../components/FlagChip";
 import MapView, { type MapFocus } from "../components/MapView";
-import { typeTag } from "../utils/typeTag";
 import { sanitizeUrl } from "../utils/sanitizeUrl";
 
 interface StatProps {
@@ -72,7 +71,8 @@ export default function CompanyPage() {
 
   const countries = new Set(offices.map((o) => o.country));
   const regions = new Set(offices.map((o) => o.region));
-  const hq = offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
+  const hq =
+    offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
   const website = sanitizeUrl(company.website);
 
   function selectOffice(officeId: string) {
@@ -119,7 +119,9 @@ export default function CompanyPage() {
 
         <div className="gof-page-grid">
           <div className="gof-page-main">
-            {company.description && <p className="gof-co-desc">{company.description}</p>}
+            {company.description && (
+              <p className="gof-co-desc">{company.description}</p>
+            )}
             {website && (
               <a
                 className="gof-co-link"
@@ -152,7 +154,7 @@ export default function CompanyPage() {
             </h2>
             <div className="gof-office-grid">
               {offices.map((o) => {
-                const tag = typeTag(o.officeType);
+                const { tag } = o;
                 const isActive = activeId === o.id;
                 const isHover = hoverId === o.id;
                 return (
@@ -187,7 +189,9 @@ export default function CompanyPage() {
                       subject={company.name}
                     >
                       <span
-                        className={"gof-tag tag-" + tag.tone + " gof-officecard-tag"}
+                        className={
+                          "gof-tag tag-" + tag.tone + " gof-officecard-tag"
+                        }
                       >
                         {tag.short}
                       </span>
@@ -214,9 +218,18 @@ export default function CompanyPage() {
 
           <aside className="gof-page-side">
             <div className="gof-statrow">
-              <Stat n={offices.length} label={offices.length === 1 ? "office" : "offices"} />
-              <Stat n={countries.size} label={countries.size === 1 ? "country" : "countries"} />
-              <Stat n={regions.size} label={regions.size === 1 ? "region" : "regions"} />
+              <Stat
+                n={offices.length}
+                label={offices.length === 1 ? "office" : "offices"}
+              />
+              <Stat
+                n={countries.size}
+                label={countries.size === 1 ? "country" : "countries"}
+              />
+              <Stat
+                n={regions.size}
+                label={regions.size === 1 ? "region" : "regions"}
+              />
             </div>
             <div className="gof-locmap">
               <div className="gof-locmap-head">Locations</div>
