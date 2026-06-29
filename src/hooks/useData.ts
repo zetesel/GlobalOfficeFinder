@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import companiesJson from "../../data/companies.json";
 import officesJson from "../../data/offices.json";
 import type { Company, Office } from "../types";
@@ -15,13 +14,20 @@ export interface CatalogData {
   companyById: Record<string, Company>;
 }
 
+const COMPANY_BY_ID: Record<string, Company> = {};
+for (const c of COMPANIES) COMPANY_BY_ID[c.id] = c;
+
+const PUBLIC_OFFICES = OFFICES.filter(
+  (o) => o.verification?.verdict !== "rejected",
+);
+
+const DATA: CatalogData = {
+  companies: COMPANIES,
+  offices: OFFICES,
+  publicOffices: PUBLIC_OFFICES,
+  companyById: COMPANY_BY_ID,
+};
+
 export function useData(): CatalogData {
-  return useMemo<CatalogData>(() => {
-    const companyById: Record<string, Company> = {};
-    for (const c of COMPANIES) companyById[c.id] = c;
-    const publicOffices = OFFICES.filter(
-      (o) => o.verification?.verdict !== "rejected",
-    );
-    return { companies: COMPANIES, offices: OFFICES, publicOffices, companyById };
-  }, []);
+  return DATA;
 }
