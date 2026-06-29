@@ -32,6 +32,13 @@ export interface OfficeVerification {
   model?: string;
 }
 
+export type OfficeTone = "hq" | "reg" | "rnd";
+
+export interface OfficeTag {
+  short: string;
+  tone: OfficeTone;
+}
+
 export interface Office {
   id: string;
   companyId: string;
@@ -46,4 +53,6 @@ export interface Office {
   longitude?: number;
   contactUrl?: string;
   verification?: OfficeVerification;
+  tone: OfficeTone;
+  tag: OfficeTag;
 }

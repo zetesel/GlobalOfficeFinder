@@ -14,7 +14,13 @@ interface DropdownProps {
   width?: number | string;
 }
 
-export default function Dropdown({ label, value, options, onChange, width }: DropdownProps) {
+export default function Dropdown({
+  label,
+  value,
+  options,
+  onChange,
+  width,
+}: DropdownProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
   const listboxId = useId();
@@ -23,7 +29,8 @@ export default function Dropdown({ label, value, options, onChange, width }: Dro
   useEffect(() => {
     if (!open) return;
     const onDown = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node))
+        setOpen(false);
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
@@ -47,7 +54,9 @@ export default function Dropdown({ label, value, options, onChange, width }: Dro
         aria-label={label}
         onClick={() => setOpen((o) => !o)}
       >
-        <span style={{ opacity: value ? 1 : 0.7 }}>{cur ? cur.label : label}</span>
+        <span style={{ opacity: value ? 1 : 0.7 }}>
+          {cur ? cur.label : label}
+        </span>
         <svg
           width="12"
           height="12"
@@ -77,14 +86,18 @@ export default function Dropdown({ label, value, options, onChange, width }: Dro
               type="button"
               role="option"
               aria-selected={o.value === value}
-              className={"gof-dd-item" + (o.value === value ? " is-active" : "")}
+              className={
+                "gof-dd-item" + (o.value === value ? " is-active" : "")
+              }
               onClick={() => {
                 onChange(o.value);
                 setOpen(false);
               }}
             >
               <span>{o.label}</span>
-              {o.count != null && <span className="gof-dd-count">{o.count}</span>}
+              {o.count != null && (
+                <span className="gof-dd-count">{o.count}</span>
+              )}
             </button>
           ))}
         </div>

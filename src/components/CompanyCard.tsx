@@ -12,7 +12,8 @@ interface CompanyCardProps {
 export default function CompanyCard({ company, offices }: CompanyCardProps) {
   const codes = [...new Set(offices.map((o) => o.countryCode))];
   const countries = new Set(offices.map((o) => o.country));
-  const hq = offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
+  const hq =
+    offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
   return (
     <Link
       to={`/company/${encodeURIComponent(company.id)}`}
@@ -31,7 +32,9 @@ export default function CompanyCard({ company, offices }: CompanyCardProps) {
           {codes.slice(0, 3).map((c) => (
             <FlagChip key={c} code={c} />
           ))}
-          {codes.length > 3 && <span className="gof-card-flagmore">+{codes.length - 3}</span>}
+          {codes.length > 3 && (
+            <span className="gof-card-flagmore">+{codes.length - 3}</span>
+          )}
         </span>
         {hq && <span className="gof-card-hq">{hq.city}</span>}
       </Photo>
@@ -45,11 +48,13 @@ export default function CompanyCard({ company, offices }: CompanyCardProps) {
         </div>
         <div className="gof-card-meta">
           <span>
-            <b>{offices.length}</b> {offices.length === 1 ? "office" : "offices"}
+            <b>{offices.length}</b>{" "}
+            {offices.length === 1 ? "office" : "offices"}
           </span>
           <span className="gof-dot">·</span>
           <span>
-            <b>{countries.size}</b> {countries.size === 1 ? "country" : "countries"}
+            <b>{countries.size}</b>{" "}
+            {countries.size === 1 ? "country" : "countries"}
           </span>
         </div>
       </div>
