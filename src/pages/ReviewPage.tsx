@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useData } from "../hooks/useData";
 import type { Office, Company } from "../types";
-import { typeTag } from "../utils/typeTag";
 import FlagChip from "../components/FlagChip";
 
 interface ReviewRowProps {
@@ -13,7 +12,7 @@ interface ReviewRowProps {
 function ReviewRow({ office: initialOffice, company }: ReviewRowProps) {
   const [office, setOffice] = useState({ ...initialOffice });
 
-  const tag = typeTag(office.officeType);
+  const tag = office.tag;
 
   const promoteSnippet = JSON.stringify(
     {

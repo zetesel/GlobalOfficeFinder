@@ -2,9 +2,14 @@ import { useMemo } from "react";
 import companiesJson from "../../data/companies.json";
 import officesJson from "../../data/offices.json";
 import type { Company, Office } from "../types";
+import { typeTag } from "../utils/typeTag";
 
 const COMPANIES = companiesJson as Company[];
-const OFFICES = officesJson as Office[];
+const OFFICES = (officesJson as unknown[]).map((o) => {
+  const office = o as Office;
+  const tag = typeTag(office.officeType);
+  return { ...office, tag, tone: tag.tone };
+}) as Office[];
 
 export interface CatalogData {
   companies: Company[];
