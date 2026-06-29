@@ -22,4 +22,21 @@ describe("FlagChip", () => {
     expect(screen.getByText("DE")).toBeInTheDocument();
     expect(screen.getByLabelText("Country code DE")).toBeInTheDocument();
   });
+
+  it("renders as a span with the correct class", () => {
+    render(<FlagChip code="CA" />);
+    const chip = screen.getByText("CA");
+    expect(chip.tagName).toBe("SPAN");
+    expect(chip).toHaveClass("gof-flagchip");
+  });
+
+  it("applies basic inline styles", () => {
+    render(<FlagChip code="JP" />);
+    const chip = screen.getByText("JP");
+
+    expect(chip).toHaveStyle({
+      display: "inline-flex",
+      color: "#fff",
+    });
+  });
 });
