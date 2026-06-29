@@ -174,4 +174,58 @@ describe("Header", () => {
     // Thus it renders code ("US").
     expect(within(breadcrumbNav).getByText("US")).toBeInTheDocument();
   });
+
+  it("renders country name in breadcrumb when country is found", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/country/Canada"]}>
+        <Routes>
+          <Route path="/country/:code" element={<Header />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(within(breadcrumbNav).getByText("Canada")).toBeInTheDocument();
+  });
+
+  it("renders review breadcrumb on review route", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/review"]}>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(within(breadcrumbNav).getByText("Offices")).toHaveAttribute("href", "/");
+    expect(within(breadcrumbNav).getByText("Review")).toBeInTheDocument();
+  });
+
+  it("renders company ID as fallback in breadcrumb when company name is not found", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter initialEntries={["/company/unknown"]}>
+        <Routes>
+          <Route path="/company/:id" element={<Header />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
+    expect(within(breadcrumbNav).getByText("unknown")).toBeInTheDocument();
+  });
+
+  it("renders Review link in meta section", () => {
+    vi.mocked(useData).mockReturnValue(mockData);
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    const reviewLink = screen.getByRole("link", { name: /^Review$/ });
+    expect(reviewLink).toHaveAttribute("href", "/review");
+    expect(reviewLink).toHaveClass("gof-header-link");
+  });
 });

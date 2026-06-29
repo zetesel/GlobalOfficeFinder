@@ -143,16 +143,33 @@ export default function HomePage() {
     if (activeId) updateParams({ office: null });
   }
 
-  const activeOffice = activeId ? matchOffices.find((x) => x.id === activeId) ?? null : null;
-  const activeCompany = activeOffice ? companyById[activeOffice.companyId] : null;
+  const activeOffice = activeId
+    ? (matchOffices.find((x) => x.id === activeId) ?? null)
+    : null;
+  const activeCompany = activeOffice
+    ? companyById[activeOffice.companyId]
+    : null;
 
   return (
     <div className="gof-browse">
       <div className="gof-toolbar">
         <div className="gof-toolbar-row">
           <div className="gof-searchwrap">
-            <svg width="18" height="18" viewBox="0 0 18 18" className="gof-searchic" aria-hidden="true">
-              <circle cx="8" cy="8" r="5.5" stroke="currentColor" strokeWidth="1.6" fill="none" />
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              className="gof-searchic"
+              aria-hidden="true"
+            >
+              <circle
+                cx="8"
+                cy="8"
+                r="5.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                fill="none"
+              />
               <path
                 d="M12.5 12.5L16 16"
                 stroke="currentColor"
@@ -167,23 +184,36 @@ export default function HomePage() {
               placeholder="Search companies, cities, countries…"
               value={q}
               onChange={(e) => setFilter("q", e.target.value)}
-              onKeyDown={(e) => { if (e.key === "Enter") runSearch(); }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") runSearch();
+              }}
             />
             {q && (
               <button
                 type="button"
                 className="gof-clear"
                 aria-label="Clear search"
-                onClick={() => { setFilter("q", ""); setCommittedQ(""); }}
+                onClick={() => {
+                  setFilter("q", "");
+                  setCommittedQ("");
+                }}
               >
                 ✕
               </button>
             )}
           </div>
-          <button type="button" className="gof-btn gof-search-go" onClick={runSearch}>
+          <button
+            type="button"
+            className="gof-btn gof-search-go"
+            onClick={runSearch}
+          >
             Search
           </button>
-          <div className="gof-viewtoggle" role="tablist" aria-label="View toggle">
+          <div
+            className="gof-viewtoggle"
+            role="tablist"
+            aria-label="View toggle"
+          >
             <button
               type="button"
               role="tab"
@@ -191,11 +221,44 @@ export default function HomePage() {
               className={view !== "map" ? "is-active" : ""}
               onClick={() => updateParams({ view: "grid", office: null })}
             >
-              <svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true">
-                <rect x="1" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
-                <rect x="8.5" y="1" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
-                <rect x="1" y="8.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
-                <rect x="8.5" y="8.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                aria-hidden="true"
+              >
+                <rect
+                  x="1"
+                  y="1"
+                  width="5.5"
+                  height="5.5"
+                  rx="1.2"
+                  fill="currentColor"
+                />
+                <rect
+                  x="8.5"
+                  y="1"
+                  width="5.5"
+                  height="5.5"
+                  rx="1.2"
+                  fill="currentColor"
+                />
+                <rect
+                  x="1"
+                  y="8.5"
+                  width="5.5"
+                  height="5.5"
+                  rx="1.2"
+                  fill="currentColor"
+                />
+                <rect
+                  x="8.5"
+                  y="8.5"
+                  width="5.5"
+                  height="5.5"
+                  rx="1.2"
+                  fill="currentColor"
+                />
               </svg>
               Directory
             </button>
@@ -206,7 +269,12 @@ export default function HomePage() {
               className={view === "map" ? "is-active" : ""}
               onClick={() => updateParams({ view: "map" })}
             >
-              <svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                aria-hidden="true"
+              >
                 <path
                   d="M1 4L5.5 2L9.5 4L14 2V11L9.5 13L5.5 11L1 13V4Z"
                   stroke="currentColor"
@@ -214,7 +282,11 @@ export default function HomePage() {
                   fill="none"
                   strokeLinejoin="round"
                 />
-                <path d="M5.5 2V11M9.5 4V13" stroke="currentColor" strokeWidth="1.3" />
+                <path
+                  d="M5.5 2V11M9.5 4V13"
+                  stroke="currentColor"
+                  strokeWidth="1.3"
+                />
               </svg>
               Map
             </button>
@@ -252,7 +324,11 @@ export default function HomePage() {
               onChange={(v) => setFilter("otype", v)}
             />
             {filtered && (
-              <button type="button" className="gof-reset" onClick={resetFilters}>
+              <button
+                type="button"
+                className="gof-reset"
+                onClick={resetFilters}
+              >
                 Clear all
               </button>
             )}
@@ -310,13 +386,16 @@ export default function HomePage() {
           ) : (
             <div className="gof-grid">
               {companyList.map(({ company, offices }) => (
-                <CompanyCard key={company.id} company={company} offices={offices} />
+                <CompanyCard
+                  key={company.id}
+                  company={company}
+                  offices={offices}
+                />
               ))}
             </div>
           )}
         </div>
       )}
-
     </div>
   );
 }
@@ -332,7 +411,11 @@ function OfficeTile({ office, company, onClose, onReadMore }: OfficeTileProps) {
   const tag = typeTag(office.officeType);
   const summary = truncate(company.description, 160);
   return (
-    <div className="gof-mapcard" role="dialog" aria-label={`${company.name} — ${office.city}`}>
+    <div
+      className="gof-mapcard"
+      role="dialog"
+      aria-label={`${company.name} — ${office.city}`}
+    >
       <Photo
         seed={office.id}
         w={560}
@@ -341,7 +424,9 @@ function OfficeTile({ office, company, onClose, onReadMore }: OfficeTileProps) {
         photo={company.photo}
         subject={company.name}
       >
-        <span className={"gof-tag tag-" + tag.tone + " gof-mapcard-tag"}>{tag.short}</span>
+        <span className={"gof-tag tag-" + tag.tone + " gof-mapcard-tag"}>
+          {tag.short}
+        </span>
         <button
           type="button"
           className="gof-mapcard-close"

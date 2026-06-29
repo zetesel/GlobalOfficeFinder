@@ -1,4 +1,6 @@
-export function sanitizeUrl(url: string | undefined | null): string | undefined {
+export function sanitizeUrl(
+  url: string | undefined | null,
+): string | undefined {
   if (!url) return undefined;
   try {
     const parsed = new URL(url.trim());

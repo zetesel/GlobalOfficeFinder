@@ -22,6 +22,11 @@ export function useData(): CatalogData {
     const publicOffices = OFFICES.filter(
       (o) => o.verification?.verdict !== "rejected",
     );
-    return { companies: COMPANIES, offices: OFFICES, publicOffices, companyById };
+    return {
+      companies: COMPANIES,
+      offices: OFFICES,
+      publicOffices,
+      companyById,
+    };
   }, []);
 }
