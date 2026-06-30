@@ -1,9 +1,14 @@
 import companiesJson from "../../data/companies.json";
 import officesJson from "../../data/offices.json";
 import type { Company, Office } from "../types";
+import { typeTag } from "../utils/typeTag";
 
 const COMPANIES = companiesJson as Company[];
-const OFFICES = officesJson as Office[];
+const OFFICES = (officesJson as unknown[]).map((o) => {
+  const office = o as Office;
+  const tag = typeTag(office.officeType);
+  return { ...office, tag, tone: tag.tone };
+}) as Office[];
 
 const COMPANY_BY_ID: Record<string, Company> = {};
 for (const c of COMPANIES) COMPANY_BY_ID[c.id] = c;
