@@ -1,9 +1,4 @@
-export type OfficeTone = "hq" | "reg" | "rnd";
-
-export interface OfficeTag {
-  short: string;
-  tone: OfficeTone;
-}
+import type { OfficeTag } from "../types";
 
 export function typeTag(t: string | undefined): OfficeTag {
   const value = t ?? "";

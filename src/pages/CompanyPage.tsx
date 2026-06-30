@@ -11,7 +11,6 @@ import Photo from "../components/Photo";
 import Monogram from "../components/Monogram";
 import FlagChip from "../components/FlagChip";
 import MapView, { type MapFocus } from "../components/MapView";
-import { typeTag } from "../utils/typeTag";
 import { sanitizeUrl } from "../utils/sanitizeUrl";
 
 interface StatProps {
@@ -152,7 +151,7 @@ export default function CompanyPage() {
             </h2>
             <div className="gof-office-grid">
               {offices.map((o) => {
-                const tag = typeTag(o.officeType);
+                const tag = o.tag;
                 const isActive = activeId === o.id;
                 const isHover = hoverId === o.id;
                 return (
