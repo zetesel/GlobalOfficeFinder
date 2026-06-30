@@ -22,7 +22,7 @@ permissions:
 jobs:
   discover-and-pr:
     name: Discover companies and open PR
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       SCRAPER_BOT_TOKEN: ${{ secrets.SCRAPER_BOT_TOKEN }}
     steps:

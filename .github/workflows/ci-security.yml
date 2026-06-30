@@ -4,7 +4,7 @@ on:
   pull_request:
 jobs:
   security:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v7
       - name: Setup Node

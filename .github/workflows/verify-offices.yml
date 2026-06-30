@@ -12,7 +12,7 @@ permissions:
 jobs:
   verify-and-pr:
     name: Batch-verify offices and open PR
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v7
 
