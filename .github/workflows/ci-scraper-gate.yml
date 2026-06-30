@@ -4,7 +4,7 @@ on:
   pull_request:
 jobs:
   scraper-gate:
-    runs-on: self-hosted
+    runs-on: "${{ github.event.pull_request.head.repo.fork && 'ubuntu-latest' || 'self-hosted' }}"
     steps:
       - name: Checkout
         uses: actions/checkout@v7

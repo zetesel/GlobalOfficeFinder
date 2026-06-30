@@ -10,7 +10,7 @@ permissions:
 jobs:
   validate-data:
     name: Validate data files
-    runs-on: self-hosted
+    runs-on: "${{ github.event.pull_request.head.repo.fork && 'ubuntu-latest' || 'self-hosted' }}"
     steps:
       - uses: actions/checkout@v7
 
@@ -44,7 +44,7 @@ jobs:
 
   lint-and-build:
     name: Lint, Test & Build
-    runs-on: self-hosted
+    runs-on: "${{ github.event.pull_request.head.repo.fork && 'ubuntu-latest' || 'self-hosted' }}"
     steps:
       - uses: actions/checkout@v7
 
