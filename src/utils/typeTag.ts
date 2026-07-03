@@ -1,4 +1,4 @@
-export type OfficeTone = "hq" | "reg" | "rnd";
+import type { OfficeTone } from "../types";
 
 export interface OfficeTag {
   short: string;

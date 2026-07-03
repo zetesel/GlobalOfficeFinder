@@ -11,7 +11,6 @@ import Photo from "../components/Photo";
 import Monogram from "../components/Monogram";
 import FlagChip from "../components/FlagChip";
 import MapView, { type MapFocus } from "../components/MapView";
-import { typeTag } from "../utils/typeTag";
 import { sanitizeUrl } from "../utils/sanitizeUrl";
 
 interface StatProps {
@@ -72,7 +71,7 @@ export default function CompanyPage() {
 
   const countries = new Set(offices.map((o) => o.country));
   const regions = new Set(offices.map((o) => o.region));
-  const hq = offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
+  const hq = offices.find((o) => o.tone === "hq") || offices[0];
   const website = sanitizeUrl(company.website);
 
   function selectOffice(officeId: string) {
@@ -152,7 +151,6 @@ export default function CompanyPage() {
             </h2>
             <div className="gof-office-grid">
               {offices.map((o) => {
-                const tag = typeTag(o.officeType);
                 const isActive = activeId === o.id;
                 const isHover = hoverId === o.id;
                 return (
@@ -183,13 +181,13 @@ export default function CompanyPage() {
                       w={520}
                       h={300}
                       className="gof-officecard-photo"
-                      photo={tag.tone === "hq" ? company.photo : undefined}
+                      photo={o.tone === "hq" ? company.photo : undefined}
                       subject={company.name}
                     >
                       <span
-                        className={"gof-tag tag-" + tag.tone + " gof-officecard-tag"}
+                        className={"gof-tag tag-" + o.tone + " gof-officecard-tag"}
                       >
-                        {tag.short}
+                        {o.tag}
                       </span>
                     </Photo>
                     <div className="gof-officecard-body">

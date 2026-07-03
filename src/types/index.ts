@@ -32,6 +32,8 @@ export interface OfficeVerification {
   model?: string;
 }
 
+export type OfficeTone = "hq" | "reg" | "rnd";
+
 export interface Office {
   id: string;
   companyId: string;
@@ -42,6 +44,8 @@ export interface Office {
   address: string;
   postalCode: string;
   officeType: string;
+  tone: OfficeTone;
+  tag: string;
   latitude?: number;
   longitude?: number;
   contactUrl?: string;
