@@ -64,7 +64,7 @@ export default function Photo({
         loading="lazy"
         onLoad={() => setState("loaded")}
         onError={() => setState("error")}
-        style={{ opacity: state === "loaded" ? 1 : 0 }}
+        className={state === "loaded" ? "is-loaded" : ""}
       />
       <div className="gof-photo-grad" />
       {useReal && state !== "error" ? (
