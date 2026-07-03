@@ -55,4 +55,6 @@ export interface Office {
   longitude?: number;
   contactUrl?: string;
   verification?: OfficeVerification;
+  /** Pre-computed search text for filtering. */
+  searchText?: string;
 }

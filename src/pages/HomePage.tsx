@@ -87,16 +87,7 @@ export default function HomePage() {
       if (otype && o.tone !== otype) return false;
       if (industry && co.industry !== industry) return false;
       if (needle) {
-        const s = (
-          co.name +
-          " " +
-          co.industry +
-          " " +
-          o.city +
-          " " +
-          o.country
-        ).toLowerCase();
-        if (!s.includes(needle)) return false;
+        if (!o.searchText?.includes(needle)) return false;
       }
       return true;
     });
