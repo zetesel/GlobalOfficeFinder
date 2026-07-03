@@ -83,21 +83,24 @@ export default function AboutPhotosPage() {
         </h2>
         <ul className="gof-about-table">
           {credited.map((c) => {
-            const src = sanitizeUrl(c.photo!.sourceUrl);
-            const lic = sanitizeUrl(c.photo!.licenseUrl);
+            const photo = c.photo;
+            if (!photo) return null;
+
+            const src = sanitizeUrl(photo.sourceUrl);
+            const lic = sanitizeUrl(photo.licenseUrl);
             return (
               <li key={c.id}>
                 <Link to={`/company/${encodeURIComponent(c.id)}`} className="gof-about-co">
                   {c.name}
                 </Link>
                 <span className="gof-about-meta">
-                  {c.photo!.author} ·{" "}
+                  {photo.author} ·{" "}
                   {lic ? (
                     <a href={lic} target="_blank" rel="noopener noreferrer">
-                      {c.photo!.license}
+                      {photo.license}
                     </a>
                   ) : (
-                    c.photo!.license
+                    photo.license
                   )}
                   {src && (
                     <>
