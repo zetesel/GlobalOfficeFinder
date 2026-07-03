@@ -5,6 +5,7 @@ import Photo from "../components/Photo";
 import Monogram from "../components/Monogram";
 import FlagChip from "../components/FlagChip";
 import MapView, { type MapFocus } from "../components/MapView";
+import { typeTag } from "../utils/typeTag";
 
 interface StatProps {
   n: number;
@@ -137,6 +138,7 @@ export default function CountryPage() {
                   </Link>
                   <div className="gof-crow-offices">
                     {list.map((o) => {
+                      const tag = typeTag(o.officeType);
                       const isActive = activeId === o.id;
                       const isHover = hoverId === o.id;
                       return (
@@ -152,7 +154,7 @@ export default function CountryPage() {
                           onMouseLeave={() => setHoverId(null)}
                           onClick={() => selectOffice(o.id)}
                         >
-                          {o.city} <span className={"gof-tag tag-" + o.tone}>{o.tag}</span>
+                          {o.city} <span className={"gof-tag tag-" + tag.tone}>{tag.short}</span>
                         </button>
                       );
                     })}

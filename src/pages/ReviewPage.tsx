@@ -13,6 +13,8 @@ interface ReviewRowProps {
 function ReviewRow({ office: initialOffice, company }: ReviewRowProps) {
   const [office, setOffice] = useState({ ...initialOffice });
 
+  const tag = typeTag(office.officeType);
+
   const promoteSnippet = JSON.stringify(
     {
       ...office,
@@ -25,7 +27,7 @@ function ReviewRow({ office: initialOffice, company }: ReviewRowProps) {
   return (
     <div className="gof-review-row" data-testid="gof-review-row">
       <div className="gof-review-row-head">
-        <span className={"gof-tag tag-" + office.tone}>{office.tag}</span>
+        <span className={"gof-tag tag-" + tag.tone}>{tag.short}</span>
         <FlagChip code={office.countryCode} />
         <span className="gof-review-company">{company.name}</span>
         <span className="gof-muted">—</span>
@@ -79,16 +81,7 @@ function ReviewRow({ office: initialOffice, company }: ReviewRowProps) {
           <input
             className="gof-review-input"
             value={office.officeType}
-            onChange={(e) => {
-              const val = e.target.value;
-              const tt = typeTag(val);
-              setOffice((o) => ({
-                ...o,
-                officeType: val,
-                tone: tt.tone,
-                tag: tt.short,
-              }));
-            }}
+            onChange={(e) => setOffice((o) => ({ ...o, officeType: e.target.value }))}
           />
         </label>
       </div>

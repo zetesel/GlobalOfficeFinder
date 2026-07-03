@@ -12,7 +12,7 @@ interface CompanyCardProps {
 export default function CompanyCard({ company, offices }: CompanyCardProps) {
   const codes = [...new Set(offices.map((o) => o.countryCode))];
   const countries = new Set(offices.map((o) => o.country));
-  const hq = offices.find((o) => o.tone === "hq") || offices[0];
+  const hq = offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
   return (
     <Link
       to={`/company/${encodeURIComponent(company.id)}`}

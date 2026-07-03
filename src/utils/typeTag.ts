@@ -5,12 +5,26 @@ export interface OfficeTag {
   tone: OfficeTone;
 }
 
+const typeTagCache = new Map<string, OfficeTag>();
+
 export function typeTag(t: string | undefined): OfficeTag {
   const value = t ?? "";
-  if (/headquarters|co-headquarters/i.test(value)) return { short: "HQ", tone: "hq" };
-  if (/regional/i.test(value)) return { short: "Regional", tone: "reg" };
-  if (/engineering|development|r&d|research/i.test(value)) return { short: "R&D", tone: "rnd" };
-  return { short: value.replace(/ office| headquarters/i, "") || "Office", tone: "reg" };
+  const cached = typeTagCache.get(value);
+  if (cached) return cached;
+
+  let result: OfficeTag;
+  if (/headquarters|co-headquarters/i.test(value)) {
+    result = { short: "HQ", tone: "hq" };
+  } else if (/regional/i.test(value)) {
+    result = { short: "Regional", tone: "reg" };
+  } else if (/engineering|development|r&d|research/i.test(value)) {
+    result = { short: "R&D", tone: "rnd" };
+  } else {
+    result = { short: value.replace(/ office| headquarters/i, "") || "Office", tone: "reg" };
+  }
+
+  typeTagCache.set(value, result);
+  return result;
 }
 
 export const REGION_ORDER = ["Americas", "Europe", "Asia-Pacific", "Middle East & Africa"];
