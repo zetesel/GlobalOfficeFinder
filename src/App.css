@@ -444,6 +444,10 @@ a {
   align-items: center;
   gap: 11px;
 }
+.gof-card-info {
+  min-width: 0;
+  flex: 1;
+}
 .gof-card-name {
   font-family: var(--font-head);
   font-weight: var(--head-weight);
