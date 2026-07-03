@@ -102,26 +102,29 @@ export default function HomePage() {
     });
   }, [offices, companyById, committedQ, region, industry, otype]);
 
-  const companyList = useMemo(() => {
+  const { companyList, stats } = useMemo(() => {
     const byCo: Record<string, typeof matchOffices> = {};
+    const countries = new Set<string>();
+
     matchOffices.forEach((o) => {
       (byCo[o.companyId] = byCo[o.companyId] || []).push(o);
+      countries.add(o.country);
     });
-    return Object.keys(byCo)
+
+    const list = Object.keys(byCo)
       .map((id) => ({ company: companyById[id], offices: byCo[id] }))
       .filter((x) => x.company)
       .sort((a, b) => a.company.name.localeCompare(b.company.name));
-  }, [matchOffices, companyById]);
 
-  const stats = useMemo(() => {
-    const countries = new Set<string>();
-    matchOffices.forEach((o) => countries.add(o.country));
     return {
-      companies: companyList.length,
-      offices: matchOffices.length,
-      countries: countries.size,
+      companyList: list,
+      stats: {
+        companies: list.length,
+        offices: matchOffices.length,
+        countries: countries.size,
+      },
     };
-  }, [matchOffices, companyList]);
+  }, [matchOffices, companyById]);
   const filtered = Boolean(region || industry || otype || committedQ);
 
   function runSearch() {

@@ -51,7 +51,9 @@ function Breadcrumb() {
 
 export default function Header() {
   const { companies, publicOffices } = useData();
-  const countries = new Set(publicOffices.map((o) => o.country)).size;
+  const countriesSet = new Set<string>();
+  publicOffices.forEach((o) => countriesSet.add(o.country));
+  const countries = countriesSet.size;
   return (
     <header className="gof-header">
       <Link to="/" className="gof-brand" aria-label="GlobalOfficeFinder home">

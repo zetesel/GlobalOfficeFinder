@@ -10,8 +10,13 @@ interface CompanyCardProps {
 }
 
 export default function CompanyCard({ company, offices }: CompanyCardProps) {
-  const codes = [...new Set(offices.map((o) => o.countryCode))];
-  const countries = new Set(offices.map((o) => o.country));
+  const codesSet = new Set<string>();
+  const countries = new Set<string>();
+  offices.forEach((o) => {
+    codesSet.add(o.countryCode);
+    countries.add(o.country);
+  });
+  const codes = [...codesSet];
   const hq = offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
   return (
     <Link

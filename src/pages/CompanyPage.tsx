@@ -69,8 +69,12 @@ export default function CompanyPage() {
     );
   }
 
-  const countries = new Set(offices.map((o) => o.country));
-  const regions = new Set(offices.map((o) => o.region));
+  const countries = new Set<string>();
+  const regions = new Set<string>();
+  offices.forEach((o) => {
+    countries.add(o.country);
+    regions.add(o.region);
+  });
   const hq = offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
   const website = sanitizeUrl(company.website);
 
