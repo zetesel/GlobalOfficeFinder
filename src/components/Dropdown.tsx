@@ -47,12 +47,12 @@ export default function Dropdown({ label, value, options, onChange, width }: Dro
         aria-label={label}
         onClick={() => setOpen((o) => !o)}
       >
-        <span style={{ opacity: value ? 1 : 0.7 }}>{cur ? cur.label : label}</span>
+        <span className="gof-dd-label">{cur ? cur.label : label}</span>
         <svg
           width="12"
           height="12"
           viewBox="0 0 12 12"
-          style={{ marginLeft: 6, opacity: 0.6 }}
+          className="gof-dd-chevron"
           aria-hidden="true"
         >
           <path
