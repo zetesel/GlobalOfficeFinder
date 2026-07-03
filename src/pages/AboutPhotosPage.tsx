@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { useData } from "../hooks/useData";
 import { sanitizeUrl } from "../utils/sanitizeUrl";
+import type { Company, CompanyPhoto } from "../types";
 
 export default function AboutPhotosPage() {
   const { companies } = useData();
   const credited = companies
-    .filter((c) => c.photo)
+    .filter((c): c is Company & { photo: CompanyPhoto } => !!c.photo)
     .sort((a, b) => a.name.localeCompare(b.name));
   const sample = companies.filter((c) => !c.photo).sort((a, b) => a.name.localeCompare(b.name));
 
@@ -83,9 +84,7 @@ export default function AboutPhotosPage() {
         </h2>
         <ul className="gof-about-table">
           {credited.map((c) => {
-            const photo = c.photo;
-            if (!photo) return null;
-
+            const { photo } = c;
             const src = sanitizeUrl(photo.sourceUrl);
             const lic = sanitizeUrl(photo.licenseUrl);
             return (
