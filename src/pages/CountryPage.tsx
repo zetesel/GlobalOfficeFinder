@@ -86,7 +86,7 @@ export default function CountryPage() {
             >
               <FlagChip code={countryCode} />
             </div>
-            <div style={{ minWidth: 0 }}>
+            <div className="gof-hero-body">
               <h1 className="gof-hero-name">{code}</h1>
               <div className="gof-hero-ind">{region}</div>
             </div>
@@ -114,7 +114,7 @@ export default function CountryPage() {
                     className="gof-crow-head"
                   >
                     <Monogram name={co.name} size={42} square />
-                    <div style={{ minWidth: 0, flex: 1 }}>
+                    <div className="gof-flex-body">
                       <div className="gof-crow-name">{co.name}</div>
                       <div className="gof-crow-ind">{co.industry}</div>
                     </div>

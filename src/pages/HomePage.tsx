@@ -443,7 +443,7 @@ function OfficeTile({ office, company, onClose, onReadMore }: OfficeTileProps) {
       <div className="gof-mapcard-body">
         <div className="gof-mapcard-head">
           <Monogram name={company.name} size={42} square />
-          <div style={{ minWidth: 0, flex: 1 }}>
+          <div className="gof-flex-body">
             <div className="gof-mapcard-name">{company.name}</div>
             <div className="gof-mapcard-loc">
               <FlagChip code={office.countryCode} />

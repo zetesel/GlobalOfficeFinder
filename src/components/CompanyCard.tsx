@@ -38,7 +38,7 @@ export default function CompanyCard({ company, offices }: CompanyCardProps) {
       <div className="gof-card-body">
         <div className="gof-card-top">
           <Monogram name={company.name} size={40} square />
-          <div style={{ minWidth: 0, flex: 1 }}>
+          <div className="gof-flex-body">
             <div className="gof-card-name">{company.name}</div>
             <div className="gof-card-ind">{company.industry}</div>
           </div>

@@ -505,6 +505,13 @@ a {
   align-items: center;
   gap: 18px;
 }
+.gof-hero-body {
+  min-width: 0;
+}
+.gof-flex-body {
+  flex: 1;
+  min-width: 0;
+}
 .gof-hero-name {
   font-family: var(--font-head);
   font-weight: var(--head-weight);

@@ -106,7 +106,7 @@ export default function CompanyPage() {
         >
           <div className="gof-hero-overlay">
             <Monogram name={company.name} size={62} square />
-            <div style={{ minWidth: 0 }}>
+            <div className="gof-hero-body">
               <h1 className="gof-hero-name">{company.name}</h1>
               <div className="gof-hero-ind">
                 {company.industry}
