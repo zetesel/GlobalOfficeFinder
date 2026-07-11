@@ -10,9 +10,23 @@ interface CompanyCardProps {
 }
 
 export default function CompanyCard({ company, offices }: CompanyCardProps) {
-  const codes = [...new Set(offices.map((o) => o.countryCode))];
-  const countries = new Set(offices.map((o) => o.country));
-  const hq = offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
+  const codesSet = new Set<string>();
+  const countries = new Set<string>();
+  let hq: Office | undefined;
+
+  for (const o of offices) {
+    codesSet.add(o.countryCode);
+    countries.add(o.country);
+    if (!hq && /headquarters/i.test(o.officeType)) {
+      hq = o;
+    }
+  }
+
+  if (!hq && offices.length > 0) {
+    hq = offices[0];
+  }
+
+  const codes = Array.from(codesSet);
   return (
     <Link
       to={`/company/${encodeURIComponent(company.id)}`}
@@ -38,7 +52,7 @@ export default function CompanyCard({ company, offices }: CompanyCardProps) {
       <div className="gof-card-body">
         <div className="gof-card-top">
           <Monogram name={company.name} size={40} square />
-          <div className="gof-flex-body">
+          <div className="gof-card-info">
             <div className="gof-card-name">{company.name}</div>
             <div className="gof-card-ind">{company.industry}</div>
           </div>

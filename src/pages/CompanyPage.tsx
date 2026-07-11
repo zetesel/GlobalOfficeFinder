@@ -51,6 +51,26 @@ export default function CompanyPage() {
     [allOffices, id],
   );
 
+  const { countries, regions, hq } = useMemo(() => {
+    const countries = new Set<string>();
+    const regions = new Set<string>();
+    let hqOffice = undefined;
+
+    for (const o of offices) {
+      countries.add(o.country);
+      regions.add(o.region);
+      if (!hqOffice && /headquarters/i.test(o.officeType)) {
+        hqOffice = o;
+      }
+    }
+
+    return {
+      countries,
+      regions,
+      hq: hqOffice || offices[0],
+    };
+  }, [offices]);
+
   // Scroll the targeted office card into view when arriving with ?office=…
   useEffect(() => {
     if (!initialOfficeId) return;
@@ -69,9 +89,6 @@ export default function CompanyPage() {
     );
   }
 
-  const countries = new Set(offices.map((o) => o.country));
-  const regions = new Set(offices.map((o) => o.region));
-  const hq = offices.find((o) => /headquarters/i.test(o.officeType)) || offices[0];
   const website = sanitizeUrl(company.website);
 
   function selectOffice(officeId: string) {
