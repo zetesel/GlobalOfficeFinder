@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { useData } from "../hooks/useData";
 import { sanitizeUrl } from "../utils/sanitizeUrl";
+import type { Company, CompanyPhoto } from "../types";
 
 export default function AboutPhotosPage() {
   const { companies } = useData();
   const credited = companies
-    .filter((c) => c.photo)
+    .filter((c): c is Company & { photo: CompanyPhoto } => !!c.photo)
     .sort((a, b) => a.name.localeCompare(b.name));
   const sample = companies.filter((c) => !c.photo).sort((a, b) => a.name.localeCompare(b.name));
 
@@ -83,21 +84,21 @@ export default function AboutPhotosPage() {
         </h2>
         <ul className="gof-about-table">
           {credited.map((c) => {
-            const src = sanitizeUrl(c.photo!.sourceUrl);
-            const lic = sanitizeUrl(c.photo!.licenseUrl);
+            const src = sanitizeUrl(c.photo.sourceUrl);
+            const lic = sanitizeUrl(c.photo.licenseUrl);
             return (
               <li key={c.id}>
                 <Link to={`/company/${encodeURIComponent(c.id)}`} className="gof-about-co">
                   {c.name}
                 </Link>
                 <span className="gof-about-meta">
-                  {c.photo!.author} ·{" "}
+                  {c.photo.author} ·{" "}
                   {lic ? (
                     <a href={lic} target="_blank" rel="noopener noreferrer">
-                      {c.photo!.license}
+                      {c.photo.license}
                     </a>
                   ) : (
-                    c.photo!.license
+                    c.photo.license
                   )}
                   {src && (
                     <>
