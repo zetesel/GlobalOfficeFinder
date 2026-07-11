@@ -50,14 +50,8 @@ export default function CountryPage() {
 
   const countryCode = offices[0].countryCode;
   const region = offices[0].region;
-
-  const companiesSet = new Set<string>();
-  const cities = new Set<string>();
-  offices.forEach((o) => {
-    companiesSet.add(o.companyId);
-    cities.add(o.city);
-  });
-  const companies = [...companiesSet];
+  const companies = [...new Set(offices.map((o) => o.companyId))];
+  const cities = new Set(offices.map((o) => o.city));
 
   function selectOffice(officeId: string) {
     setActiveId(officeId);
