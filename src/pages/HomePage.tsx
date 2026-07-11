@@ -6,7 +6,7 @@ import MapView, { type MapFocus } from "../components/MapView";
 import Monogram from "../components/Monogram";
 import FlagChip from "../components/FlagChip";
 import Photo from "../components/Photo";
-import { REGION_ORDER, truncate, typeTag } from "../utils/typeTag";
+import { REGION_ORDER, truncate } from "../utils/typeTag";
 import { useData } from "../hooks/useData";
 
 type View = "grid" | "map";
@@ -84,7 +84,7 @@ export default function HomePage() {
       const co = companyById[o.companyId];
       if (!co) return false;
       if (region && o.region !== region) return false;
-      if (otype && typeTag(o.officeType).tone !== otype) return false;
+      if (otype && o.tone !== otype) return false;
       if (industry && co.industry !== industry) return false;
       if (needle) {
         const s = (
@@ -329,7 +329,6 @@ interface OfficeTileProps {
 }
 
 function OfficeTile({ office, company, onClose, onReadMore }: OfficeTileProps) {
-  const tag = typeTag(office.officeType);
   const summary = truncate(company.description, 160);
   return (
     <div className="gof-mapcard" role="dialog" aria-label={`${company.name} — ${office.city}`}>
@@ -341,7 +340,7 @@ function OfficeTile({ office, company, onClose, onReadMore }: OfficeTileProps) {
         photo={company.photo}
         subject={company.name}
       >
-        <span className={"gof-tag tag-" + tag.tone + " gof-mapcard-tag"}>{tag.short}</span>
+        <span className={"gof-tag tag-" + office.tone + " gof-mapcard-tag"}>{office.short}</span>
         <button
           type="button"
           className="gof-mapcard-close"

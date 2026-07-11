@@ -46,4 +46,8 @@ export interface Office {
   longitude?: number;
   contactUrl?: string;
   verification?: OfficeVerification;
+  /** Precomputed short label for the office type. */
+  short: string;
+  /** Precomputed tone for styling based on office type. */
+  tone: import("../utils/typeTag").OfficeTone;
 }
