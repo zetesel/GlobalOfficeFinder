@@ -37,6 +37,23 @@ export default function CountryPage() {
     [allOffices, code],
   );
 
+  const { companies, cities, officesByCompany } = useMemo(() => {
+    const companyIds = new Set<string>();
+    const cityNames = new Set<string>();
+    const grouped: Record<string, typeof offices> = {};
+    for (const o of offices) {
+      companyIds.add(o.companyId);
+      cityNames.add(o.city);
+      if (!grouped[o.companyId]) grouped[o.companyId] = [];
+      grouped[o.companyId].push(o);
+    }
+    return {
+      companies: Array.from(companyIds),
+      cities: cityNames,
+      officesByCompany: grouped,
+    };
+  }, [offices]);
+
   if (!offices.length) {
     return (
       <div className="gof-notfound">
@@ -50,8 +67,6 @@ export default function CountryPage() {
 
   const countryCode = offices[0].countryCode;
   const region = offices[0].region;
-  const companies = [...new Set(offices.map((o) => o.companyId))];
-  const cities = new Set(offices.map((o) => o.city));
 
   function selectOffice(officeId: string) {
     setActiveId(officeId);
@@ -100,8 +115,8 @@ export default function CountryPage() {
             </h2>
             {companies.map((cid) => {
               const co = companyById[cid];
-              if (!co) return null;
-              const list = offices.filter((o) => o.companyId === cid);
+              const list = officesByCompany[cid];
+              if (!co || !list) return null;
               return (
                 <div
                   key={cid}
