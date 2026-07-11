@@ -10,8 +10,12 @@
   --surface: #ffffff;
   --line: #e3e7f0;
   --line-strong: #d2d8e6;
-  --font-head: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-head:
+    "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --font-body:
+    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   --head-weight: 600;
   --head-tracking: -0.02em;
   --radius: 12px;
@@ -206,7 +210,9 @@ a {
   border: 1px solid var(--line);
   border-radius: calc(var(--radius) - 2px);
   outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
 }
 .gof-search:focus {
   border-color: var(--accent);
@@ -310,10 +316,21 @@ a {
 
 .gof-dd {
   position: relative;
+  width: var(--dd-width, auto);
 }
 .gof-dd .gof-pill {
   width: 100%;
   justify-content: space-between;
+}
+.gof-dd .gof-pill span {
+  opacity: 0.7;
+}
+.gof-dd .gof-pill.is-active span {
+  opacity: 1;
+}
+.gof-dd-chevron {
+  margin-left: 6px;
+  opacity: 0.6;
 }
 .gof-dd-menu {
   position: absolute;
@@ -375,7 +392,10 @@ a {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform 0.16s, box-shadow 0.16s, border-color 0.16s;
+  transition:
+    transform 0.16s,
+    box-shadow 0.16s,
+    border-color 0.16s;
   color: inherit;
 }
 .gof-card:hover {
@@ -427,6 +447,10 @@ a {
   display: flex;
   align-items: center;
   gap: 11px;
+}
+.gof-card-info {
+  min-width: 0;
+  flex: 1;
 }
 .gof-card-name {
   font-family: var(--font-head);
@@ -604,7 +628,10 @@ a {
   border-radius: var(--radius);
   overflow: hidden;
   cursor: pointer;
-  transition: box-shadow 0.14s, border-color 0.14s, transform 0.14s;
+  transition:
+    box-shadow 0.14s,
+    border-color 0.14s,
+    transform 0.14s;
 }
 .gof-officecard:hover,
 .gof-officecard.is-hover {
@@ -613,7 +640,9 @@ a {
 }
 .gof-officecard.is-active {
   border-color: var(--accent);
-  box-shadow: 0 0 0 1.5px var(--accent), 0 8px 22px rgba(15, 20, 50, 0.14);
+  box-shadow:
+    0 0 0 1.5px var(--accent),
+    0 8px 22px rgba(15, 20, 50, 0.14);
 }
 .gof-officecard:focus-visible {
   outline: 3px solid var(--accent-soft);
@@ -822,7 +851,11 @@ a {
   background: var(--accent);
   border: 3px solid #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  transition: width 0.14s, height 0.14s, box-shadow 0.14s, transform 0.14s;
+  transition:
+    width 0.14s,
+    height 0.14s,
+    box-shadow 0.14s,
+    transform 0.14s;
   display: block;
 }
 .gof-pin.is-hover .gof-pin-dot {
@@ -832,7 +865,9 @@ a {
   width: 21px;
   height: 21px;
   border-width: 4px;
-  box-shadow: 0 0 0 6px var(--accent-soft), 0 3px 10px rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 0 0 6px var(--accent-soft),
+    0 3px 10px rgba(0, 0, 0, 0.35);
 }
 .gof-tip {
   font-family: var(--font-body);
@@ -1026,7 +1061,9 @@ a {
   opacity: 0;
   transform: translateY(4px);
   pointer-events: none;
-  transition: opacity 0.14s, transform 0.14s;
+  transition:
+    opacity 0.14s,
+    transform 0.14s;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -1166,7 +1203,10 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.14s, color 0.14s, transform 0.14s;
+  transition:
+    background 0.14s,
+    color 0.14s,
+    transform 0.14s;
 }
 .gof-resetview:hover {
   color: var(--accent);
@@ -1360,7 +1400,9 @@ a {
   border-radius: 8px;
   padding: 7px 10px;
   outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
   width: 100%;
 }
 
