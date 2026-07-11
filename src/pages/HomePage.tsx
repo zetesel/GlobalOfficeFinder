@@ -87,7 +87,16 @@ export default function HomePage() {
       if (otype && o.tone !== otype) return false;
       if (industry && co.industry !== industry) return false;
       if (needle) {
-        if (!o.searchText?.includes(needle)) return false;
+        const s = (
+          co.name +
+          " " +
+          co.industry +
+          " " +
+          o.city +
+          " " +
+          o.country
+        ).toLowerCase();
+        if (!s.includes(needle)) return false;
       }
       return true;
     });
@@ -434,7 +443,7 @@ function OfficeTile({ office, company, onClose, onReadMore }: OfficeTileProps) {
       <div className="gof-mapcard-body">
         <div className="gof-mapcard-head">
           <Monogram name={company.name} size={42} square />
-          <div className="gof-flex-body">
+          <div className="gof-card-info">
             <div className="gof-mapcard-name">{company.name}</div>
             <div className="gof-mapcard-loc">
               <FlagChip code={office.countryCode} />

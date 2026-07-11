@@ -53,7 +53,8 @@ export default function Photo({
 }: PhotoProps) {
   const [state, setState] = useState<PhotoState>("loading");
 
-  const src = photo ? photo.url : fallbackUrl(seed, w, h);
+  const useReal = Boolean(photo);
+  const src = useReal ? photo!.url : fallbackUrl(seed, w, h);
 
   return (
     <div className={"gof-photo " + (className || "")}>
@@ -63,11 +64,11 @@ export default function Photo({
         loading="lazy"
         onLoad={() => setState("loaded")}
         onError={() => setState("error")}
-        className={state === "loaded" ? "is-loaded" : ""}
+        style={{ opacity: state === "loaded" ? 1 : 0 }}
       />
       <div className="gof-photo-grad" />
-      {photo && state !== "error" ? (
-        <RealBadge photo={photo} />
+      {useReal && state !== "error" ? (
+        <RealBadge photo={photo!} />
       ) : (
         <SampleBadge subject={subject} />
       )}
