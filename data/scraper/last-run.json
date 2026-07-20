@@ -1,15 +1,15 @@
 {
-  "startedAt": "2026-06-29T08:21:48.273Z",
-  "finishedAt": "2026-06-29T08:39:57.087Z",
+  "startedAt": "2026-07-20T06:34:19.188Z",
+  "finishedAt": "2026-07-20T06:37:59.968Z",
   "dryRun": false,
-  "confidenceThreshold": "low",
+  "confidenceThreshold": "medium",
   "stages": {
-    "discoveredCompanies": 107,
-    "collectedPages": 222,
-    "acceptedCompanies": 0,
+    "discoveredCompanies": 104,
+    "collectedPages": 212,
+    "acceptedCompanies": 52,
     "acceptedOffices": 0,
-    "officesQueuedForManualReview": 0,
-    "reviewQueueItems": 332,
+    "officesQueuedForManualReview": 341,
+    "reviewQueueItems": 644,
     "skippedSources": 0
   },
   "safeguards": {
@@ -17,15 +17,23 @@
     "robotsCheckEnabled": true,
     "perSourceFailureThreshold": 4,
     "sourceFailures": {
-      "phase-a-official-tech-sample": 4,
-      "auto-discover": 12
+      "auto-top-100": 4,
+      "phase-a-official-tech-sample": 4
     },
     "skippedSources": []
   },
   "sourceFiles": [
+    "auto-top-100.json",
     "phase-a-curated.json"
   ],
   "sources": [
+    {
+      "id": "auto-top-100",
+      "name": "Auto-Discovered Top 100 Companies (Fortune Global 500)",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+      "companyCandidates": 97,
+      "trust": "high"
+    },
     {
       "id": "phase-a-official-tech-sample",
       "name": "Phase A Trusted Tech Sources",
@@ -34,6 +42,759 @@
       "trust": "high"
     }
   ],
-  "acceptedCompanies": [],
-  "acceptedOffices": []
+  "acceptedCompanies": [
+    {
+      "id": "state-grid-corporation-of-china",
+      "name": "State Grid Corporation of China",
+      "website": "http://www.sgcc.com.cn/",
+      "industry": "Energy / Utilities",
+      "description": "The State Grid Corporation of China (SGCC), commonly known as the State Grid, is a Chinese state-owned electric utility corporation. It is the largest utility company in the world. As of March 2024, State Grid is the world's third largest company overall by revenue, behind Walmart and Amazon, and is also the largest government-owned company by revenue. In 2023 it was reported as having 1.3 million employees, 1.1 billion customers and revenue equivalent to US$546 billion.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.449Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "saudi-aramco",
+      "name": "Saudi Aramco",
+      "website": "https://www.aramco.com//",
+      "industry": "Energy / Oil & Gas",
+      "description": "Saudi Aramco, officially the Saudi Arabian Oil Company, is a majority state-owned petroleum and natural gas company, and the national oil company of Saudi Arabia. As of 2024, it is the fourth-largest company in the world by revenue and is headquartered in Dhahran. Saudi Aramco has both the world's largest proven crude oil reserves, at more than 270 billion barrels, and largest daily oil production of all oil-producing companies.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.449Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "china-national-petroleum",
+      "name": "China National Petroleum",
+      "website": "http://www.cnpc.com.cn/",
+      "industry": "Energy / Oil & Gas",
+      "description": "The China National Petroleum Corporation is a major national oil and gas corporation of China and one of the largest integrated energy groups in the world. Its headquarters are in Dongcheng District, Beijing. CNPC was ranked fourth in 2022 Fortune Global 500, a global ranking of the largest corporations by revenue.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.450Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "china-petrochemical-corporation",
+      "name": "China Petrochemical Corporation",
+      "website": "http://www.sinopecgroup.com/",
+      "industry": "Energy / Oil & Gas",
+      "description": "China Petroleum and Chemical Corporation, or Sinopec Group, is a Chinese oil and gas enterprise based in Chaoyang District, Beijing. The SASAC administers the group for the benefit of the State Council of China. Sinopec Group operates a publicly traded subsidiary, also called Sinopec, listed in Hong Kong and Shanghai stock exchanges. Sinopec Group is the world's largest oil refining conglomerate, state owned enterprise, and 6th highest revenue company in the world.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.450Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "unitedhealth-group",
+      "name": "UnitedHealth Group",
+      "website": "http://www.unitedhealthgroup.com/",
+      "industry": "Healthcare",
+      "description": "UnitedHealth Group Incorporated is an American multinational for-profit company based in Eden Prairie, Minnesota, specializing in health insurance and health care services. Selling insurance products under UnitedHealthcare, and health care services under the Optum brand, it is the world's seventh-largest company by revenue and the largest health care company by revenue. The company is ranked seventh on the 2025 Fortune Global 500.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.451Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "cvs-health",
+      "name": "CVS Health",
+      "website": "http://cvshealth.com/",
+      "industry": "Retail",
+      "description": "CVS Health Corporation is an American multinational healthcare company that owns CVS Pharmacy, a retail pharmacy chain; CVS Caremark, a pharmacy benefits manager; and Aetna, a health insurance provider, among many other brands. The company is the world's second largest healthcare company, behind UnitedHealth Group. In 2023, the company was ranked 64th in the Forbes Global 2000. CVS started in Lowell, Massachusetts by brothers Stanley and Sidney Goldstein and their partner Ralph Hoagland. The name stood for Consumer Value Stores.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.452Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "berkshire-hathaway",
+      "name": "Berkshire Hathaway",
+      "website": "https://www.berkshirehathaway.com/",
+      "industry": "Conglomerate",
+      "description": "Berkshire Hathaway Inc. is an American multinational conglomerate holding company headquartered in Omaha, Nebraska. Originally a textile manufacturer, the company transitioned into a conglomerate starting in 1965 under the management of chairman and CEO Warren Buffett and vice chairman Charlie Munger. Greg Abel succeeded Buffett as CEO at the beginning of 2026. Buffett personally owns 38.4% of the Class A voting shares of Berkshire Hathaway, representing a 15.1% overall economic interest in the company.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.452Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "east-asia",
+      "name": "East Asia",
+      "website": "https://duckduckgo.com/c/East_Asia",
+      "industry": "Business",
+      "description": "East Asia is a geocultural region of Asia. It includes China, Japan, Mongolia, North Korea, South Korea, and Taiwan, plus two special administrative regions of China: Hong Kong and Macau. The economies of China, Japan, South Korea, and Taiwan are among the world's largest, fastest-growing, and most prosperous. East Asia borders North Asia to the north, Southeast Asia to the south, South Asia to the southwest, and Central Asia to the west. To its east is the Pacific Ocean.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.453Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "norinco",
+      "name": "Norinco",
+      "website": "http://www.norincogroup.com.cn/",
+      "industry": "Weapons industry",
+      "description": "China North Industries Group Corporation Limited, doing business internationally as Norinco Group, and known within China as China Ordnance Industries Group Corporation Limited, is a Chinese state-owned defense corporation that manufactures commercial and military products. Norinco Group is one of the world's largest defense contractors.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.455Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "beijing",
+      "name": "Beijing",
+      "website": "https://www.beijing.gov.cn/",
+      "industry": "Business",
+      "description": "Beijing, previously romanized as Peking, is the capital city of China. With more than 21.8 million residents, it is the world's most populous national capital city, as well as China's second-largest city by urban area, after Shanghai. It is located in Northern China, and is governed as a provincial-level direct-administered municipality with 16 municipal districts. Beijing is mostly surrounded by Hebei Province and neighbors Tianjin Municipality to the southeast; together, the three divisions form the Jing-Jin-Ji cluster.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.456Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "dior",
+      "name": "Dior",
+      "website": "https://www.dior.com/",
+      "industry": "Holding company activities",
+      "description": "Christian Dior SE, commonly known as Dior, is a French fashion house and multinational corporation of luxury goods. The original fashion house was founded by French designer Christian Dior in 1946 to make haute couture items. Clothing is now produced by Christian Dior Couture, which is a subsidiary of LVMH.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.456Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "paris",
+      "name": "Paris",
+      "website": "https://www.paris.fr/",
+      "industry": "Business",
+      "description": "Paris is the capital and largest city of France, with an estimated city population of 2.04 million in an area of 105.4 km2 (40.7 sq mi), and a metropolitan population of 13.2 million as of January 2026. Located on the river Seine in the centre of the Île-de-France region, it is the largest metropolitan area and fourth-most populous city in the European Union (EU). Nicknamed the \"City of Light\", partly because of its role in the Age of Enlightenment, Paris has been one of the world's major centres of finance, diplomacy, commerce, culture, fashion, and gastronomy since the 17th century.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.457Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "sinochem",
+      "name": "Sinochem",
+      "website": "http://www.sinochem.com/",
+      "industry": "Energy / Oil & Gas",
+      "description": "Sinochem Corporation is a Chinese state-owned multinational conglomerate primarily engaged in the production and trading of chemicals and fertilizer and exploration and production of oil for civilian and military purposes. Its majority owned fertilizer subsidiary Sinofert is involved throughout the chain from production of the product and procurement on international markets to distribution and retail. It is one of the world's largest chemical and petroleum companies.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.458Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "china-state-construction-engineering",
+      "name": "China State Construction Engineering",
+      "website": "http://www.cscec.com.cn/",
+      "industry": "Engineering / Construction",
+      "description": "The China State Construction Engineering Corporation is a Chinese state-owned construction company headquartered in Beijing. It is the largest construction company in the world by revenue and the 8th largest general contractor in terms of overseas sales, as of 2020. In 2023, the company was ranked 66th in the Forbes Global 2000.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.460Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "omaha-nebraska",
+      "name": "Omaha, Nebraska",
+      "website": "https://www.cityofomaha.org/",
+      "industry": "Business",
+      "description": "Omaha is the most populous city in the U.S. state of Nebraska. It is located in the Midwestern United States along the Missouri River, about 10 mi (15 km) north of the mouth of the Platte River. Omaha had a population of 486,051 at the 2020 census, and with a 2025 population estimate of 488,797, it is the 42nd-most populous U.S. city. The eight-county Omaha–Council Bluffs metropolitan area extending into Iowa has approximately 1 million residents, the 55th-largest metropolitan area in the U.S. It is the county seat of Douglas County.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.461Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kroger",
+      "name": "Kroger",
+      "website": "https://www.kroger.com/",
+      "industry": "Retail",
+      "description": "The Kroger Co. is an American retail corporation headquartered in Cincinnati, Ohio. It operates supermarkets and multi-department stores throughout the United States.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.461Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "cincinnati",
+      "name": "Cincinnati",
+      "website": "https://www.cincinnati-oh.gov/",
+      "industry": "Business",
+      "description": "Cincinnati is the most populous city in Hamilton County, Ohio, United States, and its county seat. Settled in 1788, the city is located on the northern side of the confluence of the Licking and Ohio rivers, the latter of which marks the state line with Kentucky. The third-most populous city in Ohio with a population of 309,317 at the 2020 census, Cincinnati serves as the economic and cultural hub of the tri-state Cincinnati metropolitan area, Ohio's most populous metropolitan area and the nation's 30th-largest at over 2.3 million residents.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.462Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "vevey",
+      "name": "Vevey",
+      "website": "http://www.vevey.ch/",
+      "industry": "Business",
+      "description": "Vevey is a town in Switzerland in the canton of Vaud, on the north shore of Lake Geneva, near Lausanne. The German name Vivis is no longer commonly used.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.463Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "minnetonka",
+      "name": "Minnetonka",
+      "website": "http://eminnetonka.com/",
+      "industry": "Business",
+      "description": "Minnetonka is a city in Hennepin County, Minnesota, United States. A western suburb of the Twin Cities, Minnetonka is located about 10 miles (16 km) west of Minneapolis. At the 2024 census, the city's population was 52,651.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.464Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "compass-group",
+      "name": "Compass Group",
+      "website": "http://www.compass-group.es/",
+      "industry": "Food & Beverage",
+      "description": "Compass Group plc is a British multinational contract foodservice company headquartered in Chertsey, England. It is the largest contract foodservice company in Europe, employing over 590,000 people as of September 2025. It serves meals in locations including offices and factories, schools, universities, hospitals, major sports and cultural venues, mining camps, prisons and offshore oil platforms. Compass Group is listed on the London Stock Exchange, as a constituent of the FTSE 100 Index. As of July 2025, it has one of the highest market capitalisations on the London Stock Exchange. It is also a Fortune Global 500 company.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.464Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "chertsey",
+      "name": "Chertsey",
+      "website": "http://www.chertsey.com/",
+      "industry": "Business",
+      "description": "Chertsey is a town in the Borough of Runnymede in Surrey, England, 18 miles (29 km) south-west of central London. It grew up around Chertsey Abbey, founded in AD 666 by St Erkenwald, and gained a market charter from Henry I. A bridge across the River Thames first appeared in the early 15th century.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.465Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "hengli-group",
+      "name": "Hengli Group",
+      "website": "http://www.hengli.com/",
+      "industry": "Chemical industry",
+      "description": "Hengli Group is a Chinese privately held company based in Suzhou, Jiangsu. It operates oil refining, petrochemical, polyester materials and textile businesses. Reuters described the company in 2020 as one of the world's largest polyester yarn producers.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.466Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "suzhou-jiangsu",
+      "name": "Suzhou, Jiangsu",
+      "website": "http://www.suzhou.gov.cn/",
+      "industry": "Business",
+      "description": "Suzhou is a prefecture-level city in Jiangsu province, Eastern China. Suzhou is a major tourist destination and industrial hub of Eastern China, specializing in high-end manufacturing. Renowned as the cradle of Wu culture, Suzhou flourished as a hub of trade, arts, and intellectual life along the Grand Canal, helping shape China's economic and cultural development for centuries. The city is internationally famous for its classical gardens, which harmonize architecture, water, rocks, and plants into poetic expressions of nature. Long admired for its silk production, refined cuisine, and lyrical Kunqu opera, Suzhou has been praised in Chinese poetry, along with Hangzhou, as \"paradise on earth,\" a reputation that endures today as the city blends its timeless canals, whitewashed lanes, and scholarly heritage with modern industries. Suzhou is part of the Yangtze Delta megalopolis.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.466Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "baowu",
+      "name": "Baowu",
+      "website": "http://www.baowugroup.com/",
+      "industry": "Iron and steel industry",
+      "description": "China Baowu Steel Group Corp., Ltd., commonly known as Baowu, is a state-owned iron and steel company headquartered in the Baosteel Tower in Pudong, Shanghai, China. The company was formed by Baosteel Group absorbing its smaller state-owned peer, Wuhan Iron and Steel Corporation in 2016. It is the world's largest steel producer.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.467Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "shanghai",
+      "name": "Shanghai",
+      "website": "https://shanghai.gov.cn/",
+      "industry": "Business",
+      "description": "Shanghai is a provincial-level direct-administered municipality in China. It has a population of 30,050,000 in the urban area as of 2026, thus making it China's most populous city and more broadly the fifth-largest city in the world by population. The city is located on the southern estuary of the Yangtze River, with the Huangpu River bisecting the city.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.467Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "burbank-california",
+      "name": "Burbank, California",
+      "website": "http://www.burbankca.gov/",
+      "industry": "Business",
+      "description": "Burbank is a city in the southeastern end of the San Fernando Valley in Los Angeles County, California, United States. Located 7 miles (11 km) northwest of downtown Los Angeles, Burbank had a population of 105,833 as of 2025. The city was named after David Burbank, who established a sheep ranch there in 1867. Burbank consists of two distinct areas: a downtown/foothill section, in the foothills of the Verdugo Mountains, and the flatland section.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.468Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "wolfsburg",
+      "name": "Wolfsburg",
+      "website": "https://www.wolfsburg.de/",
+      "industry": "Business",
+      "description": "Wolfsburg is the fifth-largest city in the German state of Lower Saxony. It lies on the river Aller, 75 kilometres (47 mi) east of Hanover and 230 kilometres (143 mi) west of Berlin.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.470Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "bentonville-arkansas",
+      "name": "Bentonville, Arkansas",
+      "website": "http://www.bentonvillear.com/",
+      "industry": "Business",
+      "description": "Bentonville is a city in and the county seat of Benton County, Arkansas, United States. The city is centrally located in the county with Rogers adjacent to the east. The city proper had a population of 54,164 at the 2020 census, making it the ninth-most populous city in Arkansas. It is one of the four main cities in the three-county Northwest Arkansas metropolitan area, with 546,725 residents in 2020.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.470Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "cupertino-california",
+      "name": "Cupertino, California",
+      "website": "https://www.cupertino.gov/",
+      "industry": "Business",
+      "description": "Cupertino is a city in Santa Clara County, California, United States, directly west of San Jose on the western edge of the Santa Clara Valley with portions extending into the foothills of the Santa Cruz Mountains. The population was 60,381 as of the 2020 census, decreasing by 1,671 (-2.9%) to a Census-estimated 58,710 by 2024. The city is the home of Apple Inc., headquartered at Apple Park.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.471Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "china-mobile",
+      "name": "China Mobile",
+      "website": "http://www.10086.cn/",
+      "industry": "Telecommunications",
+      "description": "China Mobile is the trade name of both China Mobile Limited, and its ultimate controlling shareholder, China Mobile Communications Group Co., Ltd., a Chinese state-owned telecommunications company. It provides mobile voice and multimedia services through its nationwide mobile telecommunications network across mainland China and Hong Kong. China Mobile is the largest wireless carrier in China, with 945.50 million subscribers as of June 2021. China Mobile was ranked #25 in Forbes' Global 2000 in 2023.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.471Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "china-post",
+      "name": "China Post",
+      "website": "https://www.chinapost.com.cn/",
+      "industry": "Logistics / Shipping",
+      "description": "China Post, officially the China Post Group Corporation, is the national postal service corporation of the People's Republic of China. It is incorporated as a state-owned enterprise.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.472Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "trafigura",
+      "name": "Trafigura",
+      "website": "https://www.trafigura.com/",
+      "industry": "Energy / Oil & Gas",
+      "description": "Trafigura Group Pte. Ltd. is a Singaporean‑based multinational commodities company, founded in 1993, with major regional hubs in Geneva, Houston, Montevideo, and Mumbai. The company trades in base metals and energy. It is the world's largest private metal trader and the second‑largest oil trader, having built or purchased stakes in pipelines, mines, smelters, ports, and storage terminals.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.472Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "dhahran",
+      "name": "Dhahran",
+      "website": "http://www.dhahrancity.com/",
+      "industry": "Business",
+      "description": "Dhahran is a city located in the Eastern Province, Saudi Arabia. With a total population of 143,936 as of 2022, it is a major administrative center for the Saudi oil industry. Together with the nearby cities of Dammam and Khobar, Dhahran forms part of the Dammam Metropolitan Area, which is commonly known as greater Dammam and has an estimated population of 2.2 million as of 2022.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.474Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "archer-daniels-midland",
+      "name": "Archer Daniels Midland",
+      "website": "https://adm.com/",
+      "industry": "Food & Beverage",
+      "description": "The Archer-Daniels-Midland Company, commonly known as ADM, is an American multinational food processing and commodities trading corporation founded in 1902 and headquartered in Chicago, Illinois. The company operates more than 270 plants and 420 crop procurement facilities worldwide, where cereal grains and oilseeds are processed into products used in food, beverage, nutraceutical, industrial, and animal feed markets worldwide.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.474Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "chicago",
+      "name": "Chicago",
+      "website": "https://www.chicago.gov/",
+      "industry": "Business",
+      "description": "Chicago is the most populous city in the U.S. state of Illinois and in the Midwestern United States. Located on the western shore of Lake Michigan, it is the third-most populous city in the United States, with a population of 2.74 million at the 2020 census. The Chicago metropolitan area has approximately 9.62 million residents according to the 2020 census and is the third-largest metropolitan area in the country. Chicago is the county seat of Cook County, the second-most populous county in the U.S.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:02.475Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "randstad-nv",
+      "name": "Randstad NV",
+      "website": "https://www.randstad.com/",
+      "industry": "Human resource management",
+      "description": "Randstad NV, commonly known as Randstad and stylized as randstad, is a Dutch multinational human resource consulting firm headquartered in Diemen, Netherlands. Founded in 1960 by Frits Goldschmeding, it is the world's largest staffing and recruitment company by revenue. Headquartered in the Netherlands, Randstad operates in 39 markets and has approximately 38,000 employees. In 2025, this firm supported nearly 150,000 clients and over 1.7 million talent.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.166Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "diemen",
+      "name": "Diemen",
+      "website": "https://www.diemen.nl/",
+      "industry": "Business",
+      "description": "Diemen is a town and municipality with a population of 31,334 in the province of North Holland, Netherlands. It is located approximately 6 km southeast of Amsterdam's city centre, within the Amsterdam metropolitan area.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.167Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "walgreens-boots-alliance",
+      "name": "Walgreens Boots Alliance",
+      "website": "https://www.walgreensbootsalliance.com/",
+      "industry": "Retail",
+      "description": "Walgreens Boots Alliance, Inc. (WBA) was an American multinational holding company headquartered in Deerfield, Illinois. The company was formed on December 31, 2014, after Walgreens bought the 55% stake in Alliance Boots that it did not already own. The total price of the acquisition was $4.9 billion in cash and 144.3 million common shares with fair value of $10.7 billion. Walgreens had previously purchased 45% of the company for $4.0 billion and 83.4 million common shares in August 2012 with an option to purchase the remaining shares within three years. Walgreens became a subsidiary of the newly created company after the transactions were completed. In March 2025, the company announced that it had agreed to be taken private by Sycamore Partners for $10 billion. The private equity firm completed the acquisition in August and split WBA into five new companies: Walgreens, The Boots Group, VillageMD, CareCentrix and Shields Health Solutions.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.167Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "deerfield-illinois",
+      "name": "Deerfield, Illinois",
+      "website": "http://www.waukeganweb.net/",
+      "industry": "Business",
+      "description": "Deerfield is a village in Lake and Cook counties in the U.S. state of Illinois. A northern suburb of Chicago, Deerfield is located on the North Shore, about 28 miles (45 km) north of downtown Chicago. The population was 19,196 at the 2020 census.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.168Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "woonsocket-rhode-island",
+      "name": "Woonsocket, Rhode Island",
+      "website": "http://www.ci.woonsocket.ri.us/",
+      "industry": "Business",
+      "description": "Woonsocket, is a city in Providence County, Rhode Island, United States. The population was 43,240 at the 2020 census, making it the sixth largest city in the state. Being Rhode Island's northernmost city, Woonsocket lies directly south of the Massachusetts state line and constitutes part of both the Providence metropolitan area and the larger Greater Boston Combined Statistical Area.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.168Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "dallas",
+      "name": "Dallas",
+      "website": "https://dallascityhall.com/",
+      "industry": "Business",
+      "description": "Dallas is a city in the U.S. state of Texas. Located in northern Texas, it is the ninth-most populous city in the United States and third-most populous city in Texas, with a population of 1.3 million at the 2020 census. Along with the city of Fort Worth, Dallas anchors the Dallas–Fort Worth metroplex, the fourth-most populous metropolitan area in the U.S. and the most populous metropolitan area in Texas, at 8.5 million people. Dallas is a core city of the largest metropolitan area in the Southern U.S. and the largest inland metropolitan area in the U.S. that lacks any navigable link to the sea. It is the seat of Dallas County, covering nearly 386 square miles (1,000 km2) and extending into Collin, Denton, Kaufman, and Rockwall counties.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.169Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "leiden",
+      "name": "Leiden",
+      "website": "https://gemeente.leiden.nl/",
+      "industry": "Business",
+      "description": "Leiden is a city and municipality in the province of South Holland, Netherlands. The municipality of Leiden has a population of 127,046, but the city forms one densely connected agglomeration with its suburbs Oegstgeest, Leiderdorp, Voorschoten and Zoeterwoude with 215,602 inhabitants. The Netherlands Central Bureau of Statistics (CBS) further includes Katwijk in the agglomeration which makes the total population of the Leiden urban agglomeration 282,207. Further, Teylingen, Noordwijk, and Noordwijkerhout are included in the larger Leiden urban area, which has 365,913 inhabitants. Leiden is located on the Oude Rijn, at a distance of some 20 km (12 mi) from The Hague to its south and some 40 km (25 mi) from Amsterdam to its north. The recreational area of the Kaag Lakes (Kagerplassen) lies just to the northeast of Leiden.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.171Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "basf",
+      "name": "BASF",
+      "website": "https://www.basf.com/",
+      "industry": "Chemical industry",
+      "description": "BASF SE, an initialism of its original name Badische Anilin- & Soda-Fabrik, is a German multinational company and the largest chemical producer in the world. Its headquarters is located in Ludwigshafen, Germany.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.172Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "ludwigshafen",
+      "name": "Ludwigshafen",
+      "website": "https://ludwigshafen.de/",
+      "industry": "Business",
+      "description": "Ludwigshafen, officially Ludwigshafen am Rhein, is a city in the German state of Rhineland-Palatinate, on the river Rhine, opposite Mannheim. With Mannheim, Heidelberg, and the surrounding region, it forms the Rhine-Neckar Metropolitan Region.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.172Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "munich",
+      "name": "Munich",
+      "website": "https://stadt.muenchen.de/rathaus.html",
+      "industry": "Business",
+      "description": "Munich is the capital and most populous city of Bavaria, Germany. As of 30 November 2024, its population was 1,604,384, making it the third-largest city in Germany after Berlin and Hamburg. Munich is the largest city in Germany that is not a state of its own, and it ranks as the 11th-largest city in the European Union (EU). The metropolitan area has around 3 million inhabitants, and the broader Munich Metropolitan Region is home to about 6.2 million people. It is the third largest metropolitan region by GDP in the EU. Munich is located on the river Isar north of the Alps. It is the seat of the Upper Bavarian administrative region. With 4,800 people per km2, Munich is Germany's most densely populated municipality. It is also the second-largest city in the Bavarian dialect area after Vienna.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.174Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "amer-international-group",
+      "name": "Amer International Group",
+      "website": "http://www.amer.com.cn/",
+      "industry": "Conglomerate",
+      "description": "Amer International Group Ltd is a high-tech industrial enterprise, mainly dealing in non-ferrous metals and non-metallic materials. The company was founded by Chinese business magnate Wang Wenyin. Currently the company has four domestic headquarters located in Shenzhen, Shanghai, Tianjin, and Chongqing, and three international headquarters in Singapore, Geneva and Los Angeles. Amer International Group has six major business sectors and investment fields: health care, energy, finance, manufacturing, resources and culture.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.174Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "shenzhen",
+      "name": "Shenzhen",
+      "website": "http://www.sz.gov.cn/",
+      "industry": "Business",
+      "description": "Shenzhen is a prefecture-level city in the province of Guangdong, China. A special economic zone, it is located on the east bank of the Pearl River estuary on the central coast of Guangdong, bordering Hong Kong to the south, Dongguan to the north, Huizhou to the northeast, and Macau to the southwest. With a population of 17.5 million in 2020, Shenzhen is the third-most-populous city by urban population in China after Shanghai and Beijing. The Port of Shenzhen is the world's fourth-busiest container port. Shenzhen has established itself as a premier global metropolis with GDP that surpassed Hong Kong and Singapore in recent years.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.174Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "dupont",
+      "name": "DuPont",
+      "website": "https://www.dupont.com/",
+      "industry": "Chemical industry",
+      "description": "DuPont de Nemours, Inc., commonly shortened to DuPont, headquartered and organized in Delaware, produces products for the healthcare, water, construction and industrial markets. It was formed in 1802 by French-American chemist and industrialist Éleuthère Irénée du Pont de Nemours.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.175Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "wilmington-delaware",
+      "name": "Wilmington, Delaware",
+      "website": "http://www.ci.wilmington.de.us/",
+      "industry": "Business",
+      "description": "Wilmington is the most populous city in the U.S. state of Delaware. It lies at the confluence of the Christina River and Brandywine Creek, near where the Christina flows into the Delaware River. The population was 70,898 at the 2020 census. It is the county seat of New Castle County and one of the major cities in the Philadelphia metropolitan area.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.175Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "general-electric",
+      "name": "General Electric",
+      "website": "https://www.ge.com/",
+      "industry": "Conglomerate",
+      "description": "General Electric Company (GE) was an American multinational conglomerate founded in 1892, incorporated in the state of New York and headquartered, during its final year of operation, in Boston.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.176Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "boston",
+      "name": "Boston",
+      "website": "http://www.cityofboston.gov/",
+      "industry": "Business",
+      "description": "Boston is the capital and most populous city of the U.S. state of Massachusetts. It serves as a cultural and financial center of New England, a region of the Northeastern United States. Boston has an area of 48.4 sq mi (125 km2) and a population of 675,647 as of the 2020 census, making it the third-most populous city in the Northeastern United States after New York City and Philadelphia. The larger Greater Boston metropolitan statistical area had a population of 4.9 million in 2023, making it the largest metropolitan area in New England and the eleventh-largest in the United States.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.177Z",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "china-minmetals",
+      "name": "China Minmetals",
+      "website": "http://www.minmetals.com/",
+      "industry": "Trade",
+      "description": "China Minmetals Corporation is a Chinese state-owned enterprise headquartered in Beijing. It is one of the largest metal and mineral trading companies in the world, operating in more than 30 countries across mining, metal trading, engineering, and investment. In 2024, China Minmetals ranked 190th on the World's 500 Most Influential Brands list by World Brand Lab.",
+      "logo": "",
+      "source": {
+        "sourceId": "auto-top-100",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Fortune_Global_500",
+        "discoveredAt": "2026-07-20T06:36:03.177Z",
+        "confidence": "high"
+      }
+    }
+  ],
+  "acceptedOffices": [
+    {
+      "id": "google-us-san-jose-2",
+      "companyId": "google",
+      "country": "United States",
+      "countryCode": "US",
+      "region": "Americas",
+      "city": "San Jose",
+      "address": "Google San José - Tasman 255 W Tasman Dr",
+      "postalCode": "95134",
+      "officeType": "Regional Office",
+      "latitude": 37.4117764,
+      "longitude": -121.9539121,
+      "contactUrl": "https://about.google/company-info/locations/",
+      "approved": true,
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.atlassian.com/company/contact",
+        "scrapedAt": "2026-07-20T06:43:44.429Z",
+        "confidence": "medium",
+        "confidenceScore": 65,
+        "geocodeCertainty": "high"
+      }
+    }
+  ]
 }
