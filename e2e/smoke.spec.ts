@@ -14,17 +14,8 @@ test("search filters company list with a partial name match", async ({ page }) =
   await page.getByRole("button", { name: /^search$/i }).click();
   // At least one card should remain (Shopify matches locally).
   await expect(page.locator(".gof-card").first()).toBeVisible();
-});
-
-test("no-match search shows empty state without navigating away", async ({ page }) => {
-  await page.goto("/");
-  await page.getByPlaceholder(/search companies/i).fill("NoSuchCompanyXYZ99999");
-  await page.getByRole("button", { name: /^search$/i }).click();
-
-  // URL must stay at "/" — no navigation to /discover.
+  // URL stays at home — local match filters in place.
   await expect(page).toHaveURL(/\/$/);
-  // Empty-state element should be visible.
-  await expect(page.locator("[data-testid='empty-state']")).toBeVisible();
 });
 
 test("local match filters in place", async ({ page }) => {
@@ -37,6 +28,17 @@ test("local match filters in place", async ({ page }) => {
   await expect(page.locator(".gof-card").first()).toBeVisible();
   // URL stays at home — no discovery navigation.
   await expect(page).toHaveURL(/\/$/);
+});
+
+test("no-match search shows empty state without navigating away", async ({ page }) => {
+  await page.goto("/");
+  await page.getByPlaceholder(/search companies/i).fill("NoSuchCompanyXYZ99999");
+  await page.getByRole("button", { name: /^search$/i }).click();
+
+  // URL must stay at "/" — no navigation to /discover.
+  await expect(page).toHaveURL(/\/$/);
+  // Empty-state element should be visible.
+  await expect(page.locator("[data-testid='empty-state']")).toBeVisible();
 });
 
 test("navigates to a company page via direct URL", async ({ page }) => {
