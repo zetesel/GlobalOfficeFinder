@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-06-29T08:21:48.273Z",
-  "finishedAt": "2026-06-29T08:39:57.087Z",
+  "startedAt": "2026-07-20T06:22:59.453Z",
+  "finishedAt": "2026-07-20T06:41:54.383Z",
   "dryRun": false,
   "confidenceThreshold": "low",
   "stages": {
@@ -9,7 +9,7 @@
     "acceptedCompanies": 0,
     "acceptedOffices": 0,
     "officesQueuedForManualReview": 0,
-    "reviewQueueItems": 332,
+    "reviewQueueItems": 343,
     "skippedSources": 0
   },
   "safeguards": {
@@ -35,5 +35,29 @@
     }
   ],
   "acceptedCompanies": [],
-  "acceptedOffices": []
+  "acceptedOffices": [
+    {
+      "id": "google-us-san-jose-2",
+      "companyId": "google",
+      "country": "United States",
+      "countryCode": "US",
+      "region": "Americas",
+      "city": "San Jose",
+      "address": "Google San José - Tasman 255 W Tasman Dr",
+      "postalCode": "95134",
+      "officeType": "Regional Office",
+      "latitude": 37.4117764,
+      "longitude": -121.9539121,
+      "contactUrl": "https://about.google/company-info/locations/",
+      "approved": true,
+      "source": {
+        "sourceId": "phase-a-official-tech-sample",
+        "sourceUrl": "https://www.atlassian.com/company/contact",
+        "scrapedAt": "2026-07-20T06:47:15.498Z",
+        "confidence": "medium",
+        "confidenceScore": 65,
+        "geocodeCertainty": "high"
+      }
+    }
+  ]
 }

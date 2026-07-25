@@ -2173,5 +2173,20 @@
     "latitude": 37.698,
     "longitude": -121.9283,
     "contactUrl": "https://www.workday.com"
+  },
+  {
+    "id": "google-us-san-jose-2",
+    "companyId": "google",
+    "country": "United States",
+    "countryCode": "US",
+    "region": "Americas",
+    "city": "San Jose",
+    "address": "Google San José - Tasman 255 W Tasman Dr",
+    "postalCode": "95134",
+    "officeType": "Regional Office",
+    "latitude": 37.4117764,
+    "longitude": -121.9539121,
+    "contactUrl": "https://about.google/company-info/locations/",
+    "approved": true
   }
 ]
