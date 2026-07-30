@@ -162,6 +162,27 @@ a {
   pointer-events: none;
 }
 
+/* ── Static Office Map ──────────────────────────────────── */
+.gof-static-map {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--accent-soft), var(--bg));
+  width: 100%;
+}
+.gof-static-map-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.gof-static-map-canvas .leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #f4f6fb;
+  pointer-events: none;
+}
+
 /* ── Browse (home) ─────────────────────────────────────── */
 .gof-browse {
   height: 100%;
@@ -624,6 +645,82 @@ a {
   border-radius: 999px;
 }
 
+.gof-grouped-offices {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 16px;
+}
+.gof-region-block {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.gof-region-h {
+  font-family: var(--font-head);
+  font-weight: var(--head-weight);
+  font-size: 17px;
+  letter-spacing: var(--head-tracking);
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+}
+.gof-region-h span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  background: var(--bg);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.gof-country-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.gof-country-h-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.gof-country-h {
+  font-family: var(--font-head);
+  font-weight: var(--head-weight);
+  font-size: 14.5px;
+  letter-spacing: var(--head-tracking);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+}
+.gof-country-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.14s;
+}
+.gof-country-link:hover {
+  color: var(--accent);
+}
+.gof-badge-count {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--muted);
+  background: var(--bg);
+  padding: 1px 7px;
+  border-radius: 999px;
+  margin-left: 2px;
+}
+
 .gof-office-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(228px, 1fr));
@@ -664,7 +761,14 @@ a {
   left: 9px;
 }
 .gof-officecard-body {
-  padding: 12px 13px 13px;
+  padding: 14px;
+}
+.gof-officecard-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 .gof-officecard-city {
   font-family: var(--font-head);
@@ -917,6 +1021,55 @@ a {
   overflow: hidden;
   animation: gof-mapcard-in 0.22s ease-out;
 }
+.gof-mapcard.gof-mapcard-anchored {
+  position: static;
+  left: auto;
+  bottom: auto;
+  transform: none;
+  width: 100%;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  animation: none;
+}
+
+/* ── Leaflet Popup Anchored Above Pin ────────────────────── */
+.leaflet-popup.gof-map-popup {
+  margin-bottom: 6px;
+}
+.gof-map-popup .leaflet-popup-content-wrapper {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 4px);
+  box-shadow: 0 16px 48px rgba(15, 20, 50, 0.22);
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+}
+.gof-map-popup .leaflet-popup-content {
+  margin: 0;
+  width: min(380px, calc(100vw - 36px)) !important;
+}
+.gof-map-popup .leaflet-popup-tip-container {
+  width: 24px;
+  height: 12px;
+  position: absolute;
+  left: 50% !important;
+  margin-left: -12px !important;
+  pointer-events: none;
+}
+.gof-map-popup .leaflet-popup-tip {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  margin: -6px auto 0;
+  transform: rotate(45deg);
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 2px 2px 6px rgba(15, 20, 50, 0.08);
+}
 @keyframes gof-mapcard-in {
   from {
     opacity: 0;
@@ -954,16 +1107,40 @@ a {
 .gof-mapcard-close:hover {
   background: rgba(8, 12, 28, 0.78);
 }
+.gof-mapcard-close-inline {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: var(--muted);
+  background: var(--bg);
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.14s;
+  flex: 0 0 auto;
+  align-self: flex-start;
+  margin-left: auto;
+}
+.gof-mapcard-close-inline:hover {
+  background: var(--line-strong);
+  color: var(--ink);
+}
 .gof-mapcard-body {
-  padding: 14px 16px 16px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 .gof-mapcard-head {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+.gof-mapcard-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .gof-mapcard-name {
   font-family: var(--font-head);

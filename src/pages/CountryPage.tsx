@@ -73,6 +73,11 @@ export default function CountryPage() {
     setFocus({ id: officeId });
   }
 
+  function handleResetView() {
+    setActiveId(null);
+    setFocus({ fit: true });
+  }
+
   return (
     <div className="gof-page">
       <div className="gof-page-inner">
@@ -194,8 +199,10 @@ export default function CountryPage() {
                   hoverId={hoverId}
                   onHover={setHoverId}
                   onSelect={(o) => selectOffice(o.id)}
+                  onResetView={handleResetView}
                   focus={focus}
-                  padding={[50, 50]}
+                  padding={[24, 24]}
+                  showPopup={false}
                 />
               </div>
             </div>

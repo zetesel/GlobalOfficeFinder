@@ -1,12 +1,9 @@
 import { useMemo, useState } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Dropdown from "../components/Dropdown";
 import CompanyCard from "../components/CompanyCard";
 import MapView, { type MapFocus } from "../components/MapView";
-import Monogram from "../components/Monogram";
-import FlagChip from "../components/FlagChip";
-import Photo from "../components/Photo";
-import { REGION_ORDER, truncate } from "../utils/typeTag";
+import { REGION_ORDER } from "../utils/typeTag";
 import { useData } from "../hooks/useData";
 
 type View = "grid" | "map";
@@ -22,7 +19,6 @@ const INITIAL_FILTERS: Filters = { q: "", region: "", industry: "", otype: "" };
 
 export default function HomePage() {
   const { publicOffices: offices, companyById, companies } = useData();
-  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const view: View = searchParams.get("view") === "map" ? "map" : "grid";
@@ -137,13 +133,6 @@ export default function HomePage() {
   function handleBackgroundClick() {
     if (activeId) updateParams({ office: null });
   }
-
-  const activeOffice = activeId
-    ? (matchOffices.find((x) => x.id === activeId) ?? null)
-    : null;
-  const activeCompany = activeOffice
-    ? companyById[activeOffice.companyId]
-    : null;
 
   return (
     <div className="gof-browse">
@@ -353,18 +342,6 @@ export default function HomePage() {
             focus={focus}
             padding={[70, 70]}
           />
-          {activeOffice && activeCompany && (
-            <OfficeTile
-              office={activeOffice}
-              company={activeCompany}
-              onClose={() => updateParams({ office: null })}
-              onReadMore={() =>
-                navigate(
-                  `/company/${encodeURIComponent(activeCompany.id)}?office=${encodeURIComponent(activeOffice.id)}`,
-                )
-              }
-            />
-          )}
         </div>
       ) : (
         <div className="gof-grid-scroll">
@@ -391,72 +368,6 @@ export default function HomePage() {
           )}
         </div>
       )}
-    </div>
-  );
-}
-
-interface OfficeTileProps {
-  office: import("../types").Office;
-  company: import("../types").Company;
-  onClose: () => void;
-  onReadMore: () => void;
-}
-
-function OfficeTile({ office, company, onClose, onReadMore }: OfficeTileProps) {
-  const { tag } = office;
-  const summary = truncate(company.description, 160);
-  return (
-    <div
-      className="gof-mapcard"
-      role="dialog"
-      aria-label={`${company.name} — ${office.city}`}
-    >
-      <Photo
-        seed={office.id}
-        w={560}
-        h={200}
-        className="gof-mapcard-photo"
-        photo={company.photo}
-        subject={company.name}
-      >
-        <span className={"gof-tag tag-" + tag.tone + " gof-mapcard-tag"}>
-          {tag.short}
-        </span>
-        <button
-          type="button"
-          className="gof-mapcard-close"
-          aria-label="Close office details"
-          onClick={onClose}
-        >
-          ✕
-        </button>
-      </Photo>
-      <div className="gof-mapcard-body">
-        <div className="gof-mapcard-head">
-          <Monogram name={company.name} size={42} square />
-          <div className="gof-flex-body">
-            <div className="gof-mapcard-name">{company.name}</div>
-            <div className="gof-mapcard-loc">
-              <FlagChip code={office.countryCode} />
-              <span>
-                {office.city}, {office.country}
-              </span>
-            </div>
-          </div>
-        </div>
-        {summary && <p className="gof-mapcard-desc">{summary}</p>}
-        <div className="gof-mapcard-actions">
-          <button type="button" className="gof-btn" onClick={onReadMore}>
-            Read more
-          </button>
-          <Link
-            to={`/country/${encodeURIComponent(office.country)}`}
-            className="gof-mapcard-country"
-          >
-            View country
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }

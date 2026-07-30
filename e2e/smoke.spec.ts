@@ -142,9 +142,9 @@ test("read more navigates to company page; back returns to map with selection", 
   const name = (await tile.locator(".gof-mapcard-name").textContent())?.trim();
   expect(name).toBeTruthy();
   await tile.getByRole("button", { name: /read more/i }).click();
-  await expect(page).toHaveURL(/\/company\/[^?]+\?office=/);
-  // The matching office card should be highlighted on the company page.
-  await expect(page.locator(".gof-officecard.is-active")).toHaveCount(1);
+  await expect(page).toHaveURL(/\/company\/[^?]+$/);
+  // On company page, the sidebar map does not keep the popup open.
+  await expect(page.locator(".gof-locmap .gof-mapcard")).toHaveCount(0);
   await page.getByRole("button", { name: /directory/i }).click();
   await expect(page).toHaveURL(/view=map/);
   await expect(page).toHaveURL(/office=/);
