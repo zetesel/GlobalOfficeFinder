@@ -182,16 +182,20 @@ export default function MapView({
       if (!el) return;
       const pin = el.querySelector(".gof-pin");
       if (!pin) return;
-      pin.classList.toggle("is-active", id === activeId);
-      pin.classList.toggle("is-hover", id === hoverId);
-      if (id === activeId || id === hoverId) {
+      const isActive = id === activeId;
+      const isHover = id === hoverId;
+      pin.classList.toggle("is-active", isActive);
+      pin.classList.toggle("is-hover", isHover);
+      if (isActive || isHover) {
         m.setZIndexOffset(1000);
-        m.closeTooltip();
       } else {
         m.setZIndexOffset(0);
       }
+      if (isActive && showPopup) {
+        m.closeTooltip();
+      }
     });
-  }, [activeId, hoverId, offices]);
+  }, [activeId, hoverId, offices, showPopup]);
 
   // Leaflet popup anchored directly above the active pin
   useEffect(() => {

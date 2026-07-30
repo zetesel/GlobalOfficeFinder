@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import L from "leaflet";
 import type { Company, Office } from "../types";
 
@@ -24,6 +24,10 @@ export default function StaticOfficeMap({
 }: StaticOfficeMapProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<L.Map | null>(null);
+  // Lazy init: true immediately when IntersectionObserver is unavailable (happy-dom / SSR)
+  const [isVisible, setIsVisible] = useState(
+    () => typeof IntersectionObserver === "undefined",
+  );
 
   const positionedOffices: (Office & { latitude: number; longitude: number })[] = [];
 
@@ -41,8 +45,31 @@ export default function StaticOfficeMap({
 
   const primary = positionedOffices[0];
 
+  const officesKey = positionedOffices
+    .map((o) => `${o.id}:${o.latitude},${o.longitude}`)
+    .join("|");
+
   useEffect(() => {
-    if (!containerRef.current || !primary) return;
+    // When IO unavailable, isVisible already initialized to true — nothing to observe
+    if (typeof IntersectionObserver === "undefined") return;
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!containerRef.current || !primary || !isVisible) return;
 
     const map = L.map(containerRef.current, {
       zoomControl: false,
@@ -83,7 +110,7 @@ export default function StaticOfficeMap({
       map.remove();
       mapRef.current = null;
     };
-  }, [primary?.latitude, primary?.longitude, zoom, positionedOffices]);
+  }, [isVisible, primary?.latitude, primary?.longitude, zoom, officesKey]);
 
   return (
     <div className={`gof-static-map ${className}`}>
