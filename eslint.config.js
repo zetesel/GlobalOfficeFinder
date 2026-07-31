@@ -20,6 +20,20 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "react-router-dom",
+              message:
+                "Use react-router@8+ instead. react-router-dom was removed in v8.",
+            },
+          ],
+        },
+      ],
+    },
   },
   {
     files: ["__tests__/**/*.{ts,tsx}"],
@@ -35,6 +49,18 @@ export default defineConfig([
     },
     rules: {
       "@typescript-eslint/no-require-imports": "off",
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "react-router-dom",
+              message:
+                "Use react-router@8+ instead. react-router-dom was removed in v8.",
+            },
+          ],
+        },
+      ],
     },
   },
 ]);

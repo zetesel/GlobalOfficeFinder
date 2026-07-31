@@ -5,13 +5,14 @@ import {
   useNavigationType,
   useParams,
   useSearchParams,
-} from "react-router-dom";
+} from "react-router";
 import { useData } from "../hooks/useData";
 import Photo from "../components/Photo";
 import Monogram from "../components/Monogram";
 import FlagChip from "../components/FlagChip";
 import MapView, { type MapFocus } from "../components/MapView";
 import { sanitizeUrl } from "../utils/sanitizeUrl";
+import { REGION_ORDER } from "../utils/typeTag";
 
 interface StatProps {
   n: number;
@@ -71,6 +72,61 @@ export default function CompanyPage() {
     };
   }, [offices]);
 
+  const groupedOffices = useMemo(() => {
+    const regionMap = new Map<
+      string,
+      Map<string, { countryCode: string; offices: typeof offices }>
+    >();
+
+    for (const o of offices) {
+      const region = o.region || "Other";
+      let countryMap = regionMap.get(region);
+      if (!countryMap) {
+        countryMap = new Map();
+        regionMap.set(region, countryMap);
+      }
+      let countryData = countryMap.get(o.country);
+      if (!countryData) {
+        countryData = { countryCode: o.countryCode, offices: [] };
+        countryMap.set(o.country, countryData);
+      }
+      countryData.offices.push(o);
+    }
+
+    const sortedRegions = Array.from(regionMap.keys()).sort((a, b) => {
+      const idxA = REGION_ORDER.indexOf(a);
+      const idxB = REGION_ORDER.indexOf(b);
+      if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+      if (idxA !== -1) return -1;
+      if (idxB !== -1) return 1;
+      return a.localeCompare(b);
+    });
+
+    return sortedRegions.map((region) => {
+      const countryMap = regionMap.get(region)!;
+      const countries = Array.from(countryMap.keys()).sort((a, b) =>
+        a.localeCompare(b)
+      );
+      const countryGroups = countries.map((country) => {
+        const data = countryMap.get(country)!;
+        return {
+          country,
+          countryCode: data.countryCode,
+          offices: data.offices,
+        };
+      });
+      const totalOffices = countryGroups.reduce(
+        (acc, c) => acc + c.offices.length,
+        0
+      );
+      return {
+        region,
+        totalOffices,
+        countryGroups,
+      };
+    });
+  }, [offices]);
+
   // Scroll the targeted office card into view when arriving with ?office=…
   useEffect(() => {
     if (!initialOfficeId) return;
@@ -94,6 +150,11 @@ export default function CompanyPage() {
   function selectOffice(officeId: string) {
     setActiveId(officeId);
     setFocus({ id: officeId });
+  }
+
+  function handleResetView() {
+    setActiveId(null);
+    setFocus({ fit: true });
   }
 
   return (
@@ -166,65 +227,90 @@ export default function CompanyPage() {
             <h2 className="gof-section-h">
               Offices <span>{offices.length}</span>
             </h2>
-            <div className="gof-office-grid">
-              {offices.map((o) => {
-                const tag = o.tag;
-                const isActive = activeId === o.id;
-                const isHover = hoverId === o.id;
-                return (
-                  <div
-                    key={o.id}
-                    ref={(el) => {
-                      cardRefs.current[o.id] = el;
-                    }}
-                    className={
-                      "gof-officecard" +
-                      (isActive ? " is-active" : "") +
-                      (isHover ? " is-hover" : "")
-                    }
-                    onMouseEnter={() => setHoverId(o.id)}
-                    onMouseLeave={() => setHoverId(null)}
-                    onClick={() => selectOffice(o.id)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        selectOffice(o.id);
-                      }
-                    }}
-                  >
-                    <Photo
-                      seed={o.id}
-                      w={520}
-                      h={300}
-                      className="gof-officecard-photo"
-                      photo={tag.tone === "hq" ? company.photo : undefined}
-                      subject={company.name}
-                    >
-                      <span
-                        className={"gof-tag tag-" + tag.tone + " gof-officecard-tag"}
-                      >
-                        {tag.short}
-                      </span>
-                    </Photo>
-                    <div className="gof-officecard-body">
-                      <div className="gof-officecard-city">{o.city}</div>
-                      <div className="gof-officecard-addr">
-                        {o.address}
-                        {o.postalCode ? ` · ${o.postalCode}` : ""}
+            <div className="gof-grouped-offices">
+              {groupedOffices.map((rGroup) => (
+                <section key={rGroup.region} className="gof-region-block">
+                  <h3 className="gof-region-h">
+                    {rGroup.region} <span>{rGroup.totalOffices}</span>
+                  </h3>
+                  {rGroup.countryGroups.map((cGroup) => (
+                    <div key={cGroup.country} className="gof-country-block">
+                      <div className="gof-country-h-row">
+                        <h4 className="gof-country-h">
+                          <FlagChip code={cGroup.countryCode} /> <span>{cGroup.country}</span>{" "}
+                          <span className="gof-badge-count">{cGroup.offices.length}</span>
+                        </h4>
+                        <Link
+                          to={`/country/${encodeURIComponent(cGroup.country)}`}
+                          className="gof-country-link"
+                          title={`View all offices in ${cGroup.country}`}
+                        >
+                          View country
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            style={{ marginLeft: 4 }}
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M4.5 2.5L8 6L4.5 9.5"
+                              stroke="currentColor"
+                              strokeWidth="1.4"
+                              fill="none"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </Link>
                       </div>
-                      <Link
-                        to={`/country/${encodeURIComponent(o.country)}`}
-                        className="gof-officecard-country"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <FlagChip code={o.countryCode} /> {o.country}
-                      </Link>
+                      <div className="gof-office-grid">
+                        {cGroup.offices.map((o) => {
+                          const tag = o.tag;
+                          const isActive = activeId === o.id;
+                          const isHover = hoverId === o.id;
+                          return (
+                            <div
+                              key={o.id}
+                              ref={(el) => {
+                                cardRefs.current[o.id] = el;
+                              }}
+                              className={
+                                "gof-officecard" +
+                                (isActive ? " is-active" : "") +
+                                (isHover ? " is-hover" : "")
+                              }
+                              onMouseEnter={() => setHoverId(o.id)}
+                              onMouseLeave={() => setHoverId(null)}
+                              onClick={() => selectOffice(o.id)}
+                              role="button"
+                              tabIndex={0}
+                              aria-selected={isActive}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                  e.preventDefault();
+                                  selectOffice(o.id);
+                                }
+                              }}
+                            >
+                              <div className="gof-officecard-body">
+                                <div className="gof-officecard-head">
+                                  <div className="gof-officecard-city">{o.city}</div>
+                                  <span className={"gof-tag tag-" + tag.tone}>{tag.short}</span>
+                                </div>
+                                <div className="gof-officecard-addr">
+                                  {o.address}
+                                  {o.postalCode ? ` · ${o.postalCode}` : ""}
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  ))}
+                </section>
+              ))}
             </div>
           </div>
 
@@ -244,8 +330,10 @@ export default function CompanyPage() {
                   hoverId={hoverId}
                   onHover={setHoverId}
                   onSelect={(o) => selectOffice(o.id)}
+                  onResetView={handleResetView}
                   focus={focus}
-                  padding={[50, 50]}
+                  padding={[24, 24]}
+                  showPopup={false}
                 />
               </div>
             </div>

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, within } from "@testing-library/react";
-import { MemoryRouter, Routes, Route } from "react-router-dom";
+import { MemoryRouter, Routes, Route } from "react-router";
 import Header from "../../src/components/Header";
 import { useData, type CatalogData } from "../../src/hooks/useData";
 import type { Company, Office } from "../../src/types";

@@ -51,19 +51,21 @@ Implemented via HTML meta tags:
 
 ```
 npm audit results:
-- 13 vulnerabilities identified (mostly in transitive dependencies)
-- 6 low, 2 moderate, 5 high severity
-- Most are in Lighthouse CLI and Playwright dependencies (dev-only)
-- Production bundle is not affected (only production dependencies matter)
+- 0 vulnerabilities (npm audit --audit-level=high, full dependency tree)
+- CI gate runs npm audit against the full tree (dependencies + devDependencies),
+  not just production, so dev-only tooling vulnerabilities also block merges
+- react-router-dom was removed (replaced by react-router@8) and the unused
+  @lhci/cli devDependency was dropped, eliminating the transitive vulnerability
+  chains (tmp, js-yaml, ws, brace-expansion) that previously caused high findings
 ```
 
 ### Production Dependencies
 
 All production dependencies are minimal and well-maintained:
-- `react` ^19.2.4 - React framework
-- `react-dom` ^19.2.4 - React DOM
-- `react-router-dom` ^7.14.0 - Client-side routing
-- `fuse.js` ^7.3.0 - Fuzzy search
+- `react` ^19.2.8 - React framework
+- `react-dom` ^19.2.8 - React DOM
+- `react-router` ^8.3.0 - Client-side routing (single package; `react-router-dom` was removed in v8)
+- `fuse.js` ^7.5.0 - Fuzzy search
 - `leaflet` ^1.9.4 - Map library
 - `leaflet.markercluster` ^1.5.3 - Map marker clustering
 
@@ -257,7 +259,7 @@ Build process:
 
 1. **CSP Meta Tag Limitation**: GitHub Pages doesn't support custom HTTP headers, so CSP is enforced via meta tag. This means CSP can theoretically be disabled if an attacker can modify the HTML file (which would require compromising the deployment).
 
-2. **Transitive Dependencies**: Some vulnerability reports are for transitive dependencies of development tools (not in production code). These are low risk but may require breaking changes to fix.
+2. **Transitive Dependencies (historical)**: Previously, unused heavy dev tooling (notably `@lhci/cli`) introduced transitive high-severity findings (via `tmp`, `js-yaml`, `ws`, `brace-expansion`) that failed the full-tree audit gate even though the tooling was never shipped to production. That dependency was removed and the current audit is clean (0 vulnerabilities). Re-adding unused heavy CI/perf tooling without first checking `npm audit --audit-level=high` can reintroduce the same merge blockers.
 
 3. **Local Development**: During local development, the CSP is enforced by the browser but may cause issues with development tools. For production deployments, the CSP is fully enforced.
 

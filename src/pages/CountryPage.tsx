@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link, useNavigate, useNavigationType, useParams } from "react-router-dom";
+import { Link, useNavigate, useNavigationType, useParams } from "react-router";
 import { useData } from "../hooks/useData";
 import Photo from "../components/Photo";
 import Monogram from "../components/Monogram";
@@ -71,6 +71,11 @@ export default function CountryPage() {
   function selectOffice(officeId: string) {
     setActiveId(officeId);
     setFocus({ id: officeId });
+  }
+
+  function handleResetView() {
+    setActiveId(null);
+    setFocus({ fit: true });
   }
 
   return (
@@ -194,8 +199,10 @@ export default function CountryPage() {
                   hoverId={hoverId}
                   onHover={setHoverId}
                   onSelect={(o) => selectOffice(o.id)}
+                  onResetView={handleResetView}
                   focus={focus}
-                  padding={[50, 50]}
+                  padding={[24, 24]}
+                  showPopup={false}
                 />
               </div>
             </div>

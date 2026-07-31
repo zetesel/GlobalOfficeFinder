@@ -35,3 +35,7 @@ test-results/
 test-results.json
 junit-results.xml
 coverage/
+
+# AGY / subagent temp directories
+.agents/
+.claude/
