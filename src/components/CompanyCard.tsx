@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import type { Company, Office } from "../types";
 import StaticOfficeMap from "./StaticOfficeMap";
 import Monogram from "./Monogram";

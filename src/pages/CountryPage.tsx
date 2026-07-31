@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link, useNavigate, useNavigationType, useParams } from "react-router-dom";
+import { Link, useNavigate, useNavigationType, useParams } from "react-router";
 import { useData } from "../hooks/useData";
 import Photo from "../components/Photo";
 import Monogram from "../components/Monogram";
