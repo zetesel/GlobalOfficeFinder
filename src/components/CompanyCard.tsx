@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import type { Company, Office } from "../types";
 import Photo from "./Photo";
 import Monogram from "./Monogram";

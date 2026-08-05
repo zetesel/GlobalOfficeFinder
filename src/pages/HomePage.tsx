@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router";
 import Dropdown from "../components/Dropdown";
 import CompanyCard from "../components/CompanyCard";
 import MapView, { type MapFocus } from "../components/MapView";

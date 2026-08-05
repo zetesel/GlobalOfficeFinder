@@ -5,7 +5,7 @@ import {
   useNavigationType,
   useParams,
   useSearchParams,
-} from "react-router-dom";
+} from "react-router";
 import { useData } from "../hooks/useData";
 import Photo from "../components/Photo";
 import Monogram from "../components/Monogram";

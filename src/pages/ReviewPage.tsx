@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useData } from "../hooks/useData";
 import type { Office, Company } from "../types";
 import FlagChip from "../components/FlagChip";
