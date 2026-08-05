@@ -1,5 +1,5 @@
 import { useState, type MouseEvent, type ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import type { CompanyPhoto } from "../types";
 import { sanitizeUrl } from "../utils/sanitizeUrl";
 
