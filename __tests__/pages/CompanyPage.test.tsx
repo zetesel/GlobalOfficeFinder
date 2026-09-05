@@ -153,7 +153,7 @@ describe("CompanyPage", () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByText("Acme Corp")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Acme Corp", level: 1 })).toBeInTheDocument();
 
     // Main level 1 offices header
     const mainHeader = container.querySelector(".gof-section-h");
@@ -168,14 +168,17 @@ describe("CompanyPage", () => {
     expect(regionHeaders[0].textContent).toContain("Americas 1");
     expect(regionHeaders[1].textContent).toContain("Europe 2");
 
-    // Level 3 country blocks
-    const countryBlocks = container.querySelectorAll(".gof-country-block");
-    expect(countryBlocks).toHaveLength(3);
+    // Cards display country flag, name, and dedicated 'View country' button
+    const countryNames = container.querySelectorAll(".gof-officecard-country-name");
+    expect(countryNames).toHaveLength(3);
+    expect(countryNames[0].textContent).toBe("United States");
+    expect(countryNames[1].textContent).toBe("Germany");
+    expect(countryNames[2].textContent).toBe("United Kingdom");
 
-    const countryHeaders = container.querySelectorAll(".gof-country-h");
-    expect(countryHeaders[0].textContent).toContain("United States 1");
-    expect(countryHeaders[1].textContent).toContain("Germany 1");
-    expect(countryHeaders[2].textContent).toContain("United Kingdom 1");
+    const countryBtns = container.querySelectorAll(".gof-officecard-country-btn");
+    expect(countryBtns).toHaveLength(3);
+    expect(countryBtns[0].textContent).toContain("View country");
+    expect(countryBtns[0]).toHaveAttribute("href", "/country/United%20States");
   });
 
   it("renders office cards without stock photos or sample images", () => {
@@ -272,7 +275,7 @@ describe("CompanyPage", () => {
         </MemoryRouter>,
       );
 
-      expect(screen.getByText("Single Corp")).toBeInTheDocument();
+      expect(screen.getByRole("heading", { name: "Single Corp", level: 1 })).toBeInTheDocument();
 
       // Singular stat labels
       const stats = container.querySelectorAll(".gof-stat");
@@ -299,7 +302,7 @@ describe("CompanyPage", () => {
         </MemoryRouter>,
       );
 
-      expect(screen.getByText("Euro Corp")).toBeInTheDocument();
+      expect(screen.getByRole("heading", { name: "Euro Corp", level: 1 })).toBeInTheDocument();
 
       // Stats: 3 offices, 3 countries, 1 region
       const stats = container.querySelectorAll(".gof-stat");
@@ -312,12 +315,12 @@ describe("CompanyPage", () => {
       expect(regionHeaders).toHaveLength(1);
       expect(regionHeaders[0].textContent).toContain("Europe 3");
 
-      // 3 country blocks sorted alphabetically: France, Germany, United Kingdom
-      const countryHeaders = container.querySelectorAll(".gof-country-h");
-      expect(countryHeaders).toHaveLength(3);
-      expect(countryHeaders[0].textContent).toContain("France 1");
-      expect(countryHeaders[1].textContent).toContain("Germany 1");
-      expect(countryHeaders[2].textContent).toContain("United Kingdom 1");
+      // 3 cards sorted alphabetically by country: France, Germany, United Kingdom
+      const countryNames = container.querySelectorAll(".gof-officecard-country-name");
+      expect(countryNames).toHaveLength(3);
+      expect(countryNames[0].textContent).toBe("France");
+      expect(countryNames[1].textContent).toBe("Germany");
+      expect(countryNames[2].textContent).toBe("United Kingdom");
     });
   });
 
@@ -368,10 +371,11 @@ describe("CompanyPage", () => {
       );
 
       const cards = container.querySelectorAll(".gof-officecard");
-      expect(container.querySelector(".gof-officecard.is-active")).toBeNull();
+      expect(cards[0].classList.contains("is-active")).toBe(true);
 
       fireEvent.click(cards[1]); // Click UK card
       expect(cards[1].classList.contains("is-active")).toBe(true);
+      expect(cards[0].classList.contains("is-active")).toBe(false);
     });
 
     it("supports keyboard selection via Enter and Space keys", () => {

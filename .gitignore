@@ -39,3 +39,5 @@ coverage/
 # AGY / subagent temp directories
 .agents/
 .claude/
+.pipeline/
+data/security/

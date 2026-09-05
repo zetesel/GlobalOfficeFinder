@@ -1,7 +1,6 @@
-import { useMemo, useState } from "react";
-import { Link, useNavigate, useNavigationType, useParams } from "react-router";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Link, useNavigate, useNavigationType, useParams, useSearchParams } from "react-router";
 import { useData } from "../hooks/useData";
-import Photo from "../components/Photo";
 import Monogram from "../components/Monogram";
 import FlagChip from "../components/FlagChip";
 import MapView, { type MapFocus } from "../components/MapView";
@@ -27,10 +26,9 @@ export default function CountryPage() {
     if (navType === "PUSH" && window.history.length > 1) navigate(-1);
     else navigate("/");
   };
+  const [searchParams] = useSearchParams();
+  const initialOfficeId = searchParams.get("office");
   const { publicOffices: allOffices, companyById } = useData();
-  const [hoverId, setHoverId] = useState<string | null>(null);
-  const [activeId, setActiveId] = useState<string | null>(null);
-  const [focus, setFocus] = useState<MapFocus>({ fit: true });
 
   const offices = useMemo(
     () => allOffices.filter((o) => o.country === code),
@@ -54,6 +52,21 @@ export default function CountryPage() {
     };
   }, [offices]);
 
+  const [hoverId, setHoverId] = useState<string | null>(null);
+  const [activeId, setActiveId] = useState<string | null>(initialOfficeId);
+  const [focus, setFocus] = useState<MapFocus>(
+    initialOfficeId ? { id: initialOfficeId } : { fit: true },
+  );
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const mapRef = useRef<HTMLDivElement | null>(null);
+
+  // Scroll the targeted office card into view when arriving with ?office=…
+  useEffect(() => {
+    if (!initialOfficeId) return;
+    const el = cardRefs.current[initialOfficeId];
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [initialOfficeId]);
+
   if (!offices.length) {
     return (
       <div className="gof-notfound">
@@ -68,9 +81,12 @@ export default function CountryPage() {
   const countryCode = offices[0].countryCode;
   const region = offices[0].region;
 
-  function selectOffice(officeId: string) {
+  function selectOffice(officeId: string, shouldScroll = false) {
     setActiveId(officeId);
     setFocus({ id: officeId });
+    if (shouldScroll) {
+      mapRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   function handleResetView() {
@@ -95,8 +111,27 @@ export default function CountryPage() {
           Directory
         </button>
 
-        <Photo seed={"country-" + code} w={1400} h={520} className="gof-hero" subject={code}>
-          <div className="gof-hero-overlay">
+        <div
+          ref={mapRef}
+          className="gof-hero gof-hero-map-wrap gof-locmap"
+          role="region"
+          aria-label={`${code} offices map`}
+        >
+          <MapView
+            offices={offices}
+            companyById={companyById}
+            activeId={activeId}
+            hoverId={hoverId}
+            onHover={setHoverId}
+            onSelect={(o) => selectOffice(o.id, false)}
+            onResetView={handleResetView}
+            focus={focus}
+            padding={[40, 40]}
+            showPopup={false}
+            maxFitZoom={18}
+            focusZoom={16}
+          />
+          <div className="gof-hero-map-overlay">
             <div
               style={{
                 transform: "scale(1.5)",
@@ -111,102 +146,166 @@ export default function CountryPage() {
               <div className="gof-hero-ind">{region}</div>
             </div>
           </div>
-        </Photo>
+        </div>
 
-        <div className="gof-page-grid">
-          <div className="gof-page-main">
-            <h2 className="gof-section-h">
-              Companies here <span>{companies.length}</span>
-            </h2>
-            {companies.map((cid) => {
-              const co = companyById[cid];
-              const list = officesByCompany[cid];
-              if (!co || !list) return null;
-              return (
-                <div
-                  key={cid}
-                  className={
-                    "gof-crow" + (list.some((o) => o.id === activeId) ? " is-active" : "")
-                  }
-                >
-                  <Link
-                    to={`/company/${encodeURIComponent(cid)}`}
-                    className="gof-crow-head"
-                  >
-                    <Monogram name={co.name} size={42} square />
-                    <div className="gof-flex-body">
-                      <div className="gof-crow-name">{co.name}</div>
-                      <div className="gof-crow-ind">{co.industry}</div>
-                    </div>
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      style={{ opacity: 0.4 }}
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M5.5 3L9.5 7L5.5 11"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </Link>
-                  <div className="gof-crow-offices">
-                    {list.map((o) => {
-                      const tag = o.tag;
-                      const isActive = activeId === o.id;
-                      const isHover = hoverId === o.id;
-                      return (
-                        <button
-                          key={o.id}
-                          type="button"
-                          className={
-                            "gof-chip-office" +
-                            (isActive ? " is-active" : "") +
-                            (isHover ? " is-hover" : "")
-                          }
-                          onMouseEnter={() => setHoverId(o.id)}
-                          onMouseLeave={() => setHoverId(null)}
-                          onClick={() => selectOffice(o.id)}
-                        >
-                          {o.city} <span className={"gof-tag tag-" + tag.tone}>{tag.short}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
+        <div className="gof-co-overview">
+          <div className="gof-co-intro" />
+          <div className="gof-statrow">
+            <Stat n={offices.length} label={offices.length === 1 ? "office" : "offices"} />
+            <Stat n={companies.length} label={companies.length === 1 ? "company" : "companies"} />
+            <Stat n={cities.size} label={cities.size === 1 ? "city" : "cities"} />
           </div>
+        </div>
 
-          <aside className="gof-page-side">
-            <div className="gof-statrow">
-              <Stat n={offices.length} label={offices.length === 1 ? "office" : "offices"} />
-              <Stat n={companies.length} label={companies.length === 1 ? "company" : "companies"} />
-              <Stat n={cities.size} label={cities.size === 1 ? "city" : "cities"} />
-            </div>
-            <div className="gof-locmap">
-              <div className="gof-locmap-head">Locations</div>
-              <div className="gof-locmap-canvas">
-                <MapView
-                  offices={offices}
-                  companyById={companyById}
-                  activeId={activeId}
-                  hoverId={hoverId}
-                  onHover={setHoverId}
-                  onSelect={(o) => selectOffice(o.id)}
-                  onResetView={handleResetView}
-                  focus={focus}
-                  padding={[24, 24]}
-                  showPopup={false}
-                />
+        <h2 className="gof-section-h">
+          Companies here <span>{companies.length}</span>
+        </h2>
+
+        <div className="gof-office-grid">
+          {companies.map((cid) => {
+            const co = companyById[cid];
+            const list = officesByCompany[cid];
+            if (!co || !list) return null;
+            const isMulti = list.length > 1;
+            const isCardActive = list.some((o) => o.id === activeId);
+            const isCardHover = list.some((o) => o.id === hoverId);
+            const primaryOffice = list.find((o) => o.id === activeId) || list[0];
+
+            return (
+              <div
+                key={cid}
+                ref={(el) => {
+                  for (const o of list) {
+                    cardRefs.current[o.id] = el;
+                  }
+                }}
+                className={
+                  "gof-officecard gof-co-card" +
+                  (isMulti && list.length > 4 ? " gof-co-card--wide" : "") +
+                  (isCardActive ? " is-active" : "") +
+                  (isCardHover ? " is-hover" : "")
+                }
+                onMouseEnter={() => {
+                  if (!isMulti && primaryOffice) setHoverId(primaryOffice.id);
+                }}
+                onMouseLeave={() => {
+                  if (!isMulti) setHoverId(null);
+                }}
+                onClick={() => {
+                  if (primaryOffice) selectOffice(primaryOffice.id, true);
+                }}
+                role="button"
+                tabIndex={0}
+                aria-selected={isCardActive}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    if (primaryOffice) selectOffice(primaryOffice.id, true);
+                  }
+                }}
+              >
+                <div className="gof-officecard-body">
+                  <div className="gof-officecard-country-row">
+                    <div className="gof-officecard-country-info">
+                      <Monogram name={co.name} size={36} square />
+                      <div style={{ minWidth: 0 }}>
+                        <div className="gof-officecard-country-name" title={co.name}>
+                          {co.name}
+                        </div>
+                        <div className="gof-crow-ind" title={co.industry}>
+                          {co.industry}
+                        </div>
+                      </div>
+                    </div>
+                    <Link
+                      to={`/company/${encodeURIComponent(cid)}`}
+                      className="gof-officecard-country-btn"
+                      title={`View ${co.name}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                      onKeyDown={(e) => {
+                        e.stopPropagation();
+                      }}
+                    >
+                      View company
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 12 12"
+                        style={{ marginLeft: 3 }}
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M4.5 2.5L8 6L4.5 9.5"
+                          stroke="currentColor"
+                          strokeWidth="1.4"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </Link>
+                  </div>
+
+                  {!isMulti ? (
+                    <>
+                      <div className="gof-officecard-head">
+                        <div className="gof-officecard-city">{primaryOffice.city}</div>
+                        <span className={"gof-tag tag-" + primaryOffice.tag.tone}>
+                          {primaryOffice.tag.short}
+                        </span>
+                      </div>
+                      <div className="gof-officecard-addr">
+                        {primaryOffice.address}
+                        {primaryOffice.postalCode ? ` · ${primaryOffice.postalCode}` : ""}
+                      </div>
+                    </>
+                  ) : (
+                    <div className="gof-co-card-multi-wrap">
+                      <div className="gof-co-card-multi-title">
+                        {list.length} locations
+                      </div>
+                      <div className="gof-co-card-chips">
+                        {list.map((o) => {
+                          const isActive = activeId === o.id;
+                          const isHover = hoverId === o.id;
+                          return (
+                            <button
+                              key={o.id}
+                              type="button"
+                              className={
+                                "gof-chip-office" +
+                                (isActive ? " is-active" : "") +
+                                (isHover ? " is-hover" : "")
+                              }
+                              onMouseEnter={(e) => {
+                                e.stopPropagation();
+                                setHoverId(o.id);
+                              }}
+                              onMouseLeave={(e) => {
+                                e.stopPropagation();
+                                setHoverId(null);
+                              }}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                selectOffice(o.id, true);
+                              }}
+                            >
+                              {o.city}{" "}
+                              <span className={"gof-tag tag-" + o.tag.tone}>
+                                {o.tag.short}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          </aside>
+            );
+          })}
         </div>
       </div>
     </div>

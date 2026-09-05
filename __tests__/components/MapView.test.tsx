@@ -23,6 +23,7 @@ vi.mock("leaflet", () => {
     addTo: vi.fn().mockReturnThis(),
     on: vi.fn(),
     bindTooltip: vi.fn(),
+    unbindTooltip: vi.fn(),
     openTooltip: vi.fn(),
     closeTooltip: vi.fn(),
     setZIndexOffset: vi.fn(),

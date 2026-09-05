@@ -12,9 +12,9 @@
       default-src 'self';
       script-src 'self';
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-      img-src 'self' data: https://*.basemaps.cartocdn.com https://images.pexels.com https://upload.wikimedia.org;
+      img-src 'self' data: https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://images.pexels.com https://upload.wikimedia.org;
       font-src 'self' data: https://fonts.gstatic.com;
-      connect-src 'self' https://*.basemaps.cartocdn.com ws://localhost:* ws://127.0.0.1:* http://localhost:* http://127.0.0.1:*;
+      connect-src 'self' https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com ws://localhost:* ws://127.0.0.1:* http://localhost:* http://127.0.0.1:*;
       frame-ancestors 'none';
       object-src 'none';
       base-uri 'self';
@@ -37,7 +37,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://a.basemaps.cartocdn.com" crossorigin />
+    <link rel="preconnect" href="https://tile.openstreetmap.org" />
 
     <script src="/spa-redirect.js"></script>
   </head>

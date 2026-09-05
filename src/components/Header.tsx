@@ -87,14 +87,6 @@ export default function Header() {
         <span>
           <b>{countries}</b> countries
         </span>
-        <span className="gof-dot">·</span>
-        <Link to="/about/photos" className="gof-header-link">
-          About photos
-        </Link>
-        <span className="gof-dot">·</span>
-        <Link to="/review" className="gof-header-link">
-          Review
-        </Link>
       </div>
     </header>
   );

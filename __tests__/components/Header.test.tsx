@@ -114,18 +114,6 @@ describe("Header", () => {
     }
   });
 
-  it("renders About photos link", () => {
-    vi.mocked(useData).mockReturnValue(mockData);
-    render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>,
-    );
-
-    const photosLink = screen.getByRole("link", { name: /About photos/i });
-    expect(photosLink).toHaveAttribute("href", "/about/photos");
-  });
-
   it("renders no breadcrumbs on home route", () => {
     vi.mocked(useData).mockReturnValue(mockData);
     render(
@@ -165,26 +153,7 @@ describe("Header", () => {
 
     const breadcrumbNav = screen.getByRole("navigation", { name: /Breadcrumb/i });
     expect(within(breadcrumbNav).getByText("Offices")).toHaveAttribute("href", "/");
-
-    // In CountryBreadcrumb:
-    // const sample = offices.find((o) => o.country === code);
-    // return ... <b>{sample ? sample.country : code}</b>
-    // Our mockData offices have country: "United States" and countryCode: "US".
-    // Since o.country === code is used for matching, and code is "US", it matches nothing if o.country is "United States".
-    // Thus it renders code ("US").
     expect(within(breadcrumbNav).getByText("US")).toBeInTheDocument();
-  });
-
-  it("renders Review link", () => {
-    vi.mocked(useData).mockReturnValue(mockData);
-    render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>,
-    );
-
-    const reviewLink = screen.getByRole("link", { name: /^Review$/i });
-    expect(reviewLink).toHaveAttribute("href", "/review");
   });
 
   it("renders review breadcrumb on review route", () => {

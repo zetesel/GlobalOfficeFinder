@@ -59,11 +59,11 @@ test("map view toggle renders Leaflet map", async ({ page }) => {
 
 test("photo badges render and About-photos page is reachable", async ({ page }) => {
   await page.goto("/");
-  // Each company card has a photo badge (real or sample).
+  // Each company card has a photo badge (map location).
   const badge = page.locator(".gof-card .gof-photo-badge").first();
   await expect(badge).toBeVisible();
-  // Header link goes to /about/photos.
-  await page.getByRole("link", { name: /about photos/i }).click();
+  // Route /about/photos is still directly reachable.
+  await page.goto("/about/photos");
   await expect(page).toHaveURL(/\/about\/photos$/);
   await expect(page.getByRole("heading", { name: /about the photos/i })).toBeVisible();
   // The credited table renders at least one entry.

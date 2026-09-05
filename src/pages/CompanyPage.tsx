@@ -7,7 +7,6 @@ import {
   useSearchParams,
 } from "react-router";
 import { useData } from "../hooks/useData";
-import Photo from "../components/Photo";
 import Monogram from "../components/Monogram";
 import FlagChip from "../components/FlagChip";
 import MapView, { type MapFocus } from "../components/MapView";
@@ -38,12 +37,6 @@ export default function CompanyPage() {
   const [searchParams] = useSearchParams();
   const initialOfficeId = searchParams.get("office");
   const { publicOffices: allOffices, companyById } = useData();
-  const [hoverId, setHoverId] = useState<string | null>(null);
-  const [activeId, setActiveId] = useState<string | null>(initialOfficeId);
-  const [focus, setFocus] = useState<MapFocus>(
-    initialOfficeId ? { id: initialOfficeId } : { fit: true },
-  );
-  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   const company = companyById[id];
 
@@ -127,6 +120,27 @@ export default function CompanyPage() {
     });
   }, [offices]);
 
+  const firstOfficeId =
+    groupedOffices[0]?.countryGroups[0]?.offices[0]?.id ?? offices[0]?.id ?? null;
+  const initialResolvedId = searchParams.has("office")
+    ? initialOfficeId
+    : firstOfficeId;
+
+  const [hoverId, setHoverId] = useState<string | null>(null);
+  const [activeId, setActiveId] = useState<string | null>(initialResolvedId);
+  const [focus, setFocus] = useState<MapFocus>(
+    initialResolvedId ? { id: initialResolvedId } : { fit: true },
+  );
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const mapRef = useRef<HTMLDivElement | null>(null);
+
+  const [prevResolvedId, setPrevResolvedId] = useState(initialResolvedId);
+  if (prevResolvedId !== initialResolvedId) {
+    setPrevResolvedId(initialResolvedId);
+    setActiveId(initialResolvedId);
+    setFocus(initialResolvedId ? { id: initialResolvedId } : { fit: true });
+  }
+
   // Scroll the targeted office card into view when arriving with ?office=…
   useEffect(() => {
     if (!initialOfficeId) return;
@@ -147,9 +161,12 @@ export default function CompanyPage() {
 
   const website = sanitizeUrl(company.website);
 
-  function selectOffice(officeId: string) {
+  function selectOffice(officeId: string, shouldScroll = false) {
     setActiveId(officeId);
     setFocus({ id: officeId });
+    if (shouldScroll) {
+      mapRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   function handleResetView() {
@@ -174,16 +191,29 @@ export default function CompanyPage() {
           Directory
         </button>
 
-        <Photo
-          seed={company.id}
-          w={1400}
-          h={620}
-          className="gof-hero"
-          photo={company.photo}
-          subject={company.name}
+        <div
+          ref={mapRef}
+          className="gof-hero gof-hero-map-wrap gof-locmap"
+          role="region"
+          aria-label={`${company.name} offices map`}
         >
-          <div className="gof-hero-overlay">
-            <Monogram name={company.name} size={62} square />
+          <MapView
+            offices={offices}
+            companyById={companyById}
+            currentCompanyId={company.id}
+            activeId={activeId}
+            hoverId={hoverId}
+            onHover={setHoverId}
+            onSelect={(o) => selectOffice(o.id, false)}
+            onResetView={handleResetView}
+            focus={focus}
+            padding={[40, 40]}
+            showPopup={false}
+            maxFitZoom={18}
+            focusZoom={16}
+          />
+          <div className="gof-hero-map-overlay">
+            <Monogram name={company.name} size={54} square />
             <div className="gof-hero-body">
               <h1 className="gof-hero-name">{company.name}</h1>
               <div className="gof-hero-ind">
@@ -192,10 +222,10 @@ export default function CompanyPage() {
               </div>
             </div>
           </div>
-        </Photo>
+        </div>
 
-        <div className="gof-page-grid">
-          <div className="gof-page-main">
+        <div className="gof-co-overview">
+          <div className="gof-co-intro">
             {company.description && <p className="gof-co-desc">{company.description}</p>}
             {website && (
               <a
@@ -223,121 +253,105 @@ export default function CompanyPage() {
                 </svg>
               </a>
             )}
+          </div>
+          <div className="gof-statrow">
+            <Stat n={offices.length} label={offices.length === 1 ? "office" : "offices"} />
+            <Stat n={countries.size} label={countries.size === 1 ? "country" : "countries"} />
+            <Stat n={regions.size} label={regions.size === 1 ? "region" : "regions"} />
+          </div>
+        </div>
 
-            <h2 className="gof-section-h">
-              Offices <span>{offices.length}</span>
-            </h2>
-            <div className="gof-grouped-offices">
-              {groupedOffices.map((rGroup) => (
-                <section key={rGroup.region} className="gof-region-block">
-                  <h3 className="gof-region-h">
-                    {rGroup.region} <span>{rGroup.totalOffices}</span>
-                  </h3>
-                  {rGroup.countryGroups.map((cGroup) => (
-                    <div key={cGroup.country} className="gof-country-block">
-                      <div className="gof-country-h-row">
-                        <h4 className="gof-country-h">
-                          <FlagChip code={cGroup.countryCode} /> <span>{cGroup.country}</span>{" "}
-                          <span className="gof-badge-count">{cGroup.offices.length}</span>
-                        </h4>
-                        <Link
-                          to={`/country/${encodeURIComponent(cGroup.country)}`}
-                          className="gof-country-link"
-                          title={`View all offices in ${cGroup.country}`}
-                        >
-                          View country
-                          <svg
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            style={{ marginLeft: 4 }}
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M4.5 2.5L8 6L4.5 9.5"
-                              stroke="currentColor"
-                              strokeWidth="1.4"
-                              fill="none"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </Link>
-                      </div>
-                      <div className="gof-office-grid">
-                        {cGroup.offices.map((o) => {
-                          const tag = o.tag;
-                          const isActive = activeId === o.id;
-                          const isHover = hoverId === o.id;
-                          return (
-                            <div
-                              key={o.id}
-                              ref={(el) => {
-                                cardRefs.current[o.id] = el;
+        <h2 className="gof-section-h">
+          Offices <span>{offices.length}</span>
+        </h2>
+        <div className="gof-grouped-offices">
+          {groupedOffices.map((rGroup) => (
+            <section key={rGroup.region} className="gof-region-block">
+              <h3 className="gof-region-h">
+                {rGroup.region} <span>{rGroup.totalOffices}</span>
+              </h3>
+              <div className="gof-office-grid">
+                {rGroup.countryGroups.flatMap((cGroup) =>
+                  cGroup.offices.map((o) => {
+                    const tag = o.tag;
+                    const isActive = activeId === o.id;
+                    const isHover = hoverId === o.id;
+                    return (
+                      <div
+                        key={o.id}
+                        ref={(el) => {
+                          cardRefs.current[o.id] = el;
+                        }}
+                        className={
+                          "gof-officecard" +
+                          (isActive ? " is-active" : "") +
+                          (isHover ? " is-hover" : "")
+                        }
+                        onMouseEnter={() => setHoverId(o.id)}
+                        onMouseLeave={() => setHoverId(null)}
+                        onClick={() => selectOffice(o.id, true)}
+                        role="button"
+                        tabIndex={0}
+                        aria-selected={isActive}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            selectOffice(o.id, true);
+                          }
+                        }}
+                      >
+                        <div className="gof-officecard-body">
+                          <div className="gof-officecard-country-row">
+                            <div className="gof-officecard-country-info">
+                              <FlagChip code={o.countryCode} />
+                              <span className="gof-officecard-country-name">{o.country}</span>
+                            </div>
+                            <Link
+                              to={`/country/${encodeURIComponent(o.country)}`}
+                              className="gof-officecard-country-btn"
+                              title={`View all offices in ${o.country}`}
+                              onClick={(e) => {
+                                e.stopPropagation();
                               }}
-                              className={
-                                "gof-officecard" +
-                                (isActive ? " is-active" : "") +
-                                (isHover ? " is-hover" : "")
-                              }
-                              onMouseEnter={() => setHoverId(o.id)}
-                              onMouseLeave={() => setHoverId(null)}
-                              onClick={() => selectOffice(o.id)}
-                              role="button"
-                              tabIndex={0}
-                              aria-selected={isActive}
                               onKeyDown={(e) => {
-                                if (e.key === "Enter" || e.key === " ") {
-                                  e.preventDefault();
-                                  selectOffice(o.id);
-                                }
+                                e.stopPropagation();
                               }}
                             >
-                              <div className="gof-officecard-body">
-                                <div className="gof-officecard-head">
-                                  <div className="gof-officecard-city">{o.city}</div>
-                                  <span className={"gof-tag tag-" + tag.tone}>{tag.short}</span>
-                                </div>
-                                <div className="gof-officecard-addr">
-                                  {o.address}
-                                  {o.postalCode ? ` · ${o.postalCode}` : ""}
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })}
+                              View country
+                              <svg
+                                width="11"
+                                height="11"
+                                viewBox="0 0 12 12"
+                                style={{ marginLeft: 3 }}
+                                aria-hidden="true"
+                              >
+                                <path
+                                  d="M4.5 2.5L8 6L4.5 9.5"
+                                  stroke="currentColor"
+                                  strokeWidth="1.4"
+                                  fill="none"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </Link>
+                          </div>
+                          <div className="gof-officecard-head">
+                            <div className="gof-officecard-city">{o.city}</div>
+                            <span className={"gof-tag tag-" + tag.tone}>{tag.short}</span>
+                          </div>
+                          <div className="gof-officecard-addr">
+                            {o.address}
+                            {o.postalCode ? ` · ${o.postalCode}` : ""}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </section>
-              ))}
-            </div>
-          </div>
-
-          <aside className="gof-page-side">
-            <div className="gof-statrow">
-              <Stat n={offices.length} label={offices.length === 1 ? "office" : "offices"} />
-              <Stat n={countries.size} label={countries.size === 1 ? "country" : "countries"} />
-              <Stat n={regions.size} label={regions.size === 1 ? "region" : "regions"} />
-            </div>
-            <div className="gof-locmap">
-              <div className="gof-locmap-head">Locations</div>
-              <div className="gof-locmap-canvas">
-                <MapView
-                  offices={offices}
-                  companyById={companyById}
-                  activeId={activeId}
-                  hoverId={hoverId}
-                  onHover={setHoverId}
-                  onSelect={(o) => selectOffice(o.id)}
-                  onResetView={handleResetView}
-                  focus={focus}
-                  padding={[24, 24]}
-                  showPopup={false}
-                />
+                    );
+                  }),
+                )}
               </div>
-            </div>
-          </aside>
+            </section>
+          ))}
         </div>
       </div>
     </div>

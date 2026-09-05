@@ -166,6 +166,7 @@ a {
 .gof-static-map {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   background: linear-gradient(135deg, var(--accent-soft), var(--bg));
   width: 100%;
 }
@@ -191,11 +192,12 @@ a {
   min-height: 0;
 }
 .gof-toolbar {
+  position: relative;
   flex: 0 0 auto;
   padding: 16px 26px 14px;
   background: var(--surface);
   border-bottom: 1px solid var(--line);
-  z-index: 20;
+  z-index: 40;
 }
 .gof-toolbar-row {
   display: flex;
@@ -589,6 +591,84 @@ a {
   );
 }
 
+.gof-hero-map-wrap {
+  position: relative;
+  height: 420px;
+  min-height: 340px;
+  aspect-ratio: auto;
+  border-radius: calc(var(--radius) + 4px);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-soft, #f8fafc);
+}
+.gof-hero-map-wrap .gof-map {
+  width: 100%;
+  height: 100%;
+}
+.gof-hero-map-overlay {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  background: rgba(15, 23, 42, 0.84);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.28);
+  max-width: calc(100% - 100px);
+}
+.gof-hero-map-overlay .gof-hero-name {
+  font-family: var(--font-head);
+  font-weight: var(--head-weight);
+  font-size: 26px;
+  letter-spacing: var(--head-tracking);
+  margin: 0;
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+.gof-hero-map-overlay .gof-hero-ind {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 4px;
+  text-shadow: none;
+}
+.gof-co-overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  margin-top: 28px;
+}
+.gof-co-intro {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.gof-co-overview .gof-statrow {
+  flex: 0 0 auto;
+  min-width: 320px;
+}
+@media (max-width: 860px) {
+  .gof-co-overview {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .gof-co-overview .gof-statrow {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 .gof-page-grid {
   display: grid;
   grid-template-columns: 1fr 360px;
@@ -629,18 +709,21 @@ a {
 .gof-section-h {
   font-family: var(--font-head);
   font-weight: var(--head-weight);
-  font-size: 19px;
+  font-size: 20px;
   letter-spacing: var(--head-tracking);
-  margin: 30px 0 16px;
+  margin: 32px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
   gap: 10px;
 }
 .gof-section-h span {
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--muted);
   background: var(--bg);
+  border: 1px solid var(--line);
   padding: 2px 9px;
   border-radius: 999px;
 }
@@ -648,8 +731,8 @@ a {
 .gof-grouped-offices {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  margin-top: 16px;
+  gap: 32px;
+  margin-top: 12px;
 }
 .gof-region-block {
   display: flex;
@@ -658,23 +741,25 @@ a {
 }
 .gof-region-h {
   font-family: var(--font-head);
-  font-weight: var(--head-weight);
-  font-size: 17px;
-  letter-spacing: var(--head-tracking);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
   margin: 0;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--ink);
 }
 .gof-region-h span {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--muted);
-  background: var(--bg);
-  padding: 2px 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 1px 7px;
   border-radius: 999px;
 }
 .gof-country-block {
@@ -723,7 +808,7 @@ a {
 
 .gof-office-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(228px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
 }
 .gof-officecard {
@@ -745,8 +830,8 @@ a {
 .gof-officecard.is-active {
   border-color: var(--accent);
   box-shadow:
-    0 0 0 1.5px var(--accent),
-    0 8px 22px rgba(15, 20, 50, 0.14);
+    0 0 0 2px var(--accent),
+    0 8px 24px rgba(43, 75, 238, 0.16);
 }
 .gof-officecard:focus-visible {
   outline: 3px solid var(--accent-soft);
@@ -762,6 +847,55 @@ a {
 }
 .gof-officecard-body {
   padding: 14px;
+  display: flex;
+  flex-direction: column;
+}
+.gof-officecard-country-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.gof-officecard-country-info {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+.gof-officecard-country-name {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.gof-officecard-country-btn {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition:
+    color 0.14s,
+    border-color 0.14s,
+    background-color 0.14s;
+}
+.gof-officecard-country-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--surface);
 }
 .gof-officecard-head {
   display: flex;
@@ -942,6 +1076,40 @@ a {
   padding: 1px 6px;
 }
 
+/* country page company cards */
+.gof-co-card {
+  display: flex;
+  flex-direction: column;
+}
+.gof-co-card .gof-officecard-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.gof-co-card-multi-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+}
+.gof-co-card-multi-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+.gof-co-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+@media (min-width: 768px) {
+  .gof-co-card--wide {
+    grid-column: span 2;
+  }
+}
+
 /* ── Map pins ──────────────────────────────────────────── */
 .gof-pin-wrap {
   background: none;
@@ -968,6 +1136,7 @@ a {
     box-shadow 0.14s,
     transform 0.14s;
   display: block;
+  pointer-events: none;
 }
 .gof-pin.is-hover .gof-pin-dot {
   transform: scale(1.25);
@@ -984,12 +1153,65 @@ a {
   font-family: var(--font-body);
   font-size: 12px;
   border: none;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
-  border-radius: 8px;
-  padding: 6px 10px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18);
+  border-radius: 10px;
+  padding: 8px 12px;
+  pointer-events: auto !important;
+  color: var(--ink);
 }
-.gof-tip strong {
+.gof-tip strong,
+.gof-tip-name {
   font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.gof-tip-loc {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.2;
+  margin-top: 1px;
+}
+.gof-tip-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid var(--line);
+}
+.gof-tip-btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 3px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.14s;
+  border: 1px solid transparent;
+}
+.gof-tip-btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+.gof-tip-btn--primary:hover {
+  background: var(--accent-ink, #1e3a8a);
+  color: #fff;
+}
+.gof-tip-btn--ext {
+  background: var(--bg);
+  border-color: var(--line);
+  color: var(--ink);
+}
+.gof-tip-btn--ext:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--surface);
 }
 .leaflet-container {
   font-family: var(--font-body);
@@ -1631,5 +1853,19 @@ a {
 @media (max-width: 600px) {
   .gof-review-fields {
     grid-template-columns: 1fr;
+  }
+  .gof-hero-map-wrap {
+    height: 320px;
+    min-height: 280px;
+  }
+  .gof-hero-map-overlay {
+    bottom: 12px;
+    left: 12px;
+    padding: 10px 14px;
+    gap: 12px;
+    max-width: calc(100% - 24px);
+  }
+  .gof-hero-map-overlay .gof-hero-name {
+    font-size: 20px;
   }
 }

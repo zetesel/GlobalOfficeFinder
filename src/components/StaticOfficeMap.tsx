@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import L from "leaflet";
 import type { Company, Office } from "../types";
+import { OSM_TILE_URL, OSM_TILE_OPTIONS } from "../utils/mapTiles";
 
 export interface StaticOfficeMapProps {
   office?: Office;
@@ -18,7 +19,7 @@ function hasCoords(o: Office): o is Office & { latitude: number; longitude: numb
 export default function StaticOfficeMap({
   office,
   offices,
-  zoom = 14,
+  zoom = 13,
   className = "",
   children,
 }: StaticOfficeMapProps) {
@@ -82,13 +83,10 @@ export default function StaticOfficeMap({
       attributionControl: false,
     });
 
-    L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-      {
-        maxZoom: 19,
-        subdomains: "abcd",
-      },
-    ).addTo(map);
+    L.tileLayer(OSM_TILE_URL, {
+      maxZoom: OSM_TILE_OPTIONS.maxZoom,
+      subdomains: OSM_TILE_OPTIONS.subdomains,
+    }).addTo(map);
 
     map.setView([primary.latitude, primary.longitude], zoom);
 
