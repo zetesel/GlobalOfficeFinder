@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-20T06:48:31.955Z",
+  "generatedAt": "2026-09-28T10:03:16.583Z",
   "minPublishConfidence": "low",
   "items": [
     {
@@ -18,7 +18,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.315Z"
+      "queuedAt": "2026-09-28T09:53:21.195Z"
     },
     {
       "type": "office",
@@ -35,7 +35,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.316Z"
+      "queuedAt": "2026-09-28T09:53:21.196Z"
     },
     {
       "type": "office",
@@ -52,7 +52,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.317Z"
+      "queuedAt": "2026-09-28T09:53:21.197Z"
     },
     {
       "type": "office",
@@ -60,16 +60,16 @@
       "sourceUrl": "https://www.atlassian.com/fr/company/contact",
       "office": {
         "country": "",
-        "city": "informatique Équipes métier Équipes de direction Voir toutes les apps En vedette Apps recommandées Jira Gestion de projet flexible Confluence Espace de travail collaboratif Jira Service Management Fourniture de services haute vélocité ATLASSIAN COLLECTIONS Booster le travail d'équipe en toute simplicité Jira • Confluence • Loom • Rovo Optimiser la stratégie et les résultats en toute confiance Focus • Talent • Align Offrir un service à haute vélocité Jira Service Management • Customer Service Management • Actifs • Rovo Livrer plus rapidement des logiciels de haute qualité Rovo Dev • DX • Pipelines • Bitbucket • Compass Build products with confidence Jira Product Discovery • Feedback • Rovo Optimisé par Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Développeurs Jira Gestion de projet flexible Bitbucket Code source et CI/CD Rovo Dev IA agentique pour les développeurs Pipelines Automatisation CI/CD évolutive DX (En cours d&#",
-        "address": "Produits En vedette Développeurs Product Owners Professionnels de l'informatique Équipes métier Équipes de direction En vedette Développeurs Product Owners Professionnels de l&#039",
-        "postalCode": "039, acquisition) Mesure de la productivité et de l'impact de l'IA Livrer plus rapidement des logiciels de haute qualité Rovo Dev • DX • Pipelines • Bitbucket • Compass Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Product Owners Jira Product Discovery NOUVEAU Capturez et priorisez les idées Jira Gestion de projet flexible Confluence Les connaissances réunies en un seul endroit Booster le travail d'équipe en toute simplicité Jira • Confluence • Loom • Rovo Build products with confidence Jira Product Discovery • Feedback • Rovo Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Professionnels de l&#039, informatique Jira Service Management Fourniture de services haute vélocité Guard NOUVEAU Sécurité du cloud renforcée Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Équipes métier Jira Gestion de projet flexible Confluence Les connaissances réunies en un seul endroit Trello Collectez et organisez vos tâches Loom NOUVEAU Mises à jour vidéo rapides et asynchrones Jira Service Management Fourniture de services haute vélocité Gestion des services client Une toute nouvelle expérience client Booster le travail d'équipe en toute simplicité Jira • Confluence • Loom • Rovo Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Équipes de direction Focus NOUVEAU Planification stratégique à l'échelle de l'entreprise Talent NOUVEAU Planification des effectifs qualifiés Jira Align Planification et valeur du travail à l'échelle de l'entreprise Optimiser la stratégie et les résultats en toute confiance Focus • Talent • Align Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Back",
+        "city": "informatique Équipes métier Équipes de direction En vedette Développeurs Product Owners Professionnels de l&#",
+        "address": "Produits En vedette Développeurs Product Owners Professionnels de l&#039",
+        "postalCode": "039, informatique Équipes métier Équipes de direction Voir toutes les apps En vedette Apps recommandées Jira Gestion de projet flexible Confluence Espace de travail collaboratif Jira Service Management Fourniture de services haute vélocité ATLASSIAN COLLECTIONS Booster le travail d'équipe en toute simplicité Jira • Confluence • Loom • Rovo Optimiser la stratégie et les résultats en toute confiance Focus • Talent • Align Offrir un service à haute vélocité Jira Service Management • Customer Service Management • Actifs • Rovo Livrer plus rapidement des logiciels de haute qualité Rovo Dev • DX • Pipelines • Bitbucket • Compass Build products with confidence Jira Product Discovery • Feedback • Rovo Optimisé par Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Développeurs Jira Gestion de projet flexible Bitbucket Code source et CI/CD Rovo Dev IA agentique pour les développeurs Pipelines Automatisation CI/CD évolutive DX (En cours d&#039, acquisition) Mesure de la productivité et de l'impact de l'IA Livrer plus rapidement des logiciels de haute qualité Rovo Dev • DX • Pipelines • Bitbucket • Compass Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Product Owners Jira Product Discovery NOUVEAU Capturez et priorisez les idées Jira Gestion de projet flexible Confluence Les connaissances réunies en un seul endroit Booster le travail d'équipe en toute simplicité Jira • Confluence • Loom • Rovo Build products with confidence Jira Product Discovery • Feedback • Rovo Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Professionnels de l&#039, informatique Jira Service Management Fourniture de services haute vélocité Guard NOUVEAU Sécurité du cloud renforcée Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Équipes métier Jira Gestion de projet flexible Confluence Les connaissances réunies en un seul endroit Trello Collectez et organisez vos tâches Loom NOUVEAU Mises à jour vidéo rapides et asynchrones Jira Service Management Fourniture de services haute vélocité Gestion des services client Une toute nouvelle expérience client Booster le travail d'équipe en toute simplicité Jira • Confluence • Loom • Rovo Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Équipes de direction Focus NOUVEAU Planification stratégique à l'échelle de l'entreprise Talent NOUVEAU Planification des effectifs qualifiés Jira Align Planification et valeur du travail à l'échelle de l'entreprise Optimiser la stratégie et les résultats en toute confiance Focus • Talent • Align Rovo Applications optimisées par l'IA, sur la base des connaissances de votre équipe. Back",
         "contactUrl": "https://www.atlassian.com/fr/company/contact",
         "sourceUrl": "https://www.atlassian.com/fr/company/contact"
       },
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.317Z"
+      "queuedAt": "2026-09-28T09:53:21.197Z"
     },
     {
       "type": "office",
@@ -86,7 +86,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.318Z"
+      "queuedAt": "2026-09-28T09:53:21.198Z"
     },
     {
       "type": "office",
@@ -103,7 +103,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.318Z"
+      "queuedAt": "2026-09-28T09:53:21.198Z"
     },
     {
       "type": "office",
@@ -120,7 +120,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.318Z"
+      "queuedAt": "2026-09-28T09:53:21.199Z"
     },
     {
       "type": "office",
@@ -137,7 +137,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.319Z"
+      "queuedAt": "2026-09-28T09:53:21.200Z"
     },
     {
       "type": "office",
@@ -154,7 +154,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.320Z"
+      "queuedAt": "2026-09-28T09:53:21.200Z"
     },
     {
       "type": "office",
@@ -171,7 +171,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.321Z"
+      "queuedAt": "2026-09-28T09:53:21.200Z"
     },
     {
       "type": "office",
@@ -188,7 +188,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.321Z"
+      "queuedAt": "2026-09-28T09:53:21.201Z"
     },
     {
       "type": "office",
@@ -205,7 +205,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.321Z"
+      "queuedAt": "2026-09-28T09:53:21.201Z"
     },
     {
       "type": "office",
@@ -222,7 +222,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.322Z"
+      "queuedAt": "2026-09-28T09:53:21.201Z"
     },
     {
       "type": "office",
@@ -239,7 +239,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.322Z"
+      "queuedAt": "2026-09-28T09:53:21.202Z"
     },
     {
       "type": "office",
@@ -256,7 +256,41 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.322Z"
+      "queuedAt": "2026-09-28T09:53:21.202Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "phase-a-official-tech-sample",
+      "sourceUrl": "https://www.shopify.com/contact?country=us&amp;lang=en",
+      "office": {
+        "country": "",
+        "city": "s best checkout Proven to convert better.",
+        "address": "World&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/contact?country=us&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/contact?country=us&amp;lang=en"
+      },
+      "reason": "extracted from page HTML",
+      "confidence": "low",
+      "confidenceScore": 0,
+      "queuedAt": "2026-09-28T09:53:21.202Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "phase-a-official-tech-sample",
+      "sourceUrl": "https://www.shopify.com/contact?country=us&amp;lang=en",
+      "office": {
+        "country": "",
+        "city": "twice a year.",
+        "address": "Shopify Editions 150+ updates to Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/contact?country=us&amp;lang=en",
+        "sourceUrl": "https://www.shopify.com/contact?country=us&amp;lang=en"
+      },
+      "reason": "extracted from page HTML",
+      "confidence": "low",
+      "confidenceScore": 0,
+      "queuedAt": "2026-09-28T09:53:21.203Z"
     },
     {
       "type": "office",
@@ -273,24 +307,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.322Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "dos veces al año.",
-        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/ar/contacto?country=ar&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.323Z"
+      "queuedAt": "2026-09-28T09:53:21.204Z"
     },
     {
       "type": "office",
@@ -307,7 +324,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.323Z"
+      "queuedAt": "2026-09-28T09:53:21.204Z"
     },
     {
       "type": "office",
@@ -324,7 +341,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.323Z"
+      "queuedAt": "2026-09-28T09:53:21.205Z"
     },
     {
       "type": "office",
@@ -341,7 +358,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.324Z"
+      "queuedAt": "2026-09-28T09:53:21.205Z"
     },
     {
       "type": "office",
@@ -358,7 +375,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.324Z"
+      "queuedAt": "2026-09-28T09:53:21.206Z"
     },
     {
       "type": "office",
@@ -375,41 +392,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.325Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "s",
-        "address": "Thema&#x27",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.325Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "twee keer per jaar.",
-        "address": "Shopify Editions Meer dan 150 updates aan Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/be/contact?country=be&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.325Z"
+      "queuedAt": "2026-09-28T09:53:21.206Z"
     },
     {
       "type": "office",
@@ -426,24 +409,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.325Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/bg/contact?country=bg&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "два пъти годишно.",
-        "address": "Shopify Editions Над 150 актуализации на Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/bg/contact?country=bg&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/bg/contact?country=bg&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.325Z"
+      "queuedAt": "2026-09-28T09:53:21.207Z"
     },
     {
       "type": "office",
@@ -460,7 +426,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.326Z"
+      "queuedAt": "2026-09-28T09:53:21.207Z"
     },
     {
       "type": "office",
@@ -477,7 +443,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.326Z"
+      "queuedAt": "2026-09-28T09:53:21.208Z"
     },
     {
       "type": "office",
@@ -494,7 +460,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.326Z"
+      "queuedAt": "2026-09-28T09:53:21.208Z"
     },
     {
       "type": "office",
@@ -511,24 +477,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.326Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/cl/contacto?country=cl&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "dos veces al año.",
-        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/cl/contacto?country=cl&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/cl/contacto?country=cl&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.327Z"
+      "queuedAt": "2026-09-28T09:53:21.208Z"
     },
     {
       "type": "office",
@@ -545,24 +494,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.327Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/co/contacto?country=co&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "dos veces al año.",
-        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/co/contacto?country=co&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/co/contacto?country=co&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.327Z"
+      "queuedAt": "2026-09-28T09:53:21.209Z"
     },
     {
       "type": "office",
@@ -579,24 +511,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.328Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/fr/contact?country=fr&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "deux fois par an.",
-        "address": "Shopify Editions Plus de 150 mises à jour sur Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/fr/contact?country=fr&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/fr/contact?country=fr&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.328Z"
+      "queuedAt": "2026-09-28T09:53:21.209Z"
     },
     {
       "type": "office",
@@ -613,24 +528,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.328Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/gr/contact?country=gr&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "δύο φορές τον χρόνο.",
-        "address": "Shopify Editions Περισσότερες από 150 ενημερώσεις στο Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/gr/contact?country=gr&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/gr/contact?country=gr&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.328Z"
+      "queuedAt": "2026-09-28T09:53:21.210Z"
     },
     {
       "type": "office",
@@ -647,7 +545,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.328Z"
+      "queuedAt": "2026-09-28T09:53:21.210Z"
     },
     {
       "type": "office",
@@ -664,7 +562,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.329Z"
+      "queuedAt": "2026-09-28T09:53:21.210Z"
     },
     {
       "type": "office",
@@ -681,24 +579,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.329Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/hu/contact?country=hu&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "évente kétszer.",
-        "address": "Shopify Editions Több mint 150 frissítés a Shopifyhoz",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/hu/contact?country=hu&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/hu/contact?country=hu&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.329Z"
+      "queuedAt": "2026-09-28T09:53:21.211Z"
     },
     {
       "type": "office",
@@ -715,7 +596,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.329Z"
+      "queuedAt": "2026-09-28T09:53:21.211Z"
     },
     {
       "type": "office",
@@ -732,7 +613,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.329Z"
+      "queuedAt": "2026-09-28T09:53:21.212Z"
     },
     {
       "type": "office",
@@ -749,7 +630,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.330Z"
+      "queuedAt": "2026-09-28T09:53:21.212Z"
     },
     {
       "type": "office",
@@ -766,7 +647,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.330Z"
+      "queuedAt": "2026-09-28T09:53:21.212Z"
     },
     {
       "type": "office",
@@ -783,7 +664,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.330Z"
+      "queuedAt": "2026-09-28T09:53:21.212Z"
     },
     {
       "type": "office",
@@ -800,7 +681,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.330Z"
+      "queuedAt": "2026-09-28T09:53:21.213Z"
     },
     {
       "type": "office",
@@ -817,7 +698,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.331Z"
+      "queuedAt": "2026-09-28T09:53:21.213Z"
     },
     {
       "type": "office",
@@ -834,7 +715,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.331Z"
+      "queuedAt": "2026-09-28T09:53:21.213Z"
     },
     {
       "type": "office",
@@ -851,7 +732,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.331Z"
+      "queuedAt": "2026-09-28T09:53:21.213Z"
     },
     {
       "type": "office",
@@ -868,7 +749,75 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.331Z"
+      "queuedAt": "2026-09-28T09:53:21.214Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "phase-a-official-tech-sample",
+      "sourceUrl": "https://www.shopify.com/il-he/contact?country=il&amp;lang=he",
+      "office": {
+        "country": "",
+        "city": "אטים מבוססי AI",
+        "address": "צ&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/il-he/contact?country=il&amp;lang=he",
+        "sourceUrl": "https://www.shopify.com/il-he/contact?country=il&amp;lang=he"
+      },
+      "reason": "extracted from page HTML",
+      "confidence": "low",
+      "confidenceScore": 0,
+      "queuedAt": "2026-09-28T09:53:21.214Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "phase-a-official-tech-sample",
+      "sourceUrl": "https://www.shopify.com/il-he/contact?country=il&amp;lang=he",
+      "office": {
+        "country": "",
+        "city": "אט לקוחות",
+        "address": "אימייל וצ&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/il-he/contact?country=il&amp;lang=he",
+        "sourceUrl": "https://www.shopify.com/il-he/contact?country=il&amp;lang=he"
+      },
+      "reason": "extracted from page HTML",
+      "confidence": "low",
+      "confidenceScore": 0,
+      "queuedAt": "2026-09-28T09:53:21.214Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "phase-a-official-tech-sample",
+      "sourceUrl": "https://www.shopify.com/il-he/contact?country=il&amp;lang=he",
+      "office": {
+        "country": "",
+        "city": "פעמיים בשנה.",
+        "address": "Shopify Editions 150+ עדכונים ל-Shopify",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/il-he/contact?country=il&amp;lang=he",
+        "sourceUrl": "https://www.shopify.com/il-he/contact?country=il&amp;lang=he"
+      },
+      "reason": "extracted from page HTML",
+      "confidence": "low",
+      "confidenceScore": 0,
+      "queuedAt": "2026-09-28T09:53:21.214Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "phase-a-official-tech-sample",
+      "sourceUrl": "https://www.shopify.com/il-he/contact?country=il&amp;lang=he",
+      "office": {
+        "country": "",
+        "city": "ילה | Español",
+        "address": "צ&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.shopify.com/il-he/contact?country=il&amp;lang=he",
+        "sourceUrl": "https://www.shopify.com/il-he/contact?country=il&amp;lang=he"
+      },
+      "reason": "extracted from page HTML",
+      "confidence": "low",
+      "confidenceScore": 0,
+      "queuedAt": "2026-09-28T09:53:21.214Z"
     },
     {
       "type": "office",
@@ -885,24 +834,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.331Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/kr/contact?country=kr&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "",
-        "address": "Shopify Editions Shopify는 매년 두 차례",
-        "postalCode": "150개 이상의 업데이트를 진행합니다.",
-        "contactUrl": "https://www.shopify.com/kr/contact?country=kr&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/kr/contact?country=kr&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.332Z"
+      "queuedAt": "2026-09-28T09:53:21.214Z"
     },
     {
       "type": "office",
@@ -919,7 +851,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.332Z"
+      "queuedAt": "2026-09-28T09:53:21.215Z"
     },
     {
       "type": "office",
@@ -936,7 +868,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.332Z"
+      "queuedAt": "2026-09-28T09:53:21.215Z"
     },
     {
       "type": "office",
@@ -953,7 +885,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.332Z"
+      "queuedAt": "2026-09-28T09:53:21.215Z"
     },
     {
       "type": "office",
@@ -970,24 +902,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.332Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/mx/contacto?country=mx&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "dos veces al año.",
-        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/mx/contacto?country=mx&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/mx/contacto?country=mx&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.333Z"
+      "queuedAt": "2026-09-28T09:53:21.215Z"
     },
     {
       "type": "office",
@@ -1004,7 +919,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.333Z"
+      "queuedAt": "2026-09-28T09:53:21.216Z"
     },
     {
       "type": "office",
@@ -1021,41 +936,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.333Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "s",
-        "address": "Thema&#x27",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.333Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "twee keer per jaar.",
-        "address": "Shopify Editions Meer dan 150 updates aan Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/nl/contact?country=nl&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.334Z"
+      "queuedAt": "2026-09-28T09:53:21.216Z"
     },
     {
       "type": "office",
@@ -1072,7 +953,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.334Z"
+      "queuedAt": "2026-09-28T09:53:21.216Z"
     },
     {
       "type": "office",
@@ -1089,7 +970,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.334Z"
+      "queuedAt": "2026-09-28T09:53:21.216Z"
     },
     {
       "type": "office",
@@ -1106,7 +987,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.334Z"
+      "queuedAt": "2026-09-28T09:53:21.217Z"
     },
     {
       "type": "office",
@@ -1123,7 +1004,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.334Z"
+      "queuedAt": "2026-09-28T09:53:21.217Z"
     },
     {
       "type": "office",
@@ -1140,7 +1021,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.334Z"
+      "queuedAt": "2026-09-28T09:53:21.217Z"
     },
     {
       "type": "office",
@@ -1157,7 +1038,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.335Z"
+      "queuedAt": "2026-09-28T09:53:21.217Z"
     },
     {
       "type": "office",
@@ -1174,7 +1055,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.335Z"
+      "queuedAt": "2026-09-28T09:53:21.218Z"
     },
     {
       "type": "office",
@@ -1191,7 +1072,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.335Z"
+      "queuedAt": "2026-09-28T09:53:21.218Z"
     },
     {
       "type": "office",
@@ -1208,24 +1089,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.335Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/pe/contacto?country=pe&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "dos veces al año.",
-        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/pe/contacto?country=pe&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/pe/contacto?country=pe&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.335Z"
+      "queuedAt": "2026-09-28T09:53:21.218Z"
     },
     {
       "type": "office",
@@ -1242,7 +1106,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.335Z"
+      "queuedAt": "2026-09-28T09:53:21.218Z"
     },
     {
       "type": "office",
@@ -1259,7 +1123,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.336Z"
+      "queuedAt": "2026-09-28T09:53:21.218Z"
     },
     {
       "type": "office",
@@ -1276,24 +1140,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.336Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/ro/contact?country=ro&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "de două ori pe an.",
-        "address": "Shopify Editions Peste 150 de actualizări pentru Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/ro/contact?country=ro&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/ro/contact?country=ro&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.336Z"
+      "queuedAt": "2026-09-28T09:53:21.218Z"
     },
     {
       "type": "office",
@@ -1310,7 +1157,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.336Z"
+      "queuedAt": "2026-09-28T09:53:21.219Z"
     },
     {
       "type": "office",
@@ -1327,7 +1174,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.336Z"
+      "queuedAt": "2026-09-28T09:53:21.219Z"
     },
     {
       "type": "office",
@@ -1344,24 +1191,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.337Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/si/contact?country=si&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "dvakrat letno.",
-        "address": "Shopify Editions Več kot 150 posodobitev platforme Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/si/contact?country=si&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/si/contact?country=si&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.337Z"
+      "queuedAt": "2026-09-28T09:53:21.219Z"
     },
     {
       "type": "office",
@@ -1378,7 +1208,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.337Z"
+      "queuedAt": "2026-09-28T09:53:21.219Z"
     },
     {
       "type": "office",
@@ -1395,7 +1225,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.337Z"
+      "queuedAt": "2026-09-28T09:53:21.220Z"
     },
     {
       "type": "office",
@@ -1412,24 +1242,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.337Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/es-es/contacto?country=es&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "dos veces al año.",
-        "address": "Shopify Editions Más de 150 actualizaciones a Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/es-es/contacto?country=es&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/es-es/contacto?country=es&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.337Z"
+      "queuedAt": "2026-09-28T09:53:21.220Z"
     },
     {
       "type": "office",
@@ -1446,7 +1259,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.338Z"
+      "queuedAt": "2026-09-28T09:53:21.220Z"
     },
     {
       "type": "office",
@@ -1463,7 +1276,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.338Z"
+      "queuedAt": "2026-09-28T09:53:21.220Z"
     },
     {
       "type": "office",
@@ -1480,7 +1293,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.338Z"
+      "queuedAt": "2026-09-28T09:53:21.220Z"
     },
     {
       "type": "office",
@@ -1497,7 +1310,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.338Z"
+      "queuedAt": "2026-09-28T09:53:21.220Z"
     },
     {
       "type": "office",
@@ -1514,41 +1327,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.338Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/contact?country=us&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "s best checkout Proven to convert better.",
-        "address": "World&#x27",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/contact?country=us&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/contact?country=us&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.339Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/contact?country=us&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "twice a year.",
-        "address": "Shopify Editions 150+ updates to Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/contact?country=us&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/contact?country=us&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.339Z"
+      "queuedAt": "2026-09-28T09:53:21.221Z"
     },
     {
       "type": "office",
@@ -1565,7 +1344,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.339Z"
+      "queuedAt": "2026-09-28T09:53:21.221Z"
     },
     {
       "type": "office",
@@ -1582,24 +1361,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.339Z"
-    },
-    {
-      "type": "office",
-      "sourceId": "phase-a-official-tech-sample",
-      "sourceUrl": "https://www.shopify.com/vn/contact?country=vn&amp;lang=en",
-      "office": {
-        "country": "",
-        "city": "2 lần mỗi năm.",
-        "address": "Shopify Editions Hơn 150 bản cập nhật cho Shopify",
-        "postalCode": "",
-        "contactUrl": "https://www.shopify.com/vn/contact?country=vn&amp;lang=en",
-        "sourceUrl": "https://www.shopify.com/vn/contact?country=vn&amp;lang=en"
-      },
-      "reason": "extracted from page HTML",
-      "confidence": "low",
-      "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.339Z"
+      "queuedAt": "2026-09-28T09:53:21.221Z"
     },
     {
       "type": "office",
@@ -1616,7 +1378,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.340Z"
+      "queuedAt": "2026-09-28T09:53:21.221Z"
     },
     {
       "type": "office",
@@ -1633,7 +1395,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.340Z"
+      "queuedAt": "2026-09-28T09:53:21.221Z"
     },
     {
       "type": "office",
@@ -1650,7 +1412,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.340Z"
+      "queuedAt": "2026-09-28T09:53:21.221Z"
     },
     {
       "type": "office",
@@ -1667,7 +1429,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.340Z"
+      "queuedAt": "2026-09-28T09:53:21.222Z"
     },
     {
       "type": "office",
@@ -1684,7 +1446,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.340Z"
+      "queuedAt": "2026-09-28T09:53:21.222Z"
     },
     {
       "type": "office",
@@ -1701,7 +1463,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.340Z"
+      "queuedAt": "2026-09-28T09:53:21.222Z"
     },
     {
       "type": "office",
@@ -1718,7 +1480,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.341Z"
+      "queuedAt": "2026-09-28T09:53:21.222Z"
     },
     {
       "type": "office",
@@ -1735,7 +1497,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.341Z"
+      "queuedAt": "2026-09-28T09:53:21.222Z"
     },
     {
       "type": "office",
@@ -1752,7 +1514,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.341Z"
+      "queuedAt": "2026-09-28T09:53:21.223Z"
     },
     {
       "type": "office",
@@ -1769,7 +1531,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.341Z"
+      "queuedAt": "2026-09-28T09:53:21.223Z"
     },
     {
       "type": "office",
@@ -1786,7 +1548,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.341Z"
+      "queuedAt": "2026-09-28T09:53:21.223Z"
     },
     {
       "type": "office",
@@ -1803,7 +1565,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.342Z"
+      "queuedAt": "2026-09-28T09:53:21.223Z"
     },
     {
       "type": "office",
@@ -1820,7 +1582,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.342Z"
+      "queuedAt": "2026-09-28T09:53:21.223Z"
     },
     {
       "type": "office",
@@ -1837,7 +1599,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.342Z"
+      "queuedAt": "2026-09-28T09:53:21.223Z"
     },
     {
       "type": "office",
@@ -1854,7 +1616,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.342Z"
+      "queuedAt": "2026-09-28T09:53:21.224Z"
     },
     {
       "type": "office",
@@ -1871,7 +1633,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.342Z"
+      "queuedAt": "2026-09-28T09:53:21.224Z"
     },
     {
       "type": "office",
@@ -1888,7 +1650,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.342Z"
+      "queuedAt": "2026-09-28T09:53:21.224Z"
     },
     {
       "type": "office",
@@ -1905,7 +1667,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.343Z"
+      "queuedAt": "2026-09-28T09:53:21.224Z"
     },
     {
       "type": "office",
@@ -1922,7 +1684,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.343Z"
+      "queuedAt": "2026-09-28T09:53:21.225Z"
     },
     {
       "type": "office",
@@ -1939,7 +1701,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.343Z"
+      "queuedAt": "2026-09-28T09:53:21.225Z"
     },
     {
       "type": "office",
@@ -1956,7 +1718,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.343Z"
+      "queuedAt": "2026-09-28T09:53:21.225Z"
     },
     {
       "type": "office",
@@ -1973,7 +1735,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.343Z"
+      "queuedAt": "2026-09-28T09:53:21.225Z"
     },
     {
       "type": "office",
@@ -1990,7 +1752,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.344Z"
+      "queuedAt": "2026-09-28T09:53:21.225Z"
     },
     {
       "type": "office",
@@ -2007,7 +1769,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.344Z"
+      "queuedAt": "2026-09-28T09:53:21.225Z"
     },
     {
       "type": "office",
@@ -2024,7 +1786,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.344Z"
+      "queuedAt": "2026-09-28T09:53:21.226Z"
     },
     {
       "type": "office",
@@ -2041,7 +1803,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.344Z"
+      "queuedAt": "2026-09-28T09:53:21.226Z"
     },
     {
       "type": "office",
@@ -2058,7 +1820,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.344Z"
+      "queuedAt": "2026-09-28T09:53:21.226Z"
     },
     {
       "type": "office",
@@ -2075,7 +1837,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.345Z"
+      "queuedAt": "2026-09-28T09:53:21.226Z"
     },
     {
       "type": "office",
@@ -2092,7 +1854,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.345Z"
+      "queuedAt": "2026-09-28T09:53:21.226Z"
     },
     {
       "type": "office",
@@ -2109,7 +1871,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.345Z"
+      "queuedAt": "2026-09-28T09:53:21.226Z"
     },
     {
       "type": "office",
@@ -2126,7 +1888,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.345Z"
+      "queuedAt": "2026-09-28T09:53:21.227Z"
     },
     {
       "type": "office",
@@ -2143,7 +1905,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.345Z"
+      "queuedAt": "2026-09-28T09:53:21.227Z"
     },
     {
       "type": "office",
@@ -2160,7 +1922,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.345Z"
+      "queuedAt": "2026-09-28T09:53:21.227Z"
     },
     {
       "type": "office",
@@ -2177,7 +1939,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.346Z"
+      "queuedAt": "2026-09-28T09:53:21.227Z"
     },
     {
       "type": "office",
@@ -2194,7 +1956,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.346Z"
+      "queuedAt": "2026-09-28T09:53:21.228Z"
     },
     {
       "type": "office",
@@ -2211,7 +1973,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.346Z"
+      "queuedAt": "2026-09-28T09:53:21.228Z"
     },
     {
       "type": "office",
@@ -2228,7 +1990,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.346Z"
+      "queuedAt": "2026-09-28T09:53:21.228Z"
     },
     {
       "type": "office",
@@ -2245,7 +2007,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.346Z"
+      "queuedAt": "2026-09-28T09:53:21.228Z"
     },
     {
       "type": "office",
@@ -2262,7 +2024,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.347Z"
+      "queuedAt": "2026-09-28T09:53:21.228Z"
     },
     {
       "type": "office",
@@ -2279,7 +2041,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.347Z"
+      "queuedAt": "2026-09-28T09:53:21.228Z"
     },
     {
       "type": "office",
@@ -2296,7 +2058,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.347Z"
+      "queuedAt": "2026-09-28T09:53:21.229Z"
     },
     {
       "type": "office",
@@ -2313,7 +2075,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.347Z"
+      "queuedAt": "2026-09-28T09:53:21.229Z"
     },
     {
       "type": "office",
@@ -2330,7 +2092,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.347Z"
+      "queuedAt": "2026-09-28T09:53:21.229Z"
     },
     {
       "type": "office",
@@ -2347,7 +2109,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.347Z"
+      "queuedAt": "2026-09-28T09:53:21.229Z"
     },
     {
       "type": "office",
@@ -2364,7 +2126,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.348Z"
+      "queuedAt": "2026-09-28T09:53:21.229Z"
     },
     {
       "type": "office",
@@ -2381,7 +2143,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.348Z"
+      "queuedAt": "2026-09-28T09:53:21.229Z"
     },
     {
       "type": "office",
@@ -2398,7 +2160,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.348Z"
+      "queuedAt": "2026-09-28T09:53:21.230Z"
     },
     {
       "type": "office",
@@ -2415,7 +2177,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.348Z"
+      "queuedAt": "2026-09-28T09:53:21.230Z"
     },
     {
       "type": "office",
@@ -2432,7 +2194,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.348Z"
+      "queuedAt": "2026-09-28T09:53:21.230Z"
     },
     {
       "type": "office",
@@ -2449,7 +2211,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.348Z"
+      "queuedAt": "2026-09-28T09:53:21.230Z"
     },
     {
       "type": "office",
@@ -2466,7 +2228,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.349Z"
+      "queuedAt": "2026-09-28T09:53:21.231Z"
     },
     {
       "type": "office",
@@ -2483,7 +2245,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.349Z"
+      "queuedAt": "2026-09-28T09:53:21.231Z"
     },
     {
       "type": "office",
@@ -2500,7 +2262,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.349Z"
+      "queuedAt": "2026-09-28T09:53:21.231Z"
     },
     {
       "type": "office",
@@ -2517,7 +2279,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.349Z"
+      "queuedAt": "2026-09-28T09:53:21.231Z"
     },
     {
       "type": "office",
@@ -2534,7 +2296,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.349Z"
+      "queuedAt": "2026-09-28T09:53:21.231Z"
     },
     {
       "type": "office",
@@ -2551,7 +2313,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.350Z"
+      "queuedAt": "2026-09-28T09:53:21.231Z"
     },
     {
       "type": "office",
@@ -2568,7 +2330,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.350Z"
+      "queuedAt": "2026-09-28T09:53:21.232Z"
     },
     {
       "type": "office",
@@ -2585,7 +2347,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.350Z"
+      "queuedAt": "2026-09-28T09:53:21.232Z"
     },
     {
       "type": "office",
@@ -2602,7 +2364,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.350Z"
+      "queuedAt": "2026-09-28T09:53:21.232Z"
     },
     {
       "type": "office",
@@ -2619,7 +2381,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.350Z"
+      "queuedAt": "2026-09-28T09:53:21.232Z"
     },
     {
       "type": "office",
@@ -2636,7 +2398,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.350Z"
+      "queuedAt": "2026-09-28T09:53:21.232Z"
     },
     {
       "type": "office",
@@ -2653,7 +2415,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.351Z"
+      "queuedAt": "2026-09-28T09:53:21.233Z"
     },
     {
       "type": "office",
@@ -2670,7 +2432,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.351Z"
+      "queuedAt": "2026-09-28T09:53:21.233Z"
     },
     {
       "type": "office",
@@ -2687,7 +2449,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.351Z"
+      "queuedAt": "2026-09-28T09:53:21.233Z"
     },
     {
       "type": "office",
@@ -2704,7 +2466,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.351Z"
+      "queuedAt": "2026-09-28T09:53:21.233Z"
     },
     {
       "type": "office",
@@ -2721,7 +2483,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.351Z"
+      "queuedAt": "2026-09-28T09:53:21.233Z"
     },
     {
       "type": "office",
@@ -2738,7 +2500,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.352Z"
+      "queuedAt": "2026-09-28T09:53:21.233Z"
     },
     {
       "type": "office",
@@ -2755,7 +2517,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.352Z"
+      "queuedAt": "2026-09-28T09:53:21.234Z"
     },
     {
       "type": "office",
@@ -2772,7 +2534,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.352Z"
+      "queuedAt": "2026-09-28T09:53:21.234Z"
     },
     {
       "type": "office",
@@ -2789,7 +2551,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.352Z"
+      "queuedAt": "2026-09-28T09:53:21.234Z"
     },
     {
       "type": "office",
@@ -2806,7 +2568,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.352Z"
+      "queuedAt": "2026-09-28T09:53:21.234Z"
     },
     {
       "type": "office",
@@ -2823,7 +2585,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.352Z"
+      "queuedAt": "2026-09-28T09:53:21.234Z"
     },
     {
       "type": "office",
@@ -2840,7 +2602,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.353Z"
+      "queuedAt": "2026-09-28T09:53:21.234Z"
     },
     {
       "type": "office",
@@ -2857,7 +2619,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.353Z"
+      "queuedAt": "2026-09-28T09:53:21.235Z"
     },
     {
       "type": "office",
@@ -2874,7 +2636,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.353Z"
+      "queuedAt": "2026-09-28T09:53:21.235Z"
     },
     {
       "type": "office",
@@ -2891,7 +2653,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.353Z"
+      "queuedAt": "2026-09-28T09:53:21.235Z"
     },
     {
       "type": "office",
@@ -2908,7 +2670,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.353Z"
+      "queuedAt": "2026-09-28T09:53:21.235Z"
     },
     {
       "type": "office",
@@ -2925,7 +2687,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.353Z"
+      "queuedAt": "2026-09-28T09:53:21.236Z"
     },
     {
       "type": "office",
@@ -2942,7 +2704,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.354Z"
+      "queuedAt": "2026-09-28T09:53:21.236Z"
     },
     {
       "type": "office",
@@ -2959,7 +2721,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.354Z"
+      "queuedAt": "2026-09-28T09:53:21.236Z"
     },
     {
       "type": "office",
@@ -2976,7 +2738,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.354Z"
+      "queuedAt": "2026-09-28T09:53:21.236Z"
     },
     {
       "type": "office",
@@ -2993,7 +2755,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.354Z"
+      "queuedAt": "2026-09-28T09:53:21.236Z"
     },
     {
       "type": "office",
@@ -3010,7 +2772,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.354Z"
+      "queuedAt": "2026-09-28T09:53:21.236Z"
     },
     {
       "type": "office",
@@ -3027,7 +2789,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.354Z"
+      "queuedAt": "2026-09-28T09:53:21.237Z"
     },
     {
       "type": "office",
@@ -3044,7 +2806,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.354Z"
+      "queuedAt": "2026-09-28T09:53:21.237Z"
     },
     {
       "type": "office",
@@ -3061,7 +2823,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.355Z"
+      "queuedAt": "2026-09-28T09:53:21.237Z"
     },
     {
       "type": "office",
@@ -3078,7 +2840,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.355Z"
+      "queuedAt": "2026-09-28T09:53:21.237Z"
     },
     {
       "type": "office",
@@ -3095,7 +2857,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.355Z"
+      "queuedAt": "2026-09-28T09:53:21.237Z"
     },
     {
       "type": "office",
@@ -3112,7 +2874,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.355Z"
+      "queuedAt": "2026-09-28T09:53:21.238Z"
     },
     {
       "type": "office",
@@ -3129,7 +2891,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.355Z"
+      "queuedAt": "2026-09-28T09:53:21.238Z"
     },
     {
       "type": "office",
@@ -3146,7 +2908,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.355Z"
+      "queuedAt": "2026-09-28T09:53:21.238Z"
     },
     {
       "type": "office",
@@ -3163,7 +2925,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.355Z"
+      "queuedAt": "2026-09-28T09:53:21.238Z"
     },
     {
       "type": "office",
@@ -3180,7 +2942,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.355Z"
+      "queuedAt": "2026-09-28T09:53:21.238Z"
     },
     {
       "type": "office",
@@ -3197,7 +2959,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.356Z"
+      "queuedAt": "2026-09-28T09:53:21.238Z"
     },
     {
       "type": "office",
@@ -3214,7 +2976,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.356Z"
+      "queuedAt": "2026-09-28T09:53:21.238Z"
     },
     {
       "type": "office",
@@ -3231,7 +2993,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.356Z"
+      "queuedAt": "2026-09-28T09:53:21.239Z"
     },
     {
       "type": "office",
@@ -3248,7 +3010,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.356Z"
+      "queuedAt": "2026-09-28T09:53:21.239Z"
     },
     {
       "type": "office",
@@ -3265,7 +3027,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.356Z"
+      "queuedAt": "2026-09-28T09:53:21.239Z"
     },
     {
       "type": "office",
@@ -3282,7 +3044,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.356Z"
+      "queuedAt": "2026-09-28T09:53:21.239Z"
     },
     {
       "type": "office",
@@ -3299,7 +3061,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.356Z"
+      "queuedAt": "2026-09-28T09:53:21.239Z"
     },
     {
       "type": "office",
@@ -3316,7 +3078,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.357Z"
+      "queuedAt": "2026-09-28T09:53:21.239Z"
     },
     {
       "type": "office",
@@ -3333,7 +3095,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.357Z"
+      "queuedAt": "2026-09-28T09:53:21.239Z"
     },
     {
       "type": "office",
@@ -3350,7 +3112,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.357Z"
+      "queuedAt": "2026-09-28T09:53:21.240Z"
     },
     {
       "type": "office",
@@ -3367,7 +3129,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.357Z"
+      "queuedAt": "2026-09-28T09:53:21.240Z"
     },
     {
       "type": "office",
@@ -3384,7 +3146,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.357Z"
+      "queuedAt": "2026-09-28T09:53:21.240Z"
     },
     {
       "type": "office",
@@ -3401,7 +3163,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.357Z"
+      "queuedAt": "2026-09-28T09:53:21.240Z"
     },
     {
       "type": "office",
@@ -3418,7 +3180,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.357Z"
+      "queuedAt": "2026-09-28T09:53:21.240Z"
     },
     {
       "type": "office",
@@ -3435,7 +3197,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.357Z"
+      "queuedAt": "2026-09-28T09:53:21.240Z"
     },
     {
       "type": "office",
@@ -3452,7 +3214,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.358Z"
+      "queuedAt": "2026-09-28T09:53:21.240Z"
     },
     {
       "type": "office",
@@ -3469,7 +3231,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.358Z"
+      "queuedAt": "2026-09-28T09:53:21.240Z"
     },
     {
       "type": "office",
@@ -3486,7 +3248,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.358Z"
+      "queuedAt": "2026-09-28T09:53:21.241Z"
     },
     {
       "type": "office",
@@ -3503,7 +3265,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.358Z"
+      "queuedAt": "2026-09-28T09:53:21.241Z"
     },
     {
       "type": "office",
@@ -3520,7 +3282,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.358Z"
+      "queuedAt": "2026-09-28T09:53:21.241Z"
     },
     {
       "type": "office",
@@ -3537,7 +3299,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.358Z"
+      "queuedAt": "2026-09-28T09:53:21.241Z"
     },
     {
       "type": "office",
@@ -3554,7 +3316,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.358Z"
+      "queuedAt": "2026-09-28T09:53:21.241Z"
     },
     {
       "type": "office",
@@ -3571,7 +3333,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.358Z"
+      "queuedAt": "2026-09-28T09:53:21.241Z"
     },
     {
       "type": "office",
@@ -3588,7 +3350,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.359Z"
+      "queuedAt": "2026-09-28T09:53:21.241Z"
     },
     {
       "type": "office",
@@ -3605,7 +3367,7 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.359Z"
+      "queuedAt": "2026-09-28T09:53:21.242Z"
     },
     {
       "type": "office",
@@ -3622,7 +3384,24 @@
       "reason": "extracted from page HTML",
       "confidence": "low",
       "confidenceScore": 0,
-      "queuedAt": "2026-07-20T06:38:55.359Z"
+      "queuedAt": "2026-09-28T09:53:21.242Z"
+    },
+    {
+      "type": "office",
+      "sourceId": "phase-a-official-tech-sample",
+      "sourceUrl": "https://www.aboutamazon.com/",
+      "office": {
+        "country": "",
+        "city": "s Custom Chips",
+        "address": "About Us What We Do Working at Amazon Leadership Principles Shareholder Letters Reports Featured Topics Artificial Intelligence Amazon&#x27",
+        "postalCode": "",
+        "contactUrl": "https://www.aboutamazon.com/",
+        "sourceUrl": "https://www.aboutamazon.com/"
+      },
+      "reason": "extracted from page HTML",
+      "confidence": "low",
+      "confidenceScore": 0,
+      "queuedAt": "2026-09-28T09:53:21.242Z"
     },
     {
       "type": "office",
@@ -3643,7 +3422,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:38:57.785Z"
+      "queuedAt": "2026-09-28T09:53:23.893Z"
     },
     {
       "type": "office",
@@ -3664,7 +3443,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:01.012Z"
+      "queuedAt": "2026-09-28T09:53:27.002Z"
     },
     {
       "type": "office",
@@ -3685,7 +3464,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:04.128Z"
+      "queuedAt": "2026-09-28T09:53:30.472Z"
     },
     {
       "type": "office",
@@ -3706,7 +3485,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:05.866Z"
+      "queuedAt": "2026-09-28T09:53:32.297Z"
     },
     {
       "type": "office",
@@ -3727,7 +3506,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:08.947Z"
+      "queuedAt": "2026-09-28T09:53:34.973Z"
     },
     {
       "type": "office",
@@ -3748,7 +3527,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:10.441Z"
+      "queuedAt": "2026-09-28T09:53:36.409Z"
     },
     {
       "type": "office",
@@ -3769,7 +3548,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:12.178Z"
+      "queuedAt": "2026-09-28T09:53:38.341Z"
     },
     {
       "type": "office",
@@ -3790,7 +3569,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:13.626Z"
+      "queuedAt": "2026-09-28T09:53:40.273Z"
     },
     {
       "type": "office",
@@ -3811,7 +3590,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:21.562Z"
+      "queuedAt": "2026-09-28T09:53:48.445Z"
     },
     {
       "type": "office",
@@ -3832,7 +3611,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:23.094Z"
+      "queuedAt": "2026-09-28T09:53:50.484Z"
     },
     {
       "type": "office",
@@ -3853,7 +3632,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:29.764Z"
+      "queuedAt": "2026-09-28T09:53:57.911Z"
     },
     {
       "type": "office",
@@ -3874,7 +3653,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:31.507Z"
+      "queuedAt": "2026-09-28T09:53:59.374Z"
     },
     {
       "type": "office",
@@ -3895,7 +3674,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:33.853Z"
+      "queuedAt": "2026-09-28T09:54:00.712Z"
     },
     {
       "type": "office",
@@ -3916,7 +3695,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:35.260Z"
+      "queuedAt": "2026-09-28T09:54:02.867Z"
     },
     {
       "type": "office",
@@ -3937,7 +3716,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:36.860Z"
+      "queuedAt": "2026-09-28T09:54:04.351Z"
     },
     {
       "type": "office",
@@ -3958,7 +3737,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:38.372Z"
+      "queuedAt": "2026-09-28T09:54:06.180Z"
     },
     {
       "type": "office",
@@ -3979,7 +3758,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:40.010Z"
+      "queuedAt": "2026-09-28T09:54:07.522Z"
     },
     {
       "type": "office",
@@ -4000,7 +3779,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:41.631Z"
+      "queuedAt": "2026-09-28T09:54:09.049Z"
     },
     {
       "type": "office",
@@ -4021,7 +3800,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:44.695Z"
+      "queuedAt": "2026-09-28T09:54:12.638Z"
     },
     {
       "type": "office",
@@ -4042,7 +3821,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:46.442Z"
+      "queuedAt": "2026-09-28T09:54:14.771Z"
     },
     {
       "type": "office",
@@ -4063,7 +3842,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:52.832Z"
+      "queuedAt": "2026-09-28T09:54:21.384Z"
     },
     {
       "type": "office",
@@ -4084,7 +3863,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:54.657Z"
+      "queuedAt": "2026-09-28T09:54:23.317Z"
     },
     {
       "type": "office",
@@ -4105,7 +3884,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:56.234Z"
+      "queuedAt": "2026-09-28T09:54:25.148Z"
     },
     {
       "type": "office",
@@ -4126,7 +3905,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:39:59.376Z"
+      "queuedAt": "2026-09-28T09:54:28.903Z"
     },
     {
       "type": "office",
@@ -4147,7 +3926,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:02.774Z"
+      "queuedAt": "2026-09-28T09:54:32.587Z"
     },
     {
       "type": "office",
@@ -4168,7 +3947,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:04.401Z"
+      "queuedAt": "2026-09-28T09:54:34.724Z"
     },
     {
       "type": "office",
@@ -4189,7 +3968,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:05.994Z"
+      "queuedAt": "2026-09-28T09:54:36.452Z"
     },
     {
       "type": "office",
@@ -4210,7 +3989,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:07.566Z"
+      "queuedAt": "2026-09-28T09:54:37.768Z"
     },
     {
       "type": "office",
@@ -4231,7 +4010,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:12.417Z"
+      "queuedAt": "2026-09-28T09:54:43.374Z"
     },
     {
       "type": "office",
@@ -4252,7 +4031,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:13.858Z"
+      "queuedAt": "2026-09-28T09:54:45.317Z"
     },
     {
       "type": "office",
@@ -4273,7 +4052,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-07-20T06:40:15.401Z"
+      "queuedAt": "2026-09-28T09:54:46.675Z"
     },
     {
       "type": "office",
@@ -4294,7 +4073,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-07-20T06:40:16.972Z"
+      "queuedAt": "2026-09-28T09:54:48.506Z"
     },
     {
       "type": "office",
@@ -4315,7 +4094,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:18.515Z"
+      "queuedAt": "2026-09-28T09:54:50.238Z"
     },
     {
       "type": "office",
@@ -4336,7 +4115,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:19.981Z"
+      "queuedAt": "2026-09-28T09:54:51.965Z"
     },
     {
       "type": "office",
@@ -4357,7 +4136,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:22.326Z"
+      "queuedAt": "2026-09-28T09:54:53.792Z"
     },
     {
       "type": "office",
@@ -4378,7 +4157,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:25.371Z"
+      "queuedAt": "2026-09-28T09:54:56.512Z"
     },
     {
       "type": "office",
@@ -4399,7 +4178,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-07-20T06:40:26.734Z"
+      "queuedAt": "2026-09-28T09:54:57.849Z"
     },
     {
       "type": "office",
@@ -4420,7 +4199,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:28.463Z"
+      "queuedAt": "2026-09-28T09:55:00.788Z"
     },
     {
       "type": "office",
@@ -4441,7 +4220,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:29.929Z"
+      "queuedAt": "2026-09-28T09:55:02.120Z"
     },
     {
       "type": "office",
@@ -4462,7 +4241,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:32.077Z"
+      "queuedAt": "2026-09-28T09:55:03.957Z"
     },
     {
       "type": "office",
@@ -4483,7 +4262,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:33.524Z"
+      "queuedAt": "2026-09-28T09:55:05.273Z"
     },
     {
       "type": "office",
@@ -4504,7 +4283,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:35.034Z"
+      "queuedAt": "2026-09-28T09:55:07.105Z"
     },
     {
       "type": "office",
@@ -4520,14 +4299,14 @@
         "address": "87 Independence Ave",
         "postalCode": "",
         "officeType": "",
-        "latitude": 5.5534499,
-        "longitude": -0.2018557,
+        "latitude": 5.5774737,
+        "longitude": -0.1873671,
         "contactUrl": "https://about.google/company-info/locations/"
       },
       "reason": "missing required office fields",
       "confidence": "low",
       "confidenceScore": 65,
-      "queuedAt": "2026-07-20T06:40:36.545Z"
+      "queuedAt": "2026-09-28T09:55:08.936Z"
     },
     {
       "type": "office",
@@ -4548,7 +4327,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-07-20T06:40:38.126Z"
+      "queuedAt": "2026-09-28T09:55:10.669Z"
     },
     {
       "type": "office",
@@ -4569,7 +4348,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-07-20T06:40:39.463Z"
+      "queuedAt": "2026-09-28T09:55:13.408Z"
     },
     {
       "type": "office",
@@ -4590,7 +4369,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:40.841Z"
+      "queuedAt": "2026-09-28T09:55:15.238Z"
     },
     {
       "type": "office",
@@ -4611,7 +4390,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-07-20T06:40:42.335Z"
+      "queuedAt": "2026-09-28T09:55:16.492Z"
     },
     {
       "type": "office",
@@ -4632,7 +4411,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:43.442Z"
+      "queuedAt": "2026-09-28T09:55:17.595Z"
     },
     {
       "type": "office",
@@ -4653,7 +4432,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:44.550Z"
+      "queuedAt": "2026-09-28T09:55:18.697Z"
     },
     {
       "type": "office",
@@ -4674,7 +4453,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:46.765Z"
+      "queuedAt": "2026-09-28T09:55:20.906Z"
     },
     {
       "type": "office",
@@ -4695,7 +4474,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:47.872Z"
+      "queuedAt": "2026-09-28T09:55:22.011Z"
     },
     {
       "type": "office",
@@ -4716,7 +4495,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:50.088Z"
+      "queuedAt": "2026-09-28T09:55:24.219Z"
     },
     {
       "type": "office",
@@ -4737,7 +4516,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:51.194Z"
+      "queuedAt": "2026-09-28T09:55:25.321Z"
     },
     {
       "type": "office",
@@ -4758,7 +4537,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:52.303Z"
+      "queuedAt": "2026-09-28T09:55:26.426Z"
     },
     {
       "type": "office",
@@ -4779,7 +4558,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:53.410Z"
+      "queuedAt": "2026-09-28T09:55:27.532Z"
     },
     {
       "type": "office",
@@ -4800,7 +4579,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:40:58.950Z"
+      "queuedAt": "2026-09-28T09:55:33.050Z"
     },
     {
       "type": "office",
@@ -4821,7 +4600,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:00.057Z"
+      "queuedAt": "2026-09-28T09:55:34.153Z"
     },
     {
       "type": "office",
@@ -4842,7 +4621,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:04.489Z"
+      "queuedAt": "2026-09-28T09:55:38.565Z"
     },
     {
       "type": "office",
@@ -4863,7 +4642,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:05.597Z"
+      "queuedAt": "2026-09-28T09:55:39.668Z"
     },
     {
       "type": "office",
@@ -4884,7 +4663,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:06.704Z"
+      "queuedAt": "2026-09-28T09:55:40.772Z"
     },
     {
       "type": "office",
@@ -4905,7 +4684,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:07.814Z"
+      "queuedAt": "2026-09-28T09:55:41.875Z"
     },
     {
       "type": "office",
@@ -4926,7 +4705,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:08.920Z"
+      "queuedAt": "2026-09-28T09:55:42.980Z"
     },
     {
       "type": "office",
@@ -4947,7 +4726,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:10.028Z"
+      "queuedAt": "2026-09-28T09:55:44.084Z"
     },
     {
       "type": "office",
@@ -4968,7 +4747,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:11.136Z"
+      "queuedAt": "2026-09-28T09:55:45.186Z"
     },
     {
       "type": "office",
@@ -4989,7 +4768,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:12.243Z"
+      "queuedAt": "2026-09-28T09:55:46.291Z"
     },
     {
       "type": "office",
@@ -5010,7 +4789,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:14.460Z"
+      "queuedAt": "2026-09-28T09:55:48.497Z"
     },
     {
       "type": "office",
@@ -5031,7 +4810,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:15.570Z"
+      "queuedAt": "2026-09-28T09:55:49.602Z"
     },
     {
       "type": "office",
@@ -5052,7 +4831,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:20.004Z"
+      "queuedAt": "2026-09-28T09:55:54.015Z"
     },
     {
       "type": "office",
@@ -5073,7 +4852,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:21.111Z"
+      "queuedAt": "2026-09-28T09:55:55.119Z"
     },
     {
       "type": "office",
@@ -5094,7 +4873,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:22.218Z"
+      "queuedAt": "2026-09-28T09:55:56.223Z"
     },
     {
       "type": "office",
@@ -5115,7 +4894,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:24.437Z"
+      "queuedAt": "2026-09-28T09:55:58.433Z"
     },
     {
       "type": "office",
@@ -5136,7 +4915,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:26.654Z"
+      "queuedAt": "2026-09-28T09:56:00.642Z"
     },
     {
       "type": "office",
@@ -5157,7 +4936,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:27.762Z"
+      "queuedAt": "2026-09-28T09:56:01.746Z"
     },
     {
       "type": "office",
@@ -5178,7 +4957,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:28.869Z"
+      "queuedAt": "2026-09-28T09:56:02.850Z"
     },
     {
       "type": "office",
@@ -5199,7 +4978,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:29.976Z"
+      "queuedAt": "2026-09-28T09:56:03.955Z"
     },
     {
       "type": "office",
@@ -5220,7 +4999,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:33.305Z"
+      "queuedAt": "2026-09-28T09:56:07.263Z"
     },
     {
       "type": "office",
@@ -5241,7 +5020,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:34.412Z"
+      "queuedAt": "2026-09-28T09:56:08.368Z"
     },
     {
       "type": "office",
@@ -5262,7 +5041,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-07-20T06:41:35.522Z"
+      "queuedAt": "2026-09-28T09:56:09.471Z"
     },
     {
       "type": "office",
@@ -5283,7 +5062,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-07-20T06:41:36.629Z"
+      "queuedAt": "2026-09-28T09:56:10.575Z"
     },
     {
       "type": "office",
@@ -5304,7 +5083,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:37.739Z"
+      "queuedAt": "2026-09-28T09:56:11.680Z"
     },
     {
       "type": "office",
@@ -5325,7 +5104,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:38.846Z"
+      "queuedAt": "2026-09-28T09:56:12.784Z"
     },
     {
       "type": "office",
@@ -5346,7 +5125,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:39.952Z"
+      "queuedAt": "2026-09-28T09:56:13.888Z"
     },
     {
       "type": "office",
@@ -5367,7 +5146,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:42.167Z"
+      "queuedAt": "2026-09-28T09:56:16.098Z"
     },
     {
       "type": "office",
@@ -5388,7 +5167,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-07-20T06:41:43.274Z"
+      "queuedAt": "2026-09-28T09:56:17.201Z"
     },
     {
       "type": "office",
@@ -5409,7 +5188,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:44.382Z"
+      "queuedAt": "2026-09-28T09:56:18.305Z"
     },
     {
       "type": "office",
@@ -5430,7 +5209,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:45.491Z"
+      "queuedAt": "2026-09-28T09:56:19.410Z"
     },
     {
       "type": "office",
@@ -5451,7 +5230,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:46.598Z"
+      "queuedAt": "2026-09-28T09:56:20.515Z"
     },
     {
       "type": "office",
@@ -5472,7 +5251,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:47.706Z"
+      "queuedAt": "2026-09-28T09:56:21.619Z"
     },
     {
       "type": "office",
@@ -5493,7 +5272,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:48.815Z"
+      "queuedAt": "2026-09-28T09:56:22.722Z"
     },
     {
       "type": "office",
@@ -5509,14 +5288,14 @@
         "address": "87 Independence Ave",
         "postalCode": "",
         "officeType": "",
-        "latitude": 5.5534499,
-        "longitude": -0.2018557,
+        "latitude": 5.5774737,
+        "longitude": -0.1873671,
         "contactUrl": "https://about.google/company-info/locations/"
       },
       "reason": "missing required office fields",
       "confidence": "low",
       "confidenceScore": 65,
-      "queuedAt": "2026-07-20T06:41:49.922Z"
+      "queuedAt": "2026-09-28T09:56:23.826Z"
     },
     {
       "type": "office",
@@ -5537,7 +5316,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-07-20T06:41:51.029Z"
+      "queuedAt": "2026-09-28T09:56:24.933Z"
     },
     {
       "type": "office",
@@ -5558,7 +5337,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-07-20T06:41:52.135Z"
+      "queuedAt": "2026-09-28T09:56:26.037Z"
     },
     {
       "type": "office",
@@ -5579,7 +5358,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 66,
-      "queuedAt": "2026-07-20T06:41:53.243Z"
+      "queuedAt": "2026-09-28T09:56:27.142Z"
     },
     {
       "type": "office",
@@ -5600,7 +5379,7 @@
       "reason": "missing latitude/longitude after geocoding",
       "confidence": "low",
       "confidenceScore": 60,
-      "queuedAt": "2026-07-20T06:41:54.352Z"
+      "queuedAt": "2026-09-28T09:56:28.245Z"
     }
   ]
 }
