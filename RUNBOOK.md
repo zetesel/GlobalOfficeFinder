@@ -37,7 +37,6 @@ Review checklist:
 
 6) Troubleshooting
 - If the workflow fails when attempting to create a PR, check repository or org settings that might block Actions from creating PRs. Use a PAT in `SCRAPER_BOT_TOKEN` if policy prevents the default token from creating PRs.
-- If Lighthouse CI produces assertion failures, inspect `.lighthouseci/` artifact reports uploaded by the workflow. The workflow has been adjusted to not fail on LHCI assertion exits and will upload reports for manual review.
 
 7) Security
 - Use a dedicated automation account for the PAT and rotate the token periodically.
