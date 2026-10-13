@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import type { Company, Office } from "../types";
-import Photo from "./Photo";
+import StaticOfficeMap from "./StaticOfficeMap";
 import Monogram from "./Monogram";
 import FlagChip from "./FlagChip";
 
@@ -33,13 +33,11 @@ export default function CompanyCard({ company, offices }: CompanyCardProps) {
       className="gof-card"
       aria-label={`View ${company.name} offices`}
     >
-      <Photo
-        seed={company.id}
-        w={640}
-        h={360}
+      <StaticOfficeMap
+        office={hq}
+        offices={offices}
+        company={company}
         className="gof-card-photo"
-        photo={company.photo}
-        subject={company.name}
       >
         <span className="gof-card-flags">
           {codes.slice(0, 3).map((c) => (
@@ -48,7 +46,7 @@ export default function CompanyCard({ company, offices }: CompanyCardProps) {
           {codes.length > 3 && <span className="gof-card-flagmore">+{codes.length - 3}</span>}
         </span>
         {hq && <span className="gof-card-hq">{hq.city}</span>}
-      </Photo>
+      </StaticOfficeMap>
       <div className="gof-card-body">
         <div className="gof-card-top">
           <Monogram name={company.name} size={40} square />

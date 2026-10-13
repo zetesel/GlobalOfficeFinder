@@ -59,11 +59,11 @@ test("map view toggle renders Leaflet map", async ({ page }) => {
 
 test("photo badges render and About-photos page is reachable", async ({ page }) => {
   await page.goto("/");
-  // Each company card has a photo badge (real or sample).
+  // Each company card has a photo badge (map location).
   const badge = page.locator(".gof-card .gof-photo-badge").first();
   await expect(badge).toBeVisible();
-  // Header link goes to /about/photos.
-  await page.getByRole("link", { name: /about photos/i }).click();
+  // Route /about/photos is still directly reachable.
+  await page.goto("/about/photos");
   await expect(page).toHaveURL(/\/about\/photos$/);
   await expect(page.getByRole("heading", { name: /about the photos/i })).toBeVisible();
   // The credited table renders at least one entry.
@@ -142,9 +142,9 @@ test("read more navigates to company page; back returns to map with selection", 
   const name = (await tile.locator(".gof-mapcard-name").textContent())?.trim();
   expect(name).toBeTruthy();
   await tile.getByRole("button", { name: /read more/i }).click();
-  await expect(page).toHaveURL(/\/company\/[^?]+\?office=/);
-  // The matching office card should be highlighted on the company page.
-  await expect(page.locator(".gof-officecard.is-active")).toHaveCount(1);
+  await expect(page).toHaveURL(/\/company\/[^?]+$/);
+  // On company page, the sidebar map does not keep the popup open.
+  await expect(page.locator(".gof-locmap .gof-mapcard")).toHaveCount(0);
   await page.getByRole("button", { name: /directory/i }).click();
   await expect(page).toHaveURL(/view=map/);
   await expect(page).toHaveURL(/office=/);

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router";
 import { Suspense, lazy } from "react";
 import Header from "./components/Header";
 import "./App.css";

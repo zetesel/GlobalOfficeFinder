@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useData } from "../hooks/useData";
 import { sanitizeUrl } from "../utils/sanitizeUrl";
 import type { Company, CompanyPhoto } from "../types";

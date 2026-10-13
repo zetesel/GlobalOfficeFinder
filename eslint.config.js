@@ -6,7 +6,7 @@ import tseslint from "typescript-eslint";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
-  globalIgnores(["dist"]),
+  globalIgnores(["dist", "coverage"]),
   {
     files: ["**/*.{ts,tsx}"],
     ignores: ["__tests__/**"],
@@ -19,6 +19,20 @@ export default defineConfig([
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+    },
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "react-router-dom",
+              message:
+                "Use react-router@8+ instead. react-router-dom was removed in v8.",
+            },
+          ],
+        },
+      ],
     },
   },
   {
@@ -35,6 +49,18 @@ export default defineConfig([
     },
     rules: {
       "@typescript-eslint/no-require-imports": "off",
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "react-router-dom",
+              message:
+                "Use react-router@8+ instead. react-router-dom was removed in v8.",
+            },
+          ],
+        },
+      ],
     },
   },
 ]);
